@@ -7,6 +7,7 @@ public class InputManager : MonoBehaviour {
     public event EventHandler OnSprintCanceledEvent;
     public event EventHandler OnCrouchEvent;
     public event EventHandler OnJumpEvent;
+    public event EventHandler OnInteractEvent;
     private PlayerInputActions inputActions;
 
     private void Awake() {
@@ -18,12 +19,14 @@ public class InputManager : MonoBehaviour {
         inputActions.Player.Sprint.canceled += SprintCanceled;
         inputActions.Player.Crouch.performed += CrouchPerformed;
         inputActions.Player.Jump.performed += JumpPerformed;
+        inputActions.Player.Interact.performed += InteractPerformed;
     }
     private void OnDestroy() {
         inputActions.Player.Sprint.started -= SprintStarted;
         inputActions.Player.Sprint.canceled -= SprintCanceled;
         inputActions.Player.Crouch.performed -= CrouchPerformed;
         inputActions.Player.Jump.performed -= JumpPerformed;
+        inputActions.Player.Interact.performed -= InteractPerformed;
         inputActions.Dispose();
     }
 
@@ -38,6 +41,9 @@ public class InputManager : MonoBehaviour {
     }
     private void JumpPerformed(UnityEngine.InputSystem.InputAction.CallbackContext obj) {
         OnJumpEvent?.Invoke(this, EventArgs.Empty);
+    }
+    private void InteractPerformed(UnityEngine.InputSystem.InputAction.CallbackContext obj) {
+        OnInteractEvent?.Invoke(this, EventArgs.Empty);
     }
 
     public Vector2 GetMovementVectorNormalized() {

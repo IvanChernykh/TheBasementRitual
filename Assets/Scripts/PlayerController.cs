@@ -29,25 +29,30 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] private float jumpHeight = 1.5f;
     [SerializeField] private float gravity = -9.8f * 2;
     private Vector3 velocity = Vector3.zero;
+
+    [Header("Interactions")]
+    [SerializeField] private LayerMask interactableLayerMask;
     private bool isGrounded;
     public bool isWalking { get; private set; }
     private bool isSprinting;
     private bool isCrouching;
     private bool isJumping;
+    private bool isInteracting;
     // private float footstepTimer;
     // private float footstepTimerMax = .5f;
 
     private void Awake() {
         Instance = this;
-
+        controller = GetComponent<CharacterController>();
+    }
+    private void Start() {
         InputManager.Instance.OnSprintStartedEvent += OnSprintStarted;
         InputManager.Instance.OnSprintCanceledEvent += OnSprintCanceled;
         InputManager.Instance.OnCrouchEvent += OnCrouch;
         InputManager.Instance.OnJumpEvent += OnJump;
-    }
-    private void Start() {
+        InputManager.Instance.OnInteractEvent += OnInteract;
+
         Cursor.lockState = CursorLockMode.Locked;
-        controller = GetComponent<CharacterController>();
         groundCheckDefaultPos = groundCheck.localPosition;
     }
     private void Update() {
@@ -58,6 +63,7 @@ public class PlayerController : MonoBehaviour {
         }
         HandleMovement();
         HandleCrouch();
+        HandleInteraction();
 
         // footstepTimer -= Time.deltaTime;
         // if (footstepTimer <= 0) {
@@ -68,9 +74,9 @@ public class PlayerController : MonoBehaviour {
         // }
     }
     private void LateUpdate() {
-        MoveCamera();
+        HandleCamera();
     }
-    private void MoveCamera() {
+    private void HandleCamera() {
         Vector2 mouseInput = InputManager.Instance.GetMouseVector();
 
         float mouseX = mouseInput.x * Time.smoothDeltaTime * mouseSensivity;
@@ -131,6 +137,18 @@ public class PlayerController : MonoBehaviour {
         }
         return Physics.CheckSphere(groundCheck.position, groundCheckRadius, groundMask);
     }
+    private void HandleInteraction() {
+        float interactDistance = 2f;
+        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit raycastHit, interactDistance, interactableLayerMask)) {
+            if (raycastHit.transform.TryGetComponent(out Door interactable) && isInteracting) {
+                Debug.Log("interact 2");
+                interactable.Interact();
+            }
+        }
+        if (isInteracting) {
+            isInteracting = false;
+        }
+    }
     // events
     private void OnCrouch(object sender, System.EventArgs e) {
         if (isGrounded) {
@@ -149,6 +167,9 @@ public class PlayerController : MonoBehaviour {
     }
     private void OnSprintCanceled(object sender, System.EventArgs e) {
         isSprinting = false;
+    }
+    private void OnInteract(object sender, System.EventArgs e) {
+        isInteracting = true;
     }
     // debug
     private void OnDrawGizmos() {
