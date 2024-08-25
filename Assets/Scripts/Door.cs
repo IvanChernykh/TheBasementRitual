@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Door : Interactable {
     [SerializeField] private Transform rotationPoint;
-    [SerializeField] private bool isOpened;
+    [SerializeField] private float openSpeed = 120f;
+    private bool isOpened;
     private bool openingDoor;
-    private float openSpeed = 90f;
     private float maxOpenAngle = 90f;
     private float currentAngle = 0f;
 

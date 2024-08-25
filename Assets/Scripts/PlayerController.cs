@@ -33,13 +33,13 @@ public class PlayerController : MonoBehaviour {
     [Header("Interactions")]
     [SerializeField] private LayerMask interactableLayerMask;
     private bool isGrounded;
-    public bool isWalking { get; private set; }
-    private bool isSprinting;
-    private bool isCrouching;
+    public bool isMoving { get; private set; }
+    public bool isSprinting { get; private set; }
+    public bool isLanding { get; private set; }
+    private bool isFloating;
     private bool isJumping;
     private bool isInteracting;
-    // private float footstepTimer;
-    // private float footstepTimerMax = .5f;
+    private bool isCrouching;
 
     private void Awake() {
         Instance = this;
@@ -59,19 +59,12 @@ public class PlayerController : MonoBehaviour {
         isGrounded = IsGrounded();
 
         if (isGrounded && velocity.y < 0) {
-            velocity.y = 0;
+            velocity.y = -2;
         }
         HandleMovement();
         HandleCrouch();
         HandleInteraction();
-
-        // footstepTimer -= Time.deltaTime;
-        // if (footstepTimer <= 0) {
-        //     footstepTimer = footstepTimerMax;
-        //     if (isWalking) {
-        //         // PlayerAudio.Instance.PlayWalkSound(transform.position);
-        //     }
-        // }
+        CheckIsLandingAndIsFloating();
     }
     private void LateUpdate() {
         HandleCamera();
@@ -92,7 +85,7 @@ public class PlayerController : MonoBehaviour {
         Vector2 inputVector = InputManager.Instance.GetMovementVectorNormalized();
         Vector3 moveDirection = transform.right * inputVector.x + transform.forward * inputVector.y;
 
-        isWalking = isGrounded && moveDirection != Vector3.zero;
+        isMoving = isGrounded && moveDirection != Vector3.zero;
 
         if (isSprinting && inputVector.y > 0 && !isCrouching) {
             controller.Move(moveDirection * sprintSpeed * Time.deltaTime);
@@ -149,6 +142,20 @@ public class PlayerController : MonoBehaviour {
             isInteracting = false;
         }
     }
+    private void CheckIsLandingAndIsFloating() {
+        if (isLanding) {
+            isLanding = false;
+        }
+        if (isGrounded && isFloating) {
+            isLanding = true;
+        }
+        if (!isGrounded) {
+            isFloating = true;
+        } else {
+            isFloating = false;
+        }
+
+    }
     // events
     private void OnCrouch(object sender, System.EventArgs e) {
         if (isGrounded) {
@@ -158,6 +165,7 @@ public class PlayerController : MonoBehaviour {
     private void OnJump(object sender, System.EventArgs e) {
         if (isGrounded) {
             isJumping = true;
+            PlayerSoundManager.Instance.PlayJumpStartSound();
         }
     }
     private void OnSprintStarted(object sender, System.EventArgs e) {
