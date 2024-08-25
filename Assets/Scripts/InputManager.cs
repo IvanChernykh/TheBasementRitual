@@ -1,15 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class InputManager : MonoBehaviour {
-    // Start is called before the first frame update
-    void Start() {
-
+    public static InputManager Instance { get; private set; }
+    private PlayerInputActions inputActions;
+    private void Awake() {
+        Instance = this;
+        inputActions = new PlayerInputActions();
+        inputActions.Player.Enable();
     }
-
-    // Update is called once per frame
-    void Update() {
-
+    private void OnDestroy() {
+        inputActions.Dispose();
+    }
+    public Vector2 GetMovementVectorNormalized() {
+        Vector2 input = inputActions.Player.Movement.ReadValue<Vector2>();
+        return input.normalized;
+    }
+    public Vector2 GetMouseVector() {
+        return inputActions.Player.Look.ReadValue<Vector2>();
     }
 }
