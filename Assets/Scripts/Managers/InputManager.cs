@@ -8,6 +8,7 @@ public class InputManager : MonoBehaviour {
     public event EventHandler OnCrouchEvent;
     public event EventHandler OnJumpEvent;
     public event EventHandler OnInteractEvent;
+    public event EventHandler OnFlashlightToggleEvent;
     private PlayerInputActions inputActions;
 
     private void Awake() {
@@ -20,6 +21,7 @@ public class InputManager : MonoBehaviour {
         inputActions.Player.Crouch.performed += CrouchPerformed;
         inputActions.Player.Jump.performed += JumpPerformed;
         inputActions.Player.Interact.performed += InteractPerformed;
+        inputActions.Player.Flashlight.performed += FlashlightPerformed;
     }
     private void OnDestroy() {
         inputActions.Player.Sprint.started -= SprintStarted;
@@ -27,6 +29,7 @@ public class InputManager : MonoBehaviour {
         inputActions.Player.Crouch.performed -= CrouchPerformed;
         inputActions.Player.Jump.performed -= JumpPerformed;
         inputActions.Player.Interact.performed -= InteractPerformed;
+        inputActions.Player.Flashlight.performed -= FlashlightPerformed;
         inputActions.Dispose();
     }
 
@@ -44,6 +47,9 @@ public class InputManager : MonoBehaviour {
     }
     private void InteractPerformed(UnityEngine.InputSystem.InputAction.CallbackContext obj) {
         OnInteractEvent?.Invoke(this, EventArgs.Empty);
+    }
+    private void FlashlightPerformed(UnityEngine.InputSystem.InputAction.CallbackContext obj) {
+        OnFlashlightToggleEvent?.Invoke(this, EventArgs.Empty);
     }
 
     public Vector2 GetMovementVectorNormalized() {
