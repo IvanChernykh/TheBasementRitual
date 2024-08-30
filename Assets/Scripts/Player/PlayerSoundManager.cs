@@ -48,7 +48,7 @@ public class PlayerSoundManager : MonoBehaviour {
         SoundManager.Instance.PlaySound(jumpStartSounds, footSoundsPosition);
     }
     private void PlayLandingSound() {
-        if (player.isLanding) {
+        if (player.isLanding && !player.isCrouching) {
             SoundManager.Instance.PlaySound(landingSounds, footSoundsPosition, .5f);
         }
     }

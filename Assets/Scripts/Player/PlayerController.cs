@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour {
     [Header("Crouch")]
     [SerializeField] private float crouchHeight;
     [SerializeField] private Vector3 crouchOffset;
+    private float crouchTransitionSpeed = 3f;
 
     [Header("Ground Checking")]
     [SerializeField] private float groundCheckRadius;
@@ -36,10 +37,10 @@ public class PlayerController : MonoBehaviour {
     public bool isMoving { get; private set; }
     public bool isSprinting { get; private set; }
     public bool isLanding { get; private set; }
+    public bool isCrouching { get; private set; }
     private bool isFloating;
     private bool isJumping;
     private bool isInteracting;
-    private bool isCrouching;
 
     private void Awake() {
         Instance = this;
@@ -106,14 +107,14 @@ public class PlayerController : MonoBehaviour {
     }
     private void HandleCrouch() {
         if (isCrouching) {
-            controller.height = controller.height - crouchSpeed * Time.deltaTime;
+            controller.height = controller.height - crouchTransitionSpeed * Time.deltaTime;
             if (controller.height <= crouchHeight) {
                 controller.height = crouchHeight;
             } else {
                 transform.position = transform.position - crouchOffset * Time.deltaTime;
             }
         } else {
-            controller.height = controller.height + crouchSpeed * Time.deltaTime;
+            controller.height = controller.height + crouchTransitionSpeed * Time.deltaTime;
             if (controller.height < normalHeight) {
                 transform.position = transform.position + new Vector3(0, Mathf.Lerp(crouchOffset.y, transform.position.y, Time.deltaTime), 0) * Time.deltaTime;
             }
@@ -133,10 +134,14 @@ public class PlayerController : MonoBehaviour {
     private void HandleInteraction() {
         float interactDistance = 2f;
         if (Physics.Raycast(transform.position, transform.forward, out RaycastHit raycastHit, interactDistance, interactableLayerMask)) {
-            if (raycastHit.transform.TryGetComponent(out Door interactable) && isInteracting) {
-                Debug.Log("interact 2");
-                interactable.Interact();
+            if (raycastHit.transform.TryGetComponent(out Interactable interactable)) {
+                // InteractionMessageUI.Instance.Show(interactable.interactMessage);
+                if (isInteracting) {
+                    interactable.Interact();
+                }
             }
+        } else {
+            // InteractionMessageUI.Instance.Hide();
         }
         if (isInteracting) {
             isInteracting = false;

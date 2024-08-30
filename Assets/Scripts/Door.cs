@@ -1,12 +1,17 @@
 using UnityEngine;
 
 public class Door : Interactable {
+    private const string OPEN_MESSAGE = "Open door";
+    private const string CLOSE_MESSAGE = "Close door";
     [SerializeField] private Transform rotationPoint;
     [SerializeField] private float openSpeed = 120f;
     private bool isOpened;
     private bool openingDoor;
     private float maxOpenAngle = 90f;
     private float currentAngle = 0f;
+    private void Awake() {
+        interactMessage = OPEN_MESSAGE;
+    }
 
     private void Update() {
         HandleOpen();
@@ -14,6 +19,11 @@ public class Door : Interactable {
 
     public override void Interact() {
         openingDoor = !openingDoor;
+        if (isOpened) {
+            interactMessage = OPEN_MESSAGE;
+        } else {
+            interactMessage = CLOSE_MESSAGE;
+        }
     }
     private void HandleOpen() {
         if (openingDoor == isOpened) {
