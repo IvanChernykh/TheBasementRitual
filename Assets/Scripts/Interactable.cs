@@ -1,8 +1,7 @@
 using UnityEngine;
 
 public class Interactable : MonoBehaviour {
-    // maybe later without message
-    public string interactMessage;
+    public string interactMessage { get; protected set; }
     public virtual void Interact() {
         Debug.LogWarning("Interactable.Interact();");
     }

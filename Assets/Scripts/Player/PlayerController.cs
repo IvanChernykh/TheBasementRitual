@@ -133,15 +133,17 @@ public class PlayerController : MonoBehaviour {
     }
     private void HandleInteraction() {
         float interactDistance = 2f;
-        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit raycastHit, interactDistance, interactableLayerMask)) {
+        if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out RaycastHit raycastHit, interactDistance, interactableLayerMask)) {
+            CrosshairUI.Instance.Hover();
             if (raycastHit.transform.TryGetComponent(out Interactable interactable)) {
-                // InteractionMessageUI.Instance.Show(interactable.interactMessage);
+                InteractionMessageUI.Instance.Show(interactable.interactMessage);
                 if (isInteracting) {
                     interactable.Interact();
                 }
             }
         } else {
-            // InteractionMessageUI.Instance.Hide();
+            InteractionMessageUI.Instance.Hide();
+            CrosshairUI.Instance.Hide();
         }
         if (isInteracting) {
             isInteracting = false;

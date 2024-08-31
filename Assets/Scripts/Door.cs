@@ -5,6 +5,9 @@ public class Door : Interactable {
     private const string CLOSE_MESSAGE = "Close door";
     [SerializeField] private Transform rotationPoint;
     [SerializeField] private float openSpeed = 120f;
+    [SerializeField] private bool openForward = true;
+    [SerializeField] private bool isClosed;
+    [SerializeField] private ItemData requiredKey;
     private bool isOpened;
     private bool openingDoor;
     private float maxOpenAngle = 90f;
@@ -18,6 +21,13 @@ public class Door : Interactable {
     }
 
     public override void Interact() {
+        if (isClosed) {
+            TryOpen();
+            return;
+        }
+        ToggleOpening();
+    }
+    private void ToggleOpening() {
         openingDoor = !openingDoor;
         if (isOpened) {
             interactMessage = OPEN_MESSAGE;
@@ -36,7 +46,7 @@ public class Door : Interactable {
                 angleToRotate = remainingAngle;
                 isOpened = true;
             }
-            transform.RotateAround(rotationPoint.position, transform.up, angleToRotate);
+            transform.RotateAround(rotationPoint.position, transform.up, openForward ? angleToRotate : -angleToRotate);
             currentAngle += angleToRotate;
         } else {
             float angleToRotate = openSpeed * Time.deltaTime;
@@ -45,8 +55,16 @@ public class Door : Interactable {
                 angleToRotate = remainingAngle;
                 isOpened = false;
             }
-            transform.RotateAround(rotationPoint.position, transform.up, -angleToRotate);
+            transform.RotateAround(rotationPoint.position, transform.up, openForward ? -angleToRotate : angleToRotate);
             currentAngle -= angleToRotate;
+        }
+    }
+    private void TryOpen() {
+        ItemData itemFound = PlayerInventory.Instance.items.Find(item => item == requiredKey);
+        if (itemFound) {
+            ToggleOpening();
+            PlayerInventory.Instance.RemoveItem(itemFound);
+            isClosed = false;
         }
     }
 }

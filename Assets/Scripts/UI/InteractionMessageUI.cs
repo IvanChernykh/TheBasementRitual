@@ -13,7 +13,6 @@ public class InteractionMessageUI : MonoBehaviour {
     public void Show(string text) {
         gameObject.SetActive(true);
         message.text = text;
-        // message.text = "[E]";
     }
     public void Hide() {
         gameObject.SetActive(false);

@@ -2,15 +2,32 @@ using System;
 using UnityEngine;
 
 public class Flashlight : MonoBehaviour {
-    [SerializeField] private GameObject lightSource;
-    private bool isActive = false;
+    public static Flashlight Instance { get; private set; }
+    [SerializeField] private GameObject flashlight;
+    private bool isActive;
 
+    private void Awake() {
+        Instance = this;
+    }
     private void Start() {
-        lightSource.SetActive(isActive);
         InputManager.Instance.OnFlashlightToggleEvent += OnFlashLightToggle;
     }
     private void OnFlashLightToggle(object sender, EventArgs e) {
-        isActive = !isActive;
-        lightSource.SetActive(isActive);
+        if (!PlayerInventory.Instance.hasFlashlight) {
+            return;
+        }
+        if (isActive) {
+            UnEquip();
+        } else {
+            Equip();
+        }
+    }
+    public void Equip() {
+        flashlight.SetActive(true);
+        isActive = true;
+    }
+    private void UnEquip() {
+        flashlight.SetActive(false);
+        isActive = false;
     }
 }
