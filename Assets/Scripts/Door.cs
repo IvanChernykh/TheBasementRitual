@@ -5,7 +5,7 @@ public class Door : Interactable {
     private const string CLOSE_MESSAGE = "Close door";
     [SerializeField] private Transform rotationPoint;
     [SerializeField] private float openSpeed = 120f;
-    [SerializeField] private bool openForward = true;
+    [SerializeField] private bool openForward;
     [SerializeField] private bool isClosed;
     [SerializeField] private ItemData requiredKey;
     private bool isOpened;
