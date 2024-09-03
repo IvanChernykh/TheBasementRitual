@@ -14,14 +14,13 @@ public class Door : Interactable {
     private bool isOpeningState = false;
     private float maxOpenAngle = 90f;
     private float currentAngle = 0f;
+
     private void Awake() {
         interactMessage = OPEN_MESSAGE;
     }
-
     private void Update() {
         HandleOpen();
     }
-
     public override void Interact() {
         if (lockedFromOtherSide) {
             TryOpenLockedFromOtherSide();
