@@ -8,6 +8,7 @@ public class Door : Interactable {
     [SerializeField] private bool openForward;
     [SerializeField] private bool lockedOnKey;
     [SerializeField] private bool lockedFromOtherSide;
+    [SerializeField] private bool lockedFromBehindSide;
     [SerializeField] private ItemData requiredKey;
     private bool isOpened;
     private bool openingDoor;
@@ -81,11 +82,11 @@ public class Door : Interactable {
     }
     private void TryOpenLockedFromOtherSide() {
         Vector3 playerPos = PlayerController.Instance.gameObject.transform.position;
-        if (Vector3.Distance(playerPos, transform.position) < PlayerController.Instance.interactDistance) {
+        if (Vector3.Distance(playerPos, transform.position) < PlayerController.Instance.interactDistance * 1.5) {
             Vector3 directionToPlayer = playerPos - transform.position;
             directionToPlayer.y = 0;
 
-            Vector3 doorForward = transform.forward;
+            Vector3 doorForward = lockedFromBehindSide ? -transform.forward : transform.forward;
 
             float dotProduct = Vector3.Dot(doorForward, directionToPlayer.normalized);
 
