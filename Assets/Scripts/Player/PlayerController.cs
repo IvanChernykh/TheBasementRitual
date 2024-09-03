@@ -33,11 +33,12 @@ public class PlayerController : MonoBehaviour {
 
     [Header("Interactions")]
     [SerializeField] private LayerMask interactableLayerMask;
-    private bool isGrounded;
+    public float interactDistance { get; private set; } = 2f;
     public bool isMoving { get; private set; }
     public bool isSprinting { get; private set; }
     public bool isLanding { get; private set; }
     public bool isCrouching { get; private set; }
+    private bool isGrounded;
     private bool isFloating;
     private bool isJumping;
     private bool isInteracting;
@@ -132,7 +133,6 @@ public class PlayerController : MonoBehaviour {
         return Physics.CheckSphere(groundCheck.position, groundCheckRadius, groundMask);
     }
     private void HandleInteraction() {
-        float interactDistance = 2f;
         if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out RaycastHit raycastHit, interactDistance, interactableLayerMask)) {
             CrosshairUI.Instance.Hover();
             if (raycastHit.transform.TryGetComponent(out Interactable interactable)) {

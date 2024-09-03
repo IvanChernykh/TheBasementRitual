@@ -81,7 +81,7 @@ public class Door : Interactable {
     }
     private void TryOpenLockedFromOtherSide() {
         Vector3 playerPos = PlayerController.Instance.gameObject.transform.position;
-        if (Vector3.Distance(playerPos, transform.position) < 2) {
+        if (Vector3.Distance(playerPos, transform.position) < PlayerController.Instance.interactDistance) {
             Vector3 directionToPlayer = playerPos - transform.position;
             directionToPlayer.y = 0;
 
