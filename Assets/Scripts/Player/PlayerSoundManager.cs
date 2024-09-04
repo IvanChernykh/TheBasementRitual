@@ -1,7 +1,7 @@
 using UnityEngine;
 
 public class PlayerSoundManager : MonoBehaviour {
-    public static PlayerSoundManager Instance;
+    public static PlayerSoundManager Instance { get; private set; }
     [SerializeField] private AudioClip[] walkSounds;
     [SerializeField] private AudioClip[] sprintSounds;
     [SerializeField] private AudioClip[] jumpStartSounds;

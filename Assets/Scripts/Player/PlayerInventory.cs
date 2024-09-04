@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour {
-    public static PlayerInventory Instance;
+    public static PlayerInventory Instance { get; private set; }
     public List<ItemData> items { get; private set; } = new List<ItemData>();
     public bool hasFlashlight { get; private set; }
 

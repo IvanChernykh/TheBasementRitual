@@ -1,7 +1,7 @@
 using UnityEngine;
 
 public class CrosshairUI : MonoBehaviour {
-    public static CrosshairUI Instance;
+    public static CrosshairUI Instance { get; private set; }
 
     [SerializeField] private GameObject crosshair;
     [SerializeField] private GameObject crosshairHovered;

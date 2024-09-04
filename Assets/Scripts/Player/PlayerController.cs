@@ -1,7 +1,7 @@
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
-    public static PlayerController Instance;
+    public static PlayerController Instance { get; private set; }
     private CharacterController controller;
     private float normalHeight = 1.8f;
 
