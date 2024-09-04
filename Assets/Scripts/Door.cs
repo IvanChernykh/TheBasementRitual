@@ -75,9 +75,13 @@ public class Door : Interactable {
     private void TryOpen() {
         ItemData itemFound = PlayerInventory.Instance.items.Find(item => item == requiredKey);
         if (itemFound) {
-            ToggleOpening();
+            TooltipUI.Instance.Show($"Used {itemFound.itemName}");
             PlayerInventory.Instance.RemoveItem(itemFound);
+
+            ToggleOpening();
             lockedOnKey = false;
+        } else {
+            TooltipUI.Instance.Show("Locked");
         }
     }
     private void TryOpenLockedFromOtherSide() {
@@ -93,6 +97,8 @@ public class Door : Interactable {
             if (dotProduct > 0) {
                 lockedFromOtherSide = false;
                 ToggleOpening();
+            } else {
+                TooltipUI.Instance.Show("Locked from the other side");
             }
         }
     }

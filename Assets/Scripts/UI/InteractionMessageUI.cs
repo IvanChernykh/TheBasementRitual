@@ -4,6 +4,7 @@ using UnityEngine;
 public class InteractionMessageUI : MonoBehaviour {
     public static InteractionMessageUI Instance { get; private set; }
     [SerializeField] private TextMeshProUGUI message;
+
     private void Awake() {
         Instance = this;
     }
