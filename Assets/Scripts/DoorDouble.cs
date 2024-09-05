@@ -1,8 +1,11 @@
 using UnityEngine;
 
 public class DoorDouble : Interactable {
-    private const string OPEN_MESSAGE = "Open door";
-    private const string CLOSE_MESSAGE = "Close door";
+    [Header("UI")]
+    [SerializeField] private string openMessage = "Open door";
+    [SerializeField] private string closeMessage = "Close door";
+    [SerializeField] private string lockedMessage = "Locked";
+    [Header("Settings")]
     [SerializeField] private Transform doorLeft;
     [SerializeField] private Transform doorRight;
     [SerializeField] private Transform rotationPointLeft;
@@ -19,7 +22,7 @@ public class DoorDouble : Interactable {
     private float currentAngle = 0f;
 
     private void Awake() {
-        interactMessage = OPEN_MESSAGE;
+        interactMessage = openMessage;
     }
     private void Update() {
         HandleOpen();
@@ -42,9 +45,9 @@ public class DoorDouble : Interactable {
         isOpeningState = true;
         openingDoor = !openingDoor;
         if (isOpened) {
-            interactMessage = OPEN_MESSAGE;
+            interactMessage = openMessage;
         } else {
-            interactMessage = CLOSE_MESSAGE;
+            interactMessage = closeMessage;
         }
     }
     private void HandleOpen() {
@@ -85,7 +88,7 @@ public class DoorDouble : Interactable {
             ToggleOpening();
             lockedOnKey = false;
         } else {
-            TooltipUI.Instance.Show("Locked");
+            TooltipUI.Instance.Show(lockedMessage);
         }
     }
     private void TryOpenLockedFromOtherSide() {
