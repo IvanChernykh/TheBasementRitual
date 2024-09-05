@@ -4,7 +4,9 @@ using UnityEngine;
 public class PlayerInventory : MonoBehaviour {
     public static PlayerInventory Instance { get; private set; }
     public List<ItemData> items { get; private set; } = new List<ItemData>();
+    public List<ItemData> batteries { get; private set; } = new List<ItemData>();
     public bool hasFlashlight { get; private set; }
+    public int batteriesMax { get; private set; } = 10;
 
     private void Awake() {
         Instance = this;
@@ -17,5 +19,11 @@ public class PlayerInventory : MonoBehaviour {
     }
     public void RemoveItem(ItemData item) {
         items.Remove(item);
+    }
+    public void AddBattery(ItemData battery) {
+        batteries.Add(battery);
+    }
+    public void RemoveBattery(ItemData battery) {
+        batteries.Remove(battery);
     }
 }
