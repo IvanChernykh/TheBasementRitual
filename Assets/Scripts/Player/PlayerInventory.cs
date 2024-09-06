@@ -23,7 +23,7 @@ public class PlayerInventory : MonoBehaviour {
     public void AddBattery(ItemData battery) {
         batteries.Add(battery);
     }
-    public void RemoveBattery(ItemData battery) {
-        batteries.Remove(battery);
+    public void RemoveBattery() {
+        batteries.RemoveAt(0);
     }
 }

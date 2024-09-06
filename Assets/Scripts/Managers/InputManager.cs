@@ -9,6 +9,7 @@ public class InputManager : MonoBehaviour {
     public event EventHandler OnJumpEvent;
     public event EventHandler OnInteractEvent;
     public event EventHandler OnFlashlightToggleEvent;
+    public event EventHandler OnReloadBattery;
     private PlayerInputActions inputActions;
 
     private void Awake() {
@@ -16,12 +17,14 @@ public class InputManager : MonoBehaviour {
 
         inputActions = new PlayerInputActions();
         inputActions.Player.Enable();
+
         inputActions.Player.Sprint.started += SprintStarted;
         inputActions.Player.Sprint.canceled += SprintCanceled;
         inputActions.Player.Crouch.performed += CrouchPerformed;
         inputActions.Player.Jump.performed += JumpPerformed;
         inputActions.Player.Interact.performed += InteractPerformed;
         inputActions.Player.Flashlight.performed += FlashlightPerformed;
+        inputActions.Player.ReloadBattery.performed += ReloadBatteryPerformed;
     }
     private void OnDestroy() {
         inputActions.Player.Sprint.started -= SprintStarted;
@@ -30,6 +33,8 @@ public class InputManager : MonoBehaviour {
         inputActions.Player.Jump.performed -= JumpPerformed;
         inputActions.Player.Interact.performed -= InteractPerformed;
         inputActions.Player.Flashlight.performed -= FlashlightPerformed;
+        inputActions.Player.ReloadBattery.performed -= ReloadBatteryPerformed;
+
         inputActions.Dispose();
     }
 
@@ -50,6 +55,9 @@ public class InputManager : MonoBehaviour {
     }
     private void FlashlightPerformed(UnityEngine.InputSystem.InputAction.CallbackContext obj) {
         OnFlashlightToggleEvent?.Invoke(this, EventArgs.Empty);
+    }
+    private void ReloadBatteryPerformed(UnityEngine.InputSystem.InputAction.CallbackContext obj) {
+        OnReloadBattery?.Invoke(this, EventArgs.Empty);
     }
 
     public Vector2 GetMovementVectorNormalized() {
