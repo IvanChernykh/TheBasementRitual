@@ -10,6 +10,8 @@ public class Door : Interactable {
     [SerializeField] private bool lockedFromOtherSide;
     [SerializeField] private bool lockedFromBehindSide;
     [SerializeField] private ItemData requiredKey;
+    [Tooltip("Show tooltip message after door unlocked with key")]
+    [SerializeField] private bool showUnlockMessage = true;
     private bool isOpened;
     private bool openingDoor;
     private bool isOpeningState = false;
@@ -75,7 +77,9 @@ public class Door : Interactable {
     private void TryOpen() {
         ItemData itemFound = PlayerInventory.Instance.items.Find(item => item == requiredKey);
         if (itemFound) {
-            TooltipUI.Instance.Show($"Used {itemFound.itemName}");
+            if (showUnlockMessage) {
+                TooltipUI.Instance.Show($"Used {itemFound.itemName}");
+            }
             PlayerInventory.Instance.RemoveItem(itemFound);
 
             ToggleOpening();

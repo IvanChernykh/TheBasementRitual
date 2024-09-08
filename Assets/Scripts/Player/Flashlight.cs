@@ -15,6 +15,7 @@ public class Flashlight : MonoBehaviour {
         Instance = this;
     }
     private void Start() {
+        UnEquip();
         InputManager.Instance.OnFlashlightToggleEvent += OnFlashLightToggle;
         InputManager.Instance.OnReloadBattery += OnRealoadBattery;
     }
