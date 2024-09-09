@@ -15,6 +15,7 @@ public class Door : Interactable {
     [Header("Tooltip")]
     [Tooltip("Show tooltip message after door unlocked with key")]
     [SerializeField] private bool showUnlockMessage = true;
+    [SerializeField] private string customKeyLockedMessage;
 
     private bool isOpened;
     private bool openingDoor;
@@ -91,7 +92,11 @@ public class Door : Interactable {
             ToggleOpening();
             lockedOnKey = false;
         } else {
-            TooltipUI.Instance.Show("Locked");
+            if (customKeyLockedMessage.Length > 0) {
+                TooltipUI.Instance.Show(customKeyLockedMessage);
+            } else {
+                TooltipUI.Instance.Show("Locked");
+            }
         }
     }
     private void TryOpenLockedFromOtherSide() {
