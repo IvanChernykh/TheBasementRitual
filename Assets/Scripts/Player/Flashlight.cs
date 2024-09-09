@@ -1,10 +1,16 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class Flashlight : MonoBehaviour {
     public static Flashlight Instance { get; private set; }
     [SerializeField] private GameObject flashlight;
     [SerializeField] private GameObject lightSource;
+    [Header("Animation")]
+    [SerializeField] private Animator animator;
+
+    [Tooltip("Used for object deactivation, have to be equal to animation duration")]
+    [SerializeField] private float unequipAnimationDuration = .1f;
     private bool isActive;
 
     private float lifeTimeMax = 100f;
@@ -15,7 +21,7 @@ public class Flashlight : MonoBehaviour {
         Instance = this;
     }
     private void Start() {
-        UnEquip();
+        Deactivate();
         InputManager.Instance.OnFlashlightToggleEvent += OnFlashLightToggle;
         InputManager.Instance.OnReloadBattery += OnRealoadBattery;
     }
@@ -44,11 +50,12 @@ public class Flashlight : MonoBehaviour {
     }
     public void Equip() {
         flashlight.SetActive(true);
+        animator.SetTrigger("Equipped");
         isActive = true;
     }
     private void UnEquip() {
-        flashlight.SetActive(false);
-        isActive = false;
+        animator.SetTrigger("Unequip");
+        StartCoroutine(DeactivateAfterDelay(unequipAnimationDuration));
     }
     private void HandleBatteryCharge() {
         if (!isActive) {
@@ -60,5 +67,13 @@ public class Flashlight : MonoBehaviour {
             lifetime = 0;
             lightSource.SetActive(false);
         }
+    }
+    private IEnumerator DeactivateAfterDelay(float delay) {
+        yield return new WaitForSeconds(delay);
+        Deactivate();
+    }
+    private void Deactivate() {
+        flashlight.SetActive(false);
+        isActive = false;
     }
 }
