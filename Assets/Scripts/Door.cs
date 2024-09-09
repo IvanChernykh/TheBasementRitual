@@ -6,12 +6,16 @@ public class Door : Interactable {
     [SerializeField] private Transform rotationPoint;
     [SerializeField] private float openSpeed = 150f;
     [SerializeField] private bool openForward;
-    [SerializeField] private bool lockedOnKey;
+    [Header("Locked State")]
     [SerializeField] private bool lockedFromOtherSide;
     [SerializeField] private bool lockedFromBehindSide;
+    [SerializeField] private bool lockedOnKey;
+    [SerializeField] private bool removeKeyOnOpen = true;
     [SerializeField] private ItemData requiredKey;
+    [Header("Tooltip")]
     [Tooltip("Show tooltip message after door unlocked with key")]
     [SerializeField] private bool showUnlockMessage = true;
+
     private bool isOpened;
     private bool openingDoor;
     private bool isOpeningState = false;
@@ -80,7 +84,9 @@ public class Door : Interactable {
             if (showUnlockMessage) {
                 TooltipUI.Instance.Show($"Used {itemFound.itemName}");
             }
-            PlayerInventory.Instance.RemoveItem(itemFound);
+            if (removeKeyOnOpen) {
+                PlayerInventory.Instance.RemoveItem(itemFound);
+            }
 
             ToggleOpening();
             lockedOnKey = false;
