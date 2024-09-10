@@ -3,7 +3,7 @@ using UnityEngine;
 public class CaseFall : MonoBehaviour {
     [SerializeField] private Transform caseObject;
     [SerializeField] private GameObject invisibleWall;
-    // [SerializeField] private AudioSource closeSound;
+    [SerializeField] private AudioSource fallSound;
     private bool eventIsTriggered;
 
     private void Start() {
@@ -20,7 +20,7 @@ public class CaseFall : MonoBehaviour {
                 ApplyCaseTransform(caseObject);
                 invisibleWall.SetActive(true);
                 eventIsTriggered = true;
-                // todo: add sound
+                fallSound.Play();
             }
         }
     }
