@@ -11,6 +11,8 @@ public class PlayerSoundManager : MonoBehaviour {
     private float footstepRunTimer;
     private float footstepWalkTimerMax = .6f;
     private float footStepRunTimerMax = .3f;
+    private float footstepVolume = .2f;
+    private float landingVolume = .1f;
     private Vector3 footSoundsPosition;
 
     private void Awake() {
@@ -31,7 +33,7 @@ public class PlayerSoundManager : MonoBehaviour {
         if (footstepWalkTimer <= 0) {
             footstepWalkTimer = footstepWalkTimerMax;
             if (player.isMoving && !player.isSprinting) {
-                SoundManager.Instance.PlaySound(walkSounds, footSoundsPosition);
+                SoundManager.Instance.PlaySound2D(walkSounds, footSoundsPosition, footstepVolume);
             }
         }
     }
@@ -40,16 +42,16 @@ public class PlayerSoundManager : MonoBehaviour {
         if (footstepRunTimer <= 0) {
             footstepRunTimer = footStepRunTimerMax;
             if (player.isMoving && player.isSprinting) {
-                SoundManager.Instance.PlaySound(sprintSounds, footSoundsPosition);
+                SoundManager.Instance.PlaySound2D(sprintSounds, footSoundsPosition, footstepVolume);
             }
         }
     }
     public void PlayJumpStartSound() {
-        SoundManager.Instance.PlaySound(jumpStartSounds, footSoundsPosition);
+        SoundManager.Instance.PlaySound2D(jumpStartSounds, footSoundsPosition, footstepVolume);
     }
     private void PlayLandingSound() {
         if (player.isLanding && !player.isCrouching) {
-            SoundManager.Instance.PlaySound(landingSounds, footSoundsPosition, .5f);
+            SoundManager.Instance.PlaySound2D(landingSounds, footSoundsPosition, landingVolume);
         }
     }
 }

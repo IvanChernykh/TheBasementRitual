@@ -13,12 +13,12 @@ public class DoorAudio : MonoBehaviour {
     }
 
     public void PlayLocked() {
-        SoundManager.Instance.PlaySource(lockedAudio);
+        SoundManager.Instance.PlayAudioSource(lockedAudio);
     }
     public void PlayClose() {
-        SoundManager.Instance.PlaySource(closeAudio);
+        SoundManager.Instance.PlayAudioSource(closeAudio);
     }
     public void PlayOpen() {
-        SoundManager.Instance.PlaySource(openAudio);
+        SoundManager.Instance.PlayAudioSource(openAudio);
     }
 }
