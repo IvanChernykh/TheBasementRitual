@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour {
     private Vector3 groundCheckDefaultPos;
 
     [Header("Mouse")]
-    [SerializeField] private Transform cameraTransform;
+    [SerializeField] private Transform headTransform;
     [SerializeField] private float mouseSensivity = 10f;
     private float rotationY;
 
@@ -80,7 +80,7 @@ public class PlayerController : MonoBehaviour {
         rotationY -= mouseY;
         rotationY = Mathf.Clamp(rotationY, -85f, 85f);
 
-        cameraTransform.localRotation = Quaternion.Euler(new Vector3(rotationY, 0, 0));
+        headTransform.localRotation = Quaternion.Euler(new Vector3(rotationY, 0, 0));
         transform.Rotate(Vector3.up, mouseX);
     }
     private void HandleMovement() {
@@ -133,7 +133,7 @@ public class PlayerController : MonoBehaviour {
         return Physics.CheckSphere(groundCheck.position, groundCheckRadius, groundMask);
     }
     private void HandleInteraction() {
-        if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out RaycastHit raycastHit, interactDistance, interactableLayerMask)) {
+        if (Physics.Raycast(headTransform.position, headTransform.forward, out RaycastHit raycastHit, interactDistance, interactableLayerMask)) {
             CrosshairUI.Instance.Hover();
             if (raycastHit.transform.TryGetComponent(out Interactable interactable)) {
                 InteractionMessageUI.Instance.Show(interactable.interactMessage);
