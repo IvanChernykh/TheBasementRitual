@@ -8,9 +8,9 @@ public class Flashlight : MonoBehaviour {
     [SerializeField] private GameObject lightSource;
     [Header("Animation")]
     [SerializeField] private Animator animator;
-
-    [Tooltip("Used for object deactivation, have to be equal to animation duration")]
-    [SerializeField] private float unequipAnimationDuration = .1f;
+    private readonly float unequipAnimationDuration = .1f;
+    private readonly float reloadAnimationDelay = .1f;
+    private readonly float reloadAnimationDuration = .8f;
     private bool isActive;
 
     private float lifeTimeMax = 100f;
@@ -31,9 +31,9 @@ public class Flashlight : MonoBehaviour {
     private void OnRealoadBattery(object sender, EventArgs e) {
         PlayerInventory playerInventory = PlayerInventory.Instance;
         if (playerInventory.batteries.Count > 0) {
-            lifetime = lifeTimeMax;
+            animator.SetTrigger("Reload");
             playerInventory.RemoveBattery();
-            lightSource.SetActive(true);
+            StartCoroutine(ReloadBattery());
         } else {
             TooltipUI.Instance.Show("No batteries");
         }
@@ -71,6 +71,14 @@ public class Flashlight : MonoBehaviour {
     private IEnumerator DeactivateAfterDelay(float delay) {
         yield return new WaitForSeconds(delay);
         Deactivate();
+    }
+    private IEnumerator ReloadBattery() {
+        yield return new WaitForSeconds(reloadAnimationDelay);
+        lightSource.SetActive(false);
+        yield return new WaitForSeconds(reloadAnimationDuration);
+        lifetime = lifeTimeMax;
+        lightSource.SetActive(true);
+
     }
     private void Deactivate() {
         flashlight.SetActive(false);
