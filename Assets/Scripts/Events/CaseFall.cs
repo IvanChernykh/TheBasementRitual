@@ -3,6 +3,7 @@ using UnityEngine;
 public class CaseFall : MonoBehaviour {
     [SerializeField] private Transform caseObject;
     [SerializeField] private GameObject invisibleWall;
+    // [SerializeField] private AudioSource closeSound;
     private bool eventIsTriggered;
 
     private void Start() {

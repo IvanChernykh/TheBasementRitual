@@ -6,6 +6,7 @@ public class ClosingDoorEvent : MonoBehaviour {
     [SerializeField] private Transform rotationPoint;
     [SerializeField] private GameObject roomLight;
     [SerializeField] private float openSpeed = 140f;
+    [SerializeField] private AudioSource closeSound;
 
     private bool isClosed;
     private float maxOpenAngle = 30f;
@@ -25,6 +26,7 @@ public class ClosingDoorEvent : MonoBehaviour {
         if (!eventIsTriggered) {
             if (other.CompareTag("Player")) {
                 eventIsTriggered = true;
+                closeSound.Play();
             }
         }
     }
