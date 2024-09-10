@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SoundManager : MonoBehaviour {
@@ -14,5 +12,11 @@ public class SoundManager : MonoBehaviour {
     }
     public void PlaySound(AudioClip[] audioClipArr, Vector3 position, float volume = 1f) {
         PlaySound(audioClipArr[Random.Range(0, audioClipArr.Length)], position, volume);
+    }
+    public void PlaySource(AudioSource audioSource) {
+        audioSource.Play();
+    }
+    public void PlaySource(AudioSource[] audioSources) {
+        audioSources[Random.Range(0, audioSources.Length)].Play();
     }
 }
