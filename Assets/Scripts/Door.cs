@@ -4,7 +4,7 @@ public class Door : Interactable {
     private const string OPEN_MESSAGE = "Open door";
     private const string CLOSE_MESSAGE = "Close door";
     [SerializeField] private Transform rotationPoint;
-    [SerializeField] private float openSpeed = 150f;
+    [SerializeField] private float openSpeed = 200f;
     [SerializeField] private bool openForward;
     [Header("Locked State")]
     [SerializeField] private bool lockedFromOtherSide;
@@ -16,8 +16,6 @@ public class Door : Interactable {
     [Tooltip("Show tooltip message after door unlocked with key")]
     [SerializeField] private bool showUnlockMessage = true;
     [SerializeField] private string customKeyLockedMessage;
-    [Header("Audio")]
-    [SerializeField] private DoorAudio doorAudio;
 
     private bool isOpened;
     private bool openingDoor;
@@ -49,10 +47,10 @@ public class Door : Interactable {
         isOpeningState = true;
         openingDoor = !openingDoor;
         if (isOpened) {
-            doorAudio.PlayClose();
+            DoorAudio.Instance.PlayClose(transform.position);
             interactMessage = OPEN_MESSAGE;
         } else {
-            doorAudio.PlayOpen();
+            DoorAudio.Instance.PlayOpen(transform.position);
             interactMessage = CLOSE_MESSAGE;
         }
     }
@@ -99,7 +97,7 @@ public class Door : Interactable {
             if (customKeyLockedMessage.Length > 0) {
                 TooltipUI.Instance.Show(customKeyLockedMessage);
             } else {
-                doorAudio.PlayLocked();
+                DoorAudio.Instance.PlayLocked(transform.position);
                 TooltipUI.Instance.Show("Locked");
             }
         }
@@ -118,7 +116,7 @@ public class Door : Interactable {
                 lockedFromOtherSide = false;
                 ToggleOpening();
             } else {
-                doorAudio.PlayLocked();
+                DoorAudio.Instance.PlayLocked(transform.position);
                 TooltipUI.Instance.Show("Locked from the other side");
             }
         }

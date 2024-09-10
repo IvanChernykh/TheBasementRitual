@@ -10,13 +10,11 @@ public class DoorDouble : Interactable {
     [SerializeField] private Transform doorRight;
     [SerializeField] private Transform rotationPointLeft;
     [SerializeField] private Transform rotationPointRight;
-    [SerializeField] private float openSpeed = 150f;
+    [SerializeField] private float openSpeed = 180f;
     [SerializeField] private bool lockedOnKey;
     [SerializeField] private bool lockedFromOtherSide;
     [SerializeField] private bool lockedFromBehindSide;
     [SerializeField] private ItemData requiredKey;
-    [Header("Audio")]
-    [SerializeField] private DoorAudio doorAudio;
     private bool isOpened;
     private bool openingDoor;
     private bool isOpeningState = false;
@@ -47,10 +45,10 @@ public class DoorDouble : Interactable {
         isOpeningState = true;
         openingDoor = !openingDoor;
         if (isOpened) {
-            doorAudio.PlayClose();
+            DoorAudio.Instance.PlayCloseDoubleDoor(transform.position);
             interactMessage = openMessage;
         } else {
-            doorAudio.PlayOpen();
+            DoorAudio.Instance.PlayOpen(transform.position);
             interactMessage = closeMessage;
         }
     }
@@ -92,7 +90,7 @@ public class DoorDouble : Interactable {
             ToggleOpening();
             lockedOnKey = false;
         } else {
-            doorAudio.PlayLocked();
+            DoorAudio.Instance.PlayLocked(transform.position);
             TooltipUI.Instance.Show(lockedMessage);
         }
     }
@@ -110,7 +108,7 @@ public class DoorDouble : Interactable {
                 lockedFromOtherSide = false;
                 ToggleOpening();
             } else {
-                doorAudio.PlayLocked();
+                DoorAudio.Instance.PlayLocked(transform.position);
                 TooltipUI.Instance.Show("Locked from the other side");
             }
         }
