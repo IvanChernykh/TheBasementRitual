@@ -6,6 +6,7 @@ public class NotesUI : MonoBehaviour {
     public static NotesUI Instance { get; private set; }
     [SerializeField] private GameObject container;
     [SerializeField] private TextMeshProUGUI noteText;
+    [SerializeField] private GameObject postProcessingBlur;
 
     private void Awake() {
         Instance = this;
@@ -18,12 +19,14 @@ public class NotesUI : MonoBehaviour {
     public void Show(string text) {
         GameStateManager.Instance.SetReadingNoteState();
 
+        postProcessingBlur.SetActive(true);
         container.SetActive(true);
         noteText.text = text;
     }
     public void Hide() {
         GameStateManager.Instance.SetPlayingState();
 
+        postProcessingBlur.SetActive(false);
         container.SetActive(false);
         noteText.text = "";
     }
