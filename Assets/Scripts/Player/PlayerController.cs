@@ -54,7 +54,6 @@ public class PlayerController : MonoBehaviour {
         InputManager.Instance.OnJumpEvent += OnJump;
         InputManager.Instance.OnInteractEvent += OnInteract;
 
-        Cursor.lockState = CursorLockMode.Locked;
         groundCheckDefaultPos = groundCheck.localPosition;
     }
     private void Update() {

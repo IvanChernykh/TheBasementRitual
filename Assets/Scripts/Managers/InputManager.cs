@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour {
     public static InputManager Instance { get; private set; }
+
     public event EventHandler OnSprintStartedEvent;
     public event EventHandler OnSprintCanceledEvent;
     public event EventHandler OnCrouchEvent;
@@ -10,6 +11,9 @@ public class InputManager : MonoBehaviour {
     public event EventHandler OnInteractEvent;
     public event EventHandler OnFlashlightToggleEvent;
     public event EventHandler OnReloadBattery;
+    public event EventHandler OnPause;
+    public event EventHandler OnUnpause;
+
     private PlayerInputActions inputActions;
 
     private void Awake() {
@@ -25,6 +29,7 @@ public class InputManager : MonoBehaviour {
         inputActions.Player.Interact.performed += InteractPerformed;
         inputActions.Player.Flashlight.performed += FlashlightPerformed;
         inputActions.Player.ReloadBattery.performed += ReloadBatteryPerformed;
+        inputActions.Player.Pause.performed += PausePerformed;
     }
     private void OnDestroy() {
         inputActions.Player.Sprint.started -= SprintStarted;
@@ -34,10 +39,11 @@ public class InputManager : MonoBehaviour {
         inputActions.Player.Interact.performed -= InteractPerformed;
         inputActions.Player.Flashlight.performed -= FlashlightPerformed;
         inputActions.Player.ReloadBattery.performed -= ReloadBatteryPerformed;
+        inputActions.Player.Pause.performed -= PausePerformed;
 
         inputActions.Dispose();
     }
-
+    // events
     private void SprintStarted(UnityEngine.InputSystem.InputAction.CallbackContext obj) {
         OnSprintStartedEvent?.Invoke(this, EventArgs.Empty);
     }
@@ -59,7 +65,14 @@ public class InputManager : MonoBehaviour {
     private void ReloadBatteryPerformed(UnityEngine.InputSystem.InputAction.CallbackContext obj) {
         OnReloadBattery?.Invoke(this, EventArgs.Empty);
     }
-
+    private void PausePerformed(UnityEngine.InputSystem.InputAction.CallbackContext obj) {
+        if (GameStateManager.Instance.IsPlaying()) {
+            OnPause?.Invoke(this, EventArgs.Empty);
+        } else {
+            OnUnpause?.Invoke(this, EventArgs.Empty);
+        }
+    }
+    // helpers
     public Vector2 GetMovementVectorNormalized() {
         Vector2 input = inputActions.Player.Movement.ReadValue<Vector2>();
         return input.normalized;

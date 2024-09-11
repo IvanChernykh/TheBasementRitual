@@ -13,17 +13,25 @@ public class GameStateManager : MonoBehaviour {
         Instance = this;
     }
     private void Start() {
-        gameState = GameState.Playing;
+        SetPlayingState();
     }
+    // setters
     public void SetReadingNoteState() {
+        Time.timeScale = 0f;
         gameState = GameState.ReadingNote;
     }
     public void SetPlayingState() {
+        Time.timeScale = 1f;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
         gameState = GameState.Playing;
     }
     public void SetPausedState() {
+        Time.timeScale = 0f;
         gameState = GameState.Paused;
     }
+    // getters
     public bool IsReadingNote() {
         return gameState == GameState.ReadingNote;
     }

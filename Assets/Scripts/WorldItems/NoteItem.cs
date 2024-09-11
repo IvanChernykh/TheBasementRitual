@@ -8,7 +8,6 @@ public class NoteItem : Interactable {
     }
     public override void Interact() {
         // PlayerInventory.Instance.AddItem(itemData);
-        Time.timeScale = 0;
         NotesUI.Instance.Show(noteData.noteText);
         Destroy(gameObject);
     }
