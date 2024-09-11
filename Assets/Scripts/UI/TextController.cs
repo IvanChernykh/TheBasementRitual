@@ -8,8 +8,7 @@ public class TextController : MonoBehaviour {
     private bool coroutieRunning;
 
     private void Start() {
-        textObject.text = "";
-        textObject.gameObject.SetActive(false);
+        Hide();
     }
     public void Show(string text) {
         if (coroutieRunning) {
