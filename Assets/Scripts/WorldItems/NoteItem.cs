@@ -9,6 +9,6 @@ public class NoteItem : Interactable {
     public override void Interact() {
         // PlayerInventory.Instance.AddItem(itemData);
         NotesUI.Instance.Show(noteData.noteText);
-        Destroy(gameObject);
+        // Destroy(gameObject);
     }
 }
