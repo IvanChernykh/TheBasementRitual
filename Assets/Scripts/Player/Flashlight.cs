@@ -8,6 +8,8 @@ public class Flashlight : MonoBehaviour {
     [SerializeField] private GameObject lightSource;
     [Header("Animation")]
     [SerializeField] private Animator animator;
+    [Header("Sound")]
+    [SerializeField] private AudioClip turnOnSound;
     private readonly float unequipAnimationDuration = .1f;
     private readonly float reloadAnimationDelay = .1f;
     private readonly float reloadAnimationDuration = .8f;
@@ -49,6 +51,7 @@ public class Flashlight : MonoBehaviour {
         }
     }
     public void Equip() {
+        PlaySound();
         flashlight.SetActive(true);
         animator.SetTrigger("Equipped");
         isActive = true;
@@ -81,7 +84,11 @@ public class Flashlight : MonoBehaviour {
 
     }
     private void Deactivate() {
+        PlaySound();
         flashlight.SetActive(false);
         isActive = false;
+    }
+    private void PlaySound() {
+        SoundManager.Instance.PlaySound2D(turnOnSound, transform.position, .2f);
     }
 }
