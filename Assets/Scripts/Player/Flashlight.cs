@@ -11,10 +11,10 @@ public class Flashlight : MonoBehaviour {
     private readonly float unequipAnimationDuration = .1f;
     private readonly float reloadAnimationDelay = .1f;
     private readonly float reloadAnimationDuration = .8f;
-    private bool isActive;
+    public bool isActive { get; private set; }
 
-    private float lifeTimeMax = 100f;
-    private float lifetime = 100f;
+    public float lifeTimeMax { get; private set; } = 100f;
+    public float lifetime { get; private set; } = 100f;
 
 
     private void Awake() {
