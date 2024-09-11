@@ -6,6 +6,7 @@ public class PlayerSoundManager : MonoBehaviour {
     [SerializeField] private AudioClip[] sprintSounds;
     [SerializeField] private AudioClip[] jumpStartSounds;
     [SerializeField] private AudioClip[] landingSounds;
+    // [SerializeField] private AudioClip[] flashlightSounds;
     private PlayerController player;
     private float footstepWalkTimer;
     private float footstepRunTimer;
@@ -54,4 +55,7 @@ public class PlayerSoundManager : MonoBehaviour {
             SoundManager.Instance.PlaySound2D(landingSounds, footSoundsPosition, landingVolume);
         }
     }
+    // public void PlayFlashlightSound() {
+    //     SoundManager.Instance.PlaySound2D(flashlightSounds, transform.position, .1f);
+    // }
 }
