@@ -26,7 +26,7 @@ public class ClosingDoorEvent : MonoBehaviour {
         if (!eventIsTriggered) {
             if (other.CompareTag("Player")) {
                 eventIsTriggered = true;
-                SoundManager.Instance.PlaySound(closeSound, door.position, 1f);
+                SoundManager.Instance.PlaySound(closeSound, door.position);
             }
         }
     }
