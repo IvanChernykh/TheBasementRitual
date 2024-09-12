@@ -15,7 +15,8 @@ public class PlaySoundAction : EventAction {
 
     public override void ExecuteEvent() {
         if (audioClip != null) {
-            SoundManager.Instance.PlaySound(audioClip, positionToPlay.position, volume, minDistance, maxDistance);
+            Vector3 SoundPosition = positionToPlay == null ? transform.position : positionToPlay.position;
+            SoundManager.Instance.PlaySound(audioClip, SoundPosition, volume, minDistance, maxDistance);
         } else if (audioSource != null) {
             if (fadeTime == 0f) {
                 SoundManager.Instance.PlayAudioSource(audioSource);
