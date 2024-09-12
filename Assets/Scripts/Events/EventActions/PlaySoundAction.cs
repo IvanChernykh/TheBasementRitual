@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlaySound : OnTriggerEnterBase {
+public class PlaySoundAction : EventAction {
     [Header("AudioClip")]
     [SerializeField] private AudioClip audioClip;
     [SerializeField] private Transform positionToPlay;
@@ -13,7 +13,7 @@ public class PlaySound : OnTriggerEnterBase {
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private float fadeTime = 0f;
 
-    protected override void HandleEvent() {
+    public override void ExecuteEvent() {
         if (audioClip != null) {
             SoundManager.Instance.PlaySound(audioClip, positionToPlay.position, volume, minDistance, maxDistance);
         } else if (audioSource != null) {

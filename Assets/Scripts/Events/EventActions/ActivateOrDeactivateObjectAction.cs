@@ -1,13 +1,13 @@
 using System.Collections;
 using UnityEngine;
 
-public class ActivateOrDeactivateObject : OnTriggerEnterBase {
+public class ActivateOrDeactivateObjectAction : EventAction {
     [SerializeField] private GameObject objectToShow;
     [SerializeField] private GameObject objectToHide;
     [SerializeField] private float showDelay = 0f;
     [SerializeField] private float hideDelay = 0f;
 
-    protected override void HandleEvent() {
+    public override void ExecuteEvent() {
         if (objectToShow != null) {
             if (showDelay > 0) {
                 StartCoroutine(ShowWithDelay());
