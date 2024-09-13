@@ -31,10 +31,11 @@ namespace NavKeypad {
         [SerializeField] private AudioClip buttonClickedSfx;
         [SerializeField] private AudioClip accessDeniedSfx;
         [SerializeField] private AudioClip accessGrantedSfx;
+        [SerializeField] private float volume = .5f;
+        private float minDistance = .5f;
         [Header("Component References")]
         [SerializeField] private Renderer panelMesh;
         [SerializeField] private TMP_Text keypadDisplayText;
-        [SerializeField] private AudioSource audioSource;
         private string currentInput;
         private bool displayingResult = false;
         private bool accessWasGranted = false;
@@ -43,10 +44,9 @@ namespace NavKeypad {
             ClearInput();
             panelMesh.material.SetVector("_EmissionColor", screenNormalColor * screenIntensity);
         }
-
         //Gets value from pressedbutton
         public void AddInput(string input) {
-            audioSource.PlayOneShot(buttonClickedSfx);
+            SoundManager.Instance.PlaySound(buttonClickedSfx, transform.position, volume, minDistance);
             if (displayingResult || accessWasGranted) return;
             switch (input) {
                 case "enter":
@@ -86,12 +86,11 @@ namespace NavKeypad {
             ClearInput();
             panelMesh.material.SetVector("_EmissionColor", screenNormalColor * screenIntensity);
         }
-
         private void AccessDenied() {
             keypadDisplayText.text = accessDeniedText;
             onAccessDenied?.Invoke();
             panelMesh.material.SetVector("_EmissionColor", screenDeniedColor * screenIntensity);
-            audioSource.PlayOneShot(accessDeniedSfx);
+            SoundManager.Instance.PlaySound(accessDeniedSfx, transform.position, volume, minDistance);
         }
         private void ClearInput() {
             currentInput = "";
@@ -102,7 +101,7 @@ namespace NavKeypad {
             keypadDisplayText.text = accessGrantedText;
             onAccessGranted?.Invoke();
             panelMesh.material.SetVector("_EmissionColor", screenGrantedColor * screenIntensity);
-            audioSource.PlayOneShot(accessGrantedSfx);
+            SoundManager.Instance.PlaySound(accessGrantedSfx, transform.position, volume, minDistance);
         }
 
     }
