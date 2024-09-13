@@ -9,7 +9,7 @@ public class WorldItem : Interactable {
             pickUpMessage = $"Picked up {itemData.itemName}";
         }
     }
-    public override void Interact() {
+    protected override void Interact() {
         PlayerInventory.Instance.AddItem(itemData);
         TooltipUI.Instance.Show(pickUpMessage);
         Destroy(gameObject);

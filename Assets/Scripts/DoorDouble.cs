@@ -27,7 +27,7 @@ public class DoorDouble : Interactable {
     private void Update() {
         HandleOpen();
     }
-    public override void Interact() {
+    protected override void Interact() {
         if (lockedFromOtherSide) {
             TryOpenLockedFromOtherSide();
             return;

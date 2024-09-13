@@ -5,7 +5,7 @@ public class BatteryItem : Interactable {
     private void Start() {
         interactMessage = "Take";
     }
-    public override void Interact() {
+    protected override void Interact() {
         PlayerInventory playerInventory = PlayerInventory.Instance;
         if (playerInventory.batteries.Count < playerInventory.batteriesMax) {
             playerInventory.AddBattery(itemData);

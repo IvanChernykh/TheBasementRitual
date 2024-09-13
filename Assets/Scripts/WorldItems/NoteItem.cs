@@ -6,7 +6,7 @@ public class NoteItem : Interactable {
     private void Start() {
         interactMessage = "Read";
     }
-    public override void Interact() {
+    protected override void Interact() {
         // PlayerInventory.Instance.AddItem(itemData);
         NotesUI.Instance.Show(noteData.noteText);
         // Destroy(gameObject);

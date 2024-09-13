@@ -11,7 +11,7 @@ namespace NavKeypad {
         [Header("Component References")]
         [SerializeField] private Keypad keypad;
 
-        public override void Interact() {
+        protected override void Interact() {
             PressButton();
         }
 

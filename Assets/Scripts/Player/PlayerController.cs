@@ -137,7 +137,7 @@ public class PlayerController : MonoBehaviour {
             if (raycastHit.transform.TryGetComponent(out Interactable interactable)) {
                 InteractionMessageUI.Instance.Show(interactable.interactMessage);
                 if (isInteracting) {
-                    interactable.Interact();
+                    interactable.InteractAction();
                 }
             }
         } else {
