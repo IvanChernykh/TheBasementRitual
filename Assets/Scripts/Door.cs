@@ -91,8 +91,8 @@ public class Door : Interactable {
                 PlayerInventory.Instance.RemoveItem(itemFound);
             }
 
-            ToggleOpening();
             lockedOnKey = false;
+            ToggleOpening();
         } else {
             if (customKeyLockedMessage.Length > 0) {
                 TooltipUI.Instance.Show(customKeyLockedMessage);
@@ -128,6 +128,12 @@ public class Door : Interactable {
     }
     public void OpenDoor() {
         if (!isOpened && !isOpeningOrClosingState) {
+            ToggleOpening();
+        }
+    }
+    public void Unlock() {
+        if (lockedOnKey) {
+            lockedOnKey = false;
             ToggleOpening();
         }
     }
