@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: LastWords
   m_EditorClassIdentifier: 
   noteName: Last words
-  noteText: "We didn\u2019t know that the power we summoned could turn against us.
-    We thought we could control it and gain incredible abilities. We were wrong.
-    Everyone else is either dead or will be soon. I can feel it getting closer...
-    it will come for me next."
+  noteText: That was a mistake. We thought we could control it. We were wrong. Everyone
+    else is either dead or will be soon. I can feel it getting closer... it will
+    come for me next.
