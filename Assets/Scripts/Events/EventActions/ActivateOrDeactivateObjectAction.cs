@@ -4,6 +4,7 @@ using UnityEngine;
 public class ActivateOrDeactivateObjectAction : EventAction {
     [SerializeField] private GameObject objectToShow;
     [SerializeField] private GameObject objectToHide;
+    [SerializeField] private bool destroyObjectToHide;
     [SerializeField] private float showDelay = 0f;
     [SerializeField] private float hideDelay = 0f;
 
@@ -12,23 +13,33 @@ public class ActivateOrDeactivateObjectAction : EventAction {
             if (showDelay > 0) {
                 StartCoroutine(ShowWithDelay());
             } else {
-                objectToShow.SetActive(true);
+                ShowObject();
             }
         }
-        if (objectToHide != null) {
+        if (objectToHide != null && objectToHide.activeInHierarchy) {
             if (hideDelay > 0) {
                 StartCoroutine(HideWithDelay());
             } else {
-                objectToHide.SetActive(false);
+                HideObject();
             }
+        }
+    }
+    private void ShowObject() {
+        objectToShow.SetActive(true);
+    }
+    private void HideObject() {
+        if (destroyObjectToHide) {
+            Destroy(objectToHide);
+        } else {
+            objectToHide.SetActive(false);
         }
     }
     private IEnumerator ShowWithDelay() {
         yield return new WaitForSeconds(showDelay);
-        objectToShow.SetActive(true);
+        ShowObject();
     }
     private IEnumerator HideWithDelay() {
         yield return new WaitForSeconds(hideDelay);
-        objectToHide.SetActive(false);
+        HideObject();
     }
 }
