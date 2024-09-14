@@ -1,18 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class MonsterAnimation : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+public class MonsterAnimation : MonoBehaviour {
+    enum AnimationTriggers {
+        Idle,
+        IdleTurnHead,
+        Run
     }
+    [SerializeField] private Animator animator;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void Idle() {
+        animator.SetTrigger(AnimationTriggers.Idle.ToString());
+    }
+    public void IdleTurnHead() {
+        animator.SetTrigger(AnimationTriggers.IdleTurnHead.ToString());
+    }
+    public void Run() {
+        animator.SetTrigger(AnimationTriggers.Run.ToString());
     }
 }
