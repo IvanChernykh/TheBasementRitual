@@ -12,19 +12,19 @@ public class MonsterAnimation : MonoBehaviour {
 
     public void Idle() {
         ClearAnimations(AnimationTriggers.Idle);
-        animator.SetBool(AnimationTriggers.Idle.ToString(), true);
+        ActivateBoolAnimation(AnimationTriggers.Idle);
     }
     public void IdleTurnHead() {
         ClearAnimations(AnimationTriggers.IdleTurnHead);
-        animator.SetTrigger(AnimationTriggers.IdleTurnHead.ToString());
+        ActivateBoolAnimation(AnimationTriggers.IdleTurnHead);
     }
     public void Walk() {
-        ClearAnimations(AnimationTriggers.Walk);
-        animator.SetTrigger(AnimationTriggers.Walk.ToString());
+        // ClearAnimations(AnimationTriggers.Walk);
+        ActivateBoolAnimation(AnimationTriggers.Walk);
     }
     public void Run() {
         ClearAnimations(AnimationTriggers.Run);
-        animator.SetTrigger(AnimationTriggers.Run.ToString());
+        ActivateBoolAnimation(AnimationTriggers.Run);
     }
     private void ClearAnimations(AnimationTriggers currentAnimation) {
         foreach (AnimationTriggers trigger in Enum.GetValues(typeof(AnimationTriggers))) {
@@ -32,5 +32,8 @@ public class MonsterAnimation : MonoBehaviour {
                 animator.SetBool(trigger.ToString(), false);
             }
         }
+    }
+    private void ActivateBoolAnimation(AnimationTriggers animation) {
+        animator.SetBool(animation.ToString(), true);
     }
 }
