@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -25,15 +27,18 @@ public class MonsterController : MonoBehaviour {
     [Header("Patrol State")]
     [SerializeField] private Transform[] patrolPoints;
     private int nextPointIdx = 0;
-    private readonly float magicNumber = 0.2f;
+    private readonly float arrivalPointDistance = 0.2f;
     private Vector3 playerLastSeenPos;
+
+    // Search State
+    private List<Vector3> searchPoints = new List<Vector3>();
+    private bool searchPointsGenerated = false;
 
     private void Start() {
         agent.speed = walkSpeed;
     }
     private void Update() {
-        Debug.Log(CanSeePlayer());
-        // Debug.Log(currentState);
+        Debug.Log(currentState);
         switch (currentState) {
             case State.Patrolling:
                 HandlePatrol();
@@ -51,23 +56,23 @@ public class MonsterController : MonoBehaviour {
     }
     // state handlers
     private void HandlePatrol() {
-        agent.speed = walkSpeed;
         if (CanSeePlayer()) {
             currentState = State.ChasingPlayer;
             return;
         }
-        if (agent.remainingDistance < magicNumber) {
+        agent.speed = walkSpeed;
+        if (agent.remainingDistance < arrivalPointDistance) {
             nextPointIdx = Random.Range(0, patrolPoints.Length);
         }
         agent.SetDestination(patrolPoints[nextPointIdx].position);
     }
     private void HandleChasePlayer() {
+        agent.speed = runSpeed;
         if (!CanSeePlayer()) {
             playerLastSeenPos = PlayerController.Instance.transform.position;
             currentState = State.InvestigatingLastSeenPlayerPosition;
             return;
         }
-        agent.speed = runSpeed;
         transform.LookAt(PlayerController.Instance.transform);
         agent.SetDestination(PlayerController.Instance.transform.position);
     }
@@ -77,6 +82,10 @@ public class MonsterController : MonoBehaviour {
             return;
         }
         agent.SetDestination(playerLastSeenPos);
+        if (agent.remainingDistance < arrivalPointDistance) {
+            currentState = State.SearchingPlayer;
+            return;
+        }
     }
     private void HandleSearchPlayer() {
         if (CanSeePlayer()) {
@@ -84,16 +93,20 @@ public class MonsterController : MonoBehaviour {
             return;
         }
         agent.speed = walkSpeed;
-        if (agent.remainingDistance < magicNumber) {
-            // searchTimer += Time.deltaTime;
-            // moveTimer += Time.deltaTime;
-            // if (moveTimer > Random.Range(3, 5)) {
-            //     agent.SetDestination(playerLastSeenPos + (Random.insideUnitSphere * 8));
-            //     moveTimer = 0;
-            // }
-            // if (searchTimer > 10) {
-            //     currentState = State.Patrolling;
-            // }
+        if (agent.remainingDistance < arrivalPointDistance) {
+            if (!searchPointsGenerated) {
+                searchPoints = GetNearestPoints(playerLastSeenPos, patrolPoints, count: 3, exclusionRadius: 1f);
+                searchPointsGenerated = true;
+            }
+            if (searchPoints.Count > 0) {
+                Vector3 nextSearchPoint = searchPoints[0];
+                agent.SetDestination(nextSearchPoint);
+
+                searchPoints.RemoveAt(0);
+            } else {
+                searchPointsGenerated = false;
+                currentState = State.Patrolling;
+            }
         }
     }
     // other
@@ -120,6 +133,23 @@ public class MonsterController : MonoBehaviour {
             }
         }
         return false;
+    }
+    private List<Vector3> GetNearestPoints(Vector3 origin, Transform[] points, int count, float exclusionRadius) {
+        List<Vector3> nearestPoints = new List<Vector3>();
+        List<Vector3> sortedPoints = points
+        .OrderBy(p => Vector3.Distance(origin, p.position))
+        .Select(p => p.position)
+        .ToList();
+
+        foreach (Vector3 point in sortedPoints) {
+            if (Vector3.Distance(origin, point) > exclusionRadius) {
+                nearestPoints.Add(point);
+            }
+            if (nearestPoints.Count == count) {
+                break;
+            }
+        }
+        return nearestPoints;
     }
     // debug
     private void OnDrawGizmos() {
