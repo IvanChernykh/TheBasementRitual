@@ -49,7 +49,10 @@
         "Obj/": true,
         "ProjectSettings/": true,
         "temp/": true,
-        "Temp/": true
+        "Temp/": true,
+        "Logs/": true,
+        "UserSettings/": true,
+        "**/_ImportedAssets": true
     },
     "dotnet.defaultSolution": "The Horror.sln"
 }
