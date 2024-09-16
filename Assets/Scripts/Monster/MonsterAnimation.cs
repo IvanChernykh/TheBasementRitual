@@ -19,7 +19,7 @@ public class MonsterAnimation : MonoBehaviour {
         ActivateBoolAnimation(AnimationTriggers.IdleTurnHead);
     }
     public void Walk() {
-        // ClearAnimations(AnimationTriggers.Walk);
+        ClearAnimations(AnimationTriggers.Walk);
         ActivateBoolAnimation(AnimationTriggers.Walk);
     }
     public void Run() {
