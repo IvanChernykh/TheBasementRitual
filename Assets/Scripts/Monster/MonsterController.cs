@@ -19,7 +19,7 @@ public class MonsterController : MonoBehaviour {
     [Header("Settings")]
     [SerializeField] private LayerMask playerLayerMask;
     [SerializeField] private float walkSpeed = 2f;
-    [SerializeField] private float runSpeed = 3.8f;
+    [SerializeField] private float runSpeed = 3.5f;
     [SerializeField] private float fieldOfViewAngle = 90f;
     [SerializeField] private float hearingDistance = 1f;
     [SerializeField] private float sightDistance = 20f;
@@ -95,7 +95,13 @@ public class MonsterController : MonoBehaviour {
         agent.speed = walkSpeed;
         if (agent.remainingDistance < arrivalPointDistance) {
             if (!searchPointsGenerated) {
-                searchPoints = GetNearestPoints(playerLastSeenPos, patrolPoints, count: 3, exclusionRadius: 1f);
+                searchPoints = GetNearestPoints(
+                    playerLastSeenPos,
+                    PlayerController.Instance.transform.position,
+                    patrolPoints,
+                    pointCount: 3,
+                    exclusionRadius: 1f
+                );
                 searchPointsGenerated = true;
             }
             if (searchPoints.Count > 0) {
@@ -134,21 +140,36 @@ public class MonsterController : MonoBehaviour {
         }
         return false;
     }
-    private List<Vector3> GetNearestPoints(Vector3 origin, Transform[] points, int count, float exclusionRadius) {
+    private List<Vector3> GetNearestPoints(
+        Vector3 origin,
+        Vector3 playerCurrentPosition,
+        Transform[] searchPoints,
+        int pointCount,
+        float exclusionRadius
+        ) {
+        Vector3 directionToPlayer = (playerCurrentPosition - origin).normalized;
+
         List<Vector3> nearestPoints = new List<Vector3>();
-        List<Vector3> sortedPoints = points
-        .OrderBy(p => Vector3.Distance(origin, p.position))
-        .Select(p => p.position)
-        .ToList();
+        List<Vector3> sortedPoints = searchPoints
+            .OrderBy(p => Vector3.Distance(origin, p.position))
+            .Select(p => p.position)
+            .ToList();
 
         foreach (Vector3 point in sortedPoints) {
-            if (Vector3.Distance(origin, point) > exclusionRadius) {
-                nearestPoints.Add(point);
+            Vector3 directionToPoint = (point - origin).normalized;
+
+            // if point is on the same side as playerCurrentPosition with a certain angle
+            if (Vector3.Dot(directionToPlayer, directionToPoint) > Mathf.Cos(Mathf.Deg2Rad * 45f)) // 90 deg
+            {
+                if (Vector3.Distance(origin, point) > exclusionRadius) {
+                    nearestPoints.Add(point);
+                }
             }
-            if (nearestPoints.Count == count) {
+            if (nearestPoints.Count == pointCount) {
                 break;
             }
         }
+
         return nearestPoints;
     }
     // debug
