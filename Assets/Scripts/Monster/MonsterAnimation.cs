@@ -6,7 +6,8 @@ public class MonsterAnimation : MonoBehaviour {
         Idle,
         IdleTurnHead,
         Walk,
-        Run
+        Run,
+        Crawl
     }
     [SerializeField] private Animator animator;
 
@@ -25,6 +26,10 @@ public class MonsterAnimation : MonoBehaviour {
     public void Run() {
         ClearAnimations(AnimationTriggers.Run);
         ActivateBoolAnimation(AnimationTriggers.Run);
+    }
+    public void Crawl() {
+        ClearAnimations(AnimationTriggers.Crawl);
+        ActivateBoolAnimation(AnimationTriggers.Crawl);
     }
     private void ClearAnimations(AnimationTriggers currentAnimation) {
         foreach (AnimationTriggers trigger in Enum.GetValues(typeof(AnimationTriggers))) {

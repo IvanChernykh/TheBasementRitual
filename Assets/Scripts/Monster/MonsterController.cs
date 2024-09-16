@@ -62,10 +62,10 @@ public class MonsterController : MonoBehaviour {
     }
     // state handlers
     private void HandlePatrol() {
-        if (CanSeePlayer()) {
-            StartChasingPlayer();
-            return;
-        }
+        // if (CanSeePlayer()) {
+        //     StartChasingPlayer();
+        //     return;
+        // }
         if (agent.remainingDistance < arrivalPointDistance) {
             nextPointIdx = Random.Range(0, patrolPoints.Length);
         }
@@ -124,7 +124,8 @@ public class MonsterController : MonoBehaviour {
     // state transitions
     private void StartPatrolling() {
         agent.speed = walkSpeed;
-        animationController.Walk();
+        // animationController.Walk();
+        animationController.Crawl();
         currentState = State.Patrolling;
     }
     private void StartChasingPlayer() {
