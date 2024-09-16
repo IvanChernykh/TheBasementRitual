@@ -15,6 +15,11 @@ public class MonsterController : MonoBehaviour {
     [Header("Components")]
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private MonsterAnimation animationController;
+    [Header("Sounds")]
+    [SerializeField] private AudioClip[] footstepSounds;
+    [SerializeField] private float footstepWalkTimerMax = .6f;
+    [SerializeField] private float footstepVolume = 1f;
+    private float footstepWalkTimer;
 
     [Header("Settings")]
     [SerializeField] private LayerMask playerLayerMask;
@@ -70,6 +75,7 @@ public class MonsterController : MonoBehaviour {
             nextPointIdx = Random.Range(0, patrolPoints.Length);
         }
         agent.SetDestination(patrolPoints[nextPointIdx].position);
+        PlayFootstep();
     }
     private void HandleChasePlayer() {
         if (!CanSeePlayer()) {
@@ -124,8 +130,7 @@ public class MonsterController : MonoBehaviour {
     // state transitions
     private void StartPatrolling() {
         agent.speed = walkSpeed;
-        // animationController.Walk();
-        animationController.Crawl();
+        animationController.Walk();
         currentState = State.Patrolling;
     }
     private void StartChasingPlayer() {
@@ -202,6 +207,13 @@ public class MonsterController : MonoBehaviour {
     }
     private float DistanceToPlayer(Vector3 origin) {
         return Vector3.Distance(origin, PlayerController.Instance.transform.position);
+    }
+    private void PlayFootstep() {
+        footstepWalkTimer -= Time.deltaTime;
+        if (footstepWalkTimer <= 0) {
+            footstepWalkTimer = footstepWalkTimerMax;
+            SoundManager.Instance.PlaySound(footstepSounds, transform.position, footstepVolume, maxDistance: 10f, rolloffMode: AudioRolloffMode.Custom);
+        }
     }
     // debug
     private void OnDrawGizmos() {

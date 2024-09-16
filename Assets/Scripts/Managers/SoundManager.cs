@@ -14,9 +14,10 @@ public class SoundManager : MonoBehaviour {
         float volume = 1,
         float minDistance = 1,
         float maxDistance = 5f,
-        float pitch = 1f
+        float pitch = 1f,
+        AudioRolloffMode rolloffMode = AudioRolloffMode.Logarithmic
         ) {
-        PlayClip3D(audioclip, position, volume, minDistance, maxDistance, pitch);
+        PlayClip3D(audioclip, position, volume, minDistance, maxDistance, pitch, rolloffMode);
     }
     public void PlaySound(
         AudioClip[] audioClipArr,
@@ -24,9 +25,10 @@ public class SoundManager : MonoBehaviour {
         float volume = 1,
         float minDistance = 1,
         float maxDistance = 5f,
-        float pitch = 1f
+        float pitch = 1f,
+        AudioRolloffMode rolloffMode = AudioRolloffMode.Logarithmic
         ) {
-        PlaySound(audioClipArr[Random.Range(0, audioClipArr.Length)], position, volume, minDistance, maxDistance, pitch);
+        PlaySound(audioClipArr[Random.Range(0, audioClipArr.Length)], position, volume, minDistance, maxDistance, pitch, rolloffMode);
     }
 
     public void PlaySound2D(AudioClip audioClip, Vector3 position, float volume = 1f) {
@@ -71,16 +73,27 @@ public class SoundManager : MonoBehaviour {
         audioSource.Play();
         Destroy(newObject, clip.length * ((Time.timeScale < 0.01f) ? 0.01f : Time.timeScale));
     }
-    private void PlayClip3D(AudioClip clip, Vector3 position, float volume = 1, float minDistance = 1, float maxDistance = 5f, float pitch = 1f) {
+    private void PlayClip3D(
+        AudioClip clip,
+        Vector3 position,
+        float volume = 1,
+        float minDistance = 1,
+        float maxDistance = 5f,
+        float pitch = 1f,
+        AudioRolloffMode rolloffMode = AudioRolloffMode.Logarithmic
+        ) {
         GameObject newObject = new GameObject("One shot audio");
         newObject.transform.position = position;
         AudioSource audioSource = (AudioSource)newObject.AddComponent(typeof(AudioSource));
+
         audioSource.clip = clip;
         audioSource.spatialBlend = 1f;
         audioSource.volume = volume;
         audioSource.pitch = pitch;
         audioSource.minDistance = minDistance;
         audioSource.maxDistance = maxDistance;
+        audioSource.rolloffMode = rolloffMode;
+
         audioSource.Play();
         Destroy(newObject, clip.length * ((Time.timeScale < 0.01f) ? 0.01f : Time.timeScale));
     }

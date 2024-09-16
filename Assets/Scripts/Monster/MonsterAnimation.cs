@@ -4,20 +4,14 @@ using UnityEngine;
 public class MonsterAnimation : MonoBehaviour {
     enum AnimationTriggers {
         Idle,
-        IdleTurnHead,
         Walk,
         Run,
-        Crawl
     }
     [SerializeField] private Animator animator;
 
     public void Idle() {
         ClearAnimations(AnimationTriggers.Idle);
         ActivateBoolAnimation(AnimationTriggers.Idle);
-    }
-    public void IdleTurnHead() {
-        ClearAnimations(AnimationTriggers.IdleTurnHead);
-        ActivateBoolAnimation(AnimationTriggers.IdleTurnHead);
     }
     public void Walk() {
         ClearAnimations(AnimationTriggers.Walk);
@@ -26,10 +20,6 @@ public class MonsterAnimation : MonoBehaviour {
     public void Run() {
         ClearAnimations(AnimationTriggers.Run);
         ActivateBoolAnimation(AnimationTriggers.Run);
-    }
-    public void Crawl() {
-        ClearAnimations(AnimationTriggers.Crawl);
-        ActivateBoolAnimation(AnimationTriggers.Crawl);
     }
     private void ClearAnimations(AnimationTriggers currentAnimation) {
         foreach (AnimationTriggers trigger in Enum.GetValues(typeof(AnimationTriggers))) {
