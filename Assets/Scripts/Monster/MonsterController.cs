@@ -17,15 +17,21 @@ public class MonsterController : MonoBehaviour {
     [SerializeField] private MonsterAnimation animationController;
     [Header("Sounds")]
     [SerializeField] private AudioClip[] footstepSounds;
+    [SerializeField] private AudioClip[] randomRoars;
     [SerializeField] private float footstepWalkTimerMax = .6f;
-    [SerializeField] private float footstepVolume = 1f;
-    private float footstepWalkTimer;
+    [SerializeField] private float footstepRunTimerMax = .3f;
+    [SerializeField] private float footstepVolume = 0.1f;
+    [SerializeField] private float roarVolume = 0.5f;
+    private float roarIntervalMin = 6f;
+    private float roarIntervalMax = 30f;
+    private float timeUntilNextRoar;
+    private float roarTimer;
+    private float footstepTimer;
 
     [Header("Settings")]
     [SerializeField] private LayerMask playerLayerMask;
     [SerializeField] private float walkSpeed = 2f;
     [SerializeField] private float runSpeed = 3.5f;
-    // [SerializeField] private float sprintSpeed = 6f;
     [SerializeField] private float fieldOfViewAngle = 90f;
     [SerializeField] private float hearingDistance = 1f;
     [SerializeField] private float sightDistance = 20f;
@@ -39,7 +45,6 @@ public class MonsterController : MonoBehaviour {
 
     // chase state
     private Vector3 playerLastSeenPos;
-    // private readonly float sprintDistanceLimit = 10f;
 
     // search state
     private List<Vector3> searchPoints = new List<Vector3>();
@@ -47,9 +52,10 @@ public class MonsterController : MonoBehaviour {
 
     private void Start() {
         StartPatrolling();
+        timeUntilNextRoar = Random.Range(roarIntervalMin, roarIntervalMax);
     }
     private void Update() {
-        Debug.Log(currentState);
+        PlayRandomRoar();
         switch (currentState) {
             case State.Patrolling:
                 HandlePatrol();
@@ -64,30 +70,28 @@ public class MonsterController : MonoBehaviour {
                 HandleSearchPlayer();
                 break;
         }
+        // todo: remove it later
+        DebugLogs();
     }
     // state handlers
     private void HandlePatrol() {
-        // if (CanSeePlayer()) {
-        //     StartChasingPlayer();
-        //     return;
-        // }
+        if (CanSeePlayer()) {
+            StartChasingPlayer();
+            return;
+        }
         if (agent.remainingDistance < arrivalPointDistance) {
             nextPointIdx = Random.Range(0, patrolPoints.Length);
         }
         agent.SetDestination(patrolPoints[nextPointIdx].position);
-        PlayFootstep();
+        PlayWalkFootstep();
     }
     private void HandleChasePlayer() {
         if (!CanSeePlayer()) {
             StartInvestigatingLastSeenPlayerPosition();
             return;
         }
-        // if (DistanceToPlayer(transform.position) > sprintDistanceLimit) {
-        //     agent.speed = sprintSpeed;
-        // } else {
-        //     agent.speed = runSpeed;
-        // }
         agent.SetDestination(PlayerController.Instance.transform.position);
+        PlayRunFootstep();
     }
     private void HandleInvestigateLastSeenPlayerPos() {
         if (CanSeePlayer()) {
@@ -145,7 +149,7 @@ public class MonsterController : MonoBehaviour {
     }
     private void StartSearchingPlayer() {
         agent.speed = walkSpeed;
-        // animationController.Idle();
+        animationController.Walk();
         currentState = State.SearchingPlayer;
     }
     // other
@@ -208,11 +212,27 @@ public class MonsterController : MonoBehaviour {
     private float DistanceToPlayer(Vector3 origin) {
         return Vector3.Distance(origin, PlayerController.Instance.transform.position);
     }
-    private void PlayFootstep() {
-        footstepWalkTimer -= Time.deltaTime;
-        if (footstepWalkTimer <= 0) {
-            footstepWalkTimer = footstepWalkTimerMax;
+    private void PlayWalkFootstep() {
+        footstepTimer -= Time.deltaTime;
+        if (footstepTimer <= 0) {
+            footstepTimer = footstepWalkTimerMax;
             SoundManager.Instance.PlaySound(footstepSounds, transform.position, footstepVolume, maxDistance: 10f, rolloffMode: AudioRolloffMode.Custom);
+        }
+    }
+    private void PlayRunFootstep() {
+        footstepTimer -= Time.deltaTime;
+        if (footstepTimer <= 0) {
+            footstepTimer = footstepRunTimerMax;
+            SoundManager.Instance.PlaySound(footstepSounds, transform.position, footstepVolume, maxDistance: 10f, rolloffMode: AudioRolloffMode.Custom);
+        }
+    }
+    private void PlayRandomRoar() {
+        roarTimer += Time.deltaTime;
+        if (roarTimer >= timeUntilNextRoar) {
+            SoundManager.Instance.PlaySound(randomRoars, transform.position, roarVolume, maxDistance: 20f);
+
+            timeUntilNextRoar = Random.Range(roarIntervalMin, roarIntervalMax);
+            roarTimer = 0f;
         }
     }
     // debug
@@ -228,5 +248,8 @@ public class MonsterController : MonoBehaviour {
         Gizmos.DrawLine(eyePosition, eyePosition + rightBoundary * sightDistance);
         Gizmos.DrawLine(eyePosition, eyePosition + transform.forward * sightDistance);
         Gizmos.DrawWireSphere(eyePosition, hearingDistance);
+    }
+    private void DebugLogs() {
+        Debug.Log(currentState);
     }
 }
