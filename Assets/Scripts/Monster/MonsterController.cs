@@ -14,7 +14,7 @@ public class MonsterController : MonoBehaviour {
 
     [Header("Components")]
     [SerializeField] private NavMeshAgent agent;
-    [SerializeField] private MonsterAnimation monsterAnimation;
+    [SerializeField] private MonsterAnimation animationController;
 
     [Header("Settings")]
     [SerializeField] private LayerMask playerLayerMask;
@@ -57,20 +57,17 @@ public class MonsterController : MonoBehaviour {
     // state handlers
     private void HandlePatrol() {
         if (CanSeePlayer()) {
-            currentState = State.ChasingPlayer;
+            StartChasingPlayer();
             return;
         }
-        agent.speed = walkSpeed;
         if (agent.remainingDistance < arrivalPointDistance) {
             nextPointIdx = Random.Range(0, patrolPoints.Length);
         }
         agent.SetDestination(patrolPoints[nextPointIdx].position);
     }
     private void HandleChasePlayer() {
-        agent.speed = runSpeed;
         if (!CanSeePlayer()) {
-            playerLastSeenPos = PlayerController.Instance.transform.position;
-            currentState = State.InvestigatingLastSeenPlayerPosition;
+            StartInvestigatingLastSeenPlayerPosition();
             return;
         }
         transform.LookAt(PlayerController.Instance.transform);
@@ -78,21 +75,20 @@ public class MonsterController : MonoBehaviour {
     }
     private void HandleInvestigateLastSeenPlayerPos() {
         if (CanSeePlayer()) {
-            currentState = State.ChasingPlayer;
+            StartChasingPlayer();
             return;
         }
         agent.SetDestination(playerLastSeenPos);
         if (agent.remainingDistance < arrivalPointDistance) {
-            currentState = State.SearchingPlayer;
+            StartSearchingPlayer();
             return;
         }
     }
     private void HandleSearchPlayer() {
         if (CanSeePlayer()) {
-            currentState = State.ChasingPlayer;
+            StartChasingPlayer();
             return;
         }
-        agent.speed = walkSpeed;
         if (agent.remainingDistance < arrivalPointDistance) {
             if (!searchPointsGenerated) {
                 searchPoints = GetNearestPoints(
@@ -111,9 +107,30 @@ public class MonsterController : MonoBehaviour {
                 searchPoints.RemoveAt(0);
             } else {
                 searchPointsGenerated = false;
-                currentState = State.Patrolling;
+                StartPatrolling();
             }
         }
+    }
+    // state transitions
+    private void StartPatrolling() {
+        agent.speed = walkSpeed;
+        animationController.Idle();
+        currentState = State.Patrolling;
+    }
+    private void StartChasingPlayer() {
+        agent.speed = runSpeed;
+        animationController.Run();
+        currentState = State.ChasingPlayer;
+    }
+    private void StartInvestigatingLastSeenPlayerPosition() {
+        playerLastSeenPos = PlayerController.Instance.transform.position;
+        animationController.Idle();
+        currentState = State.InvestigatingLastSeenPlayerPosition;
+    }
+    private void StartSearchingPlayer() {
+        agent.speed = walkSpeed;
+        animationController.Idle();
+        currentState = State.SearchingPlayer;
     }
     // other
     private bool CanSeePlayer() {

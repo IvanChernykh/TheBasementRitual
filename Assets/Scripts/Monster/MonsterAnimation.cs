@@ -9,12 +9,20 @@ public class MonsterAnimation : MonoBehaviour {
     [SerializeField] private Animator animator;
 
     public void Idle() {
-        animator.SetTrigger(AnimationTriggers.Idle.ToString());
+        ClearAnimations();
+        animator.SetBool(AnimationTriggers.Idle.ToString(), true);
     }
     public void IdleTurnHead() {
+        ClearAnimations();
         animator.SetTrigger(AnimationTriggers.IdleTurnHead.ToString());
     }
     public void Run() {
+        ClearAnimations();
         animator.SetTrigger(AnimationTriggers.Run.ToString());
+    }
+    private void ClearAnimations() {
+        animator.SetBool(AnimationTriggers.Idle.ToString(), false);
+        animator.SetBool(AnimationTriggers.IdleTurnHead.ToString(), false);
+        animator.SetBool(AnimationTriggers.Run.ToString(), false);
     }
 }
