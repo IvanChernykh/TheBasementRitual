@@ -20,22 +20,28 @@ public class MonsterController : MonoBehaviour {
     [SerializeField] private LayerMask playerLayerMask;
     [SerializeField] private float walkSpeed = 2f;
     [SerializeField] private float runSpeed = 3.5f;
+    // [SerializeField] private float sprintSpeed = 6f;
     [SerializeField] private float fieldOfViewAngle = 90f;
     [SerializeField] private float hearingDistance = 1f;
     [SerializeField] private float sightDistance = 20f;
 
     [Header("Patrol State")]
     [SerializeField] private Transform[] patrolPoints;
+
+    // patrol state
     private int nextPointIdx = 0;
     private readonly float arrivalPointDistance = 0.2f;
-    private Vector3 playerLastSeenPos;
 
-    // Search State
+    // chase state
+    private Vector3 playerLastSeenPos;
+    // private readonly float sprintDistanceLimit = 10f;
+
+    // search state
     private List<Vector3> searchPoints = new List<Vector3>();
     private bool searchPointsGenerated = false;
 
     private void Start() {
-        agent.speed = walkSpeed;
+        StartPatrolling();
     }
     private void Update() {
         Debug.Log(currentState);
@@ -70,7 +76,11 @@ public class MonsterController : MonoBehaviour {
             StartInvestigatingLastSeenPlayerPosition();
             return;
         }
-        transform.LookAt(PlayerController.Instance.transform);
+        // if (DistanceToPlayer(transform.position) > sprintDistanceLimit) {
+        //     agent.speed = sprintSpeed;
+        // } else {
+        //     agent.speed = runSpeed;
+        // }
         agent.SetDestination(PlayerController.Instance.transform.position);
     }
     private void HandleInvestigateLastSeenPlayerPos() {
@@ -114,29 +124,29 @@ public class MonsterController : MonoBehaviour {
     // state transitions
     private void StartPatrolling() {
         agent.speed = walkSpeed;
-        animationController.Idle();
+        animationController.Walk();
         currentState = State.Patrolling;
     }
     private void StartChasingPlayer() {
+        // animationController.Run();
         agent.speed = runSpeed;
-        animationController.Run();
         currentState = State.ChasingPlayer;
     }
     private void StartInvestigatingLastSeenPlayerPosition() {
         playerLastSeenPos = PlayerController.Instance.transform.position;
-        animationController.Idle();
+        // animationController.Idle();
         currentState = State.InvestigatingLastSeenPlayerPosition;
     }
     private void StartSearchingPlayer() {
         agent.speed = walkSpeed;
-        animationController.Idle();
+        // animationController.Idle();
         currentState = State.SearchingPlayer;
     }
     // other
     private bool CanSeePlayer() {
         Vector3 offsetY = Vector3.up;
         Vector3 eyePosition = transform.position + offsetY;
-        float distanceToPlayer = Vector3.Distance(eyePosition, PlayerController.Instance.transform.position);
+        float distanceToPlayer = DistanceToPlayer(eyePosition);
 
         if (distanceToPlayer > sightDistance) {
             return false;
@@ -188,6 +198,9 @@ public class MonsterController : MonoBehaviour {
         }
 
         return nearestPoints;
+    }
+    private float DistanceToPlayer(Vector3 origin) {
+        return Vector3.Distance(origin, PlayerController.Instance.transform.position);
     }
     // debug
     private void OnDrawGizmos() {
