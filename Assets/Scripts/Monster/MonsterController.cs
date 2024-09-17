@@ -20,9 +20,9 @@ public class MonsterController : MonoBehaviour {
     [SerializeField] private AudioClip[] randomRoars;
     [SerializeField] private float footstepWalkTimerMax = .6f;
     [SerializeField] private float footstepRunTimerMax = .3f;
-    [SerializeField] private float footstepVolume = 0.1f;
+    [SerializeField] private float footstepVolume = 0.09f;
     [SerializeField] private float roarVolume = 0.4f;
-    private float roarIntervalMin = 6f;
+    private float roarIntervalMin = 5f;
     private float roarIntervalMax = 30f;
     private float timeUntilNextRoar;
     private float roarTimer;
@@ -32,9 +32,9 @@ public class MonsterController : MonoBehaviour {
     [SerializeField] private LayerMask playerLayerMask;
     [SerializeField] private float walkSpeed = 2f;
     [SerializeField] private float runSpeed = 3.5f;
-    [SerializeField] private float fieldOfViewAngle = 90f;
+    [SerializeField] private float fieldOfViewAngle = 100f;
     [SerializeField] private float hearingDistance = 1f;
-    [SerializeField] private float sightDistance = 20f;
+    [SerializeField] private float sightDistance = 12f;
 
     [Header("Patrol State")]
     [SerializeField] private Transform[] patrolPoints;
@@ -51,7 +51,11 @@ public class MonsterController : MonoBehaviour {
     private bool searchPointsGenerated = false;
 
     private void Start() {
+        gameObject.SetActive(false);
+    }
+    private void OnEnable() {
         StartPatrolling();
+        PlayRandomRoarImmediately(maxDistance: 22);
         timeUntilNextRoar = Random.Range(roarIntervalMin, roarIntervalMax);
     }
     private void Update() {
@@ -158,8 +162,9 @@ public class MonsterController : MonoBehaviour {
         Vector3 offsetY = Vector3.up;
         Vector3 eyePosition = transform.position + offsetY;
         float distanceToPlayer = DistanceToPlayer(eyePosition);
+        float currentSightDistance = PlayerController.Instance.isCrouching ? sightDistance * .6f : sightDistance;
 
-        if (distanceToPlayer > sightDistance) {
+        if (distanceToPlayer > currentSightDistance) {
             return false;
         }
         if (distanceToPlayer <= hearingDistance) {
@@ -218,33 +223,37 @@ public class MonsterController : MonoBehaviour {
         footstepTimer -= Time.deltaTime;
         if (footstepTimer <= 0) {
             footstepTimer = footstepWalkTimerMax;
-            SoundManager.Instance.PlaySound(footstepSounds, transform.position, footstepVolume, maxDistance: 10f, rolloffMode: AudioRolloffMode.Custom);
+            SoundManager.Instance.PlaySound(footstepSounds, transform.position, footstepVolume, maxDistance: 15f, rolloffMode: AudioRolloffMode.Custom);
         }
     }
     private void PlayRunFootstep() {
         footstepTimer -= Time.deltaTime;
         if (footstepTimer <= 0) {
             footstepTimer = footstepRunTimerMax;
-            SoundManager.Instance.PlaySound(footstepSounds, transform.position, footstepVolume, maxDistance: 10f, rolloffMode: AudioRolloffMode.Custom);
+            SoundManager.Instance.PlaySound(footstepSounds, transform.position, footstepVolume, maxDistance: 15f, rolloffMode: AudioRolloffMode.Custom);
         }
     }
     private void PlayRandomRoar() {
         roarTimer += Time.deltaTime;
         if (roarTimer >= timeUntilNextRoar) {
-            SoundManager.Instance.PlaySound(randomRoars, transform.position, roarVolume, maxDistance: 25f, rolloffMode: AudioRolloffMode.Custom);
+            PlayRandomRoarImmediately();
 
             timeUntilNextRoar = Random.Range(roarIntervalMin, roarIntervalMax);
             roarTimer = 0f;
         }
     }
+    private void PlayRandomRoarImmediately(float maxDistance = 20f) {
+        SoundManager.Instance.PlaySound(randomRoars, transform.position, roarVolume, maxDistance: maxDistance, rolloffMode: AudioRolloffMode.Custom);
+    }
     private void StartChaseMusic() {
         BackgroundMusic.Instance.Play(BackgroundMusic.Sounds.ChaseMusic, 1f);
-        BackgroundMusic.Instance.Pause(BackgroundMusic.Sounds.MainAmbient, 1f);
+        BackgroundMusic.Instance.Stop(BackgroundMusic.Sounds.MainAmbient, 1f);
         BackgroundMusic.Instance.Stop(BackgroundMusic.Sounds.DeepImpacts, 1f);
     }
     private void StopChaseMusic() {
         BackgroundMusic.Instance.Stop(BackgroundMusic.Sounds.ChaseMusic, 2f);
         BackgroundMusic.Instance.Play(BackgroundMusic.Sounds.MainAmbient, 2f);
+        BackgroundMusic.Instance.Play(BackgroundMusic.Sounds.DeepImpacts, 1f);
     }
     // debug
     private void OnDrawGizmos() {
