@@ -44,12 +44,24 @@ public class SoundManager : MonoBehaviour {
     public void PlayAudioSource(AudioSource[] audioSources) {
         audioSources[Random.Range(0, audioSources.Length)].Play();
     }
-    public void StopAudioSource(AudioSource audioSource) {
-        audioSource.Stop();
+    public void StopAudioSource(AudioSource audio) {
+        if (audio.isPlaying) {
+            audio.Stop();
+        }
+    }
+    public void PauseAudioSource(AudioSource audio) {
+        if (audio.isPlaying) {
+            audio.Pause();
+        }
     }
     public void FadeOutAudioSource(AudioSource audio, float fadeTime) {
         if (audio.isPlaying) {
             StartCoroutine(FadeOut(audio, fadeTime));
+        }
+    }
+    public void FadeOutPauseAudioSource(AudioSource audio, float fadeTime) {
+        if (audio.isPlaying) {
+            StartCoroutine(FadeOutPause(audio, fadeTime));
         }
     }
     public void FadeInAudioSource(AudioSource audio, float fadeTime) {
@@ -107,6 +119,16 @@ public class SoundManager : MonoBehaviour {
             yield return null;
         }
         audioSource.Stop();
+        audioSource.volume = startVolume;
+    }
+    private IEnumerator FadeOutPause(AudioSource audioSource, float fadeTime) {
+        float startVolume = audioSource.volume;
+
+        while (audioSource.volume > 0) {
+            audioSource.volume -= startVolume * Time.deltaTime / fadeTime;
+            yield return null;
+        }
+        audioSource.Pause();
         audioSource.volume = startVolume;
     }
     private IEnumerator FadeIn(AudioSource audioSource, float targetVolume, float fadeTime) {
