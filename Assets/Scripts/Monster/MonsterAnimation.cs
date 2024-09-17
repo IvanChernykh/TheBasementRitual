@@ -5,7 +5,9 @@ public class MonsterAnimation : MonoBehaviour {
     private enum AnimationBools {
         Idle,
         Walk,
+        RunOld,
         Run,
+
     }
     [SerializeField] private Animator animator;
 
@@ -17,14 +19,18 @@ public class MonsterAnimation : MonoBehaviour {
         ClearAnimations(AnimationBools.Walk);
         ActivateBoolAnimation(AnimationBools.Walk);
     }
+    public void RunOld() {
+        ClearAnimations(AnimationBools.RunOld);
+        ActivateBoolAnimation(AnimationBools.RunOld);
+    }
     public void Run() {
         ClearAnimations(AnimationBools.Run);
         ActivateBoolAnimation(AnimationBools.Run);
     }
     private void ClearAnimations(AnimationBools currentAnimation) {
-        foreach (AnimationBools trigger in Enum.GetValues(typeof(AnimationBools))) {
-            if (trigger != currentAnimation) {
-                animator.SetBool(trigger.ToString(), false);
+        foreach (AnimationBools aBool in Enum.GetValues(typeof(AnimationBools))) {
+            if (aBool != currentAnimation) {
+                animator.SetBool(aBool.ToString(), false);
             }
         }
     }
