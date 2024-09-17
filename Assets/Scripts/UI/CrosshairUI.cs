@@ -1,4 +1,5 @@
 using UnityEngine;
+using Assets.Scripts.Utils;
 
 public class CrosshairUI : MonoBehaviour {
     public static CrosshairUI Instance { get; private set; }
@@ -7,6 +8,9 @@ public class CrosshairUI : MonoBehaviour {
     [SerializeField] private GameObject crosshairHovered;
 
     private void Awake() {
+        if (Instance != null) {
+            Exceptions.MoreThanOneInstance(name);
+        }
         Instance = this;
     }
     private void Start() {

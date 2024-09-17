@@ -1,4 +1,5 @@
 using UnityEngine;
+using Assets.Scripts.Utils;
 
 public class GameStateManager : MonoBehaviour {
     public static GameStateManager Instance { get; private set; }
@@ -10,6 +11,9 @@ public class GameStateManager : MonoBehaviour {
     private GameState gameState;
 
     private void Awake() {
+        if (Instance != null) {
+            Exceptions.MoreThanOneInstance(name);
+        }
         Instance = this;
     }
     private void Start() {

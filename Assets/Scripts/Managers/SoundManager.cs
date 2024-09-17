@@ -1,10 +1,14 @@
 using System.Collections;
 using UnityEngine;
+using Assets.Scripts.Utils;
 
 public class SoundManager : MonoBehaviour {
     public static SoundManager Instance { get; private set; }
 
     private void Awake() {
+        if (Instance != null) {
+            Exceptions.MoreThanOneInstance(name);
+        }
         Instance = this;
     }
     // AudioClip

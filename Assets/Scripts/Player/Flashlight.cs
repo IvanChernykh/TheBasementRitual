@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using Assets.Scripts.Utils;
 
 public class Flashlight : MonoBehaviour {
     public static Flashlight Instance { get; private set; }
@@ -18,6 +19,9 @@ public class Flashlight : MonoBehaviour {
 
 
     private void Awake() {
+        if (Instance != null) {
+            Exceptions.MoreThanOneInstance(name);
+        }
         Instance = this;
     }
     private void Start() {

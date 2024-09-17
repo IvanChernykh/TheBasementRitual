@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Assets.Scripts.Utils;
 
 public class InputManager : MonoBehaviour {
     public static InputManager Instance { get; private set; }
@@ -17,6 +18,9 @@ public class InputManager : MonoBehaviour {
     private PlayerInputActions inputActions;
 
     private void Awake() {
+        if (Instance != null) {
+            Exceptions.MoreThanOneInstance(name);
+        }
         Instance = this;
 
         inputActions = new PlayerInputActions();

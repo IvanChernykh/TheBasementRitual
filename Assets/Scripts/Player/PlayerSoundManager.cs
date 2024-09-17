@@ -1,4 +1,5 @@
 using UnityEngine;
+using Assets.Scripts.Utils;
 
 public class PlayerSoundManager : MonoBehaviour {
     public static PlayerSoundManager Instance { get; private set; }
@@ -17,6 +18,9 @@ public class PlayerSoundManager : MonoBehaviour {
     private Vector3 footSoundsPosition;
 
     private void Awake() {
+        if (Instance != null) {
+            Exceptions.MoreThanOneInstance(name);
+        }
         Instance = this;
     }
     private void Start() {

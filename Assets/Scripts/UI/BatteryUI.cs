@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Assets.Scripts.Utils;
 
 public class BatteryUI : MonoBehaviour {
     public static BatteryUI Instance { get; private set; }
@@ -13,6 +14,9 @@ public class BatteryUI : MonoBehaviour {
     private Color currentColor;
 
     private void Awake() {
+        if (Instance != null) {
+            Exceptions.MoreThanOneInstance(name);
+        }
         Instance = this;
     }
     private void Start() {

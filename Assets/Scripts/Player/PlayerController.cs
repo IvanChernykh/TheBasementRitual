@@ -1,4 +1,5 @@
 using UnityEngine;
+using Assets.Scripts.Utils;
 
 public class PlayerController : MonoBehaviour {
     public static PlayerController Instance { get; private set; }
@@ -44,6 +45,9 @@ public class PlayerController : MonoBehaviour {
     private bool isInteracting;
 
     private void Awake() {
+        if (Instance != null) {
+            Exceptions.MoreThanOneInstance(name);
+        }
         Instance = this;
         controller = GetComponent<CharacterController>();
     }

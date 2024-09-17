@@ -1,4 +1,5 @@
 using UnityEngine;
+using Assets.Scripts.Utils;
 
 public class BackgroundMusic : MonoBehaviour {
     public static BackgroundMusic Instance { get; private set; }
@@ -23,6 +24,9 @@ public class BackgroundMusic : MonoBehaviour {
     [SerializeField] private AudioSource deepImpactsFast;
 
     private void Awake() {
+        if (Instance != null) {
+            Exceptions.MoreThanOneInstance(name);
+        }
         Instance = this;
     }
 

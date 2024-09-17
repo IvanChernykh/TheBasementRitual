@@ -1,4 +1,5 @@
 using UnityEngine;
+using Assets.Scripts.Utils;
 
 public class DoorAudio : MonoBehaviour {
     public static DoorAudio Instance { get; private set; }
@@ -14,9 +15,10 @@ public class DoorAudio : MonoBehaviour {
     private float defaultVolume = 1f;
 
     private void Awake() {
-        if (Instance == null) {
-            Instance = this;
+        if (Instance != null) {
+            Exceptions.MoreThanOneInstance(name);
         }
+        Instance = this;
     }
 
     public void PlayLocked(Vector3 position) {

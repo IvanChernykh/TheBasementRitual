@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Assets.Scripts.Utils;
 
 public class PlayerInventory : MonoBehaviour {
     public static PlayerInventory Instance { get; private set; }
@@ -9,6 +10,9 @@ public class PlayerInventory : MonoBehaviour {
     public int batteriesMax { get; private set; } = 10;
 
     private void Awake() {
+        if (Instance != null) {
+            Exceptions.MoreThanOneInstance(name);
+        }
         Instance = this;
     }
     public void SetHasFlashlight(bool has) {

@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -53,11 +54,6 @@ public class MonsterController : MonoBehaviour {
     private void Start() {
         gameObject.SetActive(false);
     }
-    private void OnEnable() {
-        StartPatrolling();
-        PlayRandomRoarImmediately(maxDistance: 22);
-        timeUntilNextRoar = Random.Range(roarIntervalMin, roarIntervalMax);
-    }
     private void Update() {
         PlayRandomRoar();
         switch (currentState) {
@@ -76,6 +72,12 @@ public class MonsterController : MonoBehaviour {
         }
         // todo: remove it later
         DebugLogs();
+    }
+    // init
+    public void Init() {
+        StartPatrolling();
+        PlayRandomRoarImmediately(25f);
+        timeUntilNextRoar = Random.Range(roarIntervalMin, roarIntervalMax);
     }
     // state handlers
     private void HandlePatrol() {
