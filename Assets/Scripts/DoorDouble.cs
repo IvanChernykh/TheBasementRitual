@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class DoorDouble : Interactable {
     [Header("UI")]
-    [SerializeField] private string openMessage = "Open door";
-    [SerializeField] private string closeMessage = "Close door";
+    [SerializeField] private string openMessage = "Open";
+    [SerializeField] private string closeMessage = "Close";
     [SerializeField] private string lockedMessage = "Locked";
     [Header("Settings")]
     [SerializeField] private Transform doorLeft;

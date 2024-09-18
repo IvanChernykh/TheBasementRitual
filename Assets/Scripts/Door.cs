@@ -1,8 +1,8 @@
 using UnityEngine;
 
 public class Door : Interactable {
-    private const string OPEN_MESSAGE = "Open door";
-    private const string CLOSE_MESSAGE = "Close door";
+    private const string OPEN_MESSAGE = "Open";
+    private const string CLOSE_MESSAGE = "Close";
     [SerializeField] private Transform rotationPoint;
     [SerializeField] private float openSpeed = 200f;
     [SerializeField] private bool openForward;
