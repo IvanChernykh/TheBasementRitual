@@ -1,3 +1,4 @@
+using Assets.Scripts.Utils;
 using UnityEngine;
 
 public class Door : Interactable {
@@ -103,9 +104,8 @@ public class Door : Interactable {
         }
     }
     private void TryOpenLockedFromOtherSide() {
-        Vector3 playerPos = PlayerController.Instance.gameObject.transform.position;
-        if (Vector3.Distance(playerPos, transform.position) < PlayerController.Instance.interactDistance * 1.5) {
-            Vector3 directionToPlayer = playerPos - transform.position;
+        if (PlayerUtils.DistanceToPlayer(transform.position) < PlayerController.Instance.interactDistance * 1.5) {
+            Vector3 directionToPlayer = PlayerUtils.DirectionToPlayer(transform.position);
             directionToPlayer.y = 0;
 
             Vector3 doorForward = lockedFromBehindSide ? -transform.forward : transform.forward;

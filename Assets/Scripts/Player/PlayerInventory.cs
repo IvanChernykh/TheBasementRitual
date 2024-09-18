@@ -7,7 +7,7 @@ public class PlayerInventory : MonoBehaviour {
     public List<ItemData> items { get; private set; } = new List<ItemData>();
     public List<ItemData> batteries { get; private set; } = new List<ItemData>();
     public bool hasFlashlight { get; private set; }
-    public int batteriesMax { get; private set; } = 10;
+    public readonly int batteriesMax = 10;
 
     private void Awake() {
         if (Instance != null) {

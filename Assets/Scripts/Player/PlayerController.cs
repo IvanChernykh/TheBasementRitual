@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] private LayerMask interactableLayerMask;
     public float interactDistance { get; private set; } = 2f;
 
-    // states
+    // flags
     public bool isMoving { get; private set; }
     public bool isSprinting { get; private set; }
     public bool isLanding { get; private set; }
@@ -83,6 +83,7 @@ public class PlayerController : MonoBehaviour {
     private void LateUpdate() {
         HandleCamera();
     }
+    // handlers
     private void HandleCamera() {
         Vector2 mouseInput = InputManager.Instance.GetMouseVector();
 
@@ -143,10 +144,24 @@ public class PlayerController : MonoBehaviour {
             }
         }
     }
-    private void ResetHeight() {
-        transform.position = transform.position + crouchOffset;
-        controller.height = normalHeight;
+    private void HandleInteraction() {
+        if (Physics.Raycast(headTransform.position, headTransform.forward, out RaycastHit raycastHit, interactDistance, interactableLayerMask)) {
+            if (raycastHit.transform.TryGetComponent(out Interactable interactable)) {
+                InteractionMessageUI.Instance.Show(interactable.interactMessage);
+                CrosshairUI.Instance.Hover();
+                if (isInteracting) {
+                    interactable.InteractAction();
+                }
+            }
+        } else {
+            InteractionMessageUI.Instance.Hide();
+            CrosshairUI.Instance.Hide();
+        }
+        if (isInteracting) {
+            isInteracting = false;
+        }
     }
+    // public
     public void Hide() {
         ResetMovementFlags();
         ResetHeight();
@@ -173,6 +188,11 @@ public class PlayerController : MonoBehaviour {
         maxRotationX = defaultMaxRotationX;
         maxRotationY = defaultMaxRotationY;
     }
+    // private
+    private void ResetHeight() {
+        transform.position = transform.position + crouchOffset;
+        controller.height = normalHeight;
+    }
     private void ResetMovementFlags() {
         isMoving = false;
         isSprinting = false;
@@ -188,23 +208,6 @@ public class PlayerController : MonoBehaviour {
             groundCheck.localPosition = groundCheckDefaultPos;
         }
         return Physics.CheckSphere(groundCheck.position, groundCheckRadius, groundMask);
-    }
-    private void HandleInteraction() {
-        if (Physics.Raycast(headTransform.position, headTransform.forward, out RaycastHit raycastHit, interactDistance, interactableLayerMask)) {
-            if (raycastHit.transform.TryGetComponent(out Interactable interactable)) {
-                InteractionMessageUI.Instance.Show(interactable.interactMessage);
-                CrosshairUI.Instance.Hover();
-                if (isInteracting) {
-                    interactable.InteractAction();
-                }
-            }
-        } else {
-            InteractionMessageUI.Instance.Hide();
-            CrosshairUI.Instance.Hide();
-        }
-        if (isInteracting) {
-            isInteracting = false;
-        }
     }
     private void CheckIsLandingAndIsFloating() {
         if (isLanding) {

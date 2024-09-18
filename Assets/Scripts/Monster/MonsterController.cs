@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Assets.Scripts.Utils;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -91,7 +92,7 @@ public class MonsterController : MonoBehaviour {
             nextPointIdx = Random.Range(0, patrolPoints.Length);
         }
         agent.SetDestination(patrolPoints[nextPointIdx].position);
-        PlayWalkFootstep();
+        PlayFootStep(footstepWalkTimerMax);
     }
     private void HandleChasePlayer() {
         if (!CanSeePlayer()) {
@@ -99,7 +100,7 @@ public class MonsterController : MonoBehaviour {
             return;
         }
         agent.SetDestination(player.transform.position);
-        PlayRunFootstep();
+        PlayFootStep(footstepRunTimerMax);
     }
     private void HandleInvestigateLastSeenPlayerPos() {
         if (CanSeePlayer()) {
@@ -121,7 +122,6 @@ public class MonsterController : MonoBehaviour {
             if (!searchPointsGenerated) {
                 searchPoints = GetNearestPoints(
                     playerLastSeenPos,
-                    player.transform.position,
                     patrolPoints,
                     pointCount: 3,
                     exclusionRadius: 1f
@@ -168,7 +168,7 @@ public class MonsterController : MonoBehaviour {
         }
         Vector3 offsetY = Vector3.up;
         Vector3 eyePosition = transform.position + offsetY;
-        float distanceToPlayer = DistanceToPlayer(eyePosition);
+        float distanceToPlayer = PlayerUtils.DistanceToPlayer(eyePosition);
         float currentSightDistance = player.isCrouching ? sightDistance * .6f : sightDistance;
 
         if (distanceToPlayer > currentSightDistance) {
@@ -178,7 +178,7 @@ public class MonsterController : MonoBehaviour {
             return true;
         }
 
-        Vector3 directionToPlayer = (player.transform.position - eyePosition).normalized;
+        Vector3 directionToPlayer = PlayerUtils.DirectionToPlayerNormalized(eyePosition);
         float angleToPlayer = Vector3.Angle(transform.forward, directionToPlayer);
 
         if (angleToPlayer <= fieldOfViewAngle / 2f) {
@@ -192,12 +192,11 @@ public class MonsterController : MonoBehaviour {
     }
     private List<Vector3> GetNearestPoints(
         Vector3 origin,
-        Vector3 playerCurrentPosition,
         Transform[] searchPoints,
         int pointCount,
         float exclusionRadius
         ) {
-        Vector3 directionToPlayer = (playerCurrentPosition - origin).normalized;
+        Vector3 directionToPlayer = PlayerUtils.DirectionToPlayerNormalized(origin);
 
         List<Vector3> nearestPoints = new List<Vector3>();
         List<Vector3> sortedPoints = searchPoints
@@ -222,21 +221,11 @@ public class MonsterController : MonoBehaviour {
 
         return nearestPoints;
     }
-    private float DistanceToPlayer(Vector3 origin) {
-        return Vector3.Distance(origin, player.transform.position);
-    }
     // sounds
-    private void PlayWalkFootstep() {
+    private void PlayFootStep(float timerMax) {
         footstepTimer -= Time.deltaTime;
         if (footstepTimer <= 0) {
-            footstepTimer = footstepWalkTimerMax;
-            SoundManager.Instance.PlaySound(footstepSounds, transform.position, footstepVolume, maxDistance: 15f, rolloffMode: AudioRolloffMode.Custom);
-        }
-    }
-    private void PlayRunFootstep() {
-        footstepTimer -= Time.deltaTime;
-        if (footstepTimer <= 0) {
-            footstepTimer = footstepRunTimerMax;
+            footstepTimer = timerMax;
             SoundManager.Instance.PlaySound(footstepSounds, transform.position, footstepVolume, maxDistance: 15f, rolloffMode: AudioRolloffMode.Custom);
         }
     }
