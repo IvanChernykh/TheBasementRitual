@@ -26,6 +26,11 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] private Transform headTransform;
     [SerializeField] private float mouseSensivity = 10f;
     private float rotationY;
+    private float rotationX;
+    private float maxRotationX = 0; // unlimited if 0
+    private float maxRotationY = 85f;
+    public readonly float defaultMaxRotationY = 85f;
+    public readonly float defaultMaxRotationX = 0f;
 
     [Header("Jumping and Gravity")]
     [SerializeField] private float jumpHeight = 1.5f;
@@ -35,6 +40,8 @@ public class PlayerController : MonoBehaviour {
     [Header("Interactions")]
     [SerializeField] private LayerMask interactableLayerMask;
     public float interactDistance { get; private set; } = 2f;
+
+    // states
     public bool isMoving { get; private set; }
     public bool isSprinting { get; private set; }
     public bool isLanding { get; private set; }
@@ -83,10 +90,17 @@ public class PlayerController : MonoBehaviour {
         float mouseY = mouseInput.y * Time.smoothDeltaTime * mouseSensivity;
 
         rotationY -= mouseY;
-        rotationY = Mathf.Clamp(rotationY, -85f, 85f);
+        rotationY = Mathf.Clamp(rotationY, -maxRotationY, maxRotationY);
 
-        headTransform.localRotation = Quaternion.Euler(new Vector3(rotationY, 0, 0));
-        transform.Rotate(Vector3.up, mouseX);
+
+        if (maxRotationX > defaultMaxRotationX) {
+            rotationX += mouseX;
+            rotationX = Mathf.Clamp(rotationX, -maxRotationX, maxRotationX);
+            headTransform.localRotation = Quaternion.Euler(new Vector3(rotationY, rotationX, 0));
+        } else {
+            headTransform.localRotation = Quaternion.Euler(new Vector3(rotationY, 0, 0));
+            transform.Rotate(Vector3.up, mouseX);
+        }
     }
     private void HandleMovement() {
         Vector2 inputVector = InputManager.Instance.GetMovementVectorNormalized();
@@ -147,6 +161,18 @@ public class PlayerController : MonoBehaviour {
         controller.enabled = true;
         isHiding = false;
     }
+    public void RestrictRotation(float maxX, float maxY) {
+        maxRotationX = maxX;
+        maxRotationY = maxY;
+    }
+    public void RestrictRotation(float numXY) {
+        maxRotationX = numXY;
+        maxRotationY = numXY;
+    }
+    public void UnrestrictRotation() {
+        maxRotationX = defaultMaxRotationX;
+        maxRotationY = defaultMaxRotationY;
+    }
     private void ResetMovementFlags() {
         isMoving = false;
         isSprinting = false;
@@ -165,9 +191,9 @@ public class PlayerController : MonoBehaviour {
     }
     private void HandleInteraction() {
         if (Physics.Raycast(headTransform.position, headTransform.forward, out RaycastHit raycastHit, interactDistance, interactableLayerMask)) {
-            CrosshairUI.Instance.Hover();
             if (raycastHit.transform.TryGetComponent(out Interactable interactable)) {
                 InteractionMessageUI.Instance.Show(interactable.interactMessage);
+                CrosshairUI.Instance.Hover();
                 if (isInteracting) {
                     interactable.InteractAction();
                 }

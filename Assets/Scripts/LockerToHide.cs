@@ -35,6 +35,7 @@ public class LockerToHide : Interactable {
     }
     private void Hide() {
         player.Hide();
+        player.RestrictRotation(40f);
         player.transform.position = hidePosition.position;
         player.transform.rotation = Quaternion.Euler(new Vector3(0, hidePosition.eulerAngles.y - 180, 0));
         TooltipUI.Instance.ShowAlways("Peek - [ W / S ]");
@@ -46,6 +47,7 @@ public class LockerToHide : Interactable {
         player.transform.position = exitPosition.position;
         player.transform.rotation = Quaternion.Euler(new Vector3(0, hidePosition.eulerAngles.y - 180, 0));
         player.UnHide();
+        player.UnrestrictRotation();
     }
     private void HandlePeek() {
         Vector2 inputVector = InputManager.Instance.GetMovementVector();
