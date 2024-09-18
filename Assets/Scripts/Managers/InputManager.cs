@@ -77,6 +77,9 @@ public class InputManager : MonoBehaviour {
         }
     }
     // helpers
+    public Vector2 GetMovementVector() {
+        return inputActions.Player.Movement.ReadValue<Vector2>();
+    }
     public Vector2 GetMovementVectorNormalized() {
         Vector2 input = inputActions.Player.Movement.ReadValue<Vector2>();
         return input.normalized;

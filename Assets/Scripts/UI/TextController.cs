@@ -24,7 +24,11 @@ public class TextController : MonoBehaviour {
         textObject.gameObject.SetActive(true);
         StartCoroutine(ShowQueue(text));
     }
-    protected void Hide() {
+    public void ShowAlways(string text) {
+        textObject.text = text;
+        textObject.gameObject.SetActive(true);
+    }
+    public void Hide() {
         textObject.text = "";
         textObject.gameObject.SetActive(false);
     }
