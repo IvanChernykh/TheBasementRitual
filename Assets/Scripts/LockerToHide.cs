@@ -5,8 +5,8 @@ public class LockerToHide : Interactable {
     [SerializeField] private Transform exitPosition;
     [SerializeField] private Transform rotationPoint;
     private PlayerController player;
-    private float maxPeekAngle = 12f;
-    private float peekSpeed = 15f;
+    private readonly float maxPeekAngle = 12f;
+    private readonly float peekSpeed = 16f;
     private float currentRotation;
     private bool hidingHere; // check if hiding in exact locker
 
@@ -49,18 +49,17 @@ public class LockerToHide : Interactable {
     }
     private void HandlePeek() {
         Vector2 inputVector = InputManager.Instance.GetMovementVector();
+        float directionMultiplier = -Mathf.Sign(transform.lossyScale.x);
 
         if (inputVector.y > 0) {
             float rotationStep = peekSpeed * Time.deltaTime;
-
             if (currentRotation < maxPeekAngle) {
-                transform.RotateAround(rotationPoint.position, Vector3.up, rotationStep);
+                transform.RotateAround(rotationPoint.position, Vector3.up, rotationStep * directionMultiplier);
                 currentRotation += rotationStep;
 
                 if (currentRotation > maxPeekAngle) {
                     float excessRotation = currentRotation - maxPeekAngle;
-                    transform.RotateAround(rotationPoint.position, Vector3.up, -excessRotation);
-
+                    transform.RotateAround(rotationPoint.position, Vector3.up, -excessRotation * directionMultiplier);
                     currentRotation = maxPeekAngle;
                 }
             }
@@ -68,10 +67,12 @@ public class LockerToHide : Interactable {
         if (inputVector.y < 0) {
             float rotationStep = -peekSpeed * Time.deltaTime;
             if (currentRotation > 0) {
-                transform.RotateAround(rotationPoint.position, Vector3.up, rotationStep); currentRotation += rotationStep;
+                transform.RotateAround(rotationPoint.position, Vector3.up, rotationStep * directionMultiplier);
+                currentRotation += rotationStep;
+
                 if (currentRotation < 0) {
                     float excessRotation = 0 - currentRotation;
-                    transform.RotateAround(rotationPoint.position, Vector3.up, excessRotation);
+                    transform.RotateAround(rotationPoint.position, Vector3.up, excessRotation * directionMultiplier);
                     currentRotation = 0;
                 }
             }
