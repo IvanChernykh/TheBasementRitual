@@ -17,26 +17,18 @@ public class NotesUI : MonoBehaviour {
     }
     private void Start() {
         Hide();
-        InputManager.Instance.OnUnpause += OnUnpause;
     }
 
     public void Show(string text) {
-        GameStateManager.Instance.SetReadingNoteState();
+        GameStateManager.Instance.EnterReadingNoteState();
 
         postProcessingBlur.SetActive(true);
         container.SetActive(true);
         noteText.text = text;
     }
     public void Hide() {
-        GameStateManager.Instance.SetPlayingState();
-
         postProcessingBlur.SetActive(false);
         container.SetActive(false);
         noteText.text = "";
-    }
-    private void OnUnpause(object sender, EventArgs e) {
-        if (GameStateManager.Instance.IsReadingNote()) {
-            Hide();
-        }
     }
 }

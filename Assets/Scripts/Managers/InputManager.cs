@@ -12,8 +12,6 @@ public class InputManager : MonoBehaviour {
     public event EventHandler OnInteractEvent;
     public event EventHandler OnFlashlightToggleEvent;
     public event EventHandler OnReloadBattery;
-    public event EventHandler OnPause;
-    public event EventHandler OnUnpause;
 
     private PlayerInputActions inputActions;
 
@@ -70,10 +68,18 @@ public class InputManager : MonoBehaviour {
         OnReloadBattery?.Invoke(this, EventArgs.Empty);
     }
     private void PausePerformed(UnityEngine.InputSystem.InputAction.CallbackContext obj) {
-        if (GameStateManager.Instance.IsPlaying()) {
-            OnPause?.Invoke(this, EventArgs.Empty);
-        } else {
-            OnUnpause?.Invoke(this, EventArgs.Empty);
+        if (GameStateManager.Instance.IsInGame()) {
+            GameStateManager.Instance.EnterPausedState();
+            return;
+        }
+        if (GameStateManager.Instance.IsPaused()) {
+            GameStateManager.Instance.ExitPausedState();
+            GameStateManager.Instance.EnterInGameState();
+            return;
+        }
+        if (GameStateManager.Instance.IsReadingNote()) {
+            GameStateManager.Instance.ExitReadingNoteState();
+            GameStateManager.Instance.EnterInGameState();
         }
     }
     // helpers

@@ -4,12 +4,14 @@ using Assets.Scripts.Utils;
 public class GameStateManager : MonoBehaviour {
     public static GameStateManager Instance { get; private set; }
     private enum GameState {
-        Playing,
+        InGame,
         ReadingNote,
         Paused,
         GameOver
     }
     private GameState gameState;
+    private readonly float timeScalePaused = 0f;
+    private readonly float timeScaleInGame = 1f;
 
     private void Awake() {
         if (Instance != null) {
@@ -18,30 +20,43 @@ public class GameStateManager : MonoBehaviour {
         Instance = this;
     }
     private void Start() {
-        SetPlayingState();
+        EnterInGameState();
     }
-    // setters
-    public void SetReadingNoteState() {
-        Time.timeScale = 0f;
-        gameState = GameState.ReadingNote;
-    }
-    public void SetPlayingState() {
-        Time.timeScale = 1f;
+    // in game state
+    public void EnterInGameState() {
+        Time.timeScale = timeScaleInGame;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-        gameState = GameState.Playing;
+        gameState = GameState.InGame;
     }
-    public void SetPausedState() {
-        Time.timeScale = 0f;
+    // reading note state
+    public void EnterReadingNoteState() {
+        Time.timeScale = timeScalePaused;
+
+        gameState = GameState.ReadingNote;
+    }
+    public void ExitReadingNoteState() {
+        NotesUI.Instance.Hide();
+    }
+    // paused state
+    public void EnterPausedState() {
+        Time.timeScale = timeScalePaused;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        PausePanel.Instance.Show();
+
         gameState = GameState.Paused;
+    }
+    public void ExitPausedState() {
+        PausePanel.Instance.Hide();
     }
     // getters
     public bool IsReadingNote() {
         return gameState == GameState.ReadingNote;
     }
-    public bool IsPlaying() {
-        return gameState == GameState.Playing;
+    public bool IsInGame() {
+        return gameState == GameState.InGame;
     }
     public bool IsPaused() {
         return gameState == GameState.Paused;
