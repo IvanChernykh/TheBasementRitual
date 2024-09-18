@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour {
     public bool isSprinting { get; private set; }
     public bool isLanding { get; private set; }
     public bool isCrouching { get; private set; }
+    public bool isHiding { get; private set; }
     private bool isGrounded;
     private bool isFloating;
     private bool isJumping;
@@ -61,13 +62,14 @@ public class PlayerController : MonoBehaviour {
         groundCheckDefaultPos = groundCheck.localPosition;
     }
     private void Update() {
-        isGrounded = IsGrounded();
-
-        if (isGrounded && velocity.y < 0) {
-            velocity.y = -2;
+        if (!isHiding) {
+            isGrounded = IsGrounded();
+            if (isGrounded && velocity.y < 0) {
+                velocity.y = -2;
+            }
+            HandleMovement();
+            HandleCrouch();
         }
-        HandleMovement();
-        HandleCrouch();
         HandleInteraction();
         CheckIsLandingAndIsFloating();
     }
@@ -126,6 +128,32 @@ public class PlayerController : MonoBehaviour {
                 controller.height = normalHeight;
             }
         }
+    }
+    private void ResetHeight() {
+        transform.position = transform.position + crouchOffset;
+        controller.height = normalHeight;
+    }
+    public void Hide() {
+        ResetMovementFlags();
+        ResetHeight();
+        if (Flashlight.Instance.isActive) {
+            Flashlight.Instance.UnequipImmediately();
+        }
+        headTransform.localRotation = Quaternion.Euler(Vector3.zero);
+        controller.enabled = false;
+        isHiding = true;
+    }
+    public void UnHide() {
+        controller.enabled = true;
+        isHiding = false;
+    }
+    private void ResetMovementFlags() {
+        isMoving = false;
+        isSprinting = false;
+        isCrouching = false;
+        isJumping = false;
+        isLanding = false;
+        isFloating = false;
     }
     private bool IsGrounded() {
         if (isCrouching) {

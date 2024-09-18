@@ -50,8 +50,10 @@ public class MonsterController : MonoBehaviour {
     // search state
     private List<Vector3> searchPoints = new List<Vector3>();
     private bool searchPointsGenerated = false;
+    private PlayerController player;
 
     private void Start() {
+        player = PlayerController.Instance;
         gameObject.SetActive(false);
     }
     private void Update() {
@@ -96,7 +98,7 @@ public class MonsterController : MonoBehaviour {
             StartInvestigatingLastSeenPlayerPosition();
             return;
         }
-        agent.SetDestination(PlayerController.Instance.transform.position);
+        agent.SetDestination(player.transform.position);
         PlayRunFootstep();
     }
     private void HandleInvestigateLastSeenPlayerPos() {
@@ -119,7 +121,7 @@ public class MonsterController : MonoBehaviour {
             if (!searchPointsGenerated) {
                 searchPoints = GetNearestPoints(
                     playerLastSeenPos,
-                    PlayerController.Instance.transform.position,
+                    player.transform.position,
                     patrolPoints,
                     pointCount: 3,
                     exclusionRadius: 1f
@@ -150,7 +152,7 @@ public class MonsterController : MonoBehaviour {
         StartChaseMusic();
     }
     private void StartInvestigatingLastSeenPlayerPosition() {
-        playerLastSeenPos = PlayerController.Instance.transform.position;
+        playerLastSeenPos = player.transform.position;
         currentState = State.InvestigatingLastSeenPlayerPosition;
     }
     private void StartSearchingPlayer() {
@@ -161,10 +163,13 @@ public class MonsterController : MonoBehaviour {
     }
     // other
     private bool CanSeePlayer() {
+        if (player.isHiding) {
+            return false;
+        }
         Vector3 offsetY = Vector3.up;
         Vector3 eyePosition = transform.position + offsetY;
         float distanceToPlayer = DistanceToPlayer(eyePosition);
-        float currentSightDistance = PlayerController.Instance.isCrouching ? sightDistance * .6f : sightDistance;
+        float currentSightDistance = player.isCrouching ? sightDistance * .6f : sightDistance;
 
         if (distanceToPlayer > currentSightDistance) {
             return false;
@@ -173,7 +178,7 @@ public class MonsterController : MonoBehaviour {
             return true;
         }
 
-        Vector3 directionToPlayer = (PlayerController.Instance.transform.position - eyePosition).normalized;
+        Vector3 directionToPlayer = (player.transform.position - eyePosition).normalized;
         float angleToPlayer = Vector3.Angle(transform.forward, directionToPlayer);
 
         if (angleToPlayer <= fieldOfViewAngle / 2f) {
@@ -218,7 +223,7 @@ public class MonsterController : MonoBehaviour {
         return nearestPoints;
     }
     private float DistanceToPlayer(Vector3 origin) {
-        return Vector3.Distance(origin, PlayerController.Instance.transform.position);
+        return Vector3.Distance(origin, player.transform.position);
     }
     // sounds
     private void PlayWalkFootstep() {

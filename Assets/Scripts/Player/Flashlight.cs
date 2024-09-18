@@ -58,6 +58,9 @@ public class Flashlight : MonoBehaviour {
         animator.SetTrigger("Equipped");
         isActive = true;
     }
+    public void UnequipImmediately() {
+        Deactivate();
+    }
     private void UnEquip() {
         animator.SetTrigger("Unequip");
         StartCoroutine(DeactivateAfterDelay(unequipAnimationDuration));
