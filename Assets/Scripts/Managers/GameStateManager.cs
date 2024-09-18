@@ -6,7 +6,8 @@ public class GameStateManager : MonoBehaviour {
     private enum GameState {
         Playing,
         ReadingNote,
-        Paused
+        Paused,
+        GameOver
     }
     private GameState gameState;
 
@@ -44,5 +45,8 @@ public class GameStateManager : MonoBehaviour {
     }
     public bool IsPaused() {
         return gameState == GameState.Paused;
+    }
+    public bool IsGameOver() {
+        return gameState == GameState.GameOver;
     }
 }
