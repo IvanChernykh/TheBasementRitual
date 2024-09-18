@@ -51,6 +51,18 @@ public class GameStateManager : MonoBehaviour {
     public void ExitPausedState() {
         PausePanel.Instance.Hide();
     }
+    // game over state
+    public void EnterGameOverState() {
+        Time.timeScale = timeScalePaused;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        GameOverPanel.Instance.Show();
+
+        gameState = GameState.GameOver;
+    }
+    public void ExitGameOverState() {
+        GameOverPanel.Instance.Hide();
+    }
     // getters
     public bool IsReadingNote() {
         return gameState == GameState.ReadingNote;
