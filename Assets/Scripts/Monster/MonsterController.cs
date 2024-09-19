@@ -1,9 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Assets.Scripts.Utils;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class MonsterController : MonoBehaviour {
     public enum State {
