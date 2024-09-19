@@ -5,8 +5,6 @@ using UnityEngine;
 public class MonsterAttack : MonoBehaviour {
     [SerializeField] private MonsterCore monster;
     [SerializeField] private float attackDistance = 1f;
-    [SerializeField] private float attackInterval = 0.9f;
-    [SerializeField] private float damage = 70f;
 
     private bool canAttack = true;
 
@@ -16,13 +14,8 @@ public class MonsterAttack : MonoBehaviour {
         }
     }
     private IEnumerator Attack() {
-        canAttack = false;
-        // monster.Sounds.PlayAttackSound();
-        yield return new WaitForSeconds(0.1f);
-        PlayerHealth.Instance.TakeDamage(damage);
         monster.Animation.Attack();
-        yield return new WaitForSeconds(attackInterval);
-
-        canAttack = true;
+        yield return new WaitForSeconds(0.2f);
+        PlayerHealth.Instance.Kill();
     }
 }

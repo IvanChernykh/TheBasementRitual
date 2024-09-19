@@ -22,10 +22,6 @@ public class PlayerHealth : MonoBehaviour {
         currentHealth = initialHealth;
     }
 
-    void Update() {
-        Debug.Log(currentHealth);
-    }
-
     public void TakeDamage(float damage) {
         if (isDead) {
             return;
@@ -39,6 +35,9 @@ public class PlayerHealth : MonoBehaviour {
         }
         StopAllCoroutines();
         StartCoroutine(RestoreHealthAfterDelay());
+    }
+    public void Kill() {
+        Die();
     }
     private void Die() {
         isDead = true;
