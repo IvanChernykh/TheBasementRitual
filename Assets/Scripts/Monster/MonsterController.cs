@@ -18,7 +18,7 @@ public class MonsterController : MonoBehaviour {
     [Header("Settings")]
     [SerializeField] private LayerMask playerLayerMask;
     [SerializeField] private float walkSpeed = 2f;
-    [SerializeField] private float runSpeed = 3.5f;
+    [SerializeField] private float runSpeed = 3.8f;
     [SerializeField] private float fieldOfViewAngle = 120f;
     [SerializeField] private float hearingDistance = 1.5f;
     [SerializeField] private float sightDistance = 12f;
@@ -86,6 +86,12 @@ public class MonsterController : MonoBehaviour {
             StartInvestigatingLastSeenPlayerPosition();
             return;
         }
+        // get to player faster if he is far away
+        if (PlayerUtils.DistanceToPlayer(transform.position) > sightDistance / 2) {
+            monster.Agent.speed = runSpeed * 1.5f;
+        } else {
+            monster.Agent.speed = runSpeed;
+        }
         monster.Agent.SetDestination(player.transform.position);
         monster.Sounds.PlayRunFootstep();
     }
@@ -144,7 +150,6 @@ public class MonsterController : MonoBehaviour {
     }
     private void StartChasingPlayer() {
         monster.Animation.Run();
-        monster.Agent.speed = runSpeed;
         currentState = State.ChasingPlayer;
         StartChaseMusic();
     }
@@ -159,6 +164,15 @@ public class MonsterController : MonoBehaviour {
         currentState = State.SearchingPlayer;
     }
     // other
+    private float GetSightDistance() {
+        if (player.isCrouching) {
+            return sightDistance * .6f;
+        }
+        if (currentState == State.ChasingPlayer) {
+            return sightDistance * 1.5f;
+        }
+        return sightDistance;
+    }
     private bool CanSeePlayer() {
         if (player.isHiding) {
             return false;
@@ -166,7 +180,7 @@ public class MonsterController : MonoBehaviour {
         Vector3 offsetY = Vector3.up;
         Vector3 eyePosition = transform.position + offsetY;
         float distanceToPlayer = PlayerUtils.DistanceToPlayer(eyePosition);
-        float currentSightDistance = player.isCrouching ? sightDistance * .6f : sightDistance;
+        float currentSightDistance = GetSightDistance();
 
         if (distanceToPlayer > currentSightDistance) {
             return false;
