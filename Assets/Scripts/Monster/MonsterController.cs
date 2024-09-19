@@ -17,18 +17,7 @@ public class MonsterController : MonoBehaviour {
     [Header("Components")]
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private MonsterAnimation animationController;
-    [Header("Sounds")]
-    [SerializeField] private AudioClip[] footstepSounds;
-    [SerializeField] private AudioClip[] randomRoars;
-    [SerializeField] private float footstepWalkTimerMax = .6f;
-    [SerializeField] private float footstepRunTimerMax = .3f;
-    [SerializeField] private float footstepVolume = 0.09f;
-    [SerializeField] private float roarVolume = 0.4f;
-    private float roarIntervalMin = 5f;
-    private float roarIntervalMax = 25f;
-    private float timeUntilNextRoar;
-    private float roarTimer;
-    private float footstepTimer;
+    [SerializeField] private MonsterSounds soundsController;
 
     [Header("Settings")]
     [SerializeField] private LayerMask playerLayerMask;
@@ -58,7 +47,7 @@ public class MonsterController : MonoBehaviour {
         gameObject.SetActive(false);
     }
     private void Update() {
-        PlayRandomRoar();
+        soundsController.PlayRandomRoar();
         switch (currentState) {
             case State.Patrolling:
                 HandlePatrol();
@@ -77,8 +66,7 @@ public class MonsterController : MonoBehaviour {
     // init
     public void Init() {
         StartPatrolling();
-        PlayRandomRoarImmediately(25f);
-        timeUntilNextRoar = Random.Range(roarIntervalMin, roarIntervalMax);
+        soundsController.PlayRandomRoarImmediately(25f);
     }
     // state handlers
     private void HandlePatrol() {
@@ -90,7 +78,7 @@ public class MonsterController : MonoBehaviour {
             nextPointIdx = Random.Range(0, patrolPoints.Length);
         }
         agent.SetDestination(patrolPoints[nextPointIdx].position);
-        PlayFootStep(footstepWalkTimerMax);
+        soundsController.PlayWalkFootstep();
     }
     private void HandleChasePlayer() {
         if (!CanSeePlayer()) {
@@ -98,7 +86,7 @@ public class MonsterController : MonoBehaviour {
             return;
         }
         agent.SetDestination(player.transform.position);
-        PlayFootStep(footstepRunTimerMax);
+        soundsController.PlayRunFootstep();
     }
     private void HandleInvestigateLastSeenPlayerPos() {
         if (CanSeePlayer()) {
@@ -220,25 +208,6 @@ public class MonsterController : MonoBehaviour {
         return nearestPoints;
     }
     // sounds
-    private void PlayFootStep(float timerMax) {
-        footstepTimer -= Time.deltaTime;
-        if (footstepTimer <= 0) {
-            footstepTimer = timerMax;
-            SoundManager.Instance.PlaySound(footstepSounds, transform.position, footstepVolume, maxDistance: 15f, rolloffMode: AudioRolloffMode.Custom);
-        }
-    }
-    private void PlayRandomRoar() {
-        roarTimer += Time.deltaTime;
-        if (roarTimer >= timeUntilNextRoar) {
-            PlayRandomRoarImmediately();
-
-            timeUntilNextRoar = Random.Range(roarIntervalMin, roarIntervalMax);
-            roarTimer = 0f;
-        }
-    }
-    private void PlayRandomRoarImmediately(float maxDistance = 20f) {
-        SoundManager.Instance.PlaySound(randomRoars, transform.position, roarVolume, maxDistance: maxDistance, rolloffMode: AudioRolloffMode.Custom);
-    }
     private void StartChaseMusic() {
         BackgroundMusic.Instance.Play(BackgroundMusic.Sounds.ChaseMusic, 1f);
         BackgroundMusic.Instance.Stop(BackgroundMusic.Sounds.MainAmbient, 1f);

@@ -14,8 +14,11 @@ public class PlayerSounds : MonoBehaviour {
     private float footstepRunTimer;
     private readonly float footstepWalkTimerMax = .6f;
     private readonly float footStepRunTimerMax = .3f;
+    // volume
     private readonly float footstepVolume = .2f;
     private readonly float landingVolume = .1f;
+    private readonly float flashlightVolume = .1f;
+    private readonly float takeDamageVoiceVolume = .1f;
     private Vector3 footSoundsPosition;
 
     private void Awake() {
@@ -61,9 +64,9 @@ public class PlayerSounds : MonoBehaviour {
         }
     }
     public void PlayFlashlightOnSound() {
-        SoundManager.Instance.PlaySound2D(flashlightOnSounds, transform.position, .1f);
+        SoundManager.Instance.PlaySound2D(flashlightOnSounds, transform.position, flashlightVolume);
     }
     public void PlayTakeDamageVoice() {
-        SoundManager.Instance.PlaySound2D(voiceTakeDamage, transform.position, .2f);
+        SoundManager.Instance.PlaySound2D(voiceTakeDamage, transform.position, takeDamageVoiceVolume);
     }
 }
