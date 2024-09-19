@@ -19,8 +19,8 @@ public class MonsterController : MonoBehaviour {
     [SerializeField] private LayerMask playerLayerMask;
     [SerializeField] private float walkSpeed = 2f;
     [SerializeField] private float runSpeed = 3.5f;
-    [SerializeField] private float fieldOfViewAngle = 100f;
-    [SerializeField] private float hearingDistance = 1f;
+    [SerializeField] private float fieldOfViewAngle = 120f;
+    [SerializeField] private float hearingDistance = 1.5f;
     [SerializeField] private float sightDistance = 12f;
 
     [Header("Patrol State")]
@@ -36,6 +36,8 @@ public class MonsterController : MonoBehaviour {
     // search state
     private List<Vector3> searchPoints = new List<Vector3>();
     private bool searchPointsGenerated = false;
+    private float searchPositionTimerMax = 4.7f;
+    private float searchPositionTimer;
     private PlayerController player;
 
     private void Start() {
@@ -71,7 +73,10 @@ public class MonsterController : MonoBehaviour {
             return;
         }
         if (monster.Agent.remainingDistance < arrivalPointDistance) {
-            nextPointIdx = Random.Range(0, patrolPoints.Length);
+            do {
+                nextPointIdx = Random.Range(0, patrolPoints.Length);
+                // to avoid getting point that is too far from player
+            } while (PlayerUtils.DistanceToPlayer(patrolPoints[nextPointIdx].position) > 20);
         }
         monster.Agent.SetDestination(patrolPoints[nextPointIdx].position);
         monster.Sounds.PlayWalkFootstep();
@@ -91,8 +96,18 @@ public class MonsterController : MonoBehaviour {
         }
         monster.Agent.SetDestination(playerLastSeenPos);
         if (monster.Agent.remainingDistance < arrivalPointDistance) {
-            StartSearchingPlayer();
-            return;
+            if (player.isHiding) {
+                if (searchPositionTimer < searchPositionTimerMax) {
+                    monster.Animation.Idle();
+                    searchPositionTimer += Time.deltaTime;
+                    return;
+                } else {
+                    StartSearchingPlayer();
+                    searchPositionTimer = 0;
+                }
+            } else {
+                StartSearchingPlayer();
+            }
         }
     }
     private void HandleSearchPlayer() {
