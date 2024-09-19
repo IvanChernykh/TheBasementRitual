@@ -25,7 +25,7 @@ public class MonsterController : MonoBehaviour {
     [SerializeField] private float footstepVolume = 0.09f;
     [SerializeField] private float roarVolume = 0.4f;
     private float roarIntervalMin = 5f;
-    private float roarIntervalMax = 30f;
+    private float roarIntervalMax = 25f;
     private float timeUntilNextRoar;
     private float roarTimer;
     private float footstepTimer;
@@ -73,8 +73,6 @@ public class MonsterController : MonoBehaviour {
                 HandleSearchPlayer();
                 break;
         }
-        // todo: remove it later
-        DebugLogs();
     }
     // init
     public void Init() {
@@ -264,8 +262,5 @@ public class MonsterController : MonoBehaviour {
         Gizmos.DrawLine(eyePosition, eyePosition + rightBoundary * sightDistance);
         Gizmos.DrawLine(eyePosition, eyePosition + transform.forward * sightDistance);
         Gizmos.DrawWireSphere(eyePosition, hearingDistance);
-    }
-    private void DebugLogs() {
-        Debug.Log(currentState);
     }
 }

@@ -1,20 +1,21 @@
 using UnityEngine;
 using Assets.Scripts.Utils;
 
-public class PlayerSoundManager : MonoBehaviour {
-    public static PlayerSoundManager Instance { get; private set; }
+public class PlayerSounds : MonoBehaviour {
+    public static PlayerSounds Instance { get; private set; }
     [SerializeField] private AudioClip[] walkSounds;
     [SerializeField] private AudioClip[] sprintSounds;
     [SerializeField] private AudioClip[] jumpStartSounds;
     [SerializeField] private AudioClip[] landingSounds;
     [SerializeField] private AudioClip[] flashlightOnSounds;
+    [SerializeField] private AudioClip[] voiceTakeDamage;
     private PlayerController player;
     private float footstepWalkTimer;
     private float footstepRunTimer;
-    private float footstepWalkTimerMax = .6f;
-    private float footStepRunTimerMax = .3f;
-    private float footstepVolume = .2f;
-    private float landingVolume = .1f;
+    private readonly float footstepWalkTimerMax = .6f;
+    private readonly float footStepRunTimerMax = .3f;
+    private readonly float footstepVolume = .2f;
+    private readonly float landingVolume = .1f;
     private Vector3 footSoundsPosition;
 
     private void Awake() {
@@ -27,7 +28,7 @@ public class PlayerSoundManager : MonoBehaviour {
         player = PlayerController.Instance;
     }
     private void Update() {
-        footSoundsPosition = player.gameObject.transform.position + new Vector3(0f, -0.5f, 0f);
+        footSoundsPosition = player.transform.position + new Vector3(0f, -0.5f, 0f);
         PlayWalkSound();
         PlaySprintSound();
         PlayLandingSound();
@@ -61,5 +62,8 @@ public class PlayerSoundManager : MonoBehaviour {
     }
     public void PlayFlashlightOnSound() {
         SoundManager.Instance.PlaySound2D(flashlightOnSounds, transform.position, .1f);
+    }
+    public void PlayTakeDamageVoice() {
+        SoundManager.Instance.PlaySound2D(voiceTakeDamage, transform.position, .2f);
     }
 }

@@ -53,7 +53,7 @@ public class Flashlight : MonoBehaviour {
         }
     }
     public void Equip() {
-        PlayerSoundManager.Instance.PlayFlashlightOnSound();
+        PlayerSounds.Instance.PlayFlashlightOnSound();
         flashlight.SetActive(true);
         animator.SetTrigger("Equipped");
         isActive = true;

@@ -232,7 +232,7 @@ public class PlayerController : MonoBehaviour {
     private void OnJump(object sender, System.EventArgs e) {
         if (isGrounded) {
             isJumping = true;
-            PlayerSoundManager.Instance.PlayJumpStartSound();
+            PlayerSounds.Instance.PlayJumpStartSound();
         }
     }
     private void OnSprintStarted(object sender, System.EventArgs e) {

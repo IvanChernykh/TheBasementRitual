@@ -7,7 +7,9 @@ public class MonsterAnimation : MonoBehaviour {
         Walk,
         RunOld,
         Run,
-
+    }
+    private enum AnimationTriggers {
+        Attack
     }
     [SerializeField] private Animator animator;
 
