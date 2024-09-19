@@ -10,6 +10,12 @@ public class GameStateManager : MonoBehaviour {
         GameOver
     }
     private GameState gameState;
+
+    public bool InGame { get => gameState == GameState.InGame; }
+    public bool ReadingNote { get => gameState == GameState.ReadingNote; }
+    public bool Paused { get => gameState == GameState.Paused; }
+    public bool GameOver { get => gameState == GameState.GameOver; }
+
     private readonly float timeScalePaused = 0f;
     private readonly float timeScaleInGame = 1f;
 
@@ -62,18 +68,5 @@ public class GameStateManager : MonoBehaviour {
     }
     public void ExitGameOverState() {
         GameOverPanel.Instance.Hide();
-    }
-    // getters
-    public bool IsReadingNote() {
-        return gameState == GameState.ReadingNote;
-    }
-    public bool IsInGame() {
-        return gameState == GameState.InGame;
-    }
-    public bool IsPaused() {
-        return gameState == GameState.Paused;
-    }
-    public bool IsGameOver() {
-        return gameState == GameState.GameOver;
     }
 }

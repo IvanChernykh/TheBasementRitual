@@ -68,16 +68,16 @@ public class InputManager : MonoBehaviour {
         OnReloadBattery?.Invoke(this, EventArgs.Empty);
     }
     private void PausePerformed(UnityEngine.InputSystem.InputAction.CallbackContext obj) {
-        if (GameStateManager.Instance.IsInGame()) {
+        if (GameStateManager.Instance.InGame) {
             GameStateManager.Instance.EnterPausedState();
             return;
         }
-        if (GameStateManager.Instance.IsPaused()) {
+        if (GameStateManager.Instance.Paused) {
             GameStateManager.Instance.ExitPausedState();
             GameStateManager.Instance.EnterInGameState();
             return;
         }
-        if (GameStateManager.Instance.IsReadingNote()) {
+        if (GameStateManager.Instance.ReadingNote) {
             GameStateManager.Instance.ExitReadingNoteState();
             GameStateManager.Instance.EnterInGameState();
         }
