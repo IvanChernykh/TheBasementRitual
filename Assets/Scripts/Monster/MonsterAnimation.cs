@@ -29,6 +29,9 @@ public class MonsterAnimation : MonoBehaviour {
         ClearAnimations(AnimationBools.Run);
         ActivateBoolAnimation(AnimationBools.Run);
     }
+    public void Attack() {
+        animator.SetTrigger(AnimationTriggers.Attack.ToString());
+    }
     private void ClearAnimations(AnimationBools currentAnimation) {
         foreach (AnimationBools aBool in Enum.GetValues(typeof(AnimationBools))) {
             if (aBool != currentAnimation) {
