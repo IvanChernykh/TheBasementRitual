@@ -10,7 +10,7 @@ public class MonsterSounds : MonoBehaviour {
     [SerializeField] private float roarVolume = 0.4f;
     [SerializeField] private float attackVolume = 0.3f;
     private float roarIntervalMin = 5f;
-    private float roarIntervalMax = 25f;
+    private float roarIntervalMax = 30f;
     private float timeUntilNextRoar;
     private float roarTimer;
     private float footstepTimer;
@@ -41,7 +41,7 @@ public class MonsterSounds : MonoBehaviour {
         footstepTimer -= Time.deltaTime;
         if (footstepTimer <= 0) {
             footstepTimer = timerMax;
-            SoundManager.Instance.PlaySound(footstepSounds, transform.position, footstepVolume, maxDistance: 15f, rolloffMode: AudioRolloffMode.Custom);
+            SoundManager.Instance.PlaySound(footstepSounds, transform.position, footstepVolume, maxDistance: 20f, rolloffMode: AudioRolloffMode.Custom);
         }
     }
 }

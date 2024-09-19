@@ -17,7 +17,7 @@ public class MonsterAttack : MonoBehaviour {
     }
     private IEnumerator Attack() {
         canAttack = false;
-        monster.Sounds.PlayAttackSound();
+        // monster.Sounds.PlayAttackSound();
         yield return new WaitForSeconds(0.1f);
         PlayerHealth.Instance.TakeDamage(damage);
         monster.Animation.Attack();
