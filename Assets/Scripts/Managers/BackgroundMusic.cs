@@ -22,6 +22,13 @@ public class BackgroundMusic : MonoBehaviour {
     [Header("Effects")]
     [SerializeField] private AudioSource deepImpacts;
     [SerializeField] private AudioSource deepImpactsFast;
+    // initial volume
+    private float noiseAmbientInitialVolume;
+    private float mainAmbientInitialVolume;
+    private float bathroomAmbientInitialVolume;
+    private float chaseMusicInitialVolume;
+    private float deepImpactsInitialVolume;
+    private float deepImpactsFastInitialVolume;
 
     private void Awake() {
         if (Instance != null) {
@@ -29,7 +36,14 @@ public class BackgroundMusic : MonoBehaviour {
         }
         Instance = this;
     }
-
+    private void Start() {
+        noiseAmbientInitialVolume = noiseAmbient.volume;
+        mainAmbientInitialVolume = mainAmbient.volume;
+        bathroomAmbientInitialVolume = bathroomAmbient.volume;
+        chaseMusicInitialVolume = chaseMusic.volume;
+        deepImpactsInitialVolume = deepImpacts.volume;
+        deepImpactsFastInitialVolume = deepImpactsFast.volume;
+    }
     public void Play(Sounds sound, float fadeTime = 0f) {
         AudioSource soundToPlay = GetSoundFromEnum(sound);
         if (fadeTime > 0) {
@@ -52,6 +66,16 @@ public class BackgroundMusic : MonoBehaviour {
             SoundManager.Instance.FadeOutPauseAudioSource(soundToPause, fadeTime);
         } else {
             SoundManager.Instance.PauseAudioSource(soundToPause);
+        }
+    }
+    public void PlayChaseMusic(float fadeTime = 0f) {
+        if (chaseMusic.isPlaying) {
+            SoundManager.Instance.IncreaseVolume(chaseMusic, chaseMusicInitialVolume, fadeTime);
+        }
+        if (fadeTime > 0) {
+            SoundManager.Instance.FadeInAudioSource(chaseMusic, fadeTime);
+        } else {
+            SoundManager.Instance.PlayAudioSource(chaseMusic);
         }
     }
     private AudioSource GetSoundFromEnum(Sounds sound) {

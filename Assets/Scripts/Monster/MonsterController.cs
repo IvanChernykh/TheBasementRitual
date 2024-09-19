@@ -205,12 +205,13 @@ public class MonsterController : MonoBehaviour {
     }
     // sounds
     private void StartChaseMusic() {
-        BackgroundMusic.Instance.Play(BackgroundMusic.Sounds.ChaseMusic, .5f);
+        BackgroundMusic.Instance.PlayChaseMusic(.5f);
+        // BackgroundMusic.Instance.Play(BackgroundMusic.Sounds.ChaseMusic, .5f);
         BackgroundMusic.Instance.Stop(BackgroundMusic.Sounds.MainAmbient, 1f);
         BackgroundMusic.Instance.Stop(BackgroundMusic.Sounds.DeepImpacts, 1f);
     }
     private void StopChaseMusic() {
-        BackgroundMusic.Instance.Stop(BackgroundMusic.Sounds.ChaseMusic, 3f);
+        BackgroundMusic.Instance.Stop(BackgroundMusic.Sounds.ChaseMusic, 5f);
         BackgroundMusic.Instance.Play(BackgroundMusic.Sounds.MainAmbient, 2f);
         BackgroundMusic.Instance.Play(BackgroundMusic.Sounds.DeepImpacts, 1f);
     }

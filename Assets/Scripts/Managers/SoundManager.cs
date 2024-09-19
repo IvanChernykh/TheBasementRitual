@@ -78,6 +78,9 @@ public class SoundManager : MonoBehaviour {
         FadeOutAudioSource(audio1, fadeTime);
         FadeInAudioSource(audio2, fadeTime);
     }
+    public void IncreaseVolume(AudioSource audioSource, float targetVolume, float fadeTime) {
+        StartCoroutine(FadeIn(audioSource, targetVolume, fadeTime));
+    }
     // private methods
     private void PlayClip2D(AudioClip clip, Vector3 position, float volume = 1) {
         GameObject newObject = new GameObject("One shot audio");
@@ -114,7 +117,7 @@ public class SoundManager : MonoBehaviour {
         Destroy(newObject, clip.length * ((Time.timeScale < 0.01f) ? 0.01f : Time.timeScale));
     }
 
-
+    // enumerators
     private IEnumerator FadeOut(AudioSource audioSource, float fadeTime) {
         float startVolume = audioSource.volume;
 
