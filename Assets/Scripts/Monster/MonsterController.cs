@@ -14,10 +14,8 @@ public class MonsterController : MonoBehaviour {
     }
     private State currentState = State.Patrolling;
 
-    [Header("Components")]
-    [SerializeField] private NavMeshAgent agent;
-    [SerializeField] private MonsterAnimation animationController;
-    [SerializeField] private MonsterSounds soundsController;
+    [Header("Core")]
+    [SerializeField] private MonsterCore monster;
 
     [Header("Settings")]
     [SerializeField] private LayerMask playerLayerMask;
@@ -47,7 +45,7 @@ public class MonsterController : MonoBehaviour {
         gameObject.SetActive(false);
     }
     private void Update() {
-        soundsController.PlayRandomRoar();
+        monster.Sounds.PlayRandomRoar();
         switch (currentState) {
             case State.Patrolling:
                 HandlePatrol();
@@ -66,7 +64,7 @@ public class MonsterController : MonoBehaviour {
     // init
     public void Init() {
         StartPatrolling();
-        soundsController.PlayRandomRoarImmediately(25f);
+        monster.Sounds.PlayRandomRoarImmediately(25f);
     }
     // state handlers
     private void HandlePatrol() {
@@ -74,27 +72,27 @@ public class MonsterController : MonoBehaviour {
             StartChasingPlayer();
             return;
         }
-        if (agent.remainingDistance < arrivalPointDistance) {
+        if (monster.Agent.remainingDistance < arrivalPointDistance) {
             nextPointIdx = Random.Range(0, patrolPoints.Length);
         }
-        agent.SetDestination(patrolPoints[nextPointIdx].position);
-        soundsController.PlayWalkFootstep();
+        monster.Agent.SetDestination(patrolPoints[nextPointIdx].position);
+        monster.Sounds.PlayWalkFootstep();
     }
     private void HandleChasePlayer() {
         if (!CanSeePlayer()) {
             StartInvestigatingLastSeenPlayerPosition();
             return;
         }
-        agent.SetDestination(player.transform.position);
-        soundsController.PlayRunFootstep();
+        monster.Agent.SetDestination(player.transform.position);
+        monster.Sounds.PlayRunFootstep();
     }
     private void HandleInvestigateLastSeenPlayerPos() {
         if (CanSeePlayer()) {
             StartChasingPlayer();
             return;
         }
-        agent.SetDestination(playerLastSeenPos);
-        if (agent.remainingDistance < arrivalPointDistance) {
+        monster.Agent.SetDestination(playerLastSeenPos);
+        if (monster.Agent.remainingDistance < arrivalPointDistance) {
             StartSearchingPlayer();
             return;
         }
@@ -104,7 +102,7 @@ public class MonsterController : MonoBehaviour {
             StartChasingPlayer();
             return;
         }
-        if (agent.remainingDistance < arrivalPointDistance) {
+        if (monster.Agent.remainingDistance < arrivalPointDistance) {
             if (!searchPointsGenerated) {
                 searchPoints = GetNearestPoints(
                     playerLastSeenPos,
@@ -116,7 +114,7 @@ public class MonsterController : MonoBehaviour {
             }
             if (searchPoints.Count > 0) {
                 Vector3 nextSearchPoint = searchPoints[0];
-                agent.SetDestination(nextSearchPoint);
+                monster.Agent.SetDestination(nextSearchPoint);
 
                 searchPoints.RemoveAt(0);
             } else {
@@ -127,13 +125,13 @@ public class MonsterController : MonoBehaviour {
     }
     // state transitions
     private void StartPatrolling() {
-        agent.speed = walkSpeed;
-        animationController.Walk();
+        monster.Agent.speed = walkSpeed;
+        monster.Animation.Walk();
         currentState = State.Patrolling;
     }
     private void StartChasingPlayer() {
-        animationController.Run();
-        agent.speed = runSpeed;
+        monster.Animation.Run();
+        monster.Agent.speed = runSpeed;
         currentState = State.ChasingPlayer;
         StartChaseMusic();
     }
@@ -143,8 +141,8 @@ public class MonsterController : MonoBehaviour {
     }
     private void StartSearchingPlayer() {
         StopChaseMusic();
-        agent.speed = walkSpeed;
-        animationController.Walk();
+        monster.Agent.speed = walkSpeed;
+        monster.Animation.Walk();
         currentState = State.SearchingPlayer;
     }
     // other

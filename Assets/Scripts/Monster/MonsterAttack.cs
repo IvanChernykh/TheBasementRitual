@@ -3,8 +3,7 @@ using Assets.Scripts.Utils;
 using UnityEngine;
 
 public class MonsterAttack : MonoBehaviour {
-    [SerializeField] private MonsterAnimation animationController;
-    [SerializeField] private MonsterSounds sounds;
+    [SerializeField] private MonsterCore monster;
     [SerializeField] private float attackDistance = 1f;
     [SerializeField] private float attackInterval = 0.9f;
     [SerializeField] private float damage = 70f;
@@ -18,10 +17,10 @@ public class MonsterAttack : MonoBehaviour {
     }
     private IEnumerator Attack() {
         canAttack = false;
-        sounds.PlayAttackSound();
+        monster.Sounds.PlayAttackSound();
         yield return new WaitForSeconds(0.1f);
         PlayerHealth.Instance.TakeDamage(damage);
-        animationController.Attack();
+        monster.Animation.Attack();
         yield return new WaitForSeconds(attackInterval);
 
         canAttack = true;
