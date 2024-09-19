@@ -18,7 +18,7 @@ public class PlayerSounds : MonoBehaviour {
     private readonly float footstepVolume = .2f;
     private readonly float landingVolume = .1f;
     private readonly float flashlightVolume = .1f;
-    private readonly float takeDamageVoiceVolume = .1f;
+    private readonly float takeDamageVoiceVolume = .25f;
     private Vector3 footSoundsPosition;
 
     private void Awake() {
