@@ -10,7 +10,6 @@ public class OnTriggerEnterEventController : MonoBehaviour {
     private void OnTriggerEnter(Collider other) {
         if (!eventIsTriggered || triggerAlways) {
             if (other.CompareTag("Player")) {
-                Debug.Log(123123123123);
                 bool conditionMet = CheckConditions();
                 if (conditionMet) {
                     eventIsTriggered = true;
