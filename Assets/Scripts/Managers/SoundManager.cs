@@ -43,10 +43,12 @@ public class SoundManager : MonoBehaviour {
     }
     // AudioSource
     public void PlayAudioSource(AudioSource audioSource) {
-        audioSource.Play();
+        if (!audioSource.isPlaying) {
+            audioSource.Play();
+        }
     }
     public void PlayAudioSource(AudioSource[] audioSources) {
-        audioSources[Random.Range(0, audioSources.Length)].Play();
+        PlayAudioSource(audioSources[Random.Range(0, audioSources.Length)]);
     }
     public void StopAudioSource(AudioSource audio) {
         if (audio.isPlaying) {
