@@ -4,6 +4,9 @@ using UnityEngine;
 public class PlaySoundAction : EventAction {
     [Header("Delay")]
     [SerializeField] private float delay = 0f;
+    [SerializeField] private bool randomDelay;
+    [SerializeField] private float randomDelayMin;
+    [SerializeField] private float randomDelayMax;
 
     [Header("AudioClip")]
     [SerializeField] private AudioClip audioClip;
@@ -19,7 +22,7 @@ public class PlaySoundAction : EventAction {
     [SerializeField] private float fadeTime = 0f;
 
     public override void ExecuteEvent() {
-        if (delay > 0) {
+        if (delay > 0 || randomDelay) {
             StartCoroutine(PlaySoundWithDelay());
         } else {
             PlaySound();
@@ -42,7 +45,10 @@ public class PlaySoundAction : EventAction {
         }
     }
     private IEnumerator PlaySoundWithDelay() {
-        yield return new WaitForSeconds(delay);
+        yield return new WaitForSeconds(randomDelay ? delay : RandomDelay());
         PlaySound();
+    }
+    private float RandomDelay() {
+        return Random.Range(randomDelayMin, randomDelayMax);
     }
 }

@@ -42,17 +42,21 @@ public class Door : Interactable {
         }
         ToggleOpening();
     }
-    private void ToggleOpening() {
+    private void ToggleOpening(bool silentMode = false) {
         if (isOpeningOrClosingState) {
             return;
         }
         isOpeningOrClosingState = true;
         openingDoor = !openingDoor;
         if (isOpened) {
-            DoorAudio.Instance.PlayClose(transform.position);
+            if (!silentMode) {
+                DoorAudio.Instance.PlayClose(transform.position);
+            }
             interactMessage = OPEN_MESSAGE;
         } else {
-            DoorAudio.Instance.PlayOpen(transform.position);
+            if (!silentMode) {
+                DoorAudio.Instance.PlayOpen(transform.position);
+            }
             interactMessage = CLOSE_MESSAGE;
         }
     }
@@ -130,6 +134,11 @@ public class Door : Interactable {
     public void OpenDoor() {
         if (!isOpened && !isOpeningOrClosingState) {
             ToggleOpening();
+        }
+    }
+    public void OpenDoorSilent() {
+        if (!isOpened && !isOpeningOrClosingState) {
+            ToggleOpening(silentMode: true);
         }
     }
     public void Lock(string lockedMessage = "") {
