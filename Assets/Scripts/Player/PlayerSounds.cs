@@ -15,8 +15,8 @@ public class PlayerSounds : MonoBehaviour {
     private readonly float footstepWalkTimerMax = .6f;
     private readonly float footStepRunTimerMax = .3f;
     // volume
-    private readonly float footstepVolume = .2f;
-    private readonly float landingVolume = .1f;
+    private readonly float footstepVolume = .1f;
+    private readonly float landingVolume = .08f;
     private readonly float flashlightVolume = .1f;
     private readonly float takeDamageVoiceVolume = .25f;
     private Vector3 footSoundsPosition;

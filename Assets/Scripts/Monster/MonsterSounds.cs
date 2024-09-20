@@ -6,7 +6,7 @@ public class MonsterSounds : MonoBehaviour {
     [SerializeField] private AudioClip[] attackSounds;
     [SerializeField] private float footstepWalkTimerMax = .6f;
     [SerializeField] private float footstepRunTimerMax = .3f;
-    [SerializeField] private float footstepVolume = 0.09f;
+    [SerializeField] private float footstepVolume = 0.1f;
     [SerializeField] private float roarVolume = 0.4f;
     [SerializeField] private float attackVolume = 0.3f;
     private float roarIntervalMin = 5f;

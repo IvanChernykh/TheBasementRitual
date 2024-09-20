@@ -4,6 +4,7 @@ using UnityEngine;
 public class Door : Interactable {
     private const string OPEN_MESSAGE = "Open";
     private const string CLOSE_MESSAGE = "Close";
+    private string lockedMessage = "Locked";
     [SerializeField] private Transform rotationPoint;
     [SerializeField] private float openSpeed = 200f;
     [SerializeField] private bool openForward;
@@ -99,7 +100,7 @@ public class Door : Interactable {
                 TooltipUI.Instance.Show(customKeyLockedMessage);
             } else {
                 DoorAudio.Instance.PlayLocked(transform.position);
-                TooltipUI.Instance.Show("Locked");
+                TooltipUI.Instance.Show(lockedMessage);
             }
         }
     }
@@ -129,6 +130,12 @@ public class Door : Interactable {
     public void OpenDoor() {
         if (!isOpened && !isOpeningOrClosingState) {
             ToggleOpening();
+        }
+    }
+    public void Lock(string lockedMessage = "") {
+        lockedOnKey = true;
+        if (lockedMessage.Length > 0) {
+            this.lockedMessage = lockedMessage;
         }
     }
     public void Unlock() {
