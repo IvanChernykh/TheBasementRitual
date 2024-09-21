@@ -7,7 +7,10 @@ public class PlaySoundAction : EventAction {
     [SerializeField] private bool randomDelay;
     [SerializeField] private float randomDelayMin;
     [SerializeField] private float randomDelayMax;
-
+    [Header("Reapeat")]
+    [SerializeField] private bool repeatSound;
+    [SerializeField] private float repeatDelay;
+    [SerializeField] private int repeatAmount;
     [Header("AudioClip")]
     [SerializeField] private AudioClip audioClip;
     [SerializeField] private Transform positionToPlay;
@@ -25,7 +28,7 @@ public class PlaySoundAction : EventAction {
         if (delay > 0 || randomDelay) {
             StartCoroutine(PlaySoundWithDelay());
         } else {
-            PlaySound();
+            HandlePlaySound();
         }
     }
     private void PlaySound() {
@@ -44,11 +47,21 @@ public class PlaySoundAction : EventAction {
             }
         }
     }
-    private IEnumerator PlaySoundWithDelay() {
-        yield return new WaitForSeconds(randomDelay ? delay : RandomDelay());
-        PlaySound();
+    private void HandlePlaySound() {
+        if (repeatSound) {
+            StartCoroutine(RepeatSound());
+        } else {
+            PlaySound();
+        }
     }
-    private float RandomDelay() {
-        return Random.Range(randomDelayMin, randomDelayMax);
+    private IEnumerator PlaySoundWithDelay() {
+        yield return new WaitForSeconds(randomDelay ? Random.Range(randomDelayMin, randomDelayMax) : delay);
+        HandlePlaySound();
+    }
+    private IEnumerator RepeatSound() {
+        for (int i = 0; i < repeatAmount; i++) {
+            PlaySound();
+            yield return new WaitForSeconds(repeatDelay);
+        }
     }
 }

@@ -14,6 +14,7 @@ public class SoundManager : MonoBehaviour {
         public float Pitch { get; set; } = 1f;
         public AudioRolloffMode RolloffMode { get; set; } = AudioRolloffMode.Logarithmic;
     };
+    private readonly float fadeTolerance = 0.01f;
 
     private void Awake() {
         if (Instance != null) {
@@ -152,7 +153,7 @@ public class SoundManager : MonoBehaviour {
         ) {
         float delta = targetVolume - audioSource.volume;
 
-        while (!Mathf.Approximately(audioSource.volume, targetVolume)) {
+        while (Mathf.Abs(audioSource.volume - targetVolume) > fadeTolerance) {
             audioSource.volume += delta * Time.deltaTime / fadeTime;
             yield return null;
         }

@@ -235,7 +235,6 @@ public class MonsterController : MonoBehaviour {
     // sounds
     private void StartChaseMusic() {
         BackgroundMusic.Instance.PlayChaseMusic(.5f);
-        // BackgroundMusic.Instance.Play(BackgroundMusic.Sounds.ChaseMusic, .5f);
         BackgroundMusic.Instance.Stop(BackgroundMusic.Sounds.MainAmbient, 1f);
         BackgroundMusic.Instance.Stop(BackgroundMusic.Sounds.DeepImpacts, 1f);
     }
