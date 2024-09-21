@@ -106,14 +106,14 @@ public class SoundManager : MonoBehaviour {
         audio.Play();
         return StartCoroutine(FadeAudio(audio, initialVolume, fadeTime));
     }
-    public void FadeOutAudioSource(AudioSource audio, float fadeTime) {
+    public void FadeOutAudioSource(AudioSource audio, float fadeTime, bool pause = false) {
         if (audio.isPlaying) {
-            StartCoroutine(FadeAudio(audio, 0, fadeTime, stopAfterFade: true));
-        }
-    }
-    public void FadeOutPauseAudioSource(AudioSource audio, float fadeTime) {
-        if (audio.isPlaying) {
-            StartCoroutine(FadeAudio(audio, 0, fadeTime, pauseAfterFade: true));
+            if (pause) {
+                StartCoroutine(FadeAudio(audio, 0, fadeTime, pauseAfterFade: true));
+            } else {
+                StartCoroutine(FadeAudio(audio, 0, fadeTime, stopAfterFade: true));
+            }
+
         }
     }
     public void SwitchAudio(AudioSource audio1, AudioSource audio2, float fadeTime) {
