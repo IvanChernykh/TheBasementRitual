@@ -151,6 +151,7 @@ public class SoundManager : MonoBehaviour {
         bool stopAfterFade = false,
         bool pauseAfterFade = false
         ) {
+        float startVolume = audioSource.volume;
         float delta = targetVolume - audioSource.volume;
 
         while (Mathf.Abs(audioSource.volume - targetVolume) > fadeTolerance) {
@@ -162,8 +163,10 @@ public class SoundManager : MonoBehaviour {
 
         if (stopAfterFade) {
             audioSource.Stop();
+            audioSource.volume = startVolume;
         } else if (pauseAfterFade) {
             audioSource.Pause();
+            audioSource.volume = startVolume;
         }
     }
 }
