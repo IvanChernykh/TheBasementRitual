@@ -64,7 +64,6 @@ public class MonsterController : MonoBehaviour {
     // init
     public void Init() {
         StartPatrolling();
-        monster.Sounds.PlayRandomRoarImmediately(25f);
     }
     // state handlers
     private void HandlePatrol() {
@@ -73,10 +72,17 @@ public class MonsterController : MonoBehaviour {
             return;
         }
         if (monster.Agent.remainingDistance < arrivalPointDistance) {
+            if (patrolPoints.Length == 1) {
+                monster.Animation.Idle();
+                monster.Agent.SetDestination(patrolPoints[0].position);
+                return;
+            }
             do {
                 nextPointIdx = Random.Range(0, patrolPoints.Length);
                 // to avoid getting point that is too far from player
             } while (PlayerUtils.DistanceToPlayer(patrolPoints[nextPointIdx].position) > 20);
+        } else if (monster.Animation.currentAnimation == MonsterAnimation.AnimationBools.Idle.ToString()) {
+            monster.Animation.Walk();
         }
         monster.Agent.SetDestination(patrolPoints[nextPointIdx].position);
         monster.Sounds.PlayWalkFootstep();

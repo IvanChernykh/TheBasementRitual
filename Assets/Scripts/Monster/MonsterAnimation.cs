@@ -2,30 +2,35 @@ using System;
 using UnityEngine;
 
 public class MonsterAnimation : MonoBehaviour {
-    private enum AnimationBools {
+    public enum AnimationBools {
         Idle,
         Walk,
         RunOld,
         Run,
     }
-    private enum AnimationTriggers {
+    public enum AnimationTriggers {
         Attack
     }
     [SerializeField] private Animator animator;
+    public string currentAnimation { get; private set; } = "";
 
     public void Idle() {
+        currentAnimation = AnimationBools.Idle.ToString();
         ClearAnimations(AnimationBools.Idle);
         ActivateBoolAnimation(AnimationBools.Idle);
     }
     public void Walk() {
+        currentAnimation = AnimationBools.Walk.ToString();
         ClearAnimations(AnimationBools.Walk);
         ActivateBoolAnimation(AnimationBools.Walk);
     }
     public void RunOld() {
+        currentAnimation = AnimationBools.RunOld.ToString();
         ClearAnimations(AnimationBools.RunOld);
         ActivateBoolAnimation(AnimationBools.RunOld);
     }
     public void Run() {
+        currentAnimation = AnimationBools.Run.ToString();
         ClearAnimations(AnimationBools.Run);
         ActivateBoolAnimation(AnimationBools.Run);
     }
@@ -38,6 +43,12 @@ public class MonsterAnimation : MonoBehaviour {
                 animator.SetBool(aBool.ToString(), false);
             }
         }
+    }
+    public void DisableAnimation() {
+        animator.enabled = false;
+    }
+    public void EnableAnimation() {
+        animator.enabled = true;
     }
     private void ActivateBoolAnimation(AnimationBools animation) {
         animator.SetBool(animation.ToString(), true);

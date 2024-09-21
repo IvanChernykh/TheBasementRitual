@@ -133,11 +133,13 @@ public class Door : Interactable {
     }
     public void OpenDoor() {
         if (!isOpened && !isOpeningOrClosingState) {
+            lockedOnKey = false;
             ToggleOpening();
         }
     }
     public void OpenDoorSilent() {
         if (!isOpened && !isOpeningOrClosingState) {
+            lockedOnKey = false;
             ToggleOpening(silentMode: true);
         }
     }
@@ -150,7 +152,6 @@ public class Door : Interactable {
     public void Unlock() {
         if (lockedOnKey) {
             lockedOnKey = false;
-            ToggleOpening();
         }
     }
 }

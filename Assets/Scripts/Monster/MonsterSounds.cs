@@ -9,18 +9,19 @@ public class MonsterSounds : MonoBehaviour {
     [SerializeField] private float footstepVolume = 0.1f;
     [SerializeField] private float roarVolume = 0.4f;
     [SerializeField] private float attackVolume = 0.3f;
-    private float roarIntervalMin = 5f;
-    private float roarIntervalMax = 30f;
+    private readonly float roarIntervalMin = 6f;
+    private readonly float roarIntervalMax = 30f;
     private float timeUntilNextRoar;
     private float roarTimer;
     private float footstepTimer;
 
+    private void Start() {
+        timeUntilNextRoar = Random.Range(roarIntervalMin, roarIntervalMax);
+    }
     public void PlayRandomRoar() {
         roarTimer += Time.deltaTime;
         if (roarTimer >= timeUntilNextRoar) {
             PlayRandomRoarImmediately();
-
-
         }
     }
     public void PlayRandomRoarImmediately(float maxDistance = 20f) {
