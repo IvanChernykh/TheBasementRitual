@@ -6,23 +6,38 @@ public class DeepImpactsZone : MonoBehaviour {
     [SerializeField] private bool stressZone;
     [SerializeField] private float fadeInTime = 1f;
     [SerializeField] private float fadeOutTime = 1f;
+    [SerializeField] private bool deactivateOnExit;
+    private bool isActive = true;
     private void OnTriggerStay(Collider other) {
-        if (other.CompareTag("Player")) {
-            HandlePlay();
+        if (isActive) {
+            if (other.CompareTag("Player")) {
+                HandlePlay();
+                HandleStop();
+            }
         }
     }
     private void OnTriggerExit() {
         Stop();
+        if (deactivateOnExit) {
+            isActive = false;
+        }
     }
     private void HandlePlay() {
-        if (stressZone) {
-            if (!deepImpactsStress.isPlaying) {
-                BackgroundMusic.Instance.Play(BackgroundMusic.Sounds.DeepImpactsStress, fadeInTime);
+        if (BackgroundMusic.Instance.CanPlayDeepImpacts()) {
+            if (stressZone) {
+                if (!deepImpactsStress.isPlaying) {
+                    BackgroundMusic.Instance.Play(BackgroundMusic.Sounds.DeepImpactsStress, fadeInTime);
+                }
+            } else {
+                if (!deepImpacts.isPlaying) {
+                    BackgroundMusic.Instance.Play(BackgroundMusic.Sounds.DeepImpacts, fadeInTime);
+                }
             }
-        } else {
-            if (!deepImpacts.isPlaying) {
-                BackgroundMusic.Instance.Play(BackgroundMusic.Sounds.DeepImpacts, fadeInTime);
-            }
+        }
+    }
+    private void HandleStop() {
+        if (!BackgroundMusic.Instance.CanPlayDeepImpacts()) {
+            Stop();
         }
     }
     private void Stop() {

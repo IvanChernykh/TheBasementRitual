@@ -175,6 +175,7 @@ public class MonsterController : MonoBehaviour {
         fieldOfViewCurrent = FieldOfViewExpanded;
         monster.Animation.Run();
         currentState = State.ChasingPlayer;
+        PlayerController.Instance.SetIsInChase(true);
         StartChaseMusic();
     }
     private void StartInvestigatingLastSeenPlayerPosition() {
@@ -184,6 +185,7 @@ public class MonsterController : MonoBehaviour {
     }
     private void StartSearchingPlayer() {
         StopChaseMusic();
+        PlayerController.Instance.SetIsInChase(false);
         monster.Agent.speed = walkSpeed;
         monster.Animation.Walk();
         currentState = State.SearchingPlayer;
@@ -261,12 +263,10 @@ public class MonsterController : MonoBehaviour {
     private void StartChaseMusic() {
         BackgroundMusic.Instance.PlayChaseMusic(.5f);
         BackgroundMusic.Instance.Stop(BackgroundMusic.Sounds.MainAmbient, 1f);
-        BackgroundMusic.Instance.Stop(BackgroundMusic.Sounds.DeepImpacts, 1f);
     }
     private void StopChaseMusic() {
         BackgroundMusic.Instance.Stop(BackgroundMusic.Sounds.ChaseMusic, 5f);
         BackgroundMusic.Instance.Play(BackgroundMusic.Sounds.MainAmbient, 2f);
-        BackgroundMusic.Instance.Play(BackgroundMusic.Sounds.DeepImpacts, 1f);
     }
     // debug
     private void OnDrawGizmos() {

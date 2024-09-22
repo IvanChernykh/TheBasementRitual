@@ -100,4 +100,12 @@ public class BackgroundMusic : MonoBehaviour {
         };
         return receivedSound;
     }
+
+    // conditions
+    public bool CanPlayDeepImpacts() {
+        if (PlayerController.Instance.isInChase) {
+            return false;
+        }
+        return true;
+    }
 }
