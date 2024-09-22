@@ -8,12 +8,14 @@ public class LockerToHide : Interactable {
     private readonly float maxPeekAngle = 12f;
     private readonly float peekSpeed = 16f;
     private float currentRotation;
+    private Quaternion defaultRotation;
     private bool hidingHere; // check if hiding in exact locker
 
     private void Awake() {
         interactMessage = "Hide";
     }
     private void Start() {
+        defaultRotation = transform.rotation;
         player = PlayerController.Instance;
     }
     private void Update() {
@@ -43,7 +45,7 @@ public class LockerToHide : Interactable {
     private void Exit() {
         TooltipUI.Instance.Hide();
         currentRotation = 0;
-        transform.rotation = Quaternion.Euler(Vector3.zero);
+        transform.rotation = defaultRotation;
         player.transform.position = exitPosition.position;
         player.transform.rotation = Quaternion.Euler(new Vector3(0, hidePosition.eulerAngles.y - 180, 0));
         player.UnHide();
