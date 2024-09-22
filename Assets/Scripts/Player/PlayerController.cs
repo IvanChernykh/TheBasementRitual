@@ -7,9 +7,9 @@ public class PlayerController : MonoBehaviour {
     private float normalHeight = 1.8f;
 
     [Header("Movement")]
-    [SerializeField] private float walkSpeed = 4f;
-    [SerializeField] private float sprintSpeed = 6f;
-    [SerializeField] private float crouchSpeed = 3f;
+    [SerializeField] private float walkSpeed = 2f;
+    [SerializeField] private float sprintSpeed = 4f;
+    [SerializeField] private float crouchSpeed = 1.5f;
 
     [Header("Crouch")]
     [SerializeField] private float crouchHeight;

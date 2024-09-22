@@ -25,7 +25,7 @@ public class MonsterController : MonoBehaviour {
     [SerializeField] private float hearingDistance = 2f;
     [SerializeField] private float sightDistance = 12f;
 
-    private float searchingPlayerFieldOfView;
+    private float FieldOfViewExpanded;
     private float fieldOfViewCurrent;
 
     [Header("Patrol State")]
@@ -47,12 +47,13 @@ public class MonsterController : MonoBehaviour {
 
     private void Start() {
         fieldOfViewCurrent = fieldOfViewDefault;
-        searchingPlayerFieldOfView = Mathf.Clamp(fieldOfViewDefault + 20f, fieldOfViewDefault, 300f);
+        FieldOfViewExpanded = Mathf.Clamp(fieldOfViewDefault + 30f, fieldOfViewDefault, 260f);
 
         player = PlayerController.Instance;
         gameObject.SetActive(false);
     }
     private void Update() {
+        Debug.Log(currentState);
         monster.Sounds.PlayRandomRoar();
         switch (currentState) {
             case State.Idle:
@@ -171,13 +172,13 @@ public class MonsterController : MonoBehaviour {
         currentState = State.Patrolling;
     }
     private void StartChasingPlayer() {
-        fieldOfViewCurrent = fieldOfViewDefault;
+        fieldOfViewCurrent = FieldOfViewExpanded;
         monster.Animation.Run();
         currentState = State.ChasingPlayer;
         StartChaseMusic();
     }
     private void StartInvestigatingLastSeenPlayerPosition() {
-        fieldOfViewCurrent = searchingPlayerFieldOfView;
+        fieldOfViewCurrent = FieldOfViewExpanded;
         playerLastSeenPos = player.transform.position;
         currentState = State.InvestigatingLastSeenPlayerPosition;
     }
@@ -273,8 +274,8 @@ public class MonsterController : MonoBehaviour {
         Vector3 eyePosition = transform.position + offsetY;
 
         Gizmos.color = Color.green;
-        Vector3 leftBoundary = Quaternion.Euler(0, -fieldOfViewCurrent / 2, 0) * transform.forward;
-        Vector3 rightBoundary = Quaternion.Euler(0, fieldOfViewCurrent / 2, 0) * transform.forward;
+        Vector3 leftBoundary = Quaternion.Euler(0, -fieldOfViewDefault / 2, 0) * transform.forward;
+        Vector3 rightBoundary = Quaternion.Euler(0, fieldOfViewDefault / 2, 0) * transform.forward;
 
         Gizmos.DrawLine(eyePosition, eyePosition + leftBoundary * sightDistance);
         Gizmos.DrawLine(eyePosition, eyePosition + rightBoundary * sightDistance);

@@ -21,8 +21,8 @@ public class DoorAudio : MonoBehaviour {
         Instance = this;
     }
 
-    public void PlayLocked(Vector3 position) {
-        SoundManager.Instance.PlaySound(locked, position, defaultVolume, minSoundDistance, maxSoundDistance);
+    public void PlayLocked(Vector3 position, float volume = 0f) {
+        SoundManager.Instance.PlaySound(locked, position, volume > 0 ? volume : defaultVolume, minSoundDistance, maxSoundDistance);
     }
     public void PlayClose(Vector3 position) {
         SoundManager.Instance.PlaySound(close, position, closeVolume, minSoundDistance, maxSoundDistance);
