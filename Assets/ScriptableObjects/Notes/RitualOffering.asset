@@ -10,10 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 66ab981a82134bd9a9f34b5cda6028eb, type: 3}
-  m_Name: SafetyReport_1
+  m_Name: RitualOffering
   m_EditorClassIdentifier: 
-  noteName: Safety Report 1
-  noteText: "Safety report: \nSeveral employees have gone missing over the past month.
-    Fear is spreading rapidly. Security must be increased across all shifts to ensure
-    the safety of our remaining staff. If this continues, the entire facility may
-    shut down as employees are too afraid to return to work."
+  noteName: Ritual Offering
+  noteText: "Tonight\u2019s offering must be special. The last one didn\u2019t please
+    them, and the whispers have grown louder. They are watching us closely."

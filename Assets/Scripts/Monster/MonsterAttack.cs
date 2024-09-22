@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class MonsterAttack : MonoBehaviour {
     [SerializeField] private MonsterCore monster;
-    [SerializeField] private float attackDistance = 1f;
+    [SerializeField] private float attackDistance = 1.6f;
 
-    private bool canAttack = true;
-
+    public float AttackDistance { get => attackDistance; }
     private void Update() {
-        if (PlayerUtils.DistanceToPlayer(transform.position) <= attackDistance && canAttack && !PlayerController.Instance.isHiding) {
+        if (PlayerUtils.DistanceToPlayer(transform.position) <= attackDistance && !PlayerController.Instance.isHiding) {
             StartCoroutine(Attack());
         }
     }

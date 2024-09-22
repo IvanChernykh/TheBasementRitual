@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Assets.Scripts.Utils;
@@ -5,6 +6,7 @@ using UnityEngine;
 
 public class MonsterController : MonoBehaviour {
     public enum State {
+        Idle,
         Patrolling,
         ChasingPlayer,
         InvestigatingLastSeenPlayerPosition,
@@ -19,9 +21,12 @@ public class MonsterController : MonoBehaviour {
     [SerializeField] private LayerMask playerLayerMask;
     [SerializeField] private float walkSpeed = 2f;
     [SerializeField] private float runSpeed = 3.8f;
-    [SerializeField] private float fieldOfViewAngle = 120f;
-    [SerializeField] private float hearingDistance = 1.5f;
+    [SerializeField] private float fieldOfViewDefault = 120f;
+    [SerializeField] private float hearingDistance = 2f;
     [SerializeField] private float sightDistance = 12f;
+
+    private float searchingPlayerFieldOfView;
+    private float fieldOfViewCurrent;
 
     [Header("Patrol State")]
     [SerializeField] private Transform[] patrolPoints;
@@ -36,18 +41,23 @@ public class MonsterController : MonoBehaviour {
     // search state
     private List<Vector3> searchPoints = new List<Vector3>();
     private bool searchPointsGenerated = false;
-    private float searchPositionTimerMax = 4.7f;
+    private readonly float searchPositionTimerMax = 4.7f;
     private float searchPositionTimer;
     private PlayerController player;
 
     private void Start() {
+        fieldOfViewCurrent = fieldOfViewDefault;
+        searchingPlayerFieldOfView = Mathf.Clamp(fieldOfViewDefault + 20f, fieldOfViewDefault, 300f);
+
         player = PlayerController.Instance;
         gameObject.SetActive(false);
     }
     private void Update() {
-        Debug.Log(currentState);
         monster.Sounds.PlayRandomRoar();
         switch (currentState) {
+            case State.Idle:
+                HandleIdle();
+                break;
             case State.Patrolling:
                 HandlePatrol();
                 break;
@@ -62,28 +72,23 @@ public class MonsterController : MonoBehaviour {
                 break;
         }
     }
-    // init
-    public void Init() {
-        StartPatrolling();
-    }
     // state handlers
+    private void HandleIdle() {
+        if (CanSeePlayer()) {
+            StartChasingPlayer();
+            return;
+        }
+    }
     private void HandlePatrol() {
         if (CanSeePlayer()) {
             StartChasingPlayer();
             return;
         }
         if (monster.Agent.remainingDistance < arrivalPointDistance) {
-            if (patrolPoints.Length == 1) {
-                monster.Animation.Idle();
-                monster.Agent.SetDestination(patrolPoints[0].position);
-                return;
-            }
             do {
                 nextPointIdx = Random.Range(0, patrolPoints.Length);
                 // to avoid getting point that is too far from player
             } while (PlayerUtils.DistanceToPlayer(patrolPoints[nextPointIdx].position) > 20);
-        } else if (monster.Animation.currentAnimation == MonsterAnimation.AnimationBools.Idle.ToString()) {
-            monster.Animation.Walk();
         }
         monster.Agent.SetDestination(patrolPoints[nextPointIdx].position);
         monster.Sounds.PlayWalkFootstep();
@@ -99,7 +104,11 @@ public class MonsterController : MonoBehaviour {
         } else {
             monster.Agent.speed = runSpeed;
         }
-        monster.Agent.SetDestination(player.transform.position);
+        if (PlayerUtils.DistanceToPlayer(transform.position) < monster.Attack.AttackDistance) {
+            monster.Agent.ResetPath();
+        } else {
+            monster.Agent.SetDestination(player.transform.position);
+        }
         monster.Sounds.PlayRunFootstep();
     }
     private void HandleInvestigateLastSeenPlayerPos() {
@@ -150,17 +159,25 @@ public class MonsterController : MonoBehaviour {
         }
     }
     // state transitions
-    private void StartPatrolling() {
+    public void StartIdle() {
+        fieldOfViewCurrent = fieldOfViewDefault;
+        monster.Animation.Idle();
+        currentState = State.Idle;
+    }
+    public void StartPatrolling() {
+        fieldOfViewCurrent = fieldOfViewDefault;
         monster.Agent.speed = walkSpeed;
         monster.Animation.Walk();
         currentState = State.Patrolling;
     }
     private void StartChasingPlayer() {
+        fieldOfViewCurrent = fieldOfViewDefault;
         monster.Animation.Run();
         currentState = State.ChasingPlayer;
         StartChaseMusic();
     }
     private void StartInvestigatingLastSeenPlayerPosition() {
+        fieldOfViewCurrent = searchingPlayerFieldOfView;
         playerLastSeenPos = player.transform.position;
         currentState = State.InvestigatingLastSeenPlayerPosition;
     }
@@ -199,7 +216,7 @@ public class MonsterController : MonoBehaviour {
         Vector3 directionToPlayer = PlayerUtils.DirectionToPlayerNormalized(eyePosition);
         float angleToPlayer = Vector3.Angle(transform.forward, directionToPlayer);
 
-        if (angleToPlayer <= fieldOfViewAngle / 2f) {
+        if (angleToPlayer <= fieldOfViewCurrent / 2f) {
             if (Physics.Raycast(eyePosition, directionToPlayer, out RaycastHit hit, distanceToPlayer)) {
                 if ((1 << hit.collider.gameObject.layer) == playerLayerMask) {
                     return true;
@@ -256,8 +273,8 @@ public class MonsterController : MonoBehaviour {
         Vector3 eyePosition = transform.position + offsetY;
 
         Gizmos.color = Color.green;
-        Vector3 leftBoundary = Quaternion.Euler(0, -fieldOfViewAngle / 2, 0) * transform.forward;
-        Vector3 rightBoundary = Quaternion.Euler(0, fieldOfViewAngle / 2, 0) * transform.forward;
+        Vector3 leftBoundary = Quaternion.Euler(0, -fieldOfViewCurrent / 2, 0) * transform.forward;
+        Vector3 rightBoundary = Quaternion.Euler(0, fieldOfViewCurrent / 2, 0) * transform.forward;
 
         Gizmos.DrawLine(eyePosition, eyePosition + leftBoundary * sightDistance);
         Gizmos.DrawLine(eyePosition, eyePosition + rightBoundary * sightDistance);
