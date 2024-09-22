@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 
 public class MoveObjectAction : EventAction {
+    [SerializeField] private float delay;
     [SerializeField] private Transform objectToMove;
     [SerializeField] private Transform pointA;
     [SerializeField] private Transform pointB;
@@ -16,6 +17,9 @@ public class MoveObjectAction : EventAction {
     }
 
     private IEnumerator MoveObject() {
+        if (delay > 0) {
+            yield return new WaitForSeconds(delay);
+        }
         float cycleElapsedTime = 0f;
 
         while (true) {
