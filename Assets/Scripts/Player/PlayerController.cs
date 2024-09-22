@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour {
     public bool isLanding { get; private set; }
     public bool isCrouching { get; private set; }
     public bool isHiding { get; private set; }
-    public bool isInChase { get; private set; }
+    public bool inChase { get; private set; }
     private bool isGrounded;
     private bool isFloating;
     private bool isJumping;
@@ -248,8 +248,8 @@ public class PlayerController : MonoBehaviour {
         isInteracting = true;
     }
     // public setters
-    public void SetIsInChase(bool inChase) {
-        isInChase = inChase;
+    public void SetInChase(bool inChase) {
+        this.inChase = inChase;
     }
     // debug
     private void OnDrawGizmos() {

@@ -103,7 +103,7 @@ public class BackgroundMusic : MonoBehaviour {
 
     // conditions
     public bool CanPlayDeepImpacts() {
-        if (PlayerController.Instance.isInChase) {
+        if (PlayerController.Instance.inChase) {
             return false;
         }
         return true;
