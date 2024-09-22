@@ -9,7 +9,7 @@ public class BackgroundMusic : MonoBehaviour {
         BathroomAmbient,
         ChaseMusic,
         DeepImpacts,
-        DeepImpactsFast
+        DeepImpactsStress
     }
     [Header("Ambient")]
     [SerializeField] private AudioSource noiseAmbient;
@@ -21,7 +21,7 @@ public class BackgroundMusic : MonoBehaviour {
 
     [Header("Effects")]
     [SerializeField] private AudioSource deepImpacts;
-    [SerializeField] private AudioSource deepImpactsFast;
+    [SerializeField] private AudioSource deepImpactsStress;
 
     // initial volume
     private float noiseAmbientInitialVolume;
@@ -29,7 +29,7 @@ public class BackgroundMusic : MonoBehaviour {
     private float bathroomAmbientInitialVolume;
     private float chaseMusicInitialVolume;
     private float deepImpactsInitialVolume;
-    private float deepImpactsFastInitialVolume;
+    private float deepImpactsStressInitialVolume;
 
     // coroutines
     private Coroutine chaseMusicCoroutine;
@@ -46,7 +46,7 @@ public class BackgroundMusic : MonoBehaviour {
         bathroomAmbientInitialVolume = bathroomAmbient.volume;
         chaseMusicInitialVolume = chaseMusic.volume;
         deepImpactsInitialVolume = deepImpacts.volume;
-        deepImpactsFastInitialVolume = deepImpactsFast.volume;
+        deepImpactsStressInitialVolume = deepImpactsStress.volume;
     }
     public void Play(Sounds sound, float fadeTime = 0f) {
         AudioSource soundToPlay = GetSoundFromEnum(sound);
@@ -95,7 +95,7 @@ public class BackgroundMusic : MonoBehaviour {
             Sounds.BathroomAmbient => bathroomAmbient,
             Sounds.ChaseMusic => chaseMusic,
             Sounds.DeepImpacts => deepImpacts,
-            Sounds.DeepImpactsFast => deepImpactsFast,
+            Sounds.DeepImpactsStress => deepImpactsStress,
             _ => noiseAmbient,
         };
         return receivedSound;
