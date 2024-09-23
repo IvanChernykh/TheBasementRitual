@@ -12,8 +12,7 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] private float crouchSpeed = 1.5f;
 
     [Header("Crouch")]
-    [SerializeField] private float crouchHeight; // 0.9
-    [SerializeField] private Vector3 crouchOffset; // y - 1.8
+    [SerializeField] private float crouchHeight;
     private readonly float crouchTransitionSpeed = 3f;
 
     [Header("Ground Checking")]
