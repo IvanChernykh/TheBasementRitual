@@ -53,7 +53,8 @@ public class PlayerController : MonoBehaviour {
 
     private bool canSprint { get => isGrounded && !isCrouching && !isHiding; }
     private bool canJump { get => isGrounded && !isCrouching && !isHiding; }
-    private bool canCrouch { get => isGrounded; }
+    private bool canCrouch { get => isGrounded && !isCrouching || isGrounded && isCrouching && canStandUp; }
+    public bool canStandUp { get; set; } = true;
 
     private void Awake() {
         if (Instance != null) {
