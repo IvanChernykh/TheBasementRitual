@@ -22,15 +22,18 @@ public class DoorAudio : MonoBehaviour {
     }
 
     public void PlayLocked(Vector3 position, float volume = 0f) {
-        SoundManager.Instance.PlaySound(locked, position, volume > 0 ? volume : defaultVolume, minSoundDistance, maxSoundDistance);
+        PlayDoorSound(locked, position, volume > 0 ? volume : defaultVolume);
     }
     public void PlayClose(Vector3 position) {
-        SoundManager.Instance.PlaySound(close, position, closeVolume, minSoundDistance, maxSoundDistance);
+        PlayDoorSound(close, position, closeVolume);
     }
     public void PlayOpen(Vector3 position) {
-        SoundManager.Instance.PlaySound(open, position, defaultVolume, minSoundDistance, maxSoundDistance);
+        PlayDoorSound(open, position, defaultVolume);
     }
     public void PlayCloseDoubleDoor(Vector3 position) {
-        SoundManager.Instance.PlaySound(closeDoubleDoor, position, closeVolume, minSoundDistance, maxSoundDistance);
+        PlayDoorSound(closeDoubleDoor, position, closeVolume);
+    }
+    private void PlayDoorSound(AudioClip[] audios, Vector3 position, float volume) {
+        SoundManager.Instance.PlaySound(audios, position, volume, minSoundDistance, maxSoundDistance, rolloffMode: AudioRolloffMode.Custom);
     }
 }
