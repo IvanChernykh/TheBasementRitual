@@ -12,15 +12,13 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] private float crouchSpeed = 1.5f;
 
     [Header("Crouch")]
-    [SerializeField] private float crouchHeight;
-    [SerializeField] private Vector3 crouchOffset;
-    private float crouchTransitionSpeed = 3f;
+    [SerializeField] private float crouchHeight; // 0.9
+    [SerializeField] private Vector3 crouchOffset; // y - 1.8
+    private readonly float crouchTransitionSpeed = 3f;
 
     [Header("Ground Checking")]
     [SerializeField] private float groundCheckRadius;
-    [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundMask;
-    private Vector3 groundCheckDefaultPos;
 
     [Header("Mouse")]
     [SerializeField] private Transform headTransform;
@@ -53,6 +51,10 @@ public class PlayerController : MonoBehaviour {
     private bool isJumping;
     private bool isInteracting;
 
+    private bool canSprint { get => isGrounded && !isCrouching && !isHiding; }
+    private bool canJump { get => isGrounded && !isCrouching && !isHiding; }
+    private bool canCrouch { get => isGrounded; }
+
     private void Awake() {
         if (Instance != null) {
             Exceptions.MoreThanOneInstance(name);
@@ -67,7 +69,7 @@ public class PlayerController : MonoBehaviour {
         InputManager.Instance.OnJumpEvent += OnJump;
         InputManager.Instance.OnInteractEvent += OnInteract;
 
-        groundCheckDefaultPos = groundCheck.localPosition;
+
     }
     private void Update() {
         if (!isHiding) {
@@ -129,19 +131,11 @@ public class PlayerController : MonoBehaviour {
     }
     private void HandleCrouch() {
         if (isCrouching) {
-            controller.height = controller.height - crouchTransitionSpeed * Time.deltaTime;
-            if (controller.height <= crouchHeight) {
-                controller.height = crouchHeight;
-            } else {
-                transform.position = transform.position - crouchOffset * Time.deltaTime;
-            }
+            controller.height = Mathf.Max(controller.height - crouchTransitionSpeed * Time.deltaTime, crouchHeight);
         } else {
-            controller.height = controller.height + crouchTransitionSpeed * Time.deltaTime;
+            controller.height = Mathf.Min(controller.height + crouchTransitionSpeed * Time.deltaTime, normalHeight);
             if (controller.height < normalHeight) {
-                transform.position = transform.position + new Vector3(0, Mathf.Lerp(crouchOffset.y, transform.position.y, Time.deltaTime), 0) * Time.deltaTime;
-            }
-            if (controller.height >= normalHeight) {
-                controller.height = normalHeight;
+                transform.position = transform.position + new Vector3(0, Mathf.Lerp(normalHeight, transform.position.y, Time.deltaTime), 0) * Time.deltaTime;
             }
         }
     }
@@ -191,7 +185,6 @@ public class PlayerController : MonoBehaviour {
     }
     // private
     private void ResetHeight() {
-        transform.position = transform.position + crouchOffset;
         controller.height = normalHeight;
     }
     private void ResetMovementFlags() {
@@ -202,13 +195,10 @@ public class PlayerController : MonoBehaviour {
         isLanding = false;
         isFloating = false;
     }
+    float groundCheckOffset = .2f;
     private bool IsGrounded() {
-        if (isCrouching) {
-            groundCheck.localPosition = new Vector3(0, -groundCheckRadius / 2, 0);
-        } else {
-            groundCheck.localPosition = groundCheckDefaultPos;
-        }
-        return Physics.CheckSphere(groundCheck.position, groundCheckRadius, groundMask);
+        Vector3 checkPosition = new Vector3(transform.position.x, transform.position.y - controller.height / 2 + groundCheckRadius - groundCheckOffset, transform.position.z);
+        return Physics.CheckSphere(checkPosition, groundCheckRadius, groundMask);
     }
     private void CheckIsLandingAndIsFloating() {
         if (isLanding) {
@@ -226,18 +216,18 @@ public class PlayerController : MonoBehaviour {
     }
     // events
     private void OnCrouch(object sender, System.EventArgs e) {
-        if (isGrounded) {
+        if (canCrouch) {
             isCrouching = !isCrouching;
         }
     }
     private void OnJump(object sender, System.EventArgs e) {
-        if (isGrounded) {
+        if (canJump) {
             isJumping = true;
             PlayerSounds.Instance.PlayJumpStartSound();
         }
     }
     private void OnSprintStarted(object sender, System.EventArgs e) {
-        if (isGrounded) {
+        if (canSprint) {
             isSprinting = true;
         }
     }
@@ -250,10 +240,5 @@ public class PlayerController : MonoBehaviour {
     // public setters
     public void SetInChase(bool inChase) {
         this.inChase = inChase;
-    }
-    // debug
-    private void OnDrawGizmos() {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
     }
 }
