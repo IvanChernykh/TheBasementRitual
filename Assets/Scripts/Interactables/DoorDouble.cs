@@ -18,7 +18,7 @@ public class DoorDouble : Interactable {
     [SerializeField] private ItemData requiredKey;
     private bool isOpened;
     private bool openingDoor;
-    private bool isOpeningState = false;
+    private bool isOpeningOrClosingState = false;
     private float maxOpenAngle = 90f;
     private float currentAngle = 0f;
 
@@ -40,10 +40,10 @@ public class DoorDouble : Interactable {
         ToggleOpening();
     }
     private void ToggleOpening() {
-        if (isOpeningState) {
+        if (isOpeningOrClosingState) {
             return;
         }
-        isOpeningState = true;
+        isOpeningOrClosingState = true;
         openingDoor = !openingDoor;
         if (isOpened) {
             DoorAudio.Instance.PlayCloseDoubleDoor(transform.position);
@@ -54,7 +54,7 @@ public class DoorDouble : Interactable {
         }
     }
     private void HandleOpen() {
-        if (!isOpeningState) {
+        if (!isOpeningOrClosingState) {
             return;
         }
         if (openingDoor && currentAngle < maxOpenAngle) {
@@ -63,7 +63,7 @@ public class DoorDouble : Interactable {
             if (angleToRotate > remainingAngle) {
                 angleToRotate = remainingAngle;
                 isOpened = true;
-                isOpeningState = false;
+                isOpeningOrClosingState = false;
             }
             doorLeft.RotateAround(rotationPointLeft.position, doorLeft.up, angleToRotate);
             doorRight.RotateAround(rotationPointRight.position, doorLeft.up, -angleToRotate);
@@ -74,7 +74,7 @@ public class DoorDouble : Interactable {
             if (angleToRotate > remainingAngle) {
                 angleToRotate = remainingAngle;
                 isOpened = false;
-                isOpeningState = false;
+                isOpeningOrClosingState = false;
             }
             doorLeft.RotateAround(rotationPointLeft.position, doorLeft.up, -angleToRotate);
             doorRight.RotateAround(rotationPointRight.position, doorLeft.up, angleToRotate);
@@ -111,6 +111,12 @@ public class DoorDouble : Interactable {
                 DoorAudio.Instance.PlayLocked(transform.position);
                 TooltipUI.Instance.Show("Locked from the other side");
             }
+        }
+    }
+    public void OpenDoor() {
+        if (!isOpened && !isOpeningOrClosingState) {
+            lockedOnKey = false;
+            ToggleOpening();
         }
     }
 }
