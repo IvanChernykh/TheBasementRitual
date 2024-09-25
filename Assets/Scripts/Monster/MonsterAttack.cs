@@ -7,9 +7,10 @@ public class MonsterAttack : MonoBehaviour {
     [SerializeField] private float attackDistance = 1.6f;
 
     public float AttackDistance { get => attackDistance; }
+    private bool isAttacking;
     private void Update() {
         try {
-            if (PlayerUtils.DistanceToPlayer(transform.position) <= attackDistance && !PlayerController.Instance.isHiding) {
+            if (!isAttacking && !PlayerController.Instance.isHiding && PlayerUtils.DistanceToPlayer(transform.position) <= attackDistance) {
                 StartCoroutine(Attack());
             }
         }
@@ -18,8 +19,10 @@ public class MonsterAttack : MonoBehaviour {
         }
     }
     private IEnumerator Attack() {
+        isAttacking = true;
         monster.Animation.Attack();
         yield return new WaitForSeconds(0.2f);
         PlayerHealth.Instance.Kill();
+        isAttacking = false;
     }
 }

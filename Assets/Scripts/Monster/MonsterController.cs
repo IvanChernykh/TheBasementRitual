@@ -150,15 +150,9 @@ public class MonsterController : MonoBehaviour {
         if (monster.Agent.remainingDistance < arrivalPointDistance) {
             if (!searchPointsGenerated) {
                 if (roomPoints.Length > 0 && System.Array.Exists(roomPoints, item => PlayerUtils.DistanceToPlayer(item.position) < roomSearchDistance)) {
-                    try {
-                        Vector3 point = System.Array.Find(roomPoints, item => PlayerUtils.DistanceToPlayer(item.position) < roomSearchDistance).position;
-                        searchPoints = GetRandomPoints(point, 3f);
-                        searchPointsGenerated = true;
-                        Debug.Log(searchPoints);
-                    }
-                    catch (System.Exception e) {
-                        Debug.LogError("searchPoints error: " + e.Message);
-                    }
+                    Vector3 point = System.Array.Find(roomPoints, item => PlayerUtils.DistanceToPlayer(item.position) < roomSearchDistance).position;
+                    searchPoints = GetRandomPoints(point, 3f);
+                    searchPointsGenerated = true;
                 } else {
                     searchPoints = GetNearestPointsToPlayer(
                         playerLastSeenPos,
@@ -169,15 +163,6 @@ public class MonsterController : MonoBehaviour {
                     searchPointsGenerated = true;
                 }
             }
-            // if (!searchPointsGenerated) {
-            //     searchPoints = GetNearestPointsToPlayer(
-            //         playerLastSeenPos,
-            //         patrolPoints,
-            //         pointCount: 3,
-            //         exclusionRadius: 1f
-            //     );
-            //     searchPointsGenerated = true;
-            // }
             if (searchPoints.Count > 0) {
                 Vector3 nextSearchPoint = searchPoints[0];
                 monster.Agent.SetDestination(nextSearchPoint);
