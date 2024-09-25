@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Assets.Scripts.Utils;
@@ -28,8 +27,9 @@ public class MonsterController : MonoBehaviour {
     private float FieldOfViewExpanded;
     private float fieldOfViewCurrent;
 
-    [Header("Patrol State")]
+    [Header("Navigation Points")]
     [SerializeField] private Transform[] patrolPoints;
+    [SerializeField] private Transform[] roomPoints;
 
     // patrol state
     private int nextPointIdx = 0;
@@ -44,17 +44,21 @@ public class MonsterController : MonoBehaviour {
     private readonly float searchPositionTimerMax = 4.7f;
     private float searchPositionTimer;
     private PlayerController player;
+    [Header("Door Interaction")]
+    [SerializeField] private LayerMask doorLayerMask;
+    [SerializeField] private float checkDistance = 2f;
 
     private void Start() {
         fieldOfViewCurrent = fieldOfViewDefault;
-        FieldOfViewExpanded = Mathf.Clamp(fieldOfViewDefault + 30f, fieldOfViewDefault, 260f);
+        FieldOfViewExpanded = Mathf.Clamp(fieldOfViewDefault + 40f, fieldOfViewDefault, 260f);
 
         player = PlayerController.Instance;
         gameObject.SetActive(false);
     }
     private void Update() {
-        Debug.Log(currentState);
+        Debug.Log(monster.Agent.pathStatus);
         monster.Sounds.PlayRandomRoar();
+        CheckForDoorsAndOpen();
         switch (currentState) {
             case State.Idle:
                 HandleIdle();
@@ -86,10 +90,14 @@ public class MonsterController : MonoBehaviour {
             return;
         }
         if (monster.Agent.remainingDistance < arrivalPointDistance) {
-            do {
+            if (patrolPoints.All(item => PlayerUtils.DistanceToPlayer(item.position) > 20)) {
                 nextPointIdx = Random.Range(0, patrolPoints.Length);
-                // to avoid getting point that is too far from player
-            } while (PlayerUtils.DistanceToPlayer(patrolPoints[nextPointIdx].position) > 20);
+            } else {
+                do {
+                    nextPointIdx = Random.Range(0, patrolPoints.Length);
+                    // to avoid getting point that is too far from player
+                } while (PlayerUtils.DistanceToPlayer(patrolPoints[nextPointIdx].position) > 20);
+            }
         }
         monster.Agent.SetDestination(patrolPoints[nextPointIdx].position);
         monster.Sounds.PlayWalkFootstep();
@@ -133,6 +141,7 @@ public class MonsterController : MonoBehaviour {
             }
         }
     }
+    private readonly float roomSearchDistance = 5f;
     private void HandleSearchPlayer() {
         if (CanSeePlayer()) {
             StartChasingPlayer();
@@ -140,14 +149,35 @@ public class MonsterController : MonoBehaviour {
         }
         if (monster.Agent.remainingDistance < arrivalPointDistance) {
             if (!searchPointsGenerated) {
-                searchPoints = GetNearestPoints(
-                    playerLastSeenPos,
-                    patrolPoints,
-                    pointCount: 3,
-                    exclusionRadius: 1f
-                );
-                searchPointsGenerated = true;
+                if (roomPoints.Length > 0 && System.Array.Exists(roomPoints, item => PlayerUtils.DistanceToPlayer(item.position) < roomSearchDistance)) {
+                    try {
+                        Vector3 point = System.Array.Find(roomPoints, item => PlayerUtils.DistanceToPlayer(item.position) < roomSearchDistance).position;
+                        searchPoints = GetRandomPoints(point, 3f);
+                        searchPointsGenerated = true;
+                        Debug.Log(searchPoints);
+                    }
+                    catch (System.Exception e) {
+                        Debug.LogError("searchPoints error: " + e.Message);
+                    }
+                } else {
+                    searchPoints = GetNearestPointsToPlayer(
+                        playerLastSeenPos,
+                        patrolPoints,
+                        pointCount: 3,
+                        exclusionRadius: 1f
+                    );
+                    searchPointsGenerated = true;
+                }
             }
+            // if (!searchPointsGenerated) {
+            //     searchPoints = GetNearestPointsToPlayer(
+            //         playerLastSeenPos,
+            //         patrolPoints,
+            //         pointCount: 3,
+            //         exclusionRadius: 1f
+            //     );
+            //     searchPointsGenerated = true;
+            // }
             if (searchPoints.Count > 0) {
                 Vector3 nextSearchPoint = searchPoints[0];
                 monster.Agent.SetDestination(nextSearchPoint);
@@ -228,7 +258,15 @@ public class MonsterController : MonoBehaviour {
         }
         return false;
     }
-    private List<Vector3> GetNearestPoints(
+
+    private void CheckForDoorsAndOpen() {
+        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, checkDistance, doorLayerMask)) {
+            if (hit.collider.TryGetComponent(out Door door) && !door.isOpened && !door.isOpeningOrClosingState) {
+                door.InteractAction();
+            }
+        }
+    }
+    private List<Vector3> GetNearestPointsToPlayer(
         Vector3 origin,
         Transform[] searchPoints,
         int pointCount,
@@ -259,6 +297,15 @@ public class MonsterController : MonoBehaviour {
 
         return nearestPoints;
     }
+    private List<Vector3> GetRandomPoints(Vector3 origin, float radius, int numberOfPoints = 3) {
+        List<Vector3> randomPoints = new List<Vector3>();
+
+        for (int i = 0; i < numberOfPoints; i++) {
+            randomPoints.Add(origin + Random.insideUnitSphere * radius);
+        }
+
+        return randomPoints;
+    }
     // sounds
     private void StartChaseMusic() {
         BackgroundMusic.Instance.PlayChaseMusic(.5f);
@@ -267,19 +314,5 @@ public class MonsterController : MonoBehaviour {
     private void StopChaseMusic() {
         BackgroundMusic.Instance.Stop(BackgroundMusic.Sounds.ChaseMusic, 5f);
         BackgroundMusic.Instance.Play(BackgroundMusic.Sounds.MainAmbient, 2f);
-    }
-    // debug
-    private void OnDrawGizmos() {
-        Vector3 offsetY = Vector3.up;
-        Vector3 eyePosition = transform.position + offsetY;
-
-        Gizmos.color = Color.green;
-        Vector3 leftBoundary = Quaternion.Euler(0, -fieldOfViewDefault / 2, 0) * transform.forward;
-        Vector3 rightBoundary = Quaternion.Euler(0, fieldOfViewDefault / 2, 0) * transform.forward;
-
-        Gizmos.DrawLine(eyePosition, eyePosition + leftBoundary * sightDistance);
-        Gizmos.DrawLine(eyePosition, eyePosition + rightBoundary * sightDistance);
-        Gizmos.DrawLine(eyePosition, eyePosition + transform.forward * sightDistance);
-        Gizmos.DrawWireSphere(eyePosition, hearingDistance);
     }
 }

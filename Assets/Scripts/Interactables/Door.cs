@@ -19,9 +19,10 @@ public class Door : Interactable {
     [SerializeField] private bool showUnlockMessage = true;
     [SerializeField] private string customKeyLockedMessage;
 
-    private bool isOpened;
+    public bool isOpened { get; private set; }
+    public bool isOpeningOrClosingState { get; private set; } = false;
+    public bool isLocked { get => lockedOnKey; }
     private bool openingDoor; // opening or closing
-    private bool isOpeningOrClosingState = false;
     private float maxOpenAngle = 90f;
     private float currentAngle = 0f;
 
