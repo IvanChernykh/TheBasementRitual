@@ -90,13 +90,13 @@ public class MonsterController : MonoBehaviour {
             return;
         }
         if (monster.Agent.remainingDistance < arrivalPointDistance) {
-            if (patrolPoints.All(item => PlayerUtils.DistanceToPlayer(item.position) > 20)) {
+            if (patrolPoints.All(item => PlayerUtils.DistanceToPlayer(item.position) > 21)) {
                 nextPointIdx = Random.Range(0, patrolPoints.Length);
             } else {
                 do {
                     nextPointIdx = Random.Range(0, patrolPoints.Length);
                     // to avoid getting point that is too far from player
-                } while (PlayerUtils.DistanceToPlayer(patrolPoints[nextPointIdx].position) > 20);
+                } while (PlayerUtils.DistanceToPlayer(patrolPoints[nextPointIdx].position) > 21);
             }
         }
         monster.Agent.SetDestination(patrolPoints[nextPointIdx].position);
