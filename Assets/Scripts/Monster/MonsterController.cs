@@ -178,6 +178,7 @@ public class MonsterController : MonoBehaviour {
     public void StartIdle() {
         fieldOfViewCurrent = fieldOfViewDefault;
         monster.Animation.Idle();
+        monster.Agent.ResetPath();
         currentState = State.Idle;
     }
     public void StartPatrolling() {
