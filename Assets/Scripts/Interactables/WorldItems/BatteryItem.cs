@@ -11,6 +11,12 @@ public class BatteryItem : Interactable {
             Destroy(gameObject);
         }
     }
+
+    private void Update() {
+        // if (SceneStateManager.Instance.batteriesCollected.Exists(item => item == id)) {
+        //     Destroy(gameObject);
+        // }
+    }
     protected override void Interact() {
         PlayerInventory playerInventory = PlayerInventory.Instance;
         if (playerInventory.batteries.Count < playerInventory.batteriesMax) {
