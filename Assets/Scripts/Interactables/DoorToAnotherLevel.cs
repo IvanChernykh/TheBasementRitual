@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DoorToAnotherLevel : Interactable {
     [Header("UI")]
@@ -6,6 +7,7 @@ public class DoorToAnotherLevel : Interactable {
     [Header("Settings")]
     [SerializeField] private bool lockedOnKey;
     [SerializeField] private ItemData requiredKey;
+    [SerializeField] private GameScenes sceneToLoad;
     private readonly string openMessage = "Open";
 
     private void Awake() {
@@ -25,15 +27,15 @@ public class DoorToAnotherLevel : Interactable {
             PlayerInventory.Instance.RemoveItem(itemFound);
 
             OpenDoor();
-            lockedOnKey = false;
         } else {
             DoorAudio.Instance.PlayLocked(transform.position);
             TooltipUI.Instance.Show(lockedMessage);
         }
     }
     private void OpenDoor() {
-        Debug.Log("Opening door");
-        DoorAudio.Instance.PlayOpen(transform.position);
+        // Debug.Log("Opening door");
+        // DoorAudio.Instance.PlayOpen(transform.position);
+        SceneManager.LoadScene((int)sceneToLoad);
     }
 }
 

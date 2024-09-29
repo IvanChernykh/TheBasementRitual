@@ -53,6 +53,7 @@ public class BatteryUI : MonoBehaviour {
     public void HandleCharge() {
         float chargePercent = Flashlight.Instance.lifetime / Flashlight.Instance.lifeTimeMax;
         chargeBar.fillAmount = chargePercent;
+        Debug.Log(chargePercent);
         if (chargePercent < .2f) {
             if (currentColor == whiteColor) {
                 chargeBar.color = redColor;
