@@ -28,16 +28,16 @@ public class PausePanel : MonoBehaviour {
     }
     // temp
     public void LoadLastGame() {
-        PlayerData data = SaveSystem.LoadGame(SaveFileName.DefaultSave).playerData;
-        float posX = data.playerPosition[0];
-        float posY = data.playerPosition[1];
-        float posZ = data.playerPosition[2];
+        // PlayerData data = SaveSystem.LoadGame(SaveFileName.DefaultSave).playerData;
+        // float posX = data.playerPosition[0];
+        // float posY = data.playerPosition[1];
+        // float posZ = data.playerPosition[2];
 
-        float rotY = data.playerRotation[1];
+        // float rotY = data.playerRotation[1];
 
-        PlayerController.Instance.DisableCharacterController();
-        PlayerController.Instance.transform.position = new Vector3(posX, posY, posZ);
-        PlayerController.Instance.transform.rotation = Quaternion.Euler(0, rotY, 0);
-        PlayerController.Instance.EnableCharacterController();
+        // PlayerController.Instance.DisableCharacterController();
+        // PlayerController.Instance.transform.position = new Vector3(posX, posY, posZ);
+        // PlayerController.Instance.transform.rotation = Quaternion.Euler(0, rotY, 0);
+        // PlayerController.Instance.EnableCharacterController();
     }
 }

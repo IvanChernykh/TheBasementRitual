@@ -1,17 +1,38 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
 public class PlayerData {
-    public float[] playerPosition;
-    public float[] playerRotation;
+    // player
+    public float[] position;
+    public float[] rotation;
+
+    // inventory
+    public bool hasFlashlight;
+    public List<ItemData> batteries;
+    public List<ItemData> items;
+
+    // flashlight
+    public bool flashlightActive;
+    public float flashlightLifetime;
 
     public PlayerData() {
         PlayerController player = PlayerController.Instance;
-        Vector3 position = player.transform.position;
+        PlayerInventory inventory = PlayerInventory.Instance;
+        Flashlight flashlight = Flashlight.Instance;
+
+        Vector3 pos = player.transform.position;
         Vector3 angles = player.transform.rotation.eulerAngles;
 
-        playerPosition = new float[] { position.x, position.y, position.z };
-        playerRotation = new float[] { angles.x, angles.y, angles.z };
+        position = new float[] { pos.x, pos.y, pos.z };
+        rotation = new float[] { angles.x, angles.y, angles.z };
+
+        hasFlashlight = inventory.hasFlashlight;
+        batteries = inventory.batteries;
+        items = inventory.items;
+
+        flashlightActive = flashlight.isActive;
+        flashlightLifetime = flashlight.lifetime;
     }
 }
