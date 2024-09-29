@@ -33,7 +33,6 @@ public class DoorToAnotherLevel : Interactable {
         }
     }
     private void OpenDoor() {
-        // Debug.Log("Opening door");
         // DoorAudio.Instance.PlayOpen(transform.position);
         SceneManager.LoadScene((int)sceneToLoad);
     }

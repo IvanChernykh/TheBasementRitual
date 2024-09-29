@@ -1,7 +1,9 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Assets.Scripts.Utils;
 
+[Serializable]
 public class PlayerInventory : MonoBehaviour {
     public static PlayerInventory Instance { get; private set; }
     public List<ItemData> items { get; private set; } = new List<ItemData>();

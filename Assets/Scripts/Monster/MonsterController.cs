@@ -56,7 +56,6 @@ public class MonsterController : MonoBehaviour {
         gameObject.SetActive(false);
     }
     private void Update() {
-        Debug.Log(monster.Agent.pathStatus);
         monster.Sounds.PlayRandomRoar();
         CheckForDoorsAndOpen();
         switch (currentState) {

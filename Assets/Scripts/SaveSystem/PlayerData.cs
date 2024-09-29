@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [Serializable]
@@ -10,8 +11,8 @@ public class PlayerData {
 
     // inventory
     public bool hasFlashlight;
-    public List<ItemData> batteries;
-    public List<ItemData> items;
+    public int batteryCount;
+    public string[] items;
 
     // flashlight
     public bool flashlightActive;
@@ -29,8 +30,8 @@ public class PlayerData {
         rotation = new float[] { angles.x, angles.y, angles.z };
 
         hasFlashlight = inventory.hasFlashlight;
-        batteries = inventory.batteries;
-        items = inventory.items;
+        batteryCount = inventory.batteries.Count;
+        items = inventory.items.Select(item => item.itemName).ToArray();
 
         flashlightActive = flashlight.isActive;
         flashlightLifetime = flashlight.lifetime;
