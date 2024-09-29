@@ -164,12 +164,18 @@ public class PlayerController : MonoBehaviour {
             Flashlight.Instance.UnequipImmediately();
         }
         headTransform.localRotation = Quaternion.Euler(Vector3.zero);
-        controller.enabled = false;
+        DisableCharacterController();
         isHiding = true;
     }
     public void UnHide() {
-        controller.enabled = true;
+        EnableCharacterController();
         isHiding = false;
+    }
+    public void DisableCharacterController() {
+        controller.enabled = false;
+    }
+    public void EnableCharacterController() {
+        controller.enabled = true;
     }
     public void RestrictRotation(float maxX, float maxY) {
         maxRotationX = maxX;
