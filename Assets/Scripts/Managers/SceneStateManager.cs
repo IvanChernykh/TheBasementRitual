@@ -5,6 +5,7 @@ using Assets.Scripts.Utils;
 public class SceneStateManager : MonoBehaviour {
     public static SceneStateManager Instance { get; private set; }
     public List<int> batteriesCollected { get; private set; } = new List<int>();
+    public List<string> keysCollected { get; private set; } = new List<string>();
 
     private void Awake() {
         if (Instance != null) {
@@ -14,5 +15,8 @@ public class SceneStateManager : MonoBehaviour {
     }
     public void CollectBattery(int id) {
         batteriesCollected.Add(id);
+    }
+    public void CollectKey(string key) {
+        keysCollected.Add(key);
     }
 }
