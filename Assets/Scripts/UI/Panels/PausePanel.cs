@@ -42,8 +42,14 @@ public class PausePanel : MonoBehaviour {
         // PlayerController.Instance.transform.position = new Vector3(posX, posY, posZ);
         // PlayerController.Instance.transform.rotation = Quaternion.Euler(0, rotY, 0);
         // PlayerController.Instance.EnableCharacterController();
+
+        // PlayerInventory.Instance.SetHasFlashlight(playerData.hasFlashlight);
+
         // foreach (int item in sceneData.batteriesCollected) {
         //     SceneStateManager.Instance.CollectBattery(item);
+        // }
+        // foreach (string item in sceneData.keysCollected) {
+        //     SceneStateManager.Instance.CollectKey(item);
         // }
     }
 }
