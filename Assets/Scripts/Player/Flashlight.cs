@@ -34,7 +34,7 @@ public class Flashlight : MonoBehaviour {
     }
     private void OnRealoadBattery(object sender, EventArgs e) {
         PlayerInventory playerInventory = PlayerInventory.Instance;
-        if (playerInventory.batteries.Count > 0) {
+        if (playerInventory.batteries > 0) {
             animator.SetTrigger("Reload");
             playerInventory.RemoveBattery();
             StartCoroutine(ReloadBattery());

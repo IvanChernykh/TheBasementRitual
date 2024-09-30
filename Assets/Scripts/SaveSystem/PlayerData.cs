@@ -30,7 +30,7 @@ public class PlayerData {
         rotation = new float[] { angles.x, angles.y, angles.z };
 
         hasFlashlight = inventory.hasFlashlight;
-        batteryCount = inventory.batteries.Count;
+        batteryCount = inventory.batteries;
         items = inventory.items.Select(item => item.itemName).ToArray();
 
         flashlightActive = flashlight.isActive;

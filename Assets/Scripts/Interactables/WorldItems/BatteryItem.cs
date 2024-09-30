@@ -1,7 +1,6 @@
 using UnityEngine;
 
 public class BatteryItem : Interactable {
-    [SerializeField] private ItemData itemData;
     [SerializeField] private int id;
 
     private void Start() {
@@ -19,8 +18,8 @@ public class BatteryItem : Interactable {
     }
     protected override void Interact() {
         PlayerInventory playerInventory = PlayerInventory.Instance;
-        if (playerInventory.batteries.Count < playerInventory.batteriesMax) {
-            playerInventory.AddBattery(itemData);
+        if (playerInventory.batteries < playerInventory.batteriesMax) {
+            playerInventory.AddBattery();
             SceneStateManager.Instance.CollectBattery(id);
             TooltipUI.Instance.Show("Picked up a battery");
             Destroy(gameObject);

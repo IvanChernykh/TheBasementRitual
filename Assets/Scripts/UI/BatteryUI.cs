@@ -70,6 +70,6 @@ public class BatteryUI : MonoBehaviour {
         }
     }
     public void HandleBatteryCounter() {
-        counter.text = $"{PlayerInventory.Instance.batteries.Count} / {PlayerInventory.Instance.batteriesMax}";
+        counter.text = $"{PlayerInventory.Instance.batteries} / {PlayerInventory.Instance.batteriesMax}";
     }
 }

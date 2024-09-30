@@ -28,28 +28,28 @@ public class PausePanel : MonoBehaviour {
     }
     // temp
     public void LoadLastGame() {
-        // SaveData data = SaveSystem.LoadGame(SaveFileName.DefaultSave);
-        // PlayerData playerData = data.playerData;
-        // SceneData sceneData = data.sceneData;
+        SaveData data = SaveSystem.LoadGame(SaveFileName.DefaultSave);
+        PlayerData playerData = data.playerData;
+        SceneData sceneData = data.sceneData;
 
-        // float posX = playerData.position[0];
-        // float posY = playerData.position[1];
-        // float posZ = playerData.position[2];
+        float posX = playerData.position[0];
+        float posY = playerData.position[1];
+        float posZ = playerData.position[2];
 
-        // float rotY = playerData.rotation[1];
+        float rotY = playerData.rotation[1];
 
-        // PlayerController.Instance.DisableCharacterController();
-        // PlayerController.Instance.transform.position = new Vector3(posX, posY, posZ);
-        // PlayerController.Instance.transform.rotation = Quaternion.Euler(0, rotY, 0);
-        // PlayerController.Instance.EnableCharacterController();
+        PlayerController.Instance.DisableCharacterController();
+        PlayerController.Instance.transform.position = new Vector3(posX, posY, posZ);
+        PlayerController.Instance.transform.rotation = Quaternion.Euler(0, rotY, 0);
+        PlayerController.Instance.EnableCharacterController();
 
-        // PlayerInventory.Instance.SetHasFlashlight(playerData.hasFlashlight);
+        PlayerInventory.Instance.SetHasFlashlight(playerData.hasFlashlight);
 
-        // foreach (int item in sceneData.batteriesCollected) {
-        //     SceneStateManager.Instance.CollectBattery(item);
-        // }
-        // foreach (string item in sceneData.keysCollected) {
-        //     SceneStateManager.Instance.CollectKey(item);
-        // }
+        foreach (int item in sceneData.batteriesCollected) {
+            SceneStateManager.Instance.CollectBattery(item);
+        }
+        foreach (string item in sceneData.keysCollected) {
+            SceneStateManager.Instance.CollectKey(item);
+        }
     }
 }

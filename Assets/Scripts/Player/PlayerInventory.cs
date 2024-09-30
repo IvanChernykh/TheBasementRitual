@@ -7,8 +7,9 @@ using Assets.Scripts.Utils;
 public class PlayerInventory : MonoBehaviour {
     public static PlayerInventory Instance { get; private set; }
     public List<ItemData> items { get; private set; } = new List<ItemData>();
-    public List<ItemData> batteries { get; private set; } = new List<ItemData>();
+
     public bool hasFlashlight { get; private set; }
+    public int batteries { get; private set; } = 0;
     public readonly int batteriesMax = 10;
 
     private void Awake() {
@@ -26,10 +27,10 @@ public class PlayerInventory : MonoBehaviour {
     public void RemoveItem(ItemData item) {
         items.Remove(item);
     }
-    public void AddBattery(ItemData battery) {
-        batteries.Add(battery);
+    public void AddBattery(int count = 1) {
+        batteries += count;
     }
     public void RemoveBattery() {
-        batteries.RemoveAt(0);
+        batteries--;
     }
 }
