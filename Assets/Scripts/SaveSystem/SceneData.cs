@@ -11,7 +11,7 @@ public class SceneData {
     public SceneData() {
         batteriesCollected = SceneStateManager.Instance.batteriesCollected.ToArray();
         keysCollected = SceneStateManager.Instance.keysCollected.ToArray();
-        eventsTriggered = SceneStateManager.Instance.eventsTriggered.ToArray();
-        checkpoints = SceneStateManager.Instance.checkpoints.ToArray();
+        // eventsTriggered = SceneStateManager.Instance.eventsTriggered.ToArray();
+        // checkpoints = SceneStateManager.Instance.checkpoints.ToArray();
     }
 }
