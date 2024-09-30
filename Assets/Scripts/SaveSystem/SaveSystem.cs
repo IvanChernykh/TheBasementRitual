@@ -23,7 +23,7 @@ public static class SaveSystem {
 
         stream.Close();
     }
-    public static SaveData LoadGame(SaveFileName fileName) {
+    public static SaveData LoadSaveFile(SaveFileName fileName) {
         string path = Application.persistentDataPath + "/" + fileName.ToString() + ".save";
 
         if (File.Exists(path)) {
