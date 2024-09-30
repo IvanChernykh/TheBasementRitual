@@ -18,5 +18,6 @@ public class SceneStateManager : MonoBehaviour {
     }
     public void CollectKey(string key) {
         keysCollected.Add(key);
+        // todo: actually should remove key if door is opened
     }
 }
