@@ -9,13 +9,8 @@ public class MonsterAttack : MonoBehaviour {
     public float AttackDistance { get => attackDistance; }
     private bool isAttacking;
     private void Update() {
-        try {
-            if (!isAttacking && !PlayerController.Instance.isHiding && PlayerUtils.DistanceToPlayer(transform.position) <= attackDistance) {
-                StartCoroutine(Attack());
-            }
-        }
-        catch (System.Exception e) {
-            Debug.LogError("Attack error: " + e.Message);
+        if (!isAttacking && !PlayerController.Instance.isHiding && PlayerUtils.DistanceToPlayer(transform.position) <= attackDistance) {
+            StartCoroutine(Attack());
         }
     }
     private IEnumerator Attack() {

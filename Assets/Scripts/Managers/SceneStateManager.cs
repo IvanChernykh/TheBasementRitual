@@ -42,6 +42,5 @@ public class SceneStateManager : MonoBehaviour {
     // }
     public void AddCheckpoint(string id) {
         checkpoints.Add(id);
-        Debug.Log(checkpoints.Count);
     }
 }
