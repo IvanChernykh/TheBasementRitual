@@ -10,6 +10,8 @@ public class PausePanel : MonoBehaviour {
     private void Awake() {
         if (Instance != null) {
             Exceptions.MoreThanOneInstance(name);
+            Destroy(gameObject);
+            return;
         }
         Instance = this;
 
@@ -33,6 +35,5 @@ public class PausePanel : MonoBehaviour {
         } else {
             Debug.LogWarning("There is no scene controller");
         }
-
     }
 }

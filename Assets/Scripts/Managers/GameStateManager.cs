@@ -22,6 +22,8 @@ public class GameStateManager : MonoBehaviour {
     private void Awake() {
         if (Instance != null) {
             Exceptions.MoreThanOneInstance(name);
+            Destroy(gameObject);
+            return;
         }
         Instance = this;
     }

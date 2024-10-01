@@ -7,6 +7,8 @@ public class SubtitlesUI : TextController {
     private void Awake() {
         if (Instance != null) {
             Exceptions.MoreThanOneInstance(name);
+            Destroy(gameObject);
+            return;
         }
         Instance = this;
     }

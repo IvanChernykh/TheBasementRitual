@@ -59,6 +59,8 @@ public class PlayerController : MonoBehaviour {
     private void Awake() {
         if (Instance != null) {
             Exceptions.MoreThanOneInstance(name);
+            Destroy(gameObject);
+            return;
         }
         Instance = this;
         controller = GetComponent<CharacterController>();
@@ -71,7 +73,6 @@ public class PlayerController : MonoBehaviour {
         InputManager.Instance.OnInteractEvent += OnInteract;
     }
     private void Update() {
-        Debug.Log(SceneManager.GetActiveScene().name);
         if (!isHiding) {
             isGrounded = IsGrounded();
             if (isGrounded && velocity.y < 0) {
