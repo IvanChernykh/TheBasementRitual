@@ -3,7 +3,7 @@ using UnityEngine;
 public class WorldItem : Interactable {
     [SerializeField] private ItemData itemData;
     [SerializeField] private string pickUpMessage;
-    public string itemId { get => itemData.itemName; }
+    public string ItemId { get => itemData.itemName; }
     private void Start() {
         interactMessage = "Take";
         if (pickUpMessage.Length == 0) {

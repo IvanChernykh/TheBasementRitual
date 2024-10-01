@@ -109,8 +109,17 @@ public class SceneController : MonoBehaviour {
                 }
             }
         }
-        // foreach (string item in sceneData.keysCollected) {
-        //     SceneStateManager.Instance.CollectKey(item);
-        // }
+        // keys
+        foreach (string itemId in sceneData.keysCollected) {
+            SceneStateManager.Instance.CollectKey(itemId);
+            var worldItems = FindObjectsOfType<WorldItem>();
+
+            foreach (var item in worldItems) {
+                if (item.ItemId == itemId) {
+                    Destroy(item.gameObject);
+                    break;
+                }
+            }
+        }
     }
 }
