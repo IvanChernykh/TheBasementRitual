@@ -1,20 +1,29 @@
 using UnityEngine;
 using System.IO;
+using System.Threading.Tasks;
 using System.Runtime.Serialization.Formatters.Binary;
 
 public enum SaveFileName {
-    SaveGame1,
-    SaveGame2,
-    SaveGame3,
     DefaultSave
 }
 
 public static class SaveSystem {
+    public static async Task SaveGameAsync(SaveFileName? fileName = null) {
+        string saveFileName = fileName.HasValue ? fileName.ToString() : SaveFileName.DefaultSave.ToString();
+        string path = Application.persistentDataPath + "/" + saveFileName + ".save";
+
+        BinaryFormatter formatter = new BinaryFormatter();
+
+        using (FileStream stream = new FileStream(path, FileMode.Create)) {
+            SaveData data = new SaveData();
+            await Task.Run(() => formatter.Serialize(stream, data));
+        }
+    }
     public static void SaveGame(SaveFileName? fileName = null) {
 
         string saveFileName = fileName.HasValue ? fileName.ToString() : SaveFileName.DefaultSave.ToString();
         string path = Application.persistentDataPath + "/" + saveFileName + ".save";
-        Debug.Log(path);
+
         BinaryFormatter formatter = new BinaryFormatter();
         FileStream stream = new FileStream(path, FileMode.Create);
 

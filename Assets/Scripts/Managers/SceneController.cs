@@ -18,25 +18,26 @@ public class SceneController : MonoBehaviour {
     public void StartNewGame() {
         LoadScene(GameScenes.BasementLevel);
     }
-
-    public void LoadOfficeLevel() {
-        LoadScene(GameScenes.OfficeLevel);
+    public async void LoadNextLevel(GameScenes sceneToLoad) {
+        await SaveSystem.SaveGameAsync();
+        SaveData saveData = SaveSystem.LoadSaveFile(SaveFileName.DefaultSave);
+        LoadScene(sceneToLoad, saveData, isNextLevel: true);
     }
-    public void LoadGame(SaveFileName fileName) {
+    public void LoadSavedGame(SaveFileName fileName) {
         // need to get scene from save file
         // need to save scene to save file
         SaveData saveData = SaveSystem.LoadSaveFile(fileName);
         // LoadScene(saveData.sceneData.scene, saveData)
     }
 
-    private void LoadScene(GameScenes sceneToLoad, SaveData saveData) {
-        StartCoroutine(LoadSceneAsync(sceneToLoad, saveData));
+    private void LoadScene(GameScenes sceneToLoad, SaveData saveData, bool isNextLevel = false) {
+        StartCoroutine(LoadSceneAsync(sceneToLoad, saveData, isNextLevel));
     }
     private void LoadScene(GameScenes sceneToLoad) {
         StartCoroutine(LoadSceneAsync(sceneToLoad));
     }
 
-    private IEnumerator LoadSceneAsync(GameScenes sceneToLoad, SaveData saveData = null) {
+    private IEnumerator LoadSceneAsync(GameScenes sceneToLoad, SaveData saveData = null, bool isNextLevel = false) {
         AsyncOperation loadingOperation = SceneManager.LoadSceneAsync(GameScenes.LoadingScreen.ToString());
         yield return loadingOperation;
 
@@ -53,24 +54,34 @@ public class SceneController : MonoBehaviour {
         }
 
         if (saveData != null) {
-            SetupGameData(saveData);
+            SetupGameData(saveData, isNextLevel);
         }
     }
 
-    public void SetupGameData(SaveData saveData) {
-        // player data
+    public void SetupGameData(SaveData saveData, bool isNextLevel = false) {
+        if (isNextLevel) {
+            SetupPlayerData(saveData, setPosition: false);
+        } else {
+            SetupPlayerData(saveData);
+            // setupSceneData
+        }
+
+    }
+    private void SetupPlayerData(SaveData saveData, bool setPosition = true) {
         PlayerData playerData = saveData.playerData;
 
-        float posX = playerData.position[0];
-        float posY = playerData.position[1];
-        float posZ = playerData.position[2];
+        if (setPosition) {
+            float posX = playerData.position[0];
+            float posY = playerData.position[1];
+            float posZ = playerData.position[2];
 
-        float rotY = playerData.rotation[1];
+            float rotY = playerData.rotation[1];
 
-        PlayerController.Instance.DisableCharacterController();
-        PlayerController.Instance.transform.position = new Vector3(posX, posY, posZ);
-        PlayerController.Instance.transform.rotation = Quaternion.Euler(0, rotY, 0);
-        PlayerController.Instance.EnableCharacterController();
+            PlayerController.Instance.DisableCharacterController();
+            PlayerController.Instance.transform.position = new Vector3(posX, posY, posZ);
+            PlayerController.Instance.transform.rotation = Quaternion.Euler(0, rotY, 0);
+            PlayerController.Instance.EnableCharacterController();
+        }
 
         PlayerInventory.Instance.SetHasFlashlight(playerData.hasFlashlight);
         PlayerInventory.Instance.AddBattery(playerData.batteryCount);
@@ -84,8 +95,9 @@ public class SceneController : MonoBehaviour {
                 }
             }
         }
-
-        // SceneData sceneData = data.sceneData;
+    }
+    private void SetupSceneData(SaveData saveData) {
+        // SceneData sceneData = saveData.sceneData;
         // foreach (int item in sceneData.batteriesCollected) {
         //     SceneStateManager.Instance.CollectBattery(item);
         // }

@@ -33,7 +33,7 @@ public class DoorToAnotherLevel : Interactable {
         }
     }
     private void OpenDoor() {
-        SceneController.Instance.LoadOfficeLevel();
+        SceneController.Instance.LoadNextLevel(sceneToLoad);
     }
 }
 
