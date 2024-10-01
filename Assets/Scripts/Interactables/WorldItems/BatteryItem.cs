@@ -3,18 +3,10 @@ using UnityEngine;
 public class BatteryItem : Interactable {
     [SerializeField] private int id;
 
+    public int BatteryId { get => id; }
+
     private void Start() {
         interactMessage = "Take";
-
-        if (SceneStateManager.Instance.batteriesCollected.Exists(item => item == id)) {
-            Destroy(gameObject);
-        }
-    }
-
-    private void Update() {
-        // if (SceneStateManager.Instance.batteriesCollected.Exists(item => item == id)) {
-        //     Destroy(gameObject);
-        // }
     }
     protected override void Interact() {
         PlayerInventory playerInventory = PlayerInventory.Instance;

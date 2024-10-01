@@ -1,5 +1,6 @@
 using UnityEngine;
 using Assets.Scripts.Utils;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
     public static PlayerController Instance { get; private set; }
@@ -68,10 +69,9 @@ public class PlayerController : MonoBehaviour {
         InputManager.Instance.OnCrouchEvent += OnCrouch;
         InputManager.Instance.OnJumpEvent += OnJump;
         InputManager.Instance.OnInteractEvent += OnInteract;
-
-
     }
     private void Update() {
+        Debug.Log(SceneManager.GetActiveScene().name);
         if (!isHiding) {
             isGrounded = IsGrounded();
             if (isGrounded && velocity.y < 0) {
@@ -247,4 +247,5 @@ public class PlayerController : MonoBehaviour {
     public void SetInChase(bool inChase) {
         this.inChase = inChase;
     }
+
 }

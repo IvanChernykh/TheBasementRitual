@@ -24,10 +24,8 @@ public class SceneController : MonoBehaviour {
         LoadScene(sceneToLoad, saveData, isNextLevel: true);
     }
     public void LoadSavedGame(SaveFileName fileName) {
-        // need to get scene from save file
-        // need to save scene to save file
         SaveData saveData = SaveSystem.LoadSaveFile(fileName);
-        // LoadScene(saveData.sceneData.scene, saveData)
+        LoadScene(saveData.sceneData.scene, saveData);
     }
 
     private void LoadScene(GameScenes sceneToLoad, SaveData saveData, bool isNextLevel = false) {
@@ -63,7 +61,7 @@ public class SceneController : MonoBehaviour {
             SetupPlayerData(saveData, setPosition: false);
         } else {
             SetupPlayerData(saveData);
-            // setupSceneData
+            SetupSceneData(saveData);
         }
 
     }
@@ -97,10 +95,20 @@ public class SceneController : MonoBehaviour {
         }
     }
     private void SetupSceneData(SaveData saveData) {
-        // SceneData sceneData = saveData.sceneData;
-        // foreach (int item in sceneData.batteriesCollected) {
-        //     SceneStateManager.Instance.CollectBattery(item);
-        // }
+        SceneData sceneData = saveData.sceneData;
+
+        // batteries
+        foreach (int itemId in sceneData.batteriesCollected) {
+            SceneStateManager.Instance.CollectBattery(itemId);
+            var batteries = FindObjectsOfType<BatteryItem>();
+
+            foreach (var battery in batteries) {
+                if (battery.BatteryId == itemId) {
+                    Destroy(battery.gameObject);
+                    break;
+                }
+            }
+        }
         // foreach (string item in sceneData.keysCollected) {
         //     SceneStateManager.Instance.CollectKey(item);
         // }
