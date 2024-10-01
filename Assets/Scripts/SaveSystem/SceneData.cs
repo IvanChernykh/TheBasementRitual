@@ -1,4 +1,3 @@
-
 using System;
 using UnityEngine.SceneManagement;
 
@@ -8,8 +7,6 @@ public class SceneData {
     public string[] keysCollected;
 
     public string[] checkpoints;
-    // public EventData[] eventsTriggered;
-    // public int[] doorsOpened;
 
     public GameScenes scene;
     public SceneData() {
@@ -19,9 +16,6 @@ public class SceneData {
         keysCollected = SceneStateManager.Instance.keysCollected.ToArray();
 
         checkpoints = SceneStateManager.Instance.checkpoints.ToArray();
-
-        // eventsTriggered = SceneStateManager.Instance.eventsTriggered.ToArray();
-
     }
 
     private GameScenes GetGameSceneFromName(string sceneName) {
