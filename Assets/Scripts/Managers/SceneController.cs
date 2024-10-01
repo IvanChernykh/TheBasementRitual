@@ -120,5 +120,17 @@ public class SceneController : MonoBehaviour {
                 }
             }
         }
+        // checkpoints
+        foreach (string id in sceneData.checkpoints) {
+            SceneStateManager.Instance.AddCheckpoint(id);
+            var checkpoints = FindObjectsOfType<Checkpoint>();
+
+            foreach (var item in checkpoints) {
+                if (item.Id == id) {
+                    Destroy(item.gameObject);
+                    break;
+                }
+            }
+        }
     }
 }

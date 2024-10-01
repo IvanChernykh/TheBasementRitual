@@ -6,9 +6,11 @@ using UnityEngine.SceneManagement;
 public class SceneData {
     public int[] batteriesCollected;
     public string[] keysCollected;
-    public EventData[] eventsTriggered;
-    public int[] doorsOpened;
-    public int[] checkpoints;
+
+    public string[] checkpoints;
+    // public EventData[] eventsTriggered;
+    // public int[] doorsOpened;
+
     public GameScenes scene;
     public SceneData() {
         scene = GetGameSceneFromName(SceneManager.GetActiveScene().name);
@@ -16,8 +18,10 @@ public class SceneData {
         batteriesCollected = SceneStateManager.Instance.batteriesCollected.ToArray();
         keysCollected = SceneStateManager.Instance.keysCollected.ToArray();
 
+        checkpoints = SceneStateManager.Instance.checkpoints.ToArray();
+
         // eventsTriggered = SceneStateManager.Instance.eventsTriggered.ToArray();
-        // checkpoints = SceneStateManager.Instance.checkpoints.ToArray();
+
     }
 
     private GameScenes GetGameSceneFromName(string sceneName) {

@@ -7,6 +7,7 @@ public class OnTriggerEnterEventController : MonoBehaviour {
     [SerializeField] private bool destroySelfAfterEvent;
     [SerializeField] private EventAction[] eventActions;
     [SerializeField] private EventCondition[] eventConditions;
+
     [Header("Event Saving")]
     [SerializeField] private bool saveEvent;
     [SerializeField] private bool executeOnLoad; // execute or remove
@@ -14,7 +15,7 @@ public class OnTriggerEnterEventController : MonoBehaviour {
 
     private bool eventIsTriggered;
     private void SaveEvent() {
-        SceneStateManager.Instance.AddEvent(new EventData(id, executeOnLoad));
+        // SceneStateManager.Instance.AddEvent(new EventData(id, executeOnLoad));
     }
 
     private void OnTriggerEnter(Collider other) {

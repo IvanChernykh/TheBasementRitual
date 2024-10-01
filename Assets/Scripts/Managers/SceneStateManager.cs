@@ -16,10 +16,11 @@ public class EventData {
 public class SceneStateManager : MonoBehaviour {
     public static SceneStateManager Instance { get; private set; }
 
-    public List<EventData> eventsTriggered { get; private set; } = new List<EventData>();
+    // public List<EventData> eventsTriggered { get; private set; } = new List<EventData>();
     public List<int> batteriesCollected { get; private set; } = new List<int>();
     public List<string> keysCollected { get; private set; } = new List<string>();
-    public List<int> checkpoints { get; private set; } = new List<int>();
+
+    public List<string> checkpoints { get; private set; } = new List<string>();
 
     private void Awake() {
         if (Instance != null) {
@@ -32,13 +33,15 @@ public class SceneStateManager : MonoBehaviour {
     public void CollectBattery(int id) {
         batteriesCollected.Add(id);
     }
-    public void CollectKey(string key) {
-        keysCollected.Add(key);
+    public void CollectKey(string id) {
+        keysCollected.Add(id);
     }
-    public void AddEvent(EventData data) {
-        eventsTriggered.Add(data);
-    }
-    public void AddCheckpoint(int id) {
+
+    // public void AddEvent(EventData data) {
+    //     eventsTriggered.Add(data);
+    // }
+    public void AddCheckpoint(string id) {
         checkpoints.Add(id);
+        Debug.Log(checkpoints.Count);
     }
 }
