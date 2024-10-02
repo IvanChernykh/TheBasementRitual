@@ -1,11 +1,11 @@
 using UnityEngine;
 
-public class PlayerHasItemCondition : EventCondition {
+public class PlayerDoesNotHaveAnItemCondition : EventCondition {
     [SerializeField] private ItemData requiredItem;
     public override bool IsConditionMet() {
         if (requiredItem == null) {
-            return false;
+            return true;
         }
-        return PlayerInventory.Instance.items.Contains(requiredItem);
+        return !PlayerInventory.Instance.items.Contains(requiredItem);
     }
 }
