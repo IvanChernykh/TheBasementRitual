@@ -18,26 +18,25 @@ public class SceneController : MonoBehaviour {
         LoadScene(GameScenes.MainMenu);
     }
     public void StartNewGame() {
-        LoadScene(GameScenes.BasementLevel);
+        LoadScene(GameScenes.BasementLevel, saveOnLoad: true);
     }
-    public async void LoadNextLevel(GameScenes sceneToLoad) {
-        await SaveSystem.SaveGameAsync();
-        SaveData saveData = SaveSystem.LoadSaveFile(SaveFileName.DefaultSave);
-        LoadScene(sceneToLoad, saveData, isNextLevel: true);
+    public void LoadNextLevel(GameScenes sceneToLoad) {
+        SaveData saveData = new SaveData();
+        LoadScene(sceneToLoad, saveData, isNextLevel: true, saveOnLoad: true);
     }
     public void LoadSavedGame(SaveFileName fileName) {
         SaveData saveData = SaveSystem.LoadSaveFile(fileName);
         LoadScene(saveData.sceneData.scene, saveData);
     }
 
-    private void LoadScene(GameScenes sceneToLoad, SaveData saveData, bool isNextLevel = false) {
-        StartCoroutine(LoadSceneAsync(sceneToLoad, saveData, isNextLevel));
+    private void LoadScene(GameScenes sceneToLoad, SaveData saveData, bool isNextLevel = false, bool saveOnLoad = false) {
+        StartCoroutine(LoadSceneAsync(sceneToLoad, saveData, isNextLevel: isNextLevel, saveOnLoad: saveOnLoad));
     }
-    private void LoadScene(GameScenes sceneToLoad) {
-        StartCoroutine(LoadSceneAsync(sceneToLoad));
+    private void LoadScene(GameScenes sceneToLoad, bool saveOnLoad = false) {
+        StartCoroutine(LoadSceneAsync(sceneToLoad, saveOnLoad: saveOnLoad));
     }
 
-    private IEnumerator LoadSceneAsync(GameScenes sceneToLoad, SaveData saveData = null, bool isNextLevel = false) {
+    private IEnumerator LoadSceneAsync(GameScenes sceneToLoad, SaveData saveData = null, bool isNextLevel = false, bool saveOnLoad = false) {
         AsyncOperation loadingOperation = SceneManager.LoadSceneAsync(GameScenes.LoadingScreen.ToString());
         yield return loadingOperation;
 
@@ -53,8 +52,13 @@ public class SceneController : MonoBehaviour {
             yield return null;
         }
 
+        // yield return null; // to make sure scene is ready
+
         if (saveData != null) {
             SetupGameData(saveData, isNextLevel);
+        }
+        if (saveOnLoad) {
+            SaveSystem.SaveGame();
         }
     }
 
