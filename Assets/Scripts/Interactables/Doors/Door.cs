@@ -1,49 +1,19 @@
-using Assets.Scripts.Utils;
 using UnityEngine;
 
-public enum DoorStateEnum {
-    Default,
-    Opened,
-    Locked,
-    LockedFromTheOtherSide,
-}
-public class Door : Interactable {
-    private const string OPEN_MESSAGE = "Open";
-    private const string CLOSE_MESSAGE = "Close";
-    private string lockedMessage = "Locked";
 
+public class Door : DoorBase {
     [Header("Opening")]
     [SerializeField] private Transform rotationPoint;
     [SerializeField] private float openSpeed = 200f;
     [SerializeField] private bool openForward;
-
-    [Header("Locked State")]
-    [SerializeField] private bool lockedFromOtherSide;
-    [SerializeField] private bool lockedFromBehindSide;
-    [SerializeField] private bool lockedOnKey;
-    [SerializeField] private bool removeKeyOnOpen = true;
-    [SerializeField] private ItemData requiredKey;
 
     [Header("Tooltip")]
     [Tooltip("Show tooltip message after door unlocked with key")]
     [SerializeField] private bool showUnlockMessage = true;
     [SerializeField] private string customKeyLockedMessage;
 
-    [Header("State Saving")]
-    [SerializeField] private bool saveState;
-    [SerializeField] private string doorId;
-    private DoorStateEnum state = DoorStateEnum.Default;
-
-    public bool isOpened { get; private set; }
-    public bool isOpeningOrClosingState { get; private set; } = false;
     public bool isLocked { get => lockedOnKey; }
-    private bool openingDoor; // opening or closing
-    private float maxOpenAngle = 90f;
-    private float currentAngle = 0f;
 
-    private void Awake() {
-        interactMessage = OPEN_MESSAGE;
-    }
     private void Update() {
         HandleOpen();
     }
@@ -58,7 +28,7 @@ public class Door : Interactable {
         }
         ToggleOpening();
     }
-    private void ToggleOpening(bool silentMode = false) {
+    protected override void ToggleOpening(bool silentMode = false) {
         if (isOpeningOrClosingState) {
             return;
         }
@@ -68,12 +38,12 @@ public class Door : Interactable {
             if (!silentMode) {
                 DoorAudio.Instance.PlayClose(transform.position);
             }
-            interactMessage = OPEN_MESSAGE;
+            interactMessage = openMessage;
         } else {
             if (!silentMode) {
                 DoorAudio.Instance.PlayOpen(transform.position);
             }
-            interactMessage = CLOSE_MESSAGE;
+            interactMessage = closeMessage;
         }
     }
     private void HandleOpen() {
@@ -126,36 +96,9 @@ public class Door : Interactable {
             }
         }
     }
-    private void TryOpenLockedFromOtherSide() {
-        if (PlayerUtils.DistanceToPlayer(transform.position) < PlayerController.Instance.interactDistance * 1.5) {
-            Vector3 directionToPlayer = PlayerUtils.DirectionToPlayer(transform.position);
-            directionToPlayer.y = 0;
 
-            Vector3 doorForward = lockedFromBehindSide ? -transform.forward : transform.forward;
-
-            float dotProduct = Vector3.Dot(doorForward, directionToPlayer.normalized);
-
-            if (dotProduct > 0) {
-                lockedFromOtherSide = false;
-                state = DoorStateEnum.Opened;
-                SaveState();
-                ToggleOpening();
-            } else {
-                DoorAudio.Instance.PlayLocked(transform.position);
-                TooltipUI.Instance.Show("Locked from the other side");
-            }
-        }
-    }
     public void CloseDoor() {
         if (isOpened && !isOpeningOrClosingState) {
-            ToggleOpening();
-        }
-    }
-    public void OpenDoor() {
-        if (!isOpened && !isOpeningOrClosingState) {
-            lockedOnKey = false;
-            state = DoorStateEnum.Opened;
-            SaveState();
             ToggleOpening();
         }
     }
@@ -182,9 +125,5 @@ public class Door : Interactable {
             SaveState();
         }
     }
-    private void SaveState() {
-        if (saveState) {
-            SceneStateManager.Instance.AddOrUpdateDoorState(new DoorState(id: doorId, lockedMessage: lockedMessage, state: state.ToString()));
-        }
-    }
+
 }

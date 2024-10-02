@@ -1,30 +1,13 @@
-using Assets.Scripts.Utils;
 using UnityEngine;
 
-public class DoorDouble : Interactable {
-    [Header("UI")]
-    [SerializeField] private string openMessage = "Open";
-    [SerializeField] private string closeMessage = "Close";
-    [SerializeField] private string lockedMessage = "Locked";
+public class DoorDouble : DoorBase {
     [Header("Settings")]
     [SerializeField] private Transform doorLeft;
     [SerializeField] private Transform doorRight;
     [SerializeField] private Transform rotationPointLeft;
     [SerializeField] private Transform rotationPointRight;
     [SerializeField] private float openSpeed = 180f;
-    [SerializeField] private bool lockedOnKey;
-    [SerializeField] private bool lockedFromOtherSide;
-    [SerializeField] private bool lockedFromBehindSide;
-    [SerializeField] private ItemData requiredKey;
-    private bool isOpened;
-    private bool openingDoor;
-    private bool isOpeningOrClosingState = false;
-    private float maxOpenAngle = 90f;
-    private float currentAngle = 0f;
 
-    private void Awake() {
-        interactMessage = openMessage;
-    }
     private void Update() {
         HandleOpen();
     }
@@ -39,7 +22,7 @@ public class DoorDouble : Interactable {
         }
         ToggleOpening();
     }
-    private void ToggleOpening() {
+    protected override void ToggleOpening(bool _ = true) {
         if (isOpeningOrClosingState) {
             return;
         }
@@ -93,30 +76,6 @@ public class DoorDouble : Interactable {
         } else {
             DoorAudio.Instance.PlayLocked(transform.position);
             TooltipUI.Instance.Show(lockedMessage);
-        }
-    }
-    private void TryOpenLockedFromOtherSide() {
-        if (PlayerUtils.DistanceToPlayer(transform.position) < PlayerController.Instance.interactDistance * 1.5) {
-            Vector3 directionToPlayer = PlayerUtils.DirectionToPlayer(transform.position);
-            directionToPlayer.y = 0;
-
-            Vector3 doorForward = lockedFromBehindSide ? -transform.forward : transform.forward;
-
-            float dotProduct = Vector3.Dot(doorForward, directionToPlayer.normalized);
-
-            if (dotProduct > 0) {
-                lockedFromOtherSide = false;
-                ToggleOpening();
-            } else {
-                DoorAudio.Instance.PlayLocked(transform.position);
-                TooltipUI.Instance.Show("Locked from the other side");
-            }
-        }
-    }
-    public void OpenDoor() {
-        if (!isOpened && !isOpeningOrClosingState) {
-            lockedOnKey = false;
-            ToggleOpening();
         }
     }
 }

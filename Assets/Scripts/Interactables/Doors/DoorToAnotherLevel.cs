@@ -32,7 +32,11 @@ public class DoorToAnotherLevel : Interactable {
         }
     }
     private void OpenDoor() {
-        SceneController.Instance.LoadNextLevel(sceneToLoad);
+        if (SceneController.Instance != null) {
+            SceneController.Instance.LoadNextLevel(sceneToLoad);
+        } else {
+            Debug.LogWarning("There is no scene controller");
+        }
     }
 }
 
