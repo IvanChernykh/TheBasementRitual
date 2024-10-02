@@ -5,8 +5,10 @@ using UnityEngine.UI;
 public class PausePanel : MonoBehaviour {
     public static PausePanel Instance { get; private set; }
     [SerializeField] private GameObject panel;
+
     [Header("Buttons")]
     [SerializeField] private Button loadGameButton;
+    [SerializeField] private Button mainMenuButton;
     private void Awake() {
         if (Instance != null) {
             Exceptions.MoreThanOneInstance(name);
@@ -18,6 +20,9 @@ public class PausePanel : MonoBehaviour {
         loadGameButton.onClick.AddListener(() => {
             LoadLastGame();
         });
+        mainMenuButton.onClick.AddListener(() => {
+            MainMenu();
+        });
     }
     private void Start() {
         Hide();
@@ -28,10 +33,17 @@ public class PausePanel : MonoBehaviour {
     public void Hide() {
         panel.SetActive(false);
     }
-    // temp
-    public void LoadLastGame() {
+    // buttons
+    private void LoadLastGame() {
         if (SceneController.Instance != null) {
             SceneController.Instance.LoadSavedGame(SaveFileName.DefaultSave);
+        } else {
+            Exceptions.NoSceneController();
+        }
+    }
+    private void MainMenu() {
+        if (SceneController.Instance != null) {
+            SceneController.Instance.MainMenu();
         } else {
             Exceptions.NoSceneController();
         }
