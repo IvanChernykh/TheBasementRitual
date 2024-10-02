@@ -2,6 +2,7 @@ using UnityEngine;
 
 public abstract class Interactable : MonoBehaviour {
     public string interactMessage { get; protected set; }
+    [Header("Event Actions")]
     [SerializeField] private EventAction[] interactEventAction;
     [SerializeField] private bool executeEventActionAlways;
     private bool eventExecuted;

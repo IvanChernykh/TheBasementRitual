@@ -1,5 +1,6 @@
 using UnityEngine;
 using Assets.Scripts.Utils;
+using System;
 
 public enum DoorStateEnum {
     Default,
@@ -25,6 +26,7 @@ public class DoorBase : Interactable {
     [SerializeField] protected bool saveState;
     [SerializeField] protected string doorId;
     protected DoorStateEnum state = DoorStateEnum.Default;
+    public string Id { get => doorId; }
 
     public bool isOpened { get; protected set; }
     public bool isOpeningOrClosingState { get; protected set; } = false;
@@ -75,6 +77,24 @@ public class DoorBase : Interactable {
     protected void SaveState() {
         if (saveState) {
             SceneStateManager.Instance.AddOrUpdateDoorState(new DoorState(id: doorId, lockedMessage: lockedMessage, state: state.ToString()));
+        }
+    }
+    public void SetState(DoorState doorState) {
+        lockedMessage = doorState.lockedMessage;
+
+        if (Enum.TryParse(doorState.state, out DoorStateEnum parsedState)) {
+            switch (parsedState) {
+                case DoorStateEnum.Opened:
+                    lockedOnKey = false;
+                    lockedFromOtherSide = false;
+                    break;
+                case DoorStateEnum.Locked:
+                    lockedOnKey = true;
+                    break;
+                case DoorStateEnum.LockedFromTheOtherSide:
+                    lockedFromOtherSide = true;
+                    break;
+            }
         }
     }
 }

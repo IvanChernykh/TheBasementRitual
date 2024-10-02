@@ -132,5 +132,17 @@ public class SceneController : MonoBehaviour {
                 }
             }
         }
+        // doors
+        foreach (DoorState door in sceneData.doors) {
+            SceneStateManager.Instance.AddOrUpdateDoorState(door);
+            var allDoors = FindObjectsOfType<DoorBase>();
+
+            foreach (var item in allDoors) {
+                if (item.Id == door.id) {
+                    item.SetState(door);
+                    break;
+                }
+            }
+        }
     }
 }

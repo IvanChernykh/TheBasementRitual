@@ -7,6 +7,7 @@ public class SceneData {
     public string[] keysCollected;
 
     public string[] checkpoints;
+    public DoorState[] doors;
 
     public GameScenes scene;
     public SceneData() {
@@ -16,6 +17,7 @@ public class SceneData {
         keysCollected = SceneStateManager.Instance.keysCollected.ToArray();
 
         checkpoints = SceneStateManager.Instance.checkpoints.ToArray();
+        doors = SceneStateManager.Instance.doors.ToArray();
     }
 
     private GameScenes GetGameSceneFromName(string sceneName) {
