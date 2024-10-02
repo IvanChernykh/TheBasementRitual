@@ -1,3 +1,4 @@
+using Assets.Scripts.Utils;
 using UnityEngine;
 
 public class DoorToAnotherLevel : Interactable {
@@ -35,7 +36,7 @@ public class DoorToAnotherLevel : Interactable {
         if (SceneController.Instance != null) {
             SceneController.Instance.LoadNextLevel(sceneToLoad);
         } else {
-            Debug.LogWarning("There is no scene controller");
+            Exceptions.NoSceneController();
         }
     }
 }

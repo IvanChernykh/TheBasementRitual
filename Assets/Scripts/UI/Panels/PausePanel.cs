@@ -33,7 +33,7 @@ public class PausePanel : MonoBehaviour {
         if (SceneController.Instance != null) {
             SceneController.Instance.LoadSavedGame(SaveFileName.DefaultSave);
         } else {
-            Debug.LogWarning("There is no scene controller");
+            Exceptions.NoSceneController();
         }
     }
 }
