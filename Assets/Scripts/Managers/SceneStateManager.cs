@@ -1,6 +1,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Assets.Scripts.Utils;
+using System;
+
+[Serializable]
+public class DoorState {
+    public string id;
+    public string lockedMessage;
+    public string state;
+    public DoorState(string id, string lockedMessage, string state) {
+        this.id = id;
+        this.lockedMessage = lockedMessage;
+        this.state = state;
+    }
+}
 
 public class SceneStateManager : MonoBehaviour {
     public static SceneStateManager Instance { get; private set; }
@@ -9,6 +22,7 @@ public class SceneStateManager : MonoBehaviour {
     public List<string> keysCollected { get; private set; } = new List<string>();
 
     public List<string> checkpoints { get; private set; } = new List<string>();
+    public List<DoorState> doors { get; private set; } = new List<DoorState>();
 
     private void Awake() {
         if (Instance != null) {
@@ -27,5 +41,14 @@ public class SceneStateManager : MonoBehaviour {
     }
     public void AddCheckpoint(string id) {
         checkpoints.Add(id);
+    }
+    public void AddOrUpdateDoorState(DoorState doorState) {
+        for (int i = 0; i < doors.Count; i++) {
+            if (doors[i].id == doorState.id) {
+                doors[i] = doorState;
+                return;
+            }
+        }
+        doors.Add(doorState);
     }
 }
