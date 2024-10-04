@@ -24,6 +24,13 @@ public class TextController : MonoBehaviour {
         textObject.gameObject.SetActive(true);
         StartCoroutine(ShowQueue(text));
     }
+    public void Show(string[] text, float showTime) {
+        if (coroutieRunning) {
+            StopAllCoroutines();
+        }
+        textObject.gameObject.SetActive(true);
+        StartCoroutine(ShowQueue(text, showTime));
+    }
     public void ShowAlways(string text) {
         textObject.text = text;
         textObject.gameObject.SetActive(true);
@@ -39,11 +46,11 @@ public class TextController : MonoBehaviour {
         Hide();
         coroutieRunning = false;
     }
-    protected IEnumerator ShowQueue(string[] text) {
+    protected IEnumerator ShowQueue(string[] text, float showTime = 0) {
         coroutieRunning = true;
         foreach (string item in text) {
             textObject.text = item;
-            yield return new WaitForSeconds(timerMax);
+            yield return new WaitForSeconds(showTime > 0 ? showTime : timerMax);
         }
         Hide();
         coroutieRunning = false;

@@ -51,6 +51,7 @@ public class PlayerController : MonoBehaviour {
     private bool isJumping;
     private bool isInteracting;
 
+    private bool cameraLookEnabled = true;
     private bool canSprint { get => isGrounded && !isCrouching && !isHiding; }
     private bool canJump { get => isGrounded && !isCrouching && !isHiding; }
     private bool canCrouch { get => isGrounded && !isCrouching || isGrounded && isCrouching && canStandUp; }
@@ -89,6 +90,9 @@ public class PlayerController : MonoBehaviour {
     }
     // handlers
     private void HandleCamera() {
+        if (!cameraLookEnabled) {
+            return;
+        }
         Vector2 mouseInput = InputManager.Instance.GetMouseVector();
 
         float mouseX = mouseInput.x * Time.smoothDeltaTime * mouseSensivity;
@@ -108,6 +112,9 @@ public class PlayerController : MonoBehaviour {
         }
     }
     private void HandleMovement() {
+        if (!controller.enabled) {
+            return;
+        }
         Vector2 inputVector = InputManager.Instance.GetMovementVectorNormalized();
         Vector3 moveDirection = transform.right * inputVector.x + transform.forward * inputVector.y;
 
@@ -177,6 +184,12 @@ public class PlayerController : MonoBehaviour {
     }
     public void EnableCharacterController() {
         controller.enabled = true;
+    }
+    public void DisableCameraLook() {
+        cameraLookEnabled = false;
+    }
+    public void EnableCameraLook() {
+        cameraLookEnabled = true;
     }
     public void RestrictRotation(float maxX, float maxY) {
         maxRotationX = maxX;
