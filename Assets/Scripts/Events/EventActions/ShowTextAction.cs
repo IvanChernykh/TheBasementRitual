@@ -32,7 +32,7 @@ public class ShowTextAction : EventAction {
         TooltipUI.Instance.Show(tooltipText);
     }
     private IEnumerator ShowSubtitleWithDelay() {
-        yield return new WaitForSeconds(tooltipDelay);
-        SubtitlesUI.Instance.Show(tooltipText, subtitleShowTime);
+        yield return new WaitForSeconds(subtitleDelay);
+        SubtitlesUI.Instance.Show(subtitleText, subtitleShowTime);
     }
 }
