@@ -6,6 +6,7 @@ public class ShowTextAction : EventAction {
     [TextArea(5, 5), SerializeField] private string[] subtitleText;
     [SerializeField] private float tooltipDelay = 0f;
     [SerializeField] private float subtitleDelay = 0f;
+    [SerializeField] private float subtitleShowTime = 3f;
     [SerializeField] private bool showTooltip;
     [SerializeField] private bool showSubtitle;
 
@@ -21,7 +22,7 @@ public class ShowTextAction : EventAction {
             if (subtitleDelay > 0) {
                 StartCoroutine(ShowSubtitleWithDelay());
             } else {
-                SubtitlesUI.Instance.Show(subtitleText);
+                SubtitlesUI.Instance.Show(subtitleText, subtitleShowTime);
             }
 
         }
@@ -32,6 +33,6 @@ public class ShowTextAction : EventAction {
     }
     private IEnumerator ShowSubtitleWithDelay() {
         yield return new WaitForSeconds(tooltipDelay);
-        SubtitlesUI.Instance.Show(tooltipText);
+        SubtitlesUI.Instance.Show(tooltipText, subtitleShowTime);
     }
 }

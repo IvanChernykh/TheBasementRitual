@@ -8,7 +8,7 @@ public class StoryText : MonoBehaviour {
     private readonly string text1 = "After work, you were about to head home when a homeless guy showed up and asked for a ride and to make a call. For some reason, you agreed.";
     private readonly string text2 = "Apparently, he was the most popular homeless man on the planet — he was staying connected the whole time.";
     private readonly string text3 = "By the time you dropped him off, you were out of gas, and he wore out your battery so you could not call automobile service.";
-    private readonly string text4 = "Now you need to find help.";
+    private readonly string text4 = "Now you're stuck in the middle of nowhere and need to find help.";
 
     private readonly string tut1 = "[W / A / S / D] - move";
     private readonly string tut2 = "[Left Shift] - sprint";
