@@ -18,7 +18,7 @@ public class SceneController : MonoBehaviour {
         LoadScene(GameScenes.MainMenu);
     }
     public void StartNewGame() {
-        LoadScene(GameScenes.BasementLevel, saveOnLoad: true);
+        LoadScene(GameScenes.GasStationLevel, saveOnLoad: true);
     }
     public void LoadNextLevel(GameScenes sceneToLoad) {
         SaveData saveData = new SaveData();

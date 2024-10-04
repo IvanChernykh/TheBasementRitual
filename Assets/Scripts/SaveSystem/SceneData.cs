@@ -13,11 +13,13 @@ public class SceneData {
     public SceneData() {
         scene = GetGameSceneFromName(SceneManager.GetActiveScene().name);
 
-        batteriesCollected = SceneStateManager.Instance.batteriesCollected.ToArray();
-        keysCollected = SceneStateManager.Instance.keysCollected.ToArray();
+        if (SceneStateManager.Instance != null) {
+            batteriesCollected = SceneStateManager.Instance.batteriesCollected.ToArray();
+            keysCollected = SceneStateManager.Instance.keysCollected.ToArray();
 
-        checkpoints = SceneStateManager.Instance.checkpoints.ToArray();
-        doors = SceneStateManager.Instance.doors.ToArray();
+            checkpoints = SceneStateManager.Instance.checkpoints.ToArray();
+            doors = SceneStateManager.Instance.doors.ToArray();
+        }
     }
 
     private GameScenes GetGameSceneFromName(string sceneName) {
