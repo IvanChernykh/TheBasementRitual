@@ -10,7 +10,8 @@ public class Door : DoorBase {
     [Header("Tooltip")]
     [Tooltip("Show tooltip message after door unlocked with key")]
     [SerializeField] private bool showUnlockMessage = true;
-    [SerializeField] private string customKeyLockedMessage;
+    [SerializeField] private string customUnlockMessage;
+    // [SerializeField] private string customKeyLockedMessage;
 
     public bool isLocked { get => lockedOnKey; }
 
@@ -77,7 +78,7 @@ public class Door : DoorBase {
         ItemData itemFound = PlayerInventory.Instance.items.Find(item => item == requiredKey);
         if (itemFound) {
             if (showUnlockMessage) {
-                TooltipUI.Instance.Show($"Used {itemFound.itemName}");
+                TooltipUI.Instance.Show(customUnlockMessage.Length > 0 ? customUnlockMessage : $"Used {itemFound.itemName}");
             }
             if (removeKeyOnOpen) {
                 PlayerInventory.Instance.RemoveItem(itemFound);
@@ -88,12 +89,14 @@ public class Door : DoorBase {
             SaveState();
             ToggleOpening();
         } else {
-            if (customKeyLockedMessage.Length > 0) {
-                TooltipUI.Instance.Show(customKeyLockedMessage);
-            } else {
-                DoorAudio.Instance.PlayLocked(transform.position);
-                TooltipUI.Instance.Show(lockedMessage);
-            }
+            DoorAudio.Instance.PlayLocked(transform.position);
+            TooltipUI.Instance.Show(lockedMessage);
+            // if (customKeyLockedMessage.Length > 0) {
+            //     TooltipUI.Instance.Show(customKeyLockedMessage);
+            // } else {
+            //     DoorAudio.Instance.PlayLocked(transform.position);
+            //     TooltipUI.Instance.Show(lockedMessage);
+            // }
         }
     }
 

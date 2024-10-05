@@ -40,7 +40,7 @@ public class DoorBase : Interactable {
     }
 
     protected override void Interact() {
-        throw new System.NotImplementedException();
+        throw new NotImplementedException();
     }
     protected virtual void ToggleOpening(bool silentMode = false) { }
 
