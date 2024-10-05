@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 66ab981a82134bd9a9f34b5cda6028eb, type: 3}
-  m_Name: Newspaper_1
+  m_Name: Article_1
   m_EditorClassIdentifier: 
-  noteName: Newspaper_1
-  noteText: "Unseen Echoes: Strange Sounds and Disappearances\nIn recent weeks, more
-    and more residents of our small town have reported hearing strange, eerie sounds.
-    Most people describe it as something resembling a whisper, but no one knows where
-    it's coming from.\nAre the recent disappearances linked to these sounds? After
-    all, people began vanishing shortly after the noises started.\nLocal authorities
+  noteName: Article_1
+  noteText: "Strange Sounds and Disappearances\n\nIn recent weeks, more and more
+    residents of our small town have reported hearing strange, eerie sounds. Most
+    people describe it as something resembling a whisper, but no one knows where
+    it's coming from.\n\nAre the recent disappearances linked to these sounds? After
+    all, people began vanishing shortly after the noises started.\n\nLocal authorities
     urge caution, saying the investigations are ongoing, but residents remain on
     edge. As the noises persist and no answers are found, the question grows: what\u2019s
     really happening in our town?"
