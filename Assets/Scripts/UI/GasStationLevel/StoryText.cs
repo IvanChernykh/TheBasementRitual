@@ -2,6 +2,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Assets.Scripts.Utils;
 
 public class StoryText : MonoBehaviour {
 
@@ -38,15 +39,15 @@ public class StoryText : MonoBehaviour {
         for (int i = 0; i < texts.Length; i++) {
             text.text = texts[i];
 
-            yield return StartCoroutine(FadeGraphic(text, fadeDuration, fadeIn: true));
+            yield return StartCoroutine(UI.FadeGraphic(text, fadeDuration, fadeIn: true));
             yield return new WaitForSeconds(displayTime);
 
-            yield return StartCoroutine(FadeGraphic(text, fadeDuration, fadeIn: false));
+            yield return StartCoroutine(UI.FadeGraphic(text, fadeDuration, fadeIn: false));
             yield return new WaitForSeconds(pauseBetweenTexts);
         }
         PlayerController.Instance.EnableCharacterController();
 
-        yield return StartCoroutine(FadeGraphic(background, fadeDuration, fadeIn: false));
+        yield return StartCoroutine(UI.FadeGraphic(background, fadeDuration, fadeIn: false));
 
         PlayerController.Instance.EnableCameraLook();
 
@@ -54,21 +55,5 @@ public class StoryText : MonoBehaviour {
 
         TooltipUI.Instance.Show(tuts, showTime: 3f);
         Destroy(gameObject);
-    }
-    private IEnumerator FadeGraphic(Graphic graphic, float duration, bool fadeIn) {
-        float elapsedTime = 0f;
-        Color color = graphic.color;
-        float startAlpha = fadeIn ? 0f : 1f;
-        float endAlpha = fadeIn ? 1f : 0f;
-
-        while (elapsedTime < duration) {
-            elapsedTime += Time.deltaTime;
-            color.a = Mathf.Lerp(startAlpha, endAlpha, elapsedTime / duration);
-            graphic.color = color;
-            yield return null;
-        }
-
-        color.a = endAlpha;
-        graphic.color = color;
     }
 }
