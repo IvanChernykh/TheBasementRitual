@@ -18,9 +18,8 @@ public class UnconScreen : MonoBehaviour {
         PlayerController.Instance.DisableCharacterController();
         yield return new WaitForSeconds(unconDelay);
         PlayerController.Instance.EnableCharacterController();
-        yield return StartCoroutine(UI.FadeGraphic(background, unconFadeTime, fadeIn: false));
         PlayerController.Instance.EnableCameraLook();
-        yield return null;
+        yield return StartCoroutine(UI.FadeGraphic(background, unconFadeTime, fadeIn: false));
         Destroy(gameObject);
     }
 }
