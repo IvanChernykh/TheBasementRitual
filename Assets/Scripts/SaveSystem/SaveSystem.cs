@@ -8,7 +8,10 @@ public enum SaveFileName {
 }
 
 public static class SaveSystem {
-    public static async Task SaveGameAsync(SaveFileName? fileName = null) {
+    public static async Task SaveGameAsync(SaveFileName? fileName = null, bool showSaveUI = false) {
+        if (showSaveUI) {
+            SavingTextUI.Instance.Show();
+        }
         string saveFileName = fileName.HasValue ? fileName.ToString() : SaveFileName.DefaultSave.ToString();
         string path = Application.persistentDataPath + "/" + saveFileName + ".save";
 
@@ -19,8 +22,10 @@ public static class SaveSystem {
             await Task.Run(() => formatter.Serialize(stream, data));
         }
     }
-    public static void SaveGame(SaveFileName? fileName = null) {
-
+    public static void SaveGame(SaveFileName? fileName = null, bool showSaveUI = false) {
+        if (showSaveUI) {
+            SavingTextUI.Instance.Show();
+        }
         string saveFileName = fileName.HasValue ? fileName.ToString() : SaveFileName.DefaultSave.ToString();
         string path = Application.persistentDataPath + "/" + saveFileName + ".save";
 

@@ -9,7 +9,7 @@ public class Checkpoint : MonoBehaviour {
             if (other.CompareTag("Player")) {
                 eventIsTriggered = true;
                 SceneStateManager.Instance.AddCheckpoint(id);
-                SaveSystem.SaveGame();
+                SaveSystem.SaveGame(showSaveUI: true);
             }
         }
     }
