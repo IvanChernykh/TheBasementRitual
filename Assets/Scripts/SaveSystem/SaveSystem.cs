@@ -8,12 +8,13 @@ public enum SaveFileName {
 }
 
 public static class SaveSystem {
+    private static readonly string fileExtention = ".save";
     public static async Task SaveGameAsync(SaveFileName? fileName = null, bool showSaveUI = false) {
         if (showSaveUI) {
             SavingTextUI.Instance.Show();
         }
         string saveFileName = fileName.HasValue ? fileName.ToString() : SaveFileName.DefaultSave.ToString();
-        string path = Application.persistentDataPath + "/" + saveFileName + ".save";
+        string path = Application.persistentDataPath + "/" + saveFileName + fileExtention;
 
         BinaryFormatter formatter = new BinaryFormatter();
 
@@ -27,7 +28,7 @@ public static class SaveSystem {
             SavingTextUI.Instance.Show();
         }
         string saveFileName = fileName.HasValue ? fileName.ToString() : SaveFileName.DefaultSave.ToString();
-        string path = Application.persistentDataPath + "/" + saveFileName + ".save";
+        string path = Application.persistentDataPath + "/" + saveFileName + fileExtention;
 
         BinaryFormatter formatter = new BinaryFormatter();
         FileStream stream = new FileStream(path, FileMode.Create);
@@ -38,7 +39,7 @@ public static class SaveSystem {
         stream.Close();
     }
     public static SaveData LoadSaveFile(SaveFileName fileName) {
-        string path = Application.persistentDataPath + "/" + fileName.ToString() + ".save";
+        string path = Application.persistentDataPath + "/" + fileName.ToString() + fileExtention;
 
         if (File.Exists(path)) {
             BinaryFormatter formatter = new BinaryFormatter();
@@ -52,5 +53,9 @@ public static class SaveSystem {
             Debug.LogError("Save file not found: " + path);
             return null;
         }
+    }
+    public static bool SaveFileExists(SaveFileName fileName) {
+        string path = Application.persistentDataPath + "/" + fileName.ToString() + fileExtention;
+        return File.Exists(path);
     }
 }
