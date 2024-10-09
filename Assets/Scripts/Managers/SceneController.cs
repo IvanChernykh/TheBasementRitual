@@ -101,6 +101,9 @@ public class SceneController : MonoBehaviour {
         }
     }
     private void SetupSceneData(SaveData saveData) {
+        if (!SceneStateManager.Instance) {
+            return;
+        }
         SceneData sceneData = saveData.sceneData;
 
         // batteries
