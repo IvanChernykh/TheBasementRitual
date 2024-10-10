@@ -49,24 +49,42 @@ public class InputManager : MonoBehaviour {
     }
     // events
     private void SprintStarted(UnityEngine.InputSystem.InputAction.CallbackContext obj) {
+        if (!GameStateManager.Instance.InGame) {
+            return;
+        }
         OnSprintStartedEvent?.Invoke(this, EventArgs.Empty);
     }
     private void SprintCanceled(UnityEngine.InputSystem.InputAction.CallbackContext obj) {
         OnSprintCanceledEvent?.Invoke(this, EventArgs.Empty);
     }
     private void CrouchPerformed(UnityEngine.InputSystem.InputAction.CallbackContext obj) {
+        if (!GameStateManager.Instance.InGame) {
+            return;
+        }
         OnCrouchEvent?.Invoke(this, EventArgs.Empty);
     }
     private void JumpPerformed(UnityEngine.InputSystem.InputAction.CallbackContext obj) {
+        if (!GameStateManager.Instance.InGame) {
+            return;
+        }
         OnJumpEvent?.Invoke(this, EventArgs.Empty);
     }
     private void InteractPerformed(UnityEngine.InputSystem.InputAction.CallbackContext obj) {
+        if (!GameStateManager.Instance.InGame) {
+            return;
+        }
         OnInteractEvent?.Invoke(this, EventArgs.Empty);
     }
     private void FlashlightPerformed(UnityEngine.InputSystem.InputAction.CallbackContext obj) {
+        if (!GameStateManager.Instance.InGame) {
+            return;
+        }
         OnFlashlightToggleEvent?.Invoke(this, EventArgs.Empty);
     }
     private void ReloadBatteryPerformed(UnityEngine.InputSystem.InputAction.CallbackContext obj) {
+        if (!GameStateManager.Instance.InGame) {
+            return;
+        }
         OnReloadBattery?.Invoke(this, EventArgs.Empty);
     }
     private void PausePerformed(UnityEngine.InputSystem.InputAction.CallbackContext obj) {
