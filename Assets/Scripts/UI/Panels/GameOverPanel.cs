@@ -1,14 +1,9 @@
 using Assets.Scripts.Utils;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class GameOverPanel : MonoBehaviour {
     public static GameOverPanel Instance { get; private set; }
     [SerializeField] private GameObject panel;
-
-    [Header("Buttons")]
-    [SerializeField] private Button loadGameButton;
-    [SerializeField] private Button mainMenuButton;
 
     private void Awake() {
         if (Instance != null) {
@@ -17,13 +12,6 @@ public class GameOverPanel : MonoBehaviour {
             return;
         }
         Instance = this;
-
-        loadGameButton.onClick.AddListener(() => {
-            LoadLastGame();
-        });
-        mainMenuButton.onClick.AddListener(() => {
-            MainMenu();
-        });
     }
     private void Start() {
         Hide();
