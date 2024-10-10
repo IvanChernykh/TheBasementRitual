@@ -33,6 +33,7 @@ public class GameOverPanel : MonoBehaviour {
     }
     public void MainMenu() {
         if (SceneController.Instance != null) {
+            GameStateManager.Instance.EnterMainMenuState();
             SceneController.Instance.MainMenu();
         } else {
             Exceptions.NoSceneController();

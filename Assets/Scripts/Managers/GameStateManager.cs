@@ -7,7 +7,8 @@ public class GameStateManager : MonoBehaviour {
         InGame,
         ReadingNote,
         Paused,
-        GameOver
+        GameOver,
+        MainMenu
     }
     private GameState gameState;
 
@@ -70,5 +71,11 @@ public class GameStateManager : MonoBehaviour {
     }
     public void ExitGameOverState() {
         GameOverPanel.Instance.Hide();
+    }
+    // main menu state
+    public void EnterMainMenuState() {
+        Time.timeScale = timeScaleInGame;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 }
