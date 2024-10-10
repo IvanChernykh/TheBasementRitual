@@ -1,14 +1,14 @@
 using Assets.Scripts.Utils;
+using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PausePanel : MonoBehaviour {
     public static PausePanel Instance { get; private set; }
     [SerializeField] private GameObject panel;
 
     [Header("Buttons")]
-    [SerializeField] private Button loadGameButton;
-    [SerializeField] private Button mainMenuButton;
+    [SerializeField] private TextMeshProUGUI resumeText;
+    [SerializeField] private TextMeshProUGUI optionsText;
     private void Awake() {
         if (Instance != null) {
             Exceptions.MoreThanOneInstance(name);
@@ -16,13 +16,6 @@ public class PausePanel : MonoBehaviour {
             return;
         }
         Instance = this;
-
-        loadGameButton.onClick.AddListener(() => {
-            LoadLastGame();
-        });
-        mainMenuButton.onClick.AddListener(() => {
-            MainMenu();
-        });
     }
     private void Start() {
         Hide();
@@ -31,17 +24,26 @@ public class PausePanel : MonoBehaviour {
         panel.SetActive(true);
     }
     public void Hide() {
+        resumeText.color = Color.white;
+        optionsText.color = Color.white;
         panel.SetActive(false);
     }
     // buttons
-    private void LoadLastGame() {
+    public void ResumeGame() {
+        GameStateManager.Instance.ExitPausedState();
+        GameStateManager.Instance.EnterInGameState();
+    }
+    public void LoadLastGame() {
         if (SceneController.Instance != null) {
             SceneController.Instance.LoadSavedGame(SaveFileName.DefaultSave);
         } else {
             Exceptions.NoSceneController();
         }
     }
-    private void MainMenu() {
+    public void Options() {
+
+    }
+    public void MainMenu() {
         if (SceneController.Instance != null) {
             SceneController.Instance.MainMenu();
         } else {
