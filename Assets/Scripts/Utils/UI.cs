@@ -20,5 +20,13 @@ namespace Assets.Scripts.Utils {
             color.a = endAlpha;
             graphic.color = color;
         }
+        public static void ShowCursor() {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
+        public static void HideCursor() {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
     }
 }

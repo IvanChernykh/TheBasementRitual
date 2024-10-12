@@ -1,9 +1,11 @@
+using Assets.Scripts.Utils;
 using UnityEngine;
 
 public class MainMenuUI : MonoBehaviour {
     [SerializeField] private GameObject continueGameBtn;
 
     private void Start() {
+        UI.ShowCursor();
         if (SaveSystem.SaveFileExists(SaveFileName.DefaultSave)) {
             continueGameBtn.SetActive(true);
         } else {

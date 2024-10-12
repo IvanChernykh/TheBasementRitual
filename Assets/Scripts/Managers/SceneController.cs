@@ -1,4 +1,5 @@
 using System.Collections;
+using Assets.Scripts.Utils;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -37,6 +38,7 @@ public class SceneController : MonoBehaviour {
     }
 
     private IEnumerator LoadSceneAsync(GameScenes sceneToLoad, SaveData saveData = null, bool isNextLevel = false, bool saveOnLoad = false) {
+        UI.HideCursor();
         AsyncOperation loadingOperation = SceneManager.LoadSceneAsync(GameScenes.LoadingScreen.ToString());
         yield return loadingOperation;
 

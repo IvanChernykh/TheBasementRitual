@@ -34,8 +34,7 @@ public class GameStateManager : MonoBehaviour {
     // in game state
     public void EnterInGameState() {
         Time.timeScale = timeScaleInGame;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        UI.HideCursor();
 
         gameState = GameState.InGame;
     }
@@ -51,8 +50,7 @@ public class GameStateManager : MonoBehaviour {
     // paused state
     public void EnterPausedState() {
         Time.timeScale = timeScalePaused;
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
+        UI.ShowCursor();
         PausePanel.Instance.Show();
 
         gameState = GameState.Paused;
@@ -63,8 +61,7 @@ public class GameStateManager : MonoBehaviour {
     // game over state
     public void EnterGameOverState() {
         Time.timeScale = timeScalePaused;
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
+        UI.ShowCursor();
         GameOverPanel.Instance.Show();
 
         gameState = GameState.GameOver;
@@ -75,7 +72,6 @@ public class GameStateManager : MonoBehaviour {
     // main menu state
     public void EnterMainMenuState() {
         Time.timeScale = timeScaleInGame;
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
+        UI.ShowCursor();
     }
 }
