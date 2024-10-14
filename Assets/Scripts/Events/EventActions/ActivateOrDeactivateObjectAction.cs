@@ -28,6 +28,9 @@ public class ActivateOrDeactivateObjectAction : EventAction {
         objectToShow.SetActive(true);
     }
     private void HideObject() {
+        if (objectToHide == null) {
+            return;
+        }
         if (destroyObjectToHide) {
             Destroy(objectToHide);
         } else {

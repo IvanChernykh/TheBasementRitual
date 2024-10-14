@@ -13,7 +13,7 @@ public class Door : DoorBase {
     [SerializeField] private string customUnlockMessage;
     // [SerializeField] private string customKeyLockedMessage;
 
-    public bool isLocked { get => lockedOnKey; }
+
 
     private void Update() {
         HandleOpen();

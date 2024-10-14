@@ -29,6 +29,7 @@ public class DoorBase : Interactable {
     public string Id { get => doorId; }
 
     public bool isOpened { get; protected set; }
+    public bool isLocked { get => lockedOnKey; }
     public bool isOpeningOrClosingState { get; protected set; } = false;
     protected bool openingDoor; // opening or closing
 
