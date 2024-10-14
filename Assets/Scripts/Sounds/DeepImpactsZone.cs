@@ -1,16 +1,24 @@
 using UnityEngine;
 
 public class DeepImpactsZone : MonoBehaviour {
+    [Header("Audio")]
     [SerializeField] private AudioSource deepImpacts;
     [SerializeField] private AudioSource deepImpactsStress;
+
+    [Header("Settings")]
     [SerializeField] private bool stressZone;
     [SerializeField] private float fadeInTime = 1f;
     [SerializeField] private float fadeOutTime = 1f;
     [SerializeField] private bool deactivateOnExit;
+
+    [Header("Conditions")]
+    [SerializeField] private EventCondition[] conditions;
     private bool isActive = true;
+
     private void OnTriggerStay(Collider other) {
         if (isActive) {
-            if (other.CompareTag("Player")) {
+            bool conditionMet = CheckConditions();
+            if (conditionMet && other.CompareTag("Player")) {
                 HandlePlay();
                 HandleStop();
             }
@@ -46,5 +54,15 @@ public class DeepImpactsZone : MonoBehaviour {
         } else {
             BackgroundMusic.Instance.Stop(BackgroundMusic.Sounds.DeepImpacts, fadeOutTime);
         }
+    }
+    private bool CheckConditions() {
+        bool conditionMet = true;
+        foreach (EventCondition condition in conditions) {
+            if (!condition.IsConditionMet()) {
+                conditionMet = false;
+                break;
+            }
+        }
+        return conditionMet;
     }
 }
