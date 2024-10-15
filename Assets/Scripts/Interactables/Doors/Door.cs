@@ -72,7 +72,6 @@ public class Door : DoorBase {
             transform.RotateAround(rotationPoint.position, transform.up, openForward ? -angleToRotate : angleToRotate);
             currentAngle -= angleToRotate;
         }
-
     }
     private void TryOpen() {
         ItemData itemFound = PlayerInventory.Instance.items.Find(item => item == requiredKey);

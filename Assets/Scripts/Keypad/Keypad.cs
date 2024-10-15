@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 namespace NavKeypad {
-    public class Keypad : MonoBehaviour {
+    public class Keypad : KeypadBase {
         [Header("Events")]
         [SerializeField] private UnityEvent onAccessGranted;
         [SerializeField] private UnityEvent onAccessDenied;
@@ -36,7 +36,6 @@ namespace NavKeypad {
         [Header("Component References")]
         [SerializeField] private Renderer panelMesh;
         [SerializeField] private TMP_Text keypadDisplayText;
-        private string currentInput;
         private bool displayingResult = false;
         private bool accessWasGranted = false;
 
@@ -45,7 +44,7 @@ namespace NavKeypad {
             panelMesh.material.SetVector("_EmissionColor", screenNormalColor * screenIntensity);
         }
         //Gets value from pressedbutton
-        public void AddInput(string input) {
+        public override void AddInput(string input) {
             SoundManager.Instance.PlaySound(buttonClickedSfx, transform.position, volume, minDistance);
             if (displayingResult || accessWasGranted) return;
             switch (input) {

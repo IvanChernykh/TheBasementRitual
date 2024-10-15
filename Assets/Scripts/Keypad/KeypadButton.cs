@@ -9,7 +9,7 @@ namespace NavKeypad {
         [SerializeField] private float moveDist = 0.0025f;
         [SerializeField] private float buttonPressedTime = 0.1f;
         [Header("Component References")]
-        [SerializeField] private Keypad keypad;
+        [SerializeField] private KeypadBase keypad;
 
         protected override void Interact() {
             PressButton();
