@@ -1,6 +1,5 @@
 using UnityEngine;
 using Assets.Scripts.Utils;
-using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
     public static PlayerController Instance { get; private set; }
@@ -36,7 +35,8 @@ public class PlayerController : MonoBehaviour {
     private Vector3 velocity = Vector3.zero;
 
     [Header("Interactions")]
-    [SerializeField] private LayerMask interactableLayerMask;
+    [SerializeField] private LayerMask interactableMask;
+    [SerializeField] private LayerMask nonInteractableMask;
     public float interactDistance { get; private set; } = 2f;
 
     // flags
@@ -148,8 +148,11 @@ public class PlayerController : MonoBehaviour {
         }
     }
     private void HandleInteraction() {
-        if (Physics.Raycast(headTransform.position, headTransform.forward, out RaycastHit raycastHit, interactDistance, interactableLayerMask)) {
-            if (raycastHit.transform.TryGetComponent(out Interactable interactable)) {
+        bool interactHitBool = Physics.Raycast(headTransform.position, headTransform.forward, out RaycastHit interactHit, interactDistance, interactableMask);
+        bool nonInteractHitBool = Physics.Raycast(headTransform.position, headTransform.forward, out RaycastHit nonInteractHit, interactDistance, nonInteractableMask);
+
+        if (interactHitBool && !nonInteractHitBool || interactHitBool && nonInteractHitBool && interactHit.distance < nonInteractHit.distance) {
+            if (interactHit.transform.TryGetComponent(out Interactable interactable)) {
                 InteractionMessageUI.Instance.Show(interactable.interactMessage);
                 CrosshairUI.Instance.Hover();
                 if (isInteracting) {
@@ -158,7 +161,7 @@ public class PlayerController : MonoBehaviour {
             }
         } else {
             InteractionMessageUI.Instance.Hide();
-            CrosshairUI.Instance.Hide();
+            CrosshairUI.Instance.StopHover();
         }
         if (isInteracting) {
             isInteracting = false;

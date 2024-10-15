@@ -23,7 +23,7 @@ public class CrosshairUI : MonoBehaviour {
         crosshairHovered.SetActive(true);
         crosshair.SetActive(false);
     }
-    public void Hide() {
+    public void StopHover() {
         crosshair.SetActive(true);
         crosshairHovered.SetActive(false);
     }
