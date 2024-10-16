@@ -69,10 +69,13 @@ public class DoorDouble : DoorBase {
         ItemData itemFound = PlayerInventory.Instance.items.Find(item => item == requiredKey);
         if (itemFound) {
             TooltipUI.Instance.Show($"Used {itemFound.itemName}");
-            PlayerInventory.Instance.RemoveItem(itemFound);
-
-            ToggleOpening();
+            if (removeKeyOnOpen) {
+                PlayerInventory.Instance.RemoveItem(itemFound);
+            }
             lockedOnKey = false;
+            state = DoorStateEnum.Opened;
+            SaveState();
+            ToggleOpening();
         } else {
             DoorAudio.Instance.PlayLocked(transform.position);
             TooltipUI.Instance.Show(lockedMessage);
