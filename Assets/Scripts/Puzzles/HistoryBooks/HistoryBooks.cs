@@ -12,7 +12,7 @@ public class HistoryBooks : MonoBehaviour {
     [SerializeField] private Material defaultMat;
     [SerializeField] private Material highlightMat;
 
-    private readonly float animationDuration = .25f;
+    private readonly float bookAnimationDuration = .25f;
 
     [Header("Interaction Triggers")]
     [SerializeField] private GameObject placeBookTrigger;
@@ -91,6 +91,7 @@ public class HistoryBooks : MonoBehaviour {
     public void StopArrangeBooks() {
         isArranging = false;
         arrangeBooksTrigger.SetActive(true);
+        books[selectedBookIndex].gameObject.GetComponent<MeshRenderer>().material = defaultMat;
         PlayerController.Instance.EnableCharacterController();
     }
 
@@ -105,6 +106,14 @@ public class HistoryBooks : MonoBehaviour {
     }
 
     private void HandleBookSelection() {
+        if (Input.GetKeyDown(KeyCode.Q)) {
+            if (firstSelectedBookIndex != -1) {
+                StartCoroutine(PullBookBack(books[firstSelectedBookIndex].transform));
+                firstSelectedBookIndex = -1;
+            }
+            StopArrangeBooks();
+            return;
+        }
         if (Input.GetKeyDown(KeyCode.A)) {
             selectedBookIndex = Mathf.Max(0, selectedBookIndex - 1);
             HighlightSelectedBook();
@@ -115,40 +124,31 @@ public class HistoryBooks : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.E)) {
             if (firstSelectedBookIndex == -1) {
-                // Якщо жодна книга ще не вибрана, вибираємо першу
                 SelectFirstBook();
             } else if (firstSelectedBookIndex == selectedBookIndex) {
-                // Якщо гравець натискає E на вже вибраній книзі, повертаємо її назад
                 StartCoroutine(PullBookBack(books[firstSelectedBookIndex].transform));
-                firstSelectedBookIndex = -1; // Скидаємо вибір
+                firstSelectedBookIndex = -1;
             } else {
-                // Якщо вибрана інша книга, обмінюємо місцями
                 StartCoroutine(SwapBooksRoutine());
             }
         }
     }
     private void SelectFirstBook() {
         firstSelectedBookIndex = selectedBookIndex;
-        StartCoroutine(PushBookForward(books[firstSelectedBookIndex].transform)); // Висуваємо книгу вперед
+        StartCoroutine(PushBookForward(books[firstSelectedBookIndex].transform));
     }
 
     private IEnumerator SwapBooksRoutine() {
         Transform firstBook = books[firstSelectedBookIndex].transform;
         Transform secondBook = books[selectedBookIndex].transform;
 
-        // Висуваємо другу книгу вперед
         yield return StartCoroutine(PushBookForward(secondBook));
-
-        // Міняємо місцями книги
         yield return StartCoroutine(SwapBookPositions(firstBook, secondBook));
-
-        // Засуваємо обидві книги назад
         yield return StartCoroutine(PullBothBooksBack(firstBook, secondBook));
 
-        // Міняємо книги місцями в масиві
         SwapBooksInArray(firstSelectedBookIndex, selectedBookIndex);
         selectedBookIndex = firstSelectedBookIndex;
-        firstSelectedBookIndex = -1; // Скидаємо вибір
+        firstSelectedBookIndex = -1;
     }
     private IEnumerator PullBothBooksBack(Transform firstBook, Transform secondBook) {
         Vector3 firstBookForwardPos = firstBook.position;
@@ -157,13 +157,11 @@ public class HistoryBooks : MonoBehaviour {
         Vector3 firstBookStartPos = firstBookForwardPos - Vector3.forward * 0.1f;
         Vector3 secondBookStartPos = secondBookForwardPos - Vector3.forward * 0.1f;
 
-        float duration = animationDuration;
         float elapsedTime = 0f;
 
-        // Одночасне засування обох книг
-        while (elapsedTime < duration) {
-            firstBook.position = Vector3.Lerp(firstBookForwardPos, firstBookStartPos, elapsedTime / duration);
-            secondBook.position = Vector3.Lerp(secondBookForwardPos, secondBookStartPos, elapsedTime / duration);
+        while (elapsedTime < bookAnimationDuration) {
+            firstBook.position = Vector3.Lerp(firstBookForwardPos, firstBookStartPos, elapsedTime / bookAnimationDuration);
+            secondBook.position = Vector3.Lerp(secondBookForwardPos, secondBookStartPos, elapsedTime / bookAnimationDuration);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
@@ -175,11 +173,10 @@ public class HistoryBooks : MonoBehaviour {
     private IEnumerator PushBookForward(Transform book) {
         Vector3 startPos = book.position;
         Vector3 forwardPos = startPos + Vector3.forward * 0.1f;
-        float duration = animationDuration;
         float elapsedTime = 0f;
 
-        while (elapsedTime < duration) {
-            book.position = Vector3.Lerp(startPos, forwardPos, elapsedTime / duration);
+        while (elapsedTime < bookAnimationDuration) {
+            book.position = Vector3.Lerp(startPos, forwardPos, elapsedTime / bookAnimationDuration);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
@@ -190,11 +187,10 @@ public class HistoryBooks : MonoBehaviour {
     private IEnumerator PullBookBack(Transform book) {
         Vector3 forwardPos = book.position;
         Vector3 startPos = forwardPos - Vector3.forward * 0.1f;
-        float duration = animationDuration;
         float elapsedTime = 0f;
 
-        while (elapsedTime < duration) {
-            book.position = Vector3.Lerp(forwardPos, startPos, elapsedTime / duration);
+        while (elapsedTime < bookAnimationDuration) {
+            book.position = Vector3.Lerp(forwardPos, startPos, elapsedTime / bookAnimationDuration);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
@@ -205,12 +201,11 @@ public class HistoryBooks : MonoBehaviour {
     private IEnumerator SwapBookPositions(Transform firstBook, Transform secondBook) {
         Vector3 firstBookStartPos = firstBook.position;
         Vector3 secondBookStartPos = secondBook.position;
-        float duration = animationDuration;
         float elapsedTime = 0f;
 
-        while (elapsedTime < duration) {
-            firstBook.position = Vector3.Lerp(firstBookStartPos, secondBookStartPos, elapsedTime / duration);
-            secondBook.position = Vector3.Lerp(secondBookStartPos, firstBookStartPos, elapsedTime / duration);
+        while (elapsedTime < bookAnimationDuration) {
+            firstBook.position = Vector3.Lerp(firstBookStartPos, secondBookStartPos, elapsedTime / bookAnimationDuration);
+            secondBook.position = Vector3.Lerp(secondBookStartPos, firstBookStartPos, elapsedTime / bookAnimationDuration);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
@@ -220,7 +215,7 @@ public class HistoryBooks : MonoBehaviour {
     }
 
     private void SwapBooksInArray(int indexA, int indexB) {
-        var temp = books[indexA];
+        HistoryBookItem temp = books[indexA];
         books[indexA] = books[indexB];
         books[indexB] = temp;
     }
