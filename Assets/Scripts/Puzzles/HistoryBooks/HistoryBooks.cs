@@ -13,6 +13,10 @@ public class HistoryBooks : MonoBehaviour {
     [SerializeField] private Material highlightMat;
 
     private readonly float bookAnimationDuration = .25f;
+    private readonly float bookOffset = .1f;
+
+    [Header("Book Combination")]
+    [SerializeField] private HistoryBookItem[] booksCombo;
 
     [Header("Interaction Triggers")]
     [SerializeField] private GameObject placeBookTrigger;
@@ -20,13 +24,21 @@ public class HistoryBooks : MonoBehaviour {
 
     [Header("Actions")]
     [SerializeField] private EventAction[] allBooksPlacedActions;
+    [SerializeField] private EventAction hiddenDoorAction;
 
+    // placing books
     private bool bookPlaced;
 
     // arrange books
     private bool isArranging = false;
+    private bool canMoveBook = false;
     private int selectedBookIndex = 0;
     private int firstSelectedBookIndex = -1;
+
+    // puzzle solved
+    public bool puzzleSolved { get; private set; } = false;
+
+
 
     private void Awake() {
         if (Instance != null) {
@@ -38,17 +50,26 @@ public class HistoryBooks : MonoBehaviour {
     }
 
     private void Update() {
+        if (puzzleSolved) {
+            return;
+        }
         if (bookPlaced) {
             bookPlaced = false;
-            // if (CheckNeededBooks()) {
-            Destroy(placeBookTrigger);
-            foreach (EventAction action in allBooksPlacedActions) {
-                action.ExecuteEvent();
+            if (CheckNeededBooks()) {
+                Destroy(placeBookTrigger);
+                foreach (EventAction action in allBooksPlacedActions) {
+                    action.ExecuteEvent();
+                }
+                arrangeBooksTrigger.SetActive(true);
             }
-            arrangeBooksTrigger.SetActive(true);
-            // }
         }
         if (isArranging) {
+            puzzleSolved = CheckCombination();
+
+            if (puzzleSolved) {
+                OnPuzzleSolved();
+                return;
+            }
             HighlightSelectedBook();
             HandleBookSelection();
         }
@@ -59,6 +80,7 @@ public class HistoryBooks : MonoBehaviour {
         ItemData playerBook = PlayerInventory.Instance.items.Find(item => Array.Exists(neededBooks, nb => nb == item));
 
         if (playerBook == null) {
+            TooltipUI.Instance.Show("No books");
             return;
         }
         foreach (HistoryBookItem elem in books) {
@@ -83,16 +105,19 @@ public class HistoryBooks : MonoBehaviour {
 
     // arrange books
     public void StartArrangeBooks() {
-        Debug.Log("start");
         isArranging = true;
+        canMoveBook = true;
         arrangeBooksTrigger.SetActive(false);
         PlayerController.Instance.DisableCharacterController();
+        TooltipUI.Instance.ShowAlways("[A / D] - Move\n[E] - Select\n[Q] - Quit");
     }
     public void StopArrangeBooks() {
         isArranging = false;
+        canMoveBook = false;
         arrangeBooksTrigger.SetActive(true);
         books[selectedBookIndex].gameObject.GetComponent<MeshRenderer>().material = defaultMat;
         PlayerController.Instance.EnableCharacterController();
+        TooltipUI.Instance.Hide();
     }
 
     private void HighlightSelectedBook() {
@@ -106,6 +131,9 @@ public class HistoryBooks : MonoBehaviour {
     }
 
     private void HandleBookSelection() {
+        if (!canMoveBook) {
+            return;
+        }
         if (Input.GetKeyDown(KeyCode.Q)) {
             if (firstSelectedBookIndex != -1) {
                 StartCoroutine(PullBookBack(books[firstSelectedBookIndex].transform));
@@ -123,6 +151,7 @@ public class HistoryBooks : MonoBehaviour {
         }
 
         if (Input.GetKeyDown(KeyCode.E)) {
+            canMoveBook = false;
             if (firstSelectedBookIndex == -1) {
                 SelectFirstBook();
             } else if (firstSelectedBookIndex == selectedBookIndex) {
@@ -135,7 +164,7 @@ public class HistoryBooks : MonoBehaviour {
     }
     private void SelectFirstBook() {
         firstSelectedBookIndex = selectedBookIndex;
-        StartCoroutine(PushBookForward(books[firstSelectedBookIndex].transform));
+        StartCoroutine(PushBookForward(books[firstSelectedBookIndex].transform, canMoveOnEnd: true));
     }
 
     private IEnumerator SwapBooksRoutine() {
@@ -149,13 +178,14 @@ public class HistoryBooks : MonoBehaviour {
         SwapBooksInArray(firstSelectedBookIndex, selectedBookIndex);
         selectedBookIndex = firstSelectedBookIndex;
         firstSelectedBookIndex = -1;
+        canMoveBook = true;
     }
     private IEnumerator PullBothBooksBack(Transform firstBook, Transform secondBook) {
         Vector3 firstBookForwardPos = firstBook.position;
         Vector3 secondBookForwardPos = secondBook.position;
 
-        Vector3 firstBookStartPos = firstBookForwardPos - Vector3.forward * 0.1f;
-        Vector3 secondBookStartPos = secondBookForwardPos - Vector3.forward * 0.1f;
+        Vector3 firstBookStartPos = firstBookForwardPos - Vector3.forward * bookOffset;
+        Vector3 secondBookStartPos = secondBookForwardPos - Vector3.forward * bookOffset;
 
         float elapsedTime = 0f;
 
@@ -170,9 +200,9 @@ public class HistoryBooks : MonoBehaviour {
         secondBook.position = secondBookStartPos;
     }
 
-    private IEnumerator PushBookForward(Transform book) {
+    private IEnumerator PushBookForward(Transform book, bool canMoveOnEnd = false) {
         Vector3 startPos = book.position;
-        Vector3 forwardPos = startPos + Vector3.forward * 0.1f;
+        Vector3 forwardPos = startPos + Vector3.forward * bookOffset;
         float elapsedTime = 0f;
 
         while (elapsedTime < bookAnimationDuration) {
@@ -182,11 +212,14 @@ public class HistoryBooks : MonoBehaviour {
         }
 
         book.position = forwardPos;
+        if (canMoveOnEnd) {
+            canMoveBook = true;
+        }
     }
 
     private IEnumerator PullBookBack(Transform book) {
         Vector3 forwardPos = book.position;
-        Vector3 startPos = forwardPos - Vector3.forward * 0.1f;
+        Vector3 startPos = forwardPos - Vector3.forward * bookOffset;
         float elapsedTime = 0f;
 
         while (elapsedTime < bookAnimationDuration) {
@@ -196,6 +229,7 @@ public class HistoryBooks : MonoBehaviour {
         }
 
         book.position = startPos;
+        canMoveBook = true;
     }
 
     private IEnumerator SwapBookPositions(Transform firstBook, Transform secondBook) {
@@ -218,5 +252,23 @@ public class HistoryBooks : MonoBehaviour {
         HistoryBookItem temp = books[indexA];
         books[indexA] = books[indexB];
         books[indexB] = temp;
+    }
+
+    // combination
+    private bool CheckCombination() {
+        bool solved = true;
+        for (int i = 0; i < books.Length; i++) {
+            if (books[i].bookData != booksCombo[i].bookData) {
+                solved = false;
+            }
+        }
+        return solved;
+    }
+
+    // puzzle solved
+    private void OnPuzzleSolved() {
+        StopArrangeBooks();
+        Destroy(arrangeBooksTrigger);
+        hiddenDoorAction.ExecuteEvent();
     }
 }
