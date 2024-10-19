@@ -10,6 +10,7 @@ public class KeypadSimple : KeypadBase {
 
     [Header("Sound")]
     [SerializeField] private AudioClip buttonClickedSfx;
+    [SerializeField] private AudioClip wrongComboSfx;
 
     private bool opened;
 
@@ -20,12 +21,14 @@ public class KeypadSimple : KeypadBase {
         }
         currentInput += input;
 
-        if (currentInput.Length > keypadCombo.Length) {
-            currentInput = currentInput.Substring(currentInput.Length - keypadCombo.Length);
-        }
-        if (currentInput == keypadCombo) {
-            opened = true;
-            onOpen?.Invoke();
+        if (currentInput.Length == keypadCombo.Length) {
+            if (currentInput == keypadCombo) {
+                opened = true;
+                onOpen?.Invoke();
+            } else {
+                SoundManager.Instance.PlaySound(wrongComboSfx, transform.position, volume: .5f, minDistance: .5f);
+                currentInput = string.Empty;
+            }
         }
     }
 
