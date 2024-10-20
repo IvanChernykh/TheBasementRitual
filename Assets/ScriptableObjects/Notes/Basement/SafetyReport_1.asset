@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   noteName: Safety Report 1
   noteText: "Safety report: \nSeveral employees have gone missing over the past month.
-    Fear is spreading rapidly. Security must be increased across all shifts to ensure
-    the safety of our remaining staff. If this continues, the entire facility may
-    shut down as employees are too afraid to return to work."
+    Security must be increased across all shifts to ensure the safety of our remaining
+    staff. If this continues, the entire facility may shut down as employees are
+    too afraid to return to work."
