@@ -7,11 +7,21 @@ public abstract class Interactable : MonoBehaviour {
     [SerializeField] private EventCondition[] interactEventConditions;
     [Tooltip("Execute event action always"), SerializeField] private bool executeEventActionAlways;
     [Tooltip("Execute by condition only"), SerializeField] private bool executeByConditionOnly;
+    [Tooltip("Execute before interaction"), SerializeField] private bool executeBeforeInteraction;
     private bool eventExecuted;
     abstract protected void Interact();
     public void InteractAction() {
+        if (executeBeforeInteraction) {
+            ExecuteEvent();
+        }
         Interact();
 
+        if (!executeBeforeInteraction) {
+            ExecuteEvent();
+        }
+    }
+
+    private void ExecuteEvent() {
         bool conditionMet = CheckConditions();
         if (executeByConditionOnly && conditionMet) {
             foreach (EventAction item in interactEventAction) {

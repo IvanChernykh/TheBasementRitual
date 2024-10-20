@@ -29,6 +29,9 @@ public class PlayerInventory : MonoBehaviour {
     public void RemoveItem(ItemData item) {
         items.Remove(item);
     }
+    public bool HasItem(ItemData item) {
+        return items.Contains(item);
+    }
     public void AddBattery(int count = 1) {
         batteries += count;
     }
