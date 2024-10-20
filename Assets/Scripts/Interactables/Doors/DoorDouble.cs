@@ -66,11 +66,10 @@ public class DoorDouble : DoorBase {
 
     }
     private void TryOpen() {
-        ItemData itemFound = PlayerInventory.Instance.items.Find(item => item == requiredKey);
-        if (itemFound) {
-            TooltipUI.Instance.Show($"Used {itemFound.itemName}");
+        if (PlayerInventory.Instance.HasItem(requiredKey)) {
+            TooltipUI.Instance.Show($"Used {requiredKey.itemName}");
             if (removeKeyOnOpen) {
-                PlayerInventory.Instance.RemoveItem(itemFound);
+                PlayerInventory.Instance.RemoveItem(requiredKey);
             }
             lockedOnKey = false;
             state = DoorStateEnum.Opened;

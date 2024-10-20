@@ -74,13 +74,12 @@ public class Door : DoorBase {
         }
     }
     private void TryOpen() {
-        ItemData itemFound = PlayerInventory.Instance.items.Find(item => item == requiredKey);
-        if (itemFound) {
+        if (PlayerInventory.Instance.HasItem(requiredKey)) {
             if (showUnlockMessage) {
-                TooltipUI.Instance.Show(customUnlockMessage.Length > 0 ? customUnlockMessage : $"Used {itemFound.itemName}");
+                TooltipUI.Instance.Show(customUnlockMessage.Length > 0 ? customUnlockMessage : $"Used {requiredKey.itemName}");
             }
             if (removeKeyOnOpen) {
-                PlayerInventory.Instance.RemoveItem(itemFound);
+                PlayerInventory.Instance.RemoveItem(requiredKey);
             }
 
             lockedOnKey = false;

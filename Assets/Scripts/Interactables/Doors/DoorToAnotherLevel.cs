@@ -21,10 +21,9 @@ public class DoorToAnotherLevel : Interactable {
         OpenDoor();
     }
     private void TryOpen() {
-        ItemData itemFound = PlayerInventory.Instance.items.Find(item => item == requiredKey);
-        if (itemFound) {
-            TooltipUI.Instance.Show($"Used {itemFound.itemName}");
-            PlayerInventory.Instance.RemoveItem(itemFound);
+        if (PlayerInventory.Instance.HasItem(requiredKey)) {
+            TooltipUI.Instance.Show($"Used {requiredKey.itemName}");
+            PlayerInventory.Instance.RemoveItem(requiredKey);
 
             OpenDoor();
         } else {

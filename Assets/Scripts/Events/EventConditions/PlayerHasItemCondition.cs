@@ -6,6 +6,6 @@ public class PlayerHasItemCondition : EventCondition {
         if (requiredItem == null) {
             return false;
         }
-        return PlayerInventory.Instance.items.Contains(requiredItem);
+        return PlayerInventory.Instance.HasItem(requiredItem);
     }
 }
