@@ -1,6 +1,7 @@
 using UnityEngine;
 
 public class BatteryItem : Interactable {
+    // todo: make it string type
     [SerializeField] private int id;
 
     public int BatteryId { get => id; }
