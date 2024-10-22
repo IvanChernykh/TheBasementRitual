@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: WineNotification
   m_EditorClassIdentifier: 
   noteName: Notification
-  noteText: 'The juice stains have been on the wall for 2 weeks already, please clean
+  noteText: 'The wine stains have been on the wall for 2 weeks already, please clean
     them off.
 
     And just a reminder, drinking alcohol during work hours is prohibited
