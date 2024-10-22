@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66ab981a82134bd9a9f34b5cda6028eb, type: 3}
+  m_Name: TextCopyRequest
+  m_EditorClassIdentifier: 
+  noteName: Text Copy Request
+  noteText: "It's not that I believe in monsters or anything... but with all these
+    rumors about strange whispers, missing people, and this unknown cult, I think
+    it wouldn\u2019t hurt to find some information about protection against curses
+    or demons, just in case. Please, make 2 copies for me, and don't laugh."
