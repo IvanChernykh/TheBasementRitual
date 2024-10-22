@@ -24,7 +24,7 @@ public class PlaySoundAction : EventAction {
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private float fadeTime = 0f;
 
-    public override void ExecuteEvent() {
+    public override void ExecuteAction() {
         if (delay > 0 || randomDelay) {
             StartCoroutine(PlaySoundWithDelay());
         } else {

@@ -7,7 +7,7 @@ public class ExecuteAnotherAction : EventAction {
 
     private bool eventIsTriggered;
 
-    public override void ExecuteEvent() {
+    public override void ExecuteAction() {
         if (!eventIsTriggered || triggerAlways) {
             if (ConditionsMet()) {
                 eventIsTriggered = true;

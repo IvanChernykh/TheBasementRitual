@@ -2,13 +2,14 @@ using System.Collections;
 using UnityEngine;
 
 public class ActivateOrDeactivateObjectAction : EventAction {
+    [Header("Action Settings")]
     [SerializeField] private GameObject objectToShow;
     [SerializeField] private GameObject objectToHide;
     [SerializeField] private bool destroyObjectToHide;
     [SerializeField] private float showDelay = 0f;
     [SerializeField] private float hideDelay = 0f;
 
-    public override void ExecuteEvent() {
+    public override void ExecuteAction() {
         if (objectToShow != null) {
             if (showDelay > 0) {
                 StartCoroutine(ShowWithDelay());

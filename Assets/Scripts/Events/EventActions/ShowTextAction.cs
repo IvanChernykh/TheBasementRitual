@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 
 public class ShowTextAction : EventAction {
+    [Header("Action Settings")]
     [TextArea(5, 5), SerializeField] private string[] tooltipText;
     [TextArea(5, 5), SerializeField] private string[] subtitleText;
     [SerializeField] private float tooltipDelay = 0f;
@@ -10,7 +11,7 @@ public class ShowTextAction : EventAction {
     [SerializeField] private bool showTooltip;
     [SerializeField] private bool showSubtitle;
 
-    public override void ExecuteEvent() {
+    public override void ExecuteAction() {
         if (showTooltip) {
             if (tooltipDelay > 0) {
                 StartCoroutine(ShowTooltipWithDelay());

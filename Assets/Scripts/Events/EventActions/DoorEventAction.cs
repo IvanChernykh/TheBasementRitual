@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 
 public class DoorEventAction : EventAction {
+    [Header("Action Settings")]
     [SerializeField] private Door door;
     [Tooltip("Open or close"), SerializeField] private bool openDoor;
     [SerializeField] private bool lockDoor;
@@ -9,7 +10,7 @@ public class DoorEventAction : EventAction {
     [SerializeField] private bool unlockDoor;
     [SerializeField] private float delay;
 
-    public override void ExecuteEvent() {
+    public override void ExecuteAction() {
         if (delay > 0) {
             StartCoroutine(HandleActionWithDelay());
         } else {

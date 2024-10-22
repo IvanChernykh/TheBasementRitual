@@ -2,11 +2,12 @@ using System.Collections;
 using UnityEngine;
 
 public class SpawnObject : EventAction {
+    [Header("Action Settings")]
     [SerializeField] private GameObject objectToSpawn;
     [SerializeField] private Transform positionToSpawn;
     [SerializeField] private float delay = 0f;
 
-    public override void ExecuteEvent() {
+    public override void ExecuteAction() {
         if (objectToSpawn != null) {
             if (delay > 0) {
                 StartCoroutine(ShowWithDelay());

@@ -5,7 +5,7 @@ public class StopSoundAction : EventAction {
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private float fadeTime = 0f;
 
-    public override void ExecuteEvent() {
+    public override void ExecuteAction() {
         if (fadeTime == 0f) {
             SoundManager.Instance.StopAudioSource(audioSource);
         } else {

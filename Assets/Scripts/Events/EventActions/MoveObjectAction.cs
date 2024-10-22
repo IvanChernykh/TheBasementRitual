@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 
 public class MoveObjectAction : EventAction {
+    [Header("Action Settings")]
     [SerializeField] private float delay;
     [SerializeField] private Transform objectToMove;
     [SerializeField] private Transform pointA;
@@ -12,7 +13,7 @@ public class MoveObjectAction : EventAction {
 
     private bool movingToB = true;
 
-    public override void ExecuteEvent() {
+    public override void ExecuteAction() {
         StartCoroutine(MoveObject());
     }
 
