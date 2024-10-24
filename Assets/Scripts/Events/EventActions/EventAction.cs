@@ -13,6 +13,10 @@ public abstract class EventAction : MonoBehaviour {
 
     private bool CheckConditions() {
         bool conditionMet = true;
+
+        if (conditions == null || conditions.Length == 0) {
+            return conditionMet;
+        }
         foreach (EventCondition condition in conditions) {
             if (!condition.IsConditionMet()) {
                 conditionMet = false;
