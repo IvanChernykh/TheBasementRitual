@@ -7,6 +7,7 @@ public class MonsterAnimation : MonoBehaviour {
         Walk,
         RunOld,
         Run,
+        Crawl
     }
     public enum AnimationTriggers {
         Attack
@@ -37,6 +38,12 @@ public class MonsterAnimation : MonoBehaviour {
     public void Attack() {
         animator.SetTrigger(AnimationTriggers.Attack.ToString());
     }
+    public void Crawl() {
+        currentAnimation = AnimationBools.Crawl.ToString();
+        ClearAnimations(AnimationBools.Crawl);
+        ActivateBoolAnimation(AnimationBools.Crawl);
+    }
+
     private void ClearAnimations(AnimationBools currentAnimation) {
         foreach (AnimationBools aBool in Enum.GetValues(typeof(AnimationBools))) {
             if (aBool != currentAnimation) {
