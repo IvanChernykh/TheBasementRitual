@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 
@@ -126,5 +127,17 @@ public class Door : DoorBase {
             SaveState();
         }
     }
+    public void CloseDoorFast(bool silentMode = false) {
+        if (isOpened && !isOpeningOrClosingState) {
+            StartCoroutine(CloseDoorFastRoutine(silentMode));
+        }
+    }
 
+    private IEnumerator CloseDoorFastRoutine(bool silentMode) {
+        float defaultOpenSpeed = openSpeed;
+        openSpeed *= 2f;
+        ToggleOpening(silentMode);
+        yield return new WaitForSeconds(.5f);
+        openSpeed = defaultOpenSpeed;
+    }
 }
