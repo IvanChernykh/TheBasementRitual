@@ -17,7 +17,7 @@ public class ActivateOrDeactivateObjectAction : EventAction {
                 ShowObject();
             }
         }
-        if (objectToHide != null && objectToHide.activeInHierarchy) {
+        if (objectToHide != null) {
             if (hideDelay > 0) {
                 StartCoroutine(HideWithDelay());
             } else {
