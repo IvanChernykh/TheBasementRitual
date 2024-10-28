@@ -20,6 +20,13 @@ public class PlayerInventory : MonoBehaviour {
         }
         Instance = this;
     }
+    private void Update() {
+        if (Input.GetKeyDown(KeyCode.L)) {
+            foreach (ItemData item in items) {
+                Debug.Log(item);
+            }
+        }
+    }
     public void SetHasFlashlight(bool has) {
         hasFlashlight = has;
     }
