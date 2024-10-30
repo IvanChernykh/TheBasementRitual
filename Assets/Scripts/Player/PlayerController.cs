@@ -184,6 +184,7 @@ public class PlayerController : MonoBehaviour {
     }
     public void DisableCharacterController() {
         controller.enabled = false;
+        isSprinting = false;
     }
     public void EnableCharacterController() {
         controller.enabled = true;

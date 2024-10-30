@@ -1,9 +1,11 @@
+using System.Collections;
 using Assets.Scripts.Utils;
 using UnityEngine;
 
 public class GameOverPanel : MonoBehaviour {
     public static GameOverPanel Instance { get; private set; }
     [SerializeField] private GameObject panel;
+    [SerializeField] private GameObject blackScreen;
 
     private void Awake() {
         if (Instance != null) {
@@ -17,7 +19,8 @@ public class GameOverPanel : MonoBehaviour {
         Hide();
     }
     public void Show() {
-        panel.SetActive(true);
+        blackScreen.SetActive(true);
+        StartCoroutine(ShowPanelRoutine());
     }
     public void Hide() {
         panel.SetActive(false);
@@ -38,5 +41,11 @@ public class GameOverPanel : MonoBehaviour {
         } else {
             Exceptions.NoSceneController();
         }
+    }
+    // enumerator
+    private IEnumerator ShowPanelRoutine() {
+        yield return new WaitForSecondsRealtime(2);
+        blackScreen.SetActive(false);
+        panel.SetActive(true);
     }
 }

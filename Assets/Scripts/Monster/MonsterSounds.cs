@@ -1,11 +1,16 @@
 using UnityEngine;
 
 public class MonsterSounds : MonoBehaviour {
+    [Header("Sounds")]
     [SerializeField] private AudioClip[] footstepSounds;
     [SerializeField] private AudioClip[] randomRoars;
-    [SerializeField] private AudioClip[] attackSounds;
+    [SerializeField] private AudioClip attackSound;
+
+    [Header("Footstep Timer")]
     [SerializeField] private float footstepWalkTimerMax = .6f;
     [SerializeField] private float footstepRunTimerMax = .3f;
+
+    [Header("Volume")]
     [SerializeField] private float footstepVolume = 0.1f;
     [SerializeField] private float roarVolume = 0.4f;
     [SerializeField] private float attackVolume = 0.3f;
@@ -36,7 +41,7 @@ public class MonsterSounds : MonoBehaviour {
         PlayFootstep(footstepWalkTimerMax);
     }
     public void PlayAttackSound() {
-        SoundManager.Instance.PlaySound(attackSounds, transform.position, attackVolume);
+        SoundManager.Instance.PlaySound(attackSound, transform.position, attackVolume);
     }
     private void PlayFootstep(float timerMax) {
         footstepTimer -= Time.deltaTime;
