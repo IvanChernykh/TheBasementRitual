@@ -206,6 +206,9 @@ public class PlayerController : MonoBehaviour {
         maxRotationX = defaultMaxRotationX;
         maxRotationY = defaultMaxRotationY;
     }
+    public void ResetHeadRotation() {
+        headTransform.localRotation = Quaternion.Euler(Vector3.zero);
+    }
     // private
     private void ResetHeight() {
         controller.height = normalHeight;

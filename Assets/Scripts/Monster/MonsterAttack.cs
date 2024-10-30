@@ -8,6 +8,7 @@ public class MonsterAttack : MonoBehaviour {
 
     public float AttackDistance { get => attackDistance; }
     private bool isAttacking;
+
     private void Update() {
         if (!isAttacking && !PlayerController.Instance.isHiding && PlayerUtils.DistanceToPlayer(transform.position) <= attackDistance) {
             StartCoroutine(Attack());
@@ -15,8 +16,17 @@ public class MonsterAttack : MonoBehaviour {
     }
     private IEnumerator Attack() {
         isAttacking = true;
+        Vector3 monsterPos = transform.position;
+        Vector3 playerPos = PlayerController.Instance.transform.position;
+        PlayerController.Instance.DisableCharacterController();
+        PlayerController.Instance.DisableCameraLook();
+        PlayerController.Instance.ResetHeadRotation();
+
+        transform.LookAt(new Vector3(playerPos.x, monsterPos.y, playerPos.z));
+        PlayerController.Instance.transform.LookAt(new Vector3(monsterPos.x, playerPos.y, monsterPos.z));
+
         monster.Animation.Attack();
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(.9f);
         PlayerHealth.Instance.Kill();
         isAttacking = false;
     }
