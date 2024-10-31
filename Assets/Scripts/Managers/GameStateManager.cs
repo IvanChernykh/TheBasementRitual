@@ -63,6 +63,8 @@ public class GameStateManager : MonoBehaviour {
         Time.timeScale = timeScalePaused;
         UI.ShowCursor();
         GameOverPanel.Instance.Show();
+        BackgroundMusic.Instance.StopMusicIfPlaying(BackgroundMusic.Sounds.ChaseMusic, fadeTime: 1f);
+        BackgroundMusic.Instance.StopMusicIfPlaying(BackgroundMusic.Sounds.DeepImpacts, fadeTime: 1f);
 
         gameState = GameState.GameOver;
     }

@@ -104,6 +104,11 @@ public class BackgroundMusic : MonoBehaviour {
             SoundManager.Instance.StopAudioSource(deepImpacts);
         }
     }
+    public void StopMusicIfPlaying(Sounds sound, float fadeTime = 0f) {
+        if (IsMusicPlaying(sound)) {
+            Stop(sound, fadeTime);
+        }
+    }
     private AudioSource GetSoundFromEnum(Sounds sound) {
         AudioSource receivedSound = sound switch {
             Sounds.NoiseAmbient => noiseAmbient,
@@ -115,6 +120,9 @@ public class BackgroundMusic : MonoBehaviour {
             _ => noiseAmbient,
         };
         return receivedSound;
+    }
+    public bool IsMusicPlaying(Sounds sound) {
+        return GetSoundFromEnum(sound).isPlaying;
     }
 
     // conditions

@@ -175,6 +175,7 @@ public class MonsterController : MonoBehaviour {
     }
     // state transitions
     public void StartIdle() {
+        StopChaseMusic();
         fieldOfViewCurrent = fieldOfViewDefault;
         monster.Animation.Idle();
         monster.Agent.ResetPath();
@@ -186,7 +187,7 @@ public class MonsterController : MonoBehaviour {
         monster.Animation.Walk();
         currentState = State.Patrolling;
     }
-    private void StartChasingPlayer() {
+    public void StartChasingPlayer() {
         fieldOfViewCurrent = FieldOfViewExpanded;
         monster.Animation.Run();
         currentState = State.ChasingPlayer;
@@ -297,7 +298,11 @@ public class MonsterController : MonoBehaviour {
         BackgroundMusic.Instance.Stop(BackgroundMusic.Sounds.MainAmbient, 1f);
     }
     private void StopChaseMusic() {
-        BackgroundMusic.Instance.Stop(BackgroundMusic.Sounds.ChaseMusic, 5f);
-        BackgroundMusic.Instance.Play(BackgroundMusic.Sounds.MainAmbient, 2f);
+        if (BackgroundMusic.Instance.IsMusicPlaying(BackgroundMusic.Sounds.ChaseMusic)) {
+            BackgroundMusic.Instance.Stop(BackgroundMusic.Sounds.ChaseMusic, 5f);
+        }
+        if (!BackgroundMusic.Instance.IsMusicPlaying(BackgroundMusic.Sounds.ChaseMusic)) {
+            BackgroundMusic.Instance.Play(BackgroundMusic.Sounds.MainAmbient, 2f);
+        }
     }
 }
