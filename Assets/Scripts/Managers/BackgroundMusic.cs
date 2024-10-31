@@ -90,6 +90,20 @@ public class BackgroundMusic : MonoBehaviour {
             SoundManager.Instance.PlayAudioSource(chaseMusic);
         }
     }
+    public void PlayDeepImpacts(float fadeTime = 0) {
+        if (fadeTime > 0) {
+            SoundManager.Instance.FadeInAudioSource(deepImpacts, fadeTime);
+        } else {
+            SoundManager.Instance.PlayAudioSource(deepImpacts);
+        }
+    }
+    public void StopDeepImpacts(float fadeTime = 0) {
+        if (fadeTime > 0) {
+            SoundManager.Instance.FadeOutAudioSource(deepImpacts, fadeTime);
+        } else {
+            SoundManager.Instance.StopAudioSource(deepImpacts);
+        }
+    }
     private AudioSource GetSoundFromEnum(Sounds sound) {
         AudioSource receivedSound = sound switch {
             Sounds.NoiseAmbient => noiseAmbient,
