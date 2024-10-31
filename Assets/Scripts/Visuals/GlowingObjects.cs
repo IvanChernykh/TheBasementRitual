@@ -16,6 +16,7 @@ public class GlowingObjects : MonoBehaviour {
 
         Color finalColor = emissionColor * Mathf.LinearToGammaSpace(emissionValue);
         foreach (Material mat in materials) {
+            mat.EnableKeyword("_EMISSION");
             mat.SetVector("_EmissionColor", finalColor);
         }
     }
