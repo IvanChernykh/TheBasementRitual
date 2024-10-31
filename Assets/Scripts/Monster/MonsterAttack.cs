@@ -16,7 +16,8 @@ public class MonsterAttack : MonoBehaviour {
         }
     }
     private IEnumerator Attack() {
-        BackgroundMusic.Instance.Stop(BackgroundMusic.Sounds.ChaseMusic, 1f);
+        BackgroundMusic.Instance.Stop(BackgroundMusic.Sounds.ChaseMusic, .8f);
+        BackgroundMusic.Instance.StopDeepImpacts(fadeTime: .8f);
         Vector3 monsterPos = transform.position;
         Vector3 playerPos = PlayerController.Instance.transform.position;
 
@@ -24,7 +25,6 @@ public class MonsterAttack : MonoBehaviour {
         PlayerController.Instance.DisableCameraLook();
         PlayerController.Instance.ResetHeadRotation();
         monster.Sounds.PlayAttackSound();
-        Debug.Log("play");
 
         transform.LookAt(new Vector3(playerPos.x, monsterPos.y, playerPos.z));
         PlayerController.Instance.transform.LookAt(new Vector3(monsterPos.x, playerPos.y, monsterPos.z));

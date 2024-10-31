@@ -175,7 +175,6 @@ public class MonsterController : MonoBehaviour {
     }
     // state transitions
     public void StartIdle() {
-        StopChaseMusic();
         fieldOfViewCurrent = fieldOfViewDefault;
         monster.Animation.Idle();
         monster.Agent.ResetPath();
