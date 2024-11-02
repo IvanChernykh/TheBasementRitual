@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 
 
-public class OnTriggerEnterEventController : MonoBehaviour {
+public class OnTriggerEnterEventController : EventControllerBase {
     [SerializeField] private bool triggerAlways;
     [SerializeField] private bool destroySelfAfterEvent;
     [SerializeField] private EventAction[] eventActions;
@@ -13,7 +13,7 @@ public class OnTriggerEnterEventController : MonoBehaviour {
     private void OnTriggerEnter(Collider other) {
         if (!eventIsTriggered || triggerAlways) {
             if (other.CompareTag("Player")) {
-                bool conditionMet = CheckConditions();
+                bool conditionMet = CheckConditions(eventConditions);
                 if (conditionMet) {
                     eventIsTriggered = true;
 
@@ -27,16 +27,7 @@ public class OnTriggerEnterEventController : MonoBehaviour {
             }
         }
     }
-    private bool CheckConditions() {
-        bool conditionMet = true;
-        foreach (EventCondition condition in eventConditions) {
-            if (!condition.IsConditionMet()) {
-                conditionMet = false;
-                break;
-            }
-        }
-        return conditionMet;
-    }
+
     private IEnumerator DestroySelf() {
         yield return new WaitForSeconds(10f);
         Destroy(gameObject);
