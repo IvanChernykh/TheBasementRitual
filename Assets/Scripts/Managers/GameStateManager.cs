@@ -80,7 +80,7 @@ public class GameStateManager : MonoBehaviour {
         EndGamePanel.Instance.Show(currentEndGame);
     }
     public void EnterRunAwayEndGameState() {
-        EnterEndGameState(EndGameVariants.RunAway);
+        EnterEndGameState(EndGameVariants.Escape);
     }
     // main menu state
     public void EnterMainMenuState() {

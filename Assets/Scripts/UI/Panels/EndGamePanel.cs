@@ -5,7 +5,7 @@ using UnityEngine;
 
 public enum EndGameVariants {
     GiveUp,
-    RunAway,
+    Escape,
     BanishDemon
 }
 
@@ -20,7 +20,7 @@ public class EndGamePanel : MonoBehaviour {
         "Eventually, the demon emerged from the basement and killed everyone in the town.",
         "It took a long time before people figured out how to kill it, but far too many had already died."
         };
-    private string[] runAwayEndGameText = {
+    private string[] escapeEndGameText = {
         "You successfully escaped from the basement, but the demon broke out along with you.",
         "Though you saved your life, you condemned others to death.",
         "The demon managed to kill many people before they figured out how to defeat him."
@@ -75,7 +75,7 @@ public class EndGamePanel : MonoBehaviour {
     private string[] GetEndGameText(EndGameVariants currentEndGame) {
         return currentEndGame switch {
             EndGameVariants.GiveUp => giveUpEndGameText,
-            EndGameVariants.RunAway => runAwayEndGameText,
+            EndGameVariants.Escape => escapeEndGameText,
             EndGameVariants.BanishDemon => banishDemonEndGameText,
             _ => giveUpEndGameText,
         };
