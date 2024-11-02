@@ -5,6 +5,7 @@ using UnityEngine;
 public class MonsterAttack : MonoBehaviour {
     [SerializeField] private MonsterCore monster;
     [SerializeField] private float attackDistance = 1.6f;
+    [SerializeField] private bool showEndGameOnKillPlayer = false;
 
     public float AttackDistance { get => attackDistance; }
     private bool isAttacking;
@@ -31,6 +32,6 @@ public class MonsterAttack : MonoBehaviour {
 
         monster.Animation.Attack();
         yield return new WaitForSeconds(.9f);
-        PlayerHealth.Instance.Kill();
+        PlayerHealth.Instance.Kill(showEndGameOnKillPlayer);
     }
 }

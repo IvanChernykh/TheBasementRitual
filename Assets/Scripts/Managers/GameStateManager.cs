@@ -8,7 +8,8 @@ public class GameStateManager : MonoBehaviour {
         ReadingNote,
         Paused,
         GameOver,
-        MainMenu
+        MainMenu,
+        EndGame
     }
     private GameState gameState;
 
@@ -16,6 +17,7 @@ public class GameStateManager : MonoBehaviour {
     public bool ReadingNote { get => gameState == GameState.ReadingNote; }
     public bool Paused { get => gameState == GameState.Paused; }
     public bool GameOver { get => gameState == GameState.GameOver; }
+    public bool EndGame { get => gameState == GameState.EndGame; }
 
     private readonly float timeScalePaused = 0f;
     private readonly float timeScaleInGame = 1f;
@@ -68,6 +70,14 @@ public class GameStateManager : MonoBehaviour {
     }
     public void ExitGameOverState() {
         GameOverPanel.Instance.Hide();
+    }
+    // end game state
+    public void EnterEndGameState(EndGameVariants currentEndGame) {
+        PlayerController.Instance.DisableCharacterController();
+        PlayerController.Instance.DisableCameraLook();
+
+        Time.timeScale = timeScalePaused;
+        EndGamePanel.Instance.Show(currentEndGame);
     }
     // main menu state
     public void EnterMainMenuState() {

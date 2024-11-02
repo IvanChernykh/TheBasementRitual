@@ -11,7 +11,7 @@ namespace Assets.Scripts.Utils {
             float endAlpha = fadeIn ? 1f : 0f;
 
             while (elapsedTime < duration) {
-                elapsedTime += Time.deltaTime;
+                elapsedTime += Time.unscaledDeltaTime;
                 color.a = Mathf.Lerp(startAlpha, endAlpha, elapsedTime / duration);
                 graphic.color = color;
                 yield return null;

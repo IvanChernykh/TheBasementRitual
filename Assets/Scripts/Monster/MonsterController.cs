@@ -11,6 +11,7 @@ public class MonsterController : MonoBehaviour {
         InvestigatingLastSeenPlayerPosition,
         SearchingPlayer,
     }
+
     private State currentState = State.Patrolling;
 
     [Header("Core")]
@@ -44,6 +45,7 @@ public class MonsterController : MonoBehaviour {
     private readonly float searchPositionTimerMax = 4.7f;
     private float searchPositionTimer;
     private PlayerController player;
+
     [Header("Door Interaction")]
     [SerializeField] private LayerMask doorLayerMask;
     [SerializeField] private float checkDistance = 2f;
