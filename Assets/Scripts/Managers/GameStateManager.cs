@@ -79,6 +79,9 @@ public class GameStateManager : MonoBehaviour {
         Time.timeScale = timeScalePaused;
         EndGamePanel.Instance.Show(currentEndGame);
     }
+    public void EnterRunAwayEndGameState() {
+        EnterEndGameState(EndGameVariants.RunAway);
+    }
     // main menu state
     public void EnterMainMenuState() {
         Time.timeScale = timeScaleInGame;
