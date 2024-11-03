@@ -50,6 +50,9 @@ public class MonsterController : MonoBehaviour {
     [SerializeField] private LayerMask doorLayerMask;
     [SerializeField] private float checkDistance = 2f;
 
+    [Header("Additional Settings")]
+    [SerializeField] private bool playChaseMusic = true;
+
     private void Start() {
         fieldOfViewCurrent = fieldOfViewDefault;
         FieldOfViewExpanded = Mathf.Clamp(fieldOfViewDefault + 40f, fieldOfViewDefault, 260f);
@@ -58,6 +61,7 @@ public class MonsterController : MonoBehaviour {
         gameObject.SetActive(false);
     }
     private void Update() {
+        Debug.Log(currentState);
         monster.Sounds.PlayRandomRoar();
         CheckForDoorsAndOpen();
         switch (currentState) {
@@ -193,7 +197,9 @@ public class MonsterController : MonoBehaviour {
         monster.Animation.Run();
         currentState = State.ChasingPlayer;
         PlayerController.Instance.SetInChase(true);
-        StartChaseMusic();
+        if (playChaseMusic) {
+            StartChaseMusic();
+        }
     }
     private void StartInvestigatingLastSeenPlayerPosition() {
         fieldOfViewCurrent = FieldOfViewExpanded;
