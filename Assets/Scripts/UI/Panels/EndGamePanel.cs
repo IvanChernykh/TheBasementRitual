@@ -25,7 +25,12 @@ public class EndGamePanel : MonoBehaviour {
         "Though you saved your life, you condemned others to death.",
         "The demon managed to kill many people before they figured out how to defeat him."
         };
-    private string[] banishDemonEndGameText = { };
+    private string[] banishDemonEndGameText = {
+        "You successfully banished the demon and escaped from the basement.",
+        "You told the police everything that happened there, but they didn't believe the part about the demon.",
+        "You were sent to an asylum for six months to recover your mental health.",
+        "After that, you left the town forever."
+        };
 
     private readonly float displayTime = 5f;
     private readonly float fadeDuration = 0.8f;

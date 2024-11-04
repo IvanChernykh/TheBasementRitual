@@ -82,6 +82,9 @@ public class GameStateManager : MonoBehaviour {
     public void EnterRunAwayEndGameState() {
         EnterEndGameState(EndGameVariants.Escape);
     }
+    public void EnterBanishDemonEndGameState() {
+        EnterEndGameState(EndGameVariants.BanishDemon);
+    }
     // main menu state
     public void EnterMainMenuState() {
         Time.timeScale = timeScaleInGame;

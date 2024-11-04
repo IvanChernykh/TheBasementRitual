@@ -52,6 +52,7 @@ public class MonsterController : MonoBehaviour {
 
     [Header("Additional Settings")]
     [SerializeField] private bool playChaseMusic = true;
+    [SerializeField] private bool stopMusicOnDisable = false;
 
     private void Start() {
         fieldOfViewCurrent = fieldOfViewDefault;
@@ -80,6 +81,11 @@ public class MonsterController : MonoBehaviour {
             case State.SearchingPlayer:
                 HandleSearchPlayer();
                 break;
+        }
+    }
+    private void OnDisable() {
+        if (stopMusicOnDisable) {
+            BackgroundMusic.Instance.Stop(BackgroundMusic.Sounds.ChaseMusic);
         }
     }
     // state handlers
