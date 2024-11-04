@@ -41,7 +41,7 @@ public class PausePanel : MonoBehaviour {
         }
     }
     public void Options() {
-
+        OptionsPanel.Instance.Show();
     }
     public void MainMenu() {
         if (SceneController.Instance != null) {

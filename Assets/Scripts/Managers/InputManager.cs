@@ -5,6 +5,8 @@ using Assets.Scripts.Utils;
 public class InputManager : MonoBehaviour {
     public static InputManager Instance { get; private set; }
 
+    [SerializeField] private bool isMainMenu;
+
     public event EventHandler OnSprintStartedEvent;
     public event EventHandler OnSprintCanceledEvent;
     public event EventHandler OnCrouchEvent;
@@ -26,6 +28,11 @@ public class InputManager : MonoBehaviour {
         inputActions = new PlayerInputActions();
         inputActions.Player.Enable();
 
+        if (isMainMenu) {
+            inputActions.Player.Pause.performed += PausePerformed;
+            return;
+        }
+
         inputActions.Player.Sprint.started += SprintStarted;
         inputActions.Player.Sprint.canceled += SprintCanceled;
         inputActions.Player.Crouch.performed += CrouchPerformed;
@@ -36,6 +43,12 @@ public class InputManager : MonoBehaviour {
         inputActions.Player.Pause.performed += PausePerformed;
     }
     private void OnDestroy() {
+        if (isMainMenu) {
+            inputActions.Player.Pause.performed -= PausePerformed;
+
+            inputActions.Dispose();
+            return;
+        }
         inputActions.Player.Sprint.started -= SprintStarted;
         inputActions.Player.Sprint.canceled -= SprintCanceled;
         inputActions.Player.Crouch.performed -= CrouchPerformed;
@@ -88,13 +101,23 @@ public class InputManager : MonoBehaviour {
         OnReloadBattery?.Invoke(this, EventArgs.Empty);
     }
     private void PausePerformed(UnityEngine.InputSystem.InputAction.CallbackContext obj) {
+        if (isMainMenu) {
+            if (OptionsPanel.Instance.IsActive) {
+                OptionsPanel.Instance.Hide();
+            }
+            return;
+        }
         if (GameStateManager.Instance.InGame) {
             GameStateManager.Instance.EnterPausedState();
             return;
         }
         if (GameStateManager.Instance.Paused) {
-            GameStateManager.Instance.ExitPausedState();
-            GameStateManager.Instance.EnterInGameState();
+            if (OptionsPanel.Instance.IsActive) {
+                OptionsPanel.Instance.Hide();
+            } else {
+                GameStateManager.Instance.ExitPausedState();
+                GameStateManager.Instance.EnterInGameState();
+            }
             return;
         }
         if (GameStateManager.Instance.ReadingNote) {

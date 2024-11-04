@@ -19,7 +19,7 @@ public class MainMenuUI : MonoBehaviour {
         SceneController.Instance.LoadSavedGame(SaveFileName.DefaultSave);
     }
     public void OptionsBtn() {
-
+        OptionsPanel.Instance.Show();
     }
     public void ExitBtn() {
         Application.Quit();
