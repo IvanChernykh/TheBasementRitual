@@ -23,13 +23,15 @@ public class EndGamePanel : MonoBehaviour {
     private string[] escapeEndGameText = {
         "You successfully escaped from the basement, but the demon broke out along with you.",
         "Though you saved your life, you condemned others to death.",
-        "The demon managed to kill many people before they figured out how to defeat him."
+        "The demon managed to kill many people before they figured out how to defeat him.",
+        "Thank you for playing"
         };
     private string[] banishDemonEndGameText = {
         "You successfully banished the demon and escaped from the basement.",
         "You told the police everything that happened there, but they didn't believe the part about the demon.",
         "You were sent to an asylum for six months to recover your mental health.",
-        "After that, you left the town forever."
+        "After that, you left the town forever.",
+        "Thank you for playing"
         };
 
     private readonly float displayTime = 5f;
