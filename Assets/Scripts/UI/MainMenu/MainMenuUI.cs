@@ -1,8 +1,10 @@
 using Assets.Scripts.Utils;
+using TMPro;
 using UnityEngine;
 
 public class MainMenuUI : MonoBehaviour {
     [SerializeField] private GameObject continueGameBtn;
+    [SerializeField] private TextMeshProUGUI creditButtonText;
 
     private void Start() {
         UI.ShowCursor();
@@ -20,6 +22,10 @@ public class MainMenuUI : MonoBehaviour {
     }
     public void OptionsBtn() {
         OptionsPanel.Instance.Show();
+    }
+    public void CreditsBtn() {
+        creditButtonText.color = Color.white;
+        CreditsPanel.Instance.Show();
     }
     public void ExitBtn() {
         Application.Quit();

@@ -105,6 +105,9 @@ public class InputManager : MonoBehaviour {
             if (OptionsPanel.Instance.IsActive) {
                 OptionsPanel.Instance.Hide();
             }
+            if (CreditsPanel.Instance.IsActive) {
+                CreditsPanel.Instance.Hide();
+            }
             return;
         }
         if (GameStateManager.Instance.InGame) {
