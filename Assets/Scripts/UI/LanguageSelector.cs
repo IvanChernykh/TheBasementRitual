@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
 using TMPro;
+using Assets.Scripts.Utils;
 
 public class LanguageSelector : MonoBehaviour {
     [SerializeField] private TextMeshProUGUI languageText;
@@ -11,8 +12,14 @@ public class LanguageSelector : MonoBehaviour {
 
     private void Start() {
         availableLocales = LocalizationSettings.AvailableLocales.Locales;
-        currentLocaleIndex = availableLocales.IndexOf(LocalizationSettings.SelectedLocale);
-        UpdateLanguageText();
+
+        currentLocaleIndex = PlayerPrefs.GetInt(PlayerPrefsConstants.LANGUAGE, 0);
+
+        if (currentLocaleIndex < 0 || currentLocaleIndex >= availableLocales.Count) {
+            currentLocaleIndex = 0;
+        }
+
+        SetLanguage(currentLocaleIndex);
     }
 
     public void SwitchLanguageLeft() {
@@ -27,6 +34,8 @@ public class LanguageSelector : MonoBehaviour {
 
     private void SetLanguage(int index) {
         LocalizationSettings.SelectedLocale = availableLocales[index];
+        PlayerPrefs.SetInt(PlayerPrefsConstants.LANGUAGE, index);
+        PlayerPrefs.Save();
         UpdateLanguageText();
     }
 

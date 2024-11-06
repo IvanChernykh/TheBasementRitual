@@ -1,4 +1,5 @@
 using UnityEngine;
+using Assets.Scripts.Utils;
 
 public class GameSettings : MonoBehaviour {
     public static GameSettings Instance { get; private set; }

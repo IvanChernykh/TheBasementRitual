@@ -49,5 +49,6 @@ public class OptionsPanel : MonoBehaviour {
     private void OnChangeMasterVolume(float val) {
         AudioListener.volume = val;
         PlayerPrefs.SetFloat(PlayerPrefsConstants.MASTER_VOLUME, val);
+        PlayerPrefs.Save();
     }
 }

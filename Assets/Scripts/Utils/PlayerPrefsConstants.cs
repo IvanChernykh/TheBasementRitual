@@ -1,5 +1,8 @@
 using UnityEngine;
 
-public class PlayerPrefsConstants : MonoBehaviour {
-    public static string MASTER_VOLUME { get; private set; } = "PREF_MASTER_VOLUME";
+namespace Assets.Scripts.Utils {
+    public class PlayerPrefsConstants : MonoBehaviour {
+        public static readonly string MASTER_VOLUME = "PREF_MASTER_VOLUME";
+        public static readonly string LANGUAGE = "PREF_LANGUAGE";
+    }
 }
