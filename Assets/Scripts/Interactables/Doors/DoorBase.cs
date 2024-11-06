@@ -11,7 +11,7 @@ public enum DoorStateEnum {
 public class DoorBase : Interactable {
     [Header("Messages")]
     [SerializeField] protected string lockedMessage = "Locked";
-    protected string openMessage = "K_Open";
+    protected string openMessage = "Open";
     protected string closeMessage = "Close";
 
     [Header("Locked State")]
