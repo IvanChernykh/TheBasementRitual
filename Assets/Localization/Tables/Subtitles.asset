@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5be51871efa6c3e4eae1703925c8f5ac, type: 3}
+  m_Name: Subtitles
+  m_EditorClassIdentifier: 
+  m_SharedTableData: {fileID: 11400000, guid: 9cba8b209c0f49f0e935580b867d3648, type: 2}
+  m_Tables:
+  - {fileID: 11400000, guid: 654168df1e36dce4b918a2c10e9a52e7, type: 2}
+  - {fileID: 11400000, guid: e50aceb3417f2e530807b7859920d83d, type: 2}
+  - {fileID: 11400000, guid: 157d751d690e6d930ac50dea4d7d24bc, type: 2}
+  m_Extensions: []
+  m_Group: String Table
+  references:
+    version: 2
+    RefIds: []

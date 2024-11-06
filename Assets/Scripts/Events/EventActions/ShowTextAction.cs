@@ -1,5 +1,8 @@
 using System.Collections;
+using System.Collections.Generic;
+using Assets.Scripts.Utils;
 using UnityEngine;
+using UnityEngine.Localization;
 
 public class ShowTextAction : EventAction {
     [Header("Action Settings")]
@@ -11,7 +14,27 @@ public class ShowTextAction : EventAction {
     [SerializeField] private bool showTooltip;
     [SerializeField] private bool showSubtitle;
 
+    private List<string> tooltipTextCache = new List<string>();
+    private List<string> subtitleTextCache = new List<string>();
+
+    private void InitializeLocalizedStrings() {
+        // Ініціалізація кешу для тултіпів
+        tooltipTextCache = new List<string>();
+        foreach (var key in tooltipText) {
+            var localizedString = new LocalizedString { TableReference = LocalizationTables.Tooltips, TableEntryReference = key };
+            tooltipTextCache.Add(localizedString.GetLocalizedString());
+        }
+
+        // Ініціалізація кешу для субтитрів
+        subtitleTextCache = new List<string>();
+        foreach (var key in subtitleText) {
+            var localizedString = new LocalizedString { TableReference = LocalizationTables.Subtitles, TableEntryReference = key };
+            subtitleTextCache.Add(localizedString.GetLocalizedString());
+        }
+    }
+
     public override void ExecuteAction() {
+        InitializeLocalizedStrings();
         if (showTooltip) {
             if (tooltipDelay > 0) {
                 StartCoroutine(ShowTooltipWithDelay());
@@ -23,7 +46,7 @@ public class ShowTextAction : EventAction {
             if (subtitleDelay > 0) {
                 StartCoroutine(ShowSubtitleWithDelay());
             } else {
-                SubtitlesUI.Instance.Show(subtitleText, subtitleShowTime);
+                ShowSubtitle();
             }
 
         }
@@ -34,6 +57,15 @@ public class ShowTextAction : EventAction {
     }
     private IEnumerator ShowSubtitleWithDelay() {
         yield return new WaitForSeconds(subtitleDelay);
-        SubtitlesUI.Instance.Show(subtitleText, subtitleShowTime);
+        ShowSubtitle();
+
+    }
+
+    private void ShowSubtitle() {
+        if (subtitleTextCache.Count > 0) {
+            SubtitlesUI.Instance.Show(subtitleTextCache.ToArray(), subtitleShowTime);
+        } else {
+            SubtitlesUI.Instance.Show(subtitleText, subtitleShowTime);
+        }
     }
 }
