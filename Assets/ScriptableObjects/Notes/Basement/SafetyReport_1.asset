@@ -17,3 +17,4 @@ MonoBehaviour:
     Security must be increased across all shifts to ensure the safety of our remaining
     staff. If this continues, the entire facility may shut down as employees are
     too afraid to return to work."
+  localizationKey: SafetyReport
