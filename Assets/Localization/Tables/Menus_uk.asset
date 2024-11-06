@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
-  m_Name: Test_uk
+  m_Name: Menus_uk
   m_EditorClassIdentifier: 
   m_LocaleId:
     m_Code: uk
-  m_SharedData: {fileID: 11400000, guid: 8fa0d8febaf73514d9659c5c8d671869, type: 2}
+  m_SharedData: {fileID: 11400000, guid: ab6cb92204ba4a29593b32cbae168303, type: 2}
   m_Metadata:
     m_Items: []
   m_TableData:
-  - m_Id: 22921732096
-    m_Localized: "\u0412\u0456\u0434\u0447\u0438\u043D\u0438\u0442\u0438"
+  - m_Id: 8900173824
+    m_Localized: "\u041D\u0430\u043B\u0430\u0448\u0442\u0443\u0432\u0430\u043D\u043D\u044F"
     m_Metadata:
       m_Items: []
   references:

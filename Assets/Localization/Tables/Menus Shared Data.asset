@@ -10,23 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
-  m_Name: Test Shared Data
+  m_Name: Menus Shared Data
   m_EditorClassIdentifier: 
-  m_TableCollectionName: Test
-  m_TableCollectionNameGuidString: 8fa0d8febaf73514d9659c5c8d671869
+  m_TableCollectionName: Menus
+  m_TableCollectionNameGuidString: ab6cb92204ba4a29593b32cbae168303
   m_Entries:
-  - m_Id: 22921732096
-    m_Key: K_Open
+  - m_Id: 8900173824
+    m_Key: Options
     m_Metadata:
       m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
-    rid: 7368045266016141312
+    rid: 7368045268807450626
   references:
     version: 2
     RefIds:
-    - rid: 7368045266016141312
+    - rid: 7368045268807450626
       type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
       data:
-        m_CustomEpoch: 1730885881232
+        m_CustomEpoch: 1730896786592
