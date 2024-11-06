@@ -10,7 +10,10 @@ public class OptionsPanel : MonoBehaviour {
 
     [SerializeField] private Slider masterVolumeSlider;
 
+    [Header("Buttons UI")]
     [SerializeField] private TextMeshProUGUI backBtnText;
+    [SerializeField] private TextMeshProUGUI arrowLeftBtnText;
+    [SerializeField] private TextMeshProUGUI arrowRightBtnText;
 
     public bool IsActive { get; private set; }
 
@@ -36,6 +39,8 @@ public class OptionsPanel : MonoBehaviour {
         IsActive = true;
     }
     public void Hide() {
+        arrowLeftBtnText.color = Color.white;
+        arrowRightBtnText.color = Color.white;
         backBtnText.color = Color.white;
         container.SetActive(false);
         IsActive = false;
