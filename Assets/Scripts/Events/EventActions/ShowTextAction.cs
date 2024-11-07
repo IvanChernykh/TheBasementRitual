@@ -18,14 +18,12 @@ public class ShowTextAction : EventAction {
     private List<string> subtitleTextCache = new List<string>();
 
     private void InitializeLocalizedStrings() {
-        // Ініціалізація кешу для тултіпів
         tooltipTextCache = new List<string>();
         foreach (var key in tooltipText) {
             var localizedString = new LocalizedString { TableReference = LocalizationTables.Tooltips, TableEntryReference = key };
             tooltipTextCache.Add(localizedString.GetLocalizedString());
         }
 
-        // Ініціалізація кешу для субтитрів
         subtitleTextCache = new List<string>();
         foreach (var key in subtitleText) {
             var localizedString = new LocalizedString { TableReference = LocalizationTables.Subtitles, TableEntryReference = key };
