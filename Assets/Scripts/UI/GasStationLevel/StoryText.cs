@@ -3,18 +3,36 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Assets.Scripts.Utils;
+using UnityEngine.Localization;
 
 public class StoryText : MonoBehaviour {
+    private readonly string[] texts = {
+        "After work, you were about to head home when a homeless guy showed up and asked for a ride and to make a call. For some reason, you agreed.",
+        "Apparently, he was the most popular homeless man on the planet - he was staying connected the whole time.",
+        "By the time you dropped him off, you were out of gas, and he wore out your battery so you could not call automobile service.",
+        "Now you're stuck in the middle of nowhere and need to find help."
+    };
 
-    private readonly string text1 = "After work, you were about to head home when a homeless guy showed up and asked for a ride and to make a call. For some reason, you agreed.";
-    private readonly string text2 = "Apparently, he was the most popular homeless man on the planet — he was staying connected the whole time.";
-    private readonly string text3 = "By the time you dropped him off, you were out of gas, and he wore out your battery so you could not call automobile service.";
-    private readonly string text4 = "Now you're stuck in the middle of nowhere and need to find help.";
+    private readonly string[] tuts = {
+        "[W / A / S / D] - move",
+        "[Left Shift] - sprint",
+        "[Left CTRL] - crouch",
+        "[E] - Interact"
+    };
 
-    private readonly string tut1 = "[W / A / S / D] - move";
-    private readonly string tut2 = "[Left Shift] - sprint";
-    private readonly string tut3 = "[Left CTRL] - crouch";
-    private readonly string tut4 = "[E] - Interact";
+    private readonly LocalizedString[] storyTexts = {
+        new LocalizedString { TableReference = LocalizationTables.IntroAndEndings, TableEntryReference = "AfterWork" },
+        new LocalizedString { TableReference = LocalizationTables.IntroAndEndings, TableEntryReference = "MostPopularHomeless" },
+        new LocalizedString { TableReference = LocalizationTables.IntroAndEndings, TableEntryReference = "OutOfGas" },
+        new LocalizedString { TableReference = LocalizationTables.IntroAndEndings, TableEntryReference = "Stuck" }
+    };
+
+    private readonly LocalizedString[] tutorialTexts = {
+        new LocalizedString { TableReference = LocalizationTables.IntroAndEndings, TableEntryReference = "Move" },
+        new LocalizedString { TableReference = LocalizationTables.IntroAndEndings, TableEntryReference = "Sprint" },
+        new LocalizedString { TableReference = LocalizationTables.IntroAndEndings, TableEntryReference = "Crouch" },
+        new LocalizedString { TableReference = LocalizationTables.IntroAndEndings, TableEntryReference = "Interact" }
+    };
 
     [SerializeField] private TextMeshProUGUI text;
     [SerializeField] private Image background;
@@ -31,29 +49,46 @@ public class StoryText : MonoBehaviour {
         PlayerController.Instance.DisableCharacterController();
         PlayerController.Instance.DisableCameraLook();
 
-        string[] texts = { text1, text2, text3, text4 };
-        string[] tuts = { tut1, tut2, tut3, tut4 };
-
         yield return new WaitForSeconds(1f);
 
-        for (int i = 0; i < texts.Length; i++) {
-            text.text = texts[i];
+        foreach (var localizedString in storyTexts) {
+            bool isTextReady = false;
+            void OnTextChanged(string localizedText) {
+                text.text = localizedText;
+                isTextReady = true;
+            }
+            localizedString.StringChanged += OnTextChanged;
+            localizedString.RefreshString();
+
+            yield return new WaitUntil(() => isTextReady);
+            localizedString.StringChanged -= OnTextChanged;
 
             yield return StartCoroutine(UI.FadeGraphic(text, fadeDuration, fadeIn: true));
             yield return new WaitForSeconds(displayTime);
-
             yield return StartCoroutine(UI.FadeGraphic(text, fadeDuration, fadeIn: false));
             yield return new WaitForSeconds(pauseBetweenTexts);
         }
+
         PlayerController.Instance.EnableCharacterController();
-
         yield return StartCoroutine(UI.FadeGraphic(background, fadeDuration, fadeIn: false));
-
         PlayerController.Instance.EnableCameraLook();
 
-        yield return null;
+        string[] tutorialLocalizedTexts = new string[tutorialTexts.Length];
+        for (int i = 0; i < tutorialTexts.Length; i++) {
+            bool isTextReady = false;
+            void OnTextChanged(string localizedText) {
+                tutorialLocalizedTexts[i] = localizedText;
+                isTextReady = true;
+            }
 
-        TooltipUI.Instance.Show(tuts, showTime: 3f);
+            tutorialTexts[i].StringChanged += OnTextChanged;
+            tutorialTexts[i].RefreshString();
+
+            yield return new WaitUntil(() => isTextReady);
+            tutorialTexts[i].StringChanged -= OnTextChanged;
+        }
+
+        TooltipUI.Instance.Show(tutorialLocalizedTexts, showTime: 3f);
         Destroy(gameObject);
     }
 }

@@ -8,5 +8,7 @@ namespace Assets.Scripts.Utils {
 
         public readonly static string Subtitles = "Subtitles";
         public readonly static string Tooltips = "Tooltips";
+
+        public readonly static string IntroAndEndings = "IntroAndEndings";
     }
 }
