@@ -44,7 +44,7 @@ public class Flashlight : MonoBehaviour {
             playerInventory.RemoveBattery();
             StartCoroutine(ReloadBattery());
         } else {
-            TooltipUI.Instance.Show("No batteries");
+            TooltipUI.Instance.Show(LocalizationHelper.LocalizeTooltip("No batteries"));
         }
     }
     private void OnFlashLightToggle(object sender, EventArgs e) {

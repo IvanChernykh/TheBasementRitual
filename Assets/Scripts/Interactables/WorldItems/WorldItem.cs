@@ -1,3 +1,4 @@
+using Assets.Scripts.Utils;
 using UnityEngine;
 
 public class WorldItem : Interactable {
@@ -7,12 +8,12 @@ public class WorldItem : Interactable {
     private void Start() {
         interactMessage = "Take";
         if (pickUpMessage.Length == 0) {
-            pickUpMessage = $"Picked up {itemData.itemName}";
+            pickUpMessage = LocalizationHelper.LocalizeTooltip("Picked up", itemData.itemName);
         }
     }
     protected override void Interact() {
         PlayerInventory.Instance.AddItem(itemData);
-        TooltipUI.Instance.Show(pickUpMessage);
+        TooltipUI.Instance.Show(LocalizationHelper.LocalizeTooltip(pickUpMessage));
         SceneStateManager.Instance.CollectKey(itemData.itemName);
         Destroy(gameObject);
     }

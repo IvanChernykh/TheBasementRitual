@@ -1,3 +1,4 @@
+using Assets.Scripts.Utils;
 using UnityEngine;
 
 public class DoorDouble : DoorBase {
@@ -67,7 +68,7 @@ public class DoorDouble : DoorBase {
     }
     private void TryOpen() {
         if (PlayerInventory.Instance.HasItem(requiredKey)) {
-            TooltipUI.Instance.Show($"Used {requiredKey.itemName}");
+            TooltipUI.Instance.Show(LocalizationHelper.LocalizeTooltip("Used", requiredKey.itemName));
             if (removeKeyOnOpen) {
                 PlayerInventory.Instance.RemoveItem(requiredKey);
             }
@@ -77,7 +78,7 @@ public class DoorDouble : DoorBase {
             ToggleOpening();
         } else {
             DoorAudio.Instance.PlayLocked(transform.position);
-            TooltipUI.Instance.Show(lockedMessage);
+            TooltipUI.Instance.Show(LocalizationHelper.LocalizeTooltip(lockedMessage));
         }
     }
 }

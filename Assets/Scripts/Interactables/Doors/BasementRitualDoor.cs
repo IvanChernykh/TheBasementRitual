@@ -1,3 +1,4 @@
+using Assets.Scripts.Utils;
 using UnityEngine;
 
 public class BasementRitualDoor : Interactable {
@@ -10,7 +11,7 @@ public class BasementRitualDoor : Interactable {
         if (checkNeededItems()) {
             SceneController.Instance.LoadNextLevel(GameScenes.BasementRitualLevel);
         } else {
-            TooltipUI.Instance.Show("Seems like it leads back to the basement. I'd better find another way.");
+            TooltipUI.Instance.Show(LocalizationHelper.LocalizeTooltip("Seems like it leads back to the basement. I'd better find another way."));
         }
     }
 

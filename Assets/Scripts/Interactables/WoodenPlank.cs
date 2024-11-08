@@ -1,3 +1,4 @@
+using Assets.Scripts.Utils;
 using UnityEngine;
 
 public class WoodenPlank : Interactable {
@@ -14,7 +15,7 @@ public class WoodenPlank : Interactable {
             door.RemovePlank();
             Destroy(gameObject);
         } else {
-            TooltipUI.Instance.Show("No items");
+            TooltipUI.Instance.Show(LocalizationHelper.LocalizeTooltip("No items"));
         }
     }
 }

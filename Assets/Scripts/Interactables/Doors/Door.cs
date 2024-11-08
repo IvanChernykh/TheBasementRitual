@@ -1,4 +1,5 @@
 using System.Collections;
+using Assets.Scripts.Utils;
 using UnityEngine;
 
 
@@ -77,7 +78,12 @@ public class Door : DoorBase {
     private void TryOpen() {
         if (PlayerInventory.Instance.HasItem(requiredKey)) {
             if (showUnlockMessage) {
-                TooltipUI.Instance.Show(customUnlockMessage.Length > 0 ? customUnlockMessage : $"Used {requiredKey.itemName}");
+                TooltipUI.Instance.Show(
+                    customUnlockMessage.Length > 0 ?
+                    LocalizationHelper.LocalizeTooltip(customUnlockMessage)
+                    :
+                    LocalizationHelper.LocalizeTooltip("Used", requiredKey.itemName)
+                    );
             }
             if (removeKeyOnOpen) {
                 PlayerInventory.Instance.RemoveItem(requiredKey);
@@ -89,7 +95,7 @@ public class Door : DoorBase {
             ToggleOpening();
         } else {
             DoorAudio.Instance.PlayLocked(transform.position);
-            TooltipUI.Instance.Show(lockedMessage);
+            TooltipUI.Instance.Show(LocalizationHelper.LocalizeTooltip(lockedMessage));
             // if (customKeyLockedMessage.Length > 0) {
             //     TooltipUI.Instance.Show(customKeyLockedMessage);
             // } else {

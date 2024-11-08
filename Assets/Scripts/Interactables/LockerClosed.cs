@@ -1,3 +1,4 @@
+using Assets.Scripts.Utils;
 using UnityEngine;
 
 public class LockerClosed : Interactable {
@@ -5,7 +6,7 @@ public class LockerClosed : Interactable {
         interactMessage = "Hide";
     }
     protected override void Interact() {
-        TooltipUI.Instance.Show("Locked");
+        TooltipUI.Instance.Show(LocalizationHelper.LocalizeTooltip("Locked"));
         DoorAudio.Instance.PlayLocked(transform.position, .5f);
     }
 }

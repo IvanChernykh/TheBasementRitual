@@ -80,7 +80,7 @@ public class HistoryBooks : MonoBehaviour {
         ItemData playerBook = PlayerInventory.Instance.items.Find(item => Array.Exists(neededBooks, nb => nb == item));
 
         if (playerBook == null) {
-            TooltipUI.Instance.Show("No books");
+            TooltipUI.Instance.Show(LocalizationHelper.LocalizeTooltip("No books"));
             return;
         }
         foreach (HistoryBookItem elem in books) {
