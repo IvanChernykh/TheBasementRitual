@@ -13,16 +13,96 @@ MonoBehaviour:
   m_Name: IntroAndEndings Shared Data
   m_EditorClassIdentifier: 
   m_TableCollectionName: IntroAndEndings
-  m_TableCollectionNameGuidString: 00000000000000000000000000000000
-  m_Entries: []
+  m_TableCollectionNameGuidString: 892917c076c346917a3e0398df31cfee
+  m_Entries:
+  - m_Id: 342871629824
+    m_Key: Intro1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 355387432960
+    m_Key: Intro2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 359321690112
+    m_Key: Intro3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 363880898560
+    m_Key: Intro4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 471146029056
+    m_Key: TutMove
+    m_Metadata:
+      m_Items: []
+  - m_Id: 474912514048
+    m_Key: TutSprint
+    m_Metadata:
+      m_Items: []
+  - m_Id: 478393786368
+    m_Key: TutCrouch
+    m_Metadata:
+      m_Items: []
+  - m_Id: 484043513856
+    m_Key: TutInteract
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3208109744128
+    m_Key: EndGiveUp1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3216141836288
+    m_Key: EndGiveUp2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3221380521984
+    m_Key: EndGiveUp3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3292885016576
+    m_Key: EndEscape1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3299021283328
+    m_Key: EndEscape2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3301563031552
+    m_Key: EndEscape3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3373512122368
+    m_Key: EndEscape4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3394286510080
+    m_Key: EndBanish1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3397033779200
+    m_Key: EndBanish2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3400900927488
+    m_Key: EndBanish3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3459587629056
+    m_Key: EndBanish4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3466025885696
+    m_Key: EndBanish5
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
-    rid: 7368045293863698434
+    rid: 7368045314075000856
   references:
     version: 2
     RefIds:
-    - rid: 7368045293863698434
+    - rid: 7368045314075000856
       type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
       data:
-        m_CustomEpoch: 1730992272502
+        m_CustomEpoch: 1731069430644

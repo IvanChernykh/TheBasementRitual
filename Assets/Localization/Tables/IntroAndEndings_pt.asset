@@ -1,0 +1,96 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: IntroAndEndings_pt
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: pt
+  m_SharedData: {fileID: 11400000, guid: 892917c076c346917a3e0398df31cfee, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 342871629824
+    m_Localized: "Ap\xF3s o trabalho, voc\xEA estava prestes a ir para casa quando
+      um homem sem-teto apareceu e pediu uma carona e para fazer uma liga\xE7\xE3o.
+      Por algum motivo, voc\xEA concordou."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 355387432960
+    m_Localized: Parece que ele era o homem sem-teto mais popular do planeta - ele
+      estava o tempo todo falando ao telefone.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3466025885696
+    m_Localized: Obrigado por jogar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3373512122368
+    m_Localized: Obrigado por jogar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 359321690112
+    m_Localized: "Quando voc\xEA o deixou, estava sem gasolina e ele descarregou
+      a bateria do seu celular, ent\xE3o voc\xEA n\xE3o conseguiu chamar o servi\xE7o
+      de autom\xF3veis."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 363880898560
+    m_Localized: "Agora voc\xEA est\xE1 preso no meio do nada e precisa encontrar
+      ajuda."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 471146029056
+    m_Localized: '[W / A / S / D] - mover'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 474912514048
+    m_Localized: '[Shift] - correr'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 478393786368
+    m_Localized: '[CTRL] - agachar'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 484043513856
+    m_Localized: '[E] - Interagir'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3208109744128
+    m_Localized: "Em vez de tentar escapar, voc\xEA decidiu n\xE3o fazer nada e desistir."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3216141836288
+    m_Localized: "Eventualmente, o dem\xF4nio saiu do por\xE3o e matou todos na cidade."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3221380521984
+    m_Localized: "Demorou muito tempo para que as pessoas descobrissem como mat\xE1-lo,
+      mas muitas j\xE1 tinham morrido."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3292885016576
+    m_Localized: "Voc\xEA conseguiu escapar do por\xE3o, mas o dem\xF4nio tamb\xE9m
+      conseguiu sair com voc\xEA."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3299021283328
+    m_Localized: "Embora voc\xEA tenha salvado sua vida, condenou outros \xE0 morte."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3301563031552
+    m_Localized: "O dem\xF4nio conseguiu matar muitas pessoas antes que descobrissem
+      como derrot\xE1-lo."
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

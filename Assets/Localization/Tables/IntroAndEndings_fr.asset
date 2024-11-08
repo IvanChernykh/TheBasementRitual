@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: IntroAndEndings_fr
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: fr
+  m_SharedData: {fileID: 11400000, guid: 892917c076c346917a3e0398df31cfee, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 342871629824
+    m_Localized: "Apr\xE8s le travail, tu t'appr\xEAtais \xE0 rentrer chez toi quand
+      un sans-abri est apparu et t'a demand\xE9 de le d\xE9poser et de passer un
+      coup de fil. Pour une raison inconnue, tu as accept\xE9."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 355387432960
+    m_Localized: "Il semble qu'il \xE9tait l'homme sans-abri le plus populaire sur
+      la plan\xE8te - il parlait au t\xE9l\xE9phone tout le temps."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3466025885696
+    m_Localized: "Merci d'avoir jou\xE9"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3373512122368
+    m_Localized: "Merci d'avoir jou\xE9"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 359321690112
+    m_Localized: "Lorsque tu l'as d\xE9pos\xE9, tu n'avais plus de carburant et il
+      avait \xE9puis\xE9 la batterie de ton t\xE9l\xE9phone, si bien que tu ne pouvais
+      pas appeler le service automobile."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 363880898560
+    m_Localized: "Maintenant, tu es coinc\xE9 au milieu de nulle part et tu dois
+      trouver de l'aide."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 471146029056
+    m_Localized: "[W / A / S / D] - se d\xE9placer"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 474912514048
+    m_Localized: '[Shift] - sprinter'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 478393786368
+    m_Localized: '[CTRL] - s''accroupir'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 484043513856
+    m_Localized: '[E] - Interagir'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3208109744128
+    m_Localized: "Au lieu d'essayer de t'\xE9chapper, tu as d\xE9cid\xE9 de ne rien
+      faire et d'abandonner."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3216141836288
+    m_Localized: "Finalement, le d\xE9mon est sorti du sous-sol et a tu\xE9 tout
+      le monde dans la ville."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3221380521984
+    m_Localized: "Il a fallu beaucoup de temps avant que les gens d\xE9couvrent comment
+      le tuer, mais bien trop de personnes \xE9taient d\xE9j\xE0 mortes."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3292885016576
+    m_Localized: "Tu as r\xE9ussi \xE0 t'\xE9chapper du sous-sol, mais le d\xE9mon
+      s'est \xE9chapp\xE9 en m\xEAme temps que toi."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3299021283328
+    m_Localized: "Bien que vous ayez sauv\xE9 votre vie, vous avez condamn\xE9 les
+      autres \xE0 la mort."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3301563031552
+    m_Localized: "Le d\xE9mon a r\xE9ussi \xE0 tuer beaucoup de gens avant qu'ils
+      ne d\xE9couvrent comment le vaincre."
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

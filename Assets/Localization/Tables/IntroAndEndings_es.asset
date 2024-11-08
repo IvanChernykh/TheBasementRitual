@@ -17,7 +17,81 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: 892917c076c346917a3e0398df31cfee, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 342871629824
+    m_Localized: "Despu\xE9s del trabajo, estabas a punto de ir a casa cuando apareci\xF3
+      un hombre sin hogar y te pidi\xF3 que le dieras un avent\xF3n y que le dejaras
+      hacer una llamada. Por alguna raz\xF3n, aceptaste."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 355387432960
+    m_Localized: "Parece que era el hombre sin hogar m\xE1s popular del planeta:
+      estaba todo el tiempo hablando por tel\xE9fono."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3373512122368
+    m_Localized: Gracias por jugar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3466025885696
+    m_Localized: Gracias por jugar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 359321690112
+    m_Localized: "Cuando lo dejaste, te hab\xEDas quedado sin gasolina y \xE9l hab\xEDa
+      agotado la bater\xEDa de tu tel\xE9fono, por lo que no pudiste llamar al servicio
+      de autom\xF3viles."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 363880898560
+    m_Localized: "Ahora est\xE1s atrapado en medio de la nada y necesitas encontrar
+      ayuda."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 471146029056
+    m_Localized: '[W / A / S / D] - moverse'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 474912514048
+    m_Localized: '[Shift] - correr'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 478393786368
+    m_Localized: '[CTRL] - agacharse'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 484043513856
+    m_Localized: '[E] - Interactuar'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3208109744128
+    m_Localized: En lugar de intentar escapar, decidiste no hacer nada y rendirte.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3216141836288
+    m_Localized: "Finalmente, el demonio sali\xF3 del s\xF3tano y mat\xF3 a todos
+      en el pueblo."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3221380521984
+    m_Localized: "Pas\xF3 mucho tiempo antes de que la gente descubriera c\xF3mo
+      matarlo, pero demasiadas personas ya hab\xEDan muerto."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3292885016576
+    m_Localized: "Lograste escapar del s\xF3tano, pero el demonio se escap\xF3 junto
+      contigo."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3299021283328
+    m_Localized: Aunque salvaste tu vida, condenaste a otros a la muerte.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3301563031552
+    m_Localized: "El demonio logr\xF3 matar a muchas personas antes de que descubrieran
+      c\xF3mo derrotarlo."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

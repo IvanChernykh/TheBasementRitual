@@ -6,32 +6,18 @@ using Assets.Scripts.Utils;
 using UnityEngine.Localization;
 
 public class StoryText : MonoBehaviour {
-    private readonly string[] texts = {
-        "After work, you were about to head home when a homeless guy showed up and asked for a ride and to make a call. For some reason, you agreed.",
-        "Apparently, he was the most popular homeless man on the planet - he was staying connected the whole time.",
-        "By the time you dropped him off, you were out of gas, and he wore out your battery so you could not call automobile service.",
-        "Now you're stuck in the middle of nowhere and need to find help."
-    };
-
-    private readonly string[] tuts = {
-        "[W / A / S / D] - move",
-        "[Left Shift] - sprint",
-        "[Left CTRL] - crouch",
-        "[E] - Interact"
-    };
-
     private readonly LocalizedString[] storyTexts = {
-        new LocalizedString { TableReference = LocalizationTables.IntroAndEndings, TableEntryReference = "AfterWork" },
-        new LocalizedString { TableReference = LocalizationTables.IntroAndEndings, TableEntryReference = "MostPopularHomeless" },
-        new LocalizedString { TableReference = LocalizationTables.IntroAndEndings, TableEntryReference = "OutOfGas" },
-        new LocalizedString { TableReference = LocalizationTables.IntroAndEndings, TableEntryReference = "Stuck" }
+        new LocalizedString { TableReference = LocalizationTables.IntroAndEndings, TableEntryReference = "Intro1" },
+        new LocalizedString { TableReference = LocalizationTables.IntroAndEndings, TableEntryReference = "Intro2" },
+        new LocalizedString { TableReference = LocalizationTables.IntroAndEndings, TableEntryReference = "Intro3" },
+        new LocalizedString { TableReference = LocalizationTables.IntroAndEndings, TableEntryReference = "Intro4" }
     };
 
     private readonly LocalizedString[] tutorialTexts = {
-        new LocalizedString { TableReference = LocalizationTables.IntroAndEndings, TableEntryReference = "Move" },
-        new LocalizedString { TableReference = LocalizationTables.IntroAndEndings, TableEntryReference = "Sprint" },
-        new LocalizedString { TableReference = LocalizationTables.IntroAndEndings, TableEntryReference = "Crouch" },
-        new LocalizedString { TableReference = LocalizationTables.IntroAndEndings, TableEntryReference = "Interact" }
+        new LocalizedString { TableReference = LocalizationTables.IntroAndEndings, TableEntryReference = "TutMove" },
+        new LocalizedString { TableReference = LocalizationTables.IntroAndEndings, TableEntryReference = "TutSprint" },
+        new LocalizedString { TableReference = LocalizationTables.IntroAndEndings, TableEntryReference = "TutCrouch" },
+        new LocalizedString { TableReference = LocalizationTables.IntroAndEndings, TableEntryReference = "TutInteract" }
     };
 
     [SerializeField] private TextMeshProUGUI text;

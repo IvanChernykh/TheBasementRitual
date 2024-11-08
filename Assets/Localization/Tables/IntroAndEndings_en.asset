@@ -17,7 +17,97 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: 892917c076c346917a3e0398df31cfee, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 484043513856
+    m_Localized: '[E] - Interact'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 478393786368
+    m_Localized: '[CTRL] - crouch'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 474912514048
+    m_Localized: '[Shift] - sprint'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 471146029056
+    m_Localized: '[W / A / S / D] - move'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 363880898560
+    m_Localized: Now you're stuck in the middle of nowhere and need to find help.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 359321690112
+    m_Localized: By the time you dropped him off, you were out of gas, and he wore
+      out your battery so you could not call automobile service.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 355387432960
+    m_Localized: Apparently, he was the most popular homeless man on the planet -
+      he was staying connected the whole time.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 342871629824
+    m_Localized: After work, you were about to head home when a homeless guy showed
+      up and asked for a ride and to make a call. For some reason, you agreed.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3208109744128
+    m_Localized: Instead of trying to escape, you decided to do nothing and give
+      up.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3216141836288
+    m_Localized: Eventually, the demon emerged from the basement and killed everyone
+      in the town.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3221380521984
+    m_Localized: It took a long time before people figured out how to kill it, but
+      far too many had already died.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3292885016576
+    m_Localized: You successfully escaped from the basement, but the demon broke
+      out along with you.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3299021283328
+    m_Localized: Though you saved your life, you condemned others to death.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3301563031552
+    m_Localized: The demon managed to kill many people before they figured out how
+      to defeat him.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3373512122368
+    m_Localized: Thank you for playing
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3394286510080
+    m_Localized: You successfully banished the demon and escaped from the basement.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3397033779200
+    m_Localized: You told the police everything that happened there, but they didn't
+      believe the part about the demon.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3400900927488
+    m_Localized: You were sent to an asylum for six months to recover your mental
+      health.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3459587629056
+    m_Localized: After that, you left the town forever.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3466025885696
+    m_Localized: Thank you for playing
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
