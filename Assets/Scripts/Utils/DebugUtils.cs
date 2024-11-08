@@ -1,5 +1,5 @@
 using UnityEngine;
 
-public class DebugUtils : MonoBehaviour {
+public static class DebugUtils {
 
 }

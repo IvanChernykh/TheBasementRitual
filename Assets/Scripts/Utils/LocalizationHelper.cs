@@ -1,7 +1,7 @@
 using UnityEngine.Localization;
 
 namespace Assets.Scripts.Utils {
-    public class LocalizationHelper {
+    public static class LocalizationHelper {
         public static string GetLocalizedString(string key, string table) {
             return new LocalizedString { TableReference = table, TableEntryReference = key }.GetLocalizedString();
         }

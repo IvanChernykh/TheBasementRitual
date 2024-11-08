@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 namespace Assets.Scripts.Utils {
-    public class UI : MonoBehaviour {
+    public static class UI {
         public static IEnumerator FadeGraphic(Graphic graphic, float duration, bool fadeIn) {
             float elapsedTime = 0f;
             Color color = graphic.color;

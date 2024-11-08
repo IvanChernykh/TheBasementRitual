@@ -1,7 +1,7 @@
 using UnityEngine;
 
 namespace Assets.Scripts.Utils {
-    public class PlayerUtils {
+    public static class PlayerUtils {
         public static bool IsPlayerLookingAtObject(Transform target, float angleThreshold = 45f) {
             Vector3 directionToObject = (target.position - PlayerController.Instance.transform.position).normalized;
 
