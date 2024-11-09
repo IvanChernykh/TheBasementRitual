@@ -94,6 +94,25 @@ MonoBehaviour:
       ne d\xE9couvrent comment le vaincre."
     m_Metadata:
       m_Items: []
+  - m_Id: 3394286510080
+    m_Localized: "Vous avez r\xE9ussi \xE0 bannir le d\xE9mon et \xE0 vous \xE9chapper
+      du sous-sol."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3397033779200
+    m_Localized: "Vous avez tout racont\xE9 \xE0 la police, mais ils ne croyaient
+      pas \xE0 la partie sur le d\xE9mon."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3400900927488
+    m_Localized: "Vous avez \xE9t\xE9 envoy\xE9 dans un asile pendant six mois pour
+      r\xE9cup\xE9rer votre sant\xE9 mentale."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3459587629056
+    m_Localized: "Apr\xE8s cela, vous avez quitt\xE9 la ville pour toujours."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

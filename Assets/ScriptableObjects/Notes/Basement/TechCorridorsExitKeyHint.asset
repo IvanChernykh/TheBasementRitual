@@ -15,3 +15,4 @@ MonoBehaviour:
   noteName: Tech Corridors Exit Key
   noteText: Fuck, I dropped the exit key near one of these vertical pipes. Need to
     go back for it. At least I can hide here if it comes.
+  localizationKey: TechCorridorsExitKey

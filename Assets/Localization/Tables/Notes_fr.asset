@@ -1,0 +1,208 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Notes_fr
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: fr
+  m_SharedData: {fileID: 11400000, guid: 95a38532e240d3968bf219c51e077fb8, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 461293608960
+    m_Localized: "Sons \xE9tranges et disparitions\n\nAu cours des derni\xE8res semaines,
+      de plus en plus de r\xE9sidents de notre petite ville ont signal\xE9 avoir
+      entendu des bruits \xE9tranges et inqui\xE9tants. La plupart des gens les d\xE9crivent
+      comme quelque chose ressemblant \xE0 un murmure, mais personne ne sait d'o\xF9
+      ils viennent.\n\nLes disparitions r\xE9centes sont-elles li\xE9es \xE0 ces
+      bruits ? Apr\xE8s tout, les gens ont commenc\xE9 \xE0 dispara\xEEtre peu de
+      temps apr\xE8s le d\xE9but des bruits.\n\nLes autorit\xE9s locales exhortent
+      \xE0 la prudence, affirmant que les enqu\xEAtes sont en cours, mais les habitants
+      restent sur leurs gardes. Alors que les bruits persistent et que aucune r\xE9ponse
+      n'est trouv\xE9e, la question devient de plus en plus pressante : que se passe-t-il
+      vraiment dans notre ville ?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 583821811712
+    m_Localized: "Les tunnels du vieux ch\xE2teau\n\nIl y a pr\xE8s de 300 ans, notre
+      ville \xE9tait une forteresse fortifi\xE9e avec un grand ch\xE2teau se tenant
+      fi\xE8rement au centre. Sous cette imposante forteresse se trouvait un r\xE9seau
+      complexe de tunnels souterrains, qui servaient \xE0 plusieurs fins - des routes
+      d\u2019\xE9vasion secr\xE8tes aux espaces de stockage.\n\nBien que le ch\xE2teau
+      ait disparu depuis longtemps du paysage, beaucoup croient que certaines parties
+      de ces tunnels pourraient encore subsister sous certains des b\xE2timents les
+      plus anciens de la ville. Certains passages peuvent \xEAtre scell\xE9s ou oubli\xE9s,
+      tandis que d\u2019autres pourraient encore relier des coins cach\xE9s de la
+      disposition historique de la ville."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 687538561024
+    m_Localized: "Oui, en effet.\nL'histoire d\xE9tient les r\xE9ponses que nous
+      ignorons souvent. Nous pouvons lire tous les livres du monde, mais continuer
+      \xE0 r\xE9p\xE9ter les m\xEAmes erreurs, condamn\xE9s par notre incapacit\xE9
+      \xE0 apprendre. Apr\xE8s tout, comme l'a dit Karl Marx, \"L'histoire se r\xE9p\xE8te,
+      d'abord comme trag\xE9die, ensuite comme farce.\""
+    m_Metadata:
+      m_Items: []
+  - m_Id: 800885432320
+    m_Localized: "Jules C\xE9sar, connu pour son g\xE9nie militaire, ses r\xE9formes
+      politiques et l'expansion de l'Empire romain, n'a r\xE9gn\xE9 que pendant cinq
+      ans.\nIl \xE9tait \xE9galement un ma\xEEtre de la communication secr\xE8te.
+      Pour prot\xE9ger ses messages, il utilisait une technique astucieuse : d\xE9caler
+      les lettres de l'alphabet. En d\xE9pla\xE7ant chaque lettre de plusieurs positions,
+      ses mots devenaient illisibles pour ses ennemis. Seuls ceux qui connaissaient
+      la cl\xE9 - combien de positions d\xE9placer - pouvaient d\xE9coder le message.
+      Cette m\xE9thode simple mais efficace est devenue connue sous le nom de Chiffre
+      de C\xE9sar."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 843071741952
+    m_Localized: "Un chemin cramoisi sous tes pieds,\nLa cl\xE9 saphir est celle
+      \xE0 rencontrer,\nTon voyage te guide \xE0 travers la temp\xEAte,\nEt te ram\xE8ne
+      \xE0 la paix et la chaleur."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912097402880
+    m_Localized: "Martin, tes t\xE2ches pour aujourd'hui :\n\n1. Trier les nouvelles
+      arriv\xE9es\n\t- 3 pour la nourriture\n\t- 1 pour le rituel\n2. Collecter le
+      sang pour le rituel\n\nP.S.\nArr\xEAte de jouer avec cette putain de jambe,
+      sinon je vais la jeter dans les toilettes !"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 990845460480
+    m_Localized: 'Daemone maligne, te revocamus ad tenebras, unde venisti. Non licet
+      tibi manere in luce viventium. Exorcizamus te, imperio caelesti et voluntate
+      fortiorum, tibi praeceptum est: revertere in abyssum sine mora. In nomine veritatis
+      et iustitiae, discede ab hoc loco, nec ultra tangas hunc mundum. Quod iussum
+      est, perficitur, et tua potestas hic dissolvitur. Iam tempora tua finita sunt;
+      nunc umbrae te amplectentur, et ultra in hoc regno locum non habebis. Recede
+      et numquam redeas, quia nullam potestatem ultra habes in hoc regno viventium.
+      Tenebras amplectere et oblivionem tuam perpetuam.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1068918235136
+    m_Localized: "J'ai reconnu l'un de ces cultistes. Il a travaill\xE9 ici pendant
+      les six derniers mois avant la fermeture de l'\xE9tablissement. Merde, j'ai
+      travaill\xE9 avec lui et j'ai peut-\xEAtre m\xEAme \xE9chang\xE9 quelques salutations
+      avec lui, et je n'ai rien soup\xE7onn\xE9."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1130050215936
+    m_Localized: "Le rituel. On a tout g\xE2ch\xE9. On a vraiment tout g\xE2ch\xE9.
+      Tous les autres sont soit morts, soit ils le seront bient\xF4t. Je le sens
+      s\u2019approcher\u2026 ce sera moi le prochain."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1272996290560
+    m_Localized: "Je suis s\xFBr que son livre explique comment tout peut \xEAtre
+      r\xE9par\xE9, l\u2019essentiel est de le trouver\u2026 Je suis certain qu\u2019il
+      est dans notre chambre.\nAlex, si tu lis ceci, je t\u2019attends chez nous.
+      J\u2019ai la cl\xE9-carte avec moi. N\u2019emprunte pas le raccourci. Il est
+      bloqu\xE9."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1337563406336
+    m_Localized: "L'offrande de ce soir doit \xEAtre sp\xE9ciale. Les 2 derni\xE8res
+      ne leur ont pas plu, et les murmures se font plus forts. Ils nous surveillent
+      de pr\xE8s."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1386112475136
+    m_Localized: "Du papier toilette exc\xE9dentaire dans un casier dans la salle
+      du rituel."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1456073465856
+    m_Localized: "Rapport de s\xE9curit\xE9 :\nPlusieurs employ\xE9s ont disparu
+      au cours du mois dernier. La s\xE9curit\xE9 doit \xEAtre renforc\xE9e sur tous
+      les quarts pour garantir la s\xE9curit\xE9 de notre personnel restant. Si cela
+      continue, l'ensemble de l'\xE9tablissement pourrait fermer, car les employ\xE9s
+      ont trop peur de revenir travailler."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1531436720128
+    m_Localized: "J'ai entendu ces salauds parler de quelque chose comme un code.
+      Je pense que c'est pour la salle de s\xE9curit\xE9. Le code est 42... quelque
+      chose d'autre."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1589955649536
+    m_Localized: "Seuls cinq chevaliers ouvriront la porte, et le dernier est le
+      jumeau du deuxi\xE8me."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1612567142400
+    m_Localized: "Merde, j'ai laiss\xE9 la cl\xE9 de sortie pr\xE8s de l'un de ces
+      tuyaux verticaux. Je dois y retourner pour la r\xE9cup\xE9rer. Au moins, je
+      peux me cacher ici si elle arrive."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1705055739904
+    m_Localized: "Je ne sais pas combien de temps s'est \xE9coul\xE9 depuis que je
+      me suis r\xE9veill\xE9 ici. J'entends des cris provenant des autres chambres...
+      il y en avait deux autres avec moi, mais maintenant je suis le seul restant.
+      Mon Dieu, s'il vous pla\xEEt, aidez-moi."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1775473909760
+    m_Localized: "Rituel pour bannir le d\xE9mon\n\n- Le rituel doit \xEAtre effectu\xE9
+      \xE0 l'endroit o\xF9 le d\xE9mon a \xE9t\xE9 invoqu\xE9.\n- Avant de commencer,
+      cr\xE9ez un cercle de protection avec du sel autour de vous. Cette barri\xE8re
+      emp\xEAchera le d\xE9mon d'interf\xE9rer avec le rituel.\n- Br\xFBlez l'objet
+      li\xE9 au d\xE9mon.\n- Commencez \xE0 lire \xE0 voix haute l'incantation d'exorcisme.\n-
+      Continuez \xE0 r\xE9citer l'incantation jusqu'\xE0 ce que l'objet li\xE9 soit
+      compl\xE8tement r\xE9duit en cendres. Restez dans le cercle de sel jusqu'\xE0
+      ce que le feu s'\xE9teigne et que l'air devienne calme, confirmant l'exorcisme
+      du d\xE9mon."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1848261861376
+    m_Localized: "Rappel :\nTous les employ\xE9s transf\xE9r\xE9s au Niveau 0 doivent
+      r\xE9cup\xE9rer leurs nouvelles cartes d'identification aupr\xE8s des Ressources
+      Humaines dans les 24 heures."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2112234577920
+    m_Localized: "Les taches de vin sont sur le mur depuis d\xE9j\xE0 2 semaines,
+      merci de les nettoyer.\nEt un rappel, il est interdit de boire de l'alcool
+      pendant les heures de travail, ainsi que de fumer dans la pi\xE8ce."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2049340989440
+    m_Localized: "Ce n'est pas que je crois aux monstres ou quoi que ce soit... mais
+      avec toutes ces rumeurs sur des chuchotements \xE9tranges, des disparitions
+      de personnes et ce culte inconnu, je pense qu'il ne serait pas inutile de trouver
+      quelques informations sur la protection contre les mal\xE9dictions ou les d\xE9mons,
+      au cas o\xF9. S'il te pla\xEEt, fais-moi deux copies et ne ris pas !\n\nP.S.\nAussi,
+      pourrais-tu prendre un peu de sel \xE0 la salle \xE0 manger pour moi ? Laisse-le
+      pr\xE8s des copies. Merci."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2003983785984
+    m_Localized: "Max,\nHuit personnes sont d\xE9j\xE0 parties ce mois-ci, et moi,
+      je pars la semaine prochaine. Quand tu reviendras de ton arr\xEAt maladie,
+      je te conseille de d\xE9missionner aussi. Il se passe quelque chose d'\xE9trange
+      ici, et je ne veux pas savoir ce que c'est."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1904486506496
+    m_Localized: "Souvenirs de la maison\n\nD\u2019abord, l\u2019horloge murmure
+      en comptant chaque heure,\nTandis que le chien fid\xE8le veille avec douceur.\nUn
+      tableau suspendu, ses couleurs audacieuses et claires,\n\xC0 c\xF4t\xE9 d\u2019un
+      verre de vin, sombre \xE0 la lumi\xE8re d\u2019hier.\nEt enfin, les \xE9tag\xE8res
+      de la biblioth\xE8que s\u2019\xE9l\xE8vent haut,\nGardant des secrets pour
+      ceux qui les cherchent aussit\xF4t."
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

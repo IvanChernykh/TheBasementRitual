@@ -15,3 +15,4 @@ MonoBehaviour:
   noteName: Ritual Offering
   noteText: "Tonight\u2019s offering must be special. The last two didn\u2019t please
     them, and the whispers have grown louder. They are watching us closely."
+  localizationKey: RitualOffering

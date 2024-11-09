@@ -1,0 +1,195 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Notes_it
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: it
+  m_SharedData: {fileID: 11400000, guid: 95a38532e240d3968bf219c51e077fb8, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 461293608960
+    m_Localized: "Suoni strani e sparizioni\n\nNegli ultimi settimane, sempre pi\xF9
+      residenti della nostra piccola citt\xE0 hanno riferito di aver sentito strani
+      e inquietanti suoni. La maggior parte delle persone li descrive come qualcosa
+      che somiglia a un sussurro, ma nessuno sa da dove provengano.\n\nLe recenti
+      sparizioni sono legate a questi suoni? Dopo tutto, le persone hanno cominciato
+      a sparire subito dopo che i rumori sono iniziati.\n\nLe autorit\xE0 locali
+      raccomandano cautela, affermando che le indagini sono in corso, ma i residenti
+      restano tesi. Mentre i rumori persistono e non si trovano risposte, la domanda
+      cresce: cosa sta davvero succedendo nella nostra citt\xE0?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 583821811712
+    m_Localized: "I tunnel del vecchio castello\n\nQuasi 300 anni fa, la nostra citt\xE0
+      era una fortezza fortificata con un grande castello che si ergeva orgogliosamente
+      al centro. Sotto questa imponente fortezza c\u2019era una rete intricata di
+      tunnel sotterranei, che servivano a molteplici scopi, dalle vie di fuga segrete
+      agli spazi di stoccaggio.\n\nAnche se il castello \xE8 scomparso da tempo dal
+      paesaggio, molti credono che alcune parti di questi tunnel possano ancora rimanere
+      sotto alcuni dei vecchi edifici della citt\xE0. Alcuni passaggi potrebbero
+      essere sigillati o dimenticati, mentre altri potrebbero ancora connettere angoli
+      nascosti del layout storico della citt\xE0."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 687538561024
+    m_Localized: "S\xEC, in effetti.\nLa storia detiene le risposte che spesso trascuriamo.
+      Possiamo leggere tutti i libri del mondo, ma continuare a commettere gli stessi
+      errori, condannati dal nostro fallimento nell'apprendere. Dopotutto, come ha
+      detto Karl Marx, \"La storia si ripete, prima come tragedia, poi come farsa.\""
+    m_Metadata:
+      m_Items: []
+  - m_Id: 800885432320
+    m_Localized: "Giulio Cesare, conosciuto per il suo genio militare, le sue riforme
+      politiche e l'espansione dell'Impero Romano, govern\xF2 solo per cinque anni.\nEra
+      anche un maestro della comunicazione segreta. Per proteggere i suoi messaggi,
+      usava una tecnica astuta: spostare le lettere dell'alfabeto. Spostando ogni
+      lettera in avanti di un certo numero di posizioni, le sue parole diventavano
+      illeggibili per i suoi nemici. Solo coloro che conoscevano la chiave - quante
+      posizioni spostare - potevano decifrare il messaggio. Questo metodo semplice
+      ma efficace divenne noto come il Ciffrario di Cesare."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 843071741952
+    m_Localized: "Un cammino cremisi sotto i tuoi piedi,\nLa Chiave Zaffiro \xE8
+      quella da incontrare,\nIl tuo viaggio ti guida attraverso la tempesta,\nE ti
+      riporta alla pace e al calare."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912097402880
+    m_Localized: "Martin, i tuoi compiti per oggi:\n\n1. Ordinare i nuovi arrivi\n\t-
+      3 per il cibo\n\t- 1 per il rituale\n2. Raccogliere il sangue per il rituale\n\nP.S.\nSmettila
+      di giocare con quella cazzo di gamba, o la butto nel water!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 990845460480
+    m_Localized: 'Daemone maligne, te revocamus ad tenebras, unde venisti. Non licet
+      tibi manere in luce viventium. Exorcizamus te, imperio caelesti et voluntate
+      fortiorum, tibi praeceptum est: revertere in abyssum sine mora. In nomine veritatis
+      et iustitiae, discede ab hoc loco, nec ultra tangas hunc mundum. Quod iussum
+      est, perficitur, et tua potestas hic dissolvitur. Iam tempora tua finita sunt;
+      nunc umbrae te amplectentur, et ultra in hoc regno locum non habebis. Recede
+      et numquam redeas, quia nullam potestatem ultra habes in hoc regno viventium.
+      Tenebras amplectere et oblivionem tuam perpetuam.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1068918235136
+    m_Localized: Ho riconosciuto uno di quei cultisti. Ha lavorato qui per gli ultimi
+      sei mesi prima che la struttura chiudesse. Cavolo, ho lavorato con lui e forse
+      gli ho anche scambiato qualche saluto, e non sospettavo nulla.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1130050215936
+    m_Localized: "Il rituale. Abbiamo sbagliato tutto. Dannatamente sbagliato tutto.
+      Tutti gli altri sono gi\xE0 morti o lo saranno presto. Lo sento avvicinarsi...
+      verr\xE0 per me, sono il prossimo."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1272996290560
+    m_Localized: "Sono sicuro che il suo libro spiega come tutto possa essere sistemato,
+      la cosa principale \xE8 trovarlo... Sono certo che \xE8 nella nostra stanza.\nAlex,
+      se stai leggendo questo, ti aspetto a casa nostra. Ho la chiave magnetica con
+      me. Non usare la scorciatoia. \xC8 bloccata."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1337563406336
+    m_Localized: "L'offerta di stasera deve essere speciale. Le ultime 2 non sono
+      state di loro gradimento, e i sussurri si sono fatti pi\xF9 forti. Ci stanno
+      osservando attentamente."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1386112475136
+    m_Localized: Carta igienica in eccesso in un armadietto nella stanza del rituale.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1456073465856
+    m_Localized: "Rapporto di sicurezza:\nDiversi dipendenti sono scomparsi nel corso
+      dell'ultimo mese. La sicurezza deve essere aumentata su tutti i turni per garantire
+      la sicurezza del nostro personale rimanente. Se questo continua, l'intera struttura
+      potrebbe essere chiusa poich\xE9 i dipendenti hanno troppa paura di tornare
+      a lavorare."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1531436720128
+    m_Localized: "Ho sentito quei bastardi parlare di qualche tipo di codice. Penso
+      che sia per la stanza della sicurezza. Il codice \xE8 42... qualcos'altro."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1589955649536
+    m_Localized: "Solo cinque cavalieri apriranno la porta, e l'ultimo \xE8 il gemello
+      del secondo."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1612567142400
+    m_Localized: Merda, ho lasciato la chiave d'uscita vicino a uno di questi tubi
+      verticali. Devo tornare a prenderla. Almeno posso nascondermi qui se arriva.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1705055739904
+    m_Localized: "Non so quanto tempo \xE8 passato da quando mi sono svegliato qui.
+      Sento delle grida provenire dalle altre stanze... c'erano altri due con me,
+      ma ora sono l'unico rimasto. Dio, per favore aiutami."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1775473909760
+    m_Localized: "Rituale per scacciare il demone\n\n- Il rituale deve essere eseguito
+      nel luogo in cui il demone \xE8 stato evocato.\n- Prima di iniziare, crea un
+      cerchio protettivo di sale intorno a te. Questa barriera impedir\xE0 al demone
+      di interferire con il rituale.\n- Brucia l'oggetto legato al demone.\n- Inizia
+      a leggere ad alta voce l'incantesimo di esorcismo.\n- Continua a recitare l'incantesimo
+      finch\xE9 l'oggetto legato non si riduce completamente in cenere. Rimani all'interno
+      del cerchio di sale finch\xE9 il fuoco non si spegne e l'aria diventa calma,
+      confermando l'esorcismo del demone."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1848261861376
+    m_Localized: 'Promemoria:
+
+      Tutti i dipendenti trasferiti al Piano 0 devono
+      ritirare il loro nuovo badge identificativo presso le Risorse Umane entro 24
+      ore.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2112234577920
+    m_Localized: "Le macchie di vino sono sul muro da 2 settimane, per favore puliscile.\nE
+      un promemoria, \xE8 vietato bere alcolici durante l'orario di lavoro e fumare
+      nella stanza."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2049340989440
+    m_Localized: "Non \xE8 che creda nei mostri o cose del genere... ma con tutte
+      queste voci su strani sussurri, persone scomparse e questo culto sconosciuto,
+      penso che non farebbe male cercare qualche informazione sulla protezione contro
+      maledizioni o demoni, giusto per precauzione. Per favore, fammi due copie e
+      non ridere!\n\nP.S.\nInoltre, puoi prendere un po' di sale dalla sala da pranzo
+      per me? Lascia l\xEC vicino alle copie. Grazie."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2003983785984
+    m_Localized: "Max,\nOtto persone hanno gi\xE0 lasciato questo mese, e io me ne
+      andr\xF2 la prossima settimana. Quando tornerai dal congedo per malattia, ti
+      consiglio di dimetterti anche tu. Sta succedendo qualcosa di strano qui, e
+      non voglio scoprire di cosa si tratta."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1904486506496
+    m_Localized: "Memorie di casa\n\nPrima, l\u2019orologio ticchetta piano, scandendo
+      ogni ora,\nMentre il cane fedele veglia con calma signora.\nUn quadro appeso,
+      dai colori vivaci e accesi,\nVicino a un bicchiere di vino, scuro nei giorni
+      arresi.\nE infine, gli scaffali della biblioteca si ergono severi,\nCustodendo
+      segreti per chi li cerca veri."
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

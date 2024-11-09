@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66ab981a82134bd9a9f34b5cda6028eb, type: 3}
   m_Name: LastWords
   m_EditorClassIdentifier: 
-  noteName: Last words
+  noteName: Last Words
   noteText: The ritual. We messed up. Freaking messed up. Everyone else is either
     dead or will be soon. I can feel it getting closer... it will come for me next.
+  localizationKey: LastWords

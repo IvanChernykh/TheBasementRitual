@@ -20,3 +20,4 @@ MonoBehaviour:
     by a set number of places, his words became unreadable to his enemies. Only those
     who knew the key - how many positions to shift - could decode the message. This
     simple yet effective method became known as the Caesar Cipher."
+  localizationKey: BookPuzzleHint2

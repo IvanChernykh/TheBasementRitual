@@ -91,6 +91,24 @@ MonoBehaviour:
       como derrot\xE1-lo."
     m_Metadata:
       m_Items: []
+  - m_Id: 3394286510080
+    m_Localized: "Voc\xEA conseguiu banir o dem\xF4nio e escapar do por\xE3o."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3397033779200
+    m_Localized: "Voc\xEA contou tudo \xE0 pol\xEDcia, mas eles n\xE3o acreditaram
+      na parte sobre o dem\xF4nio."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3400900927488
+    m_Localized: "Voc\xEA foi enviado para um manic\xF4mio por seis meses para recuperar
+      sua sa\xFAde mental."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3459587629056
+    m_Localized: "Depois disso, voc\xEA deixou a cidade para sempre."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

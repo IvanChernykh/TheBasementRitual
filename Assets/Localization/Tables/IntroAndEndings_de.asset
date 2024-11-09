@@ -91,6 +91,25 @@ MonoBehaviour:
       sie herausfanden, wie man ihn besiegen konnte."
     m_Metadata:
       m_Items: []
+  - m_Id: 3394286510080
+    m_Localized: "Es ist Ihnen gelungen, den D\xE4mon zu vertreiben und aus dem Keller
+      zu entkommen."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3397033779200
+    m_Localized: "Sie erz\xE4hlten der Polizei alles, was dort passiert ist, aber
+      sie glaubten nicht an den Teil \xFCber den D\xE4mon."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3400900927488
+    m_Localized: "Sie wurden f\xFCr sechs Monate in eine Anstalt geschickt, um Ihre
+      geistige Gesundheit wiederzuerlangen."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3459587629056
+    m_Localized: "Danach haben Sie die Stadt f\xFCr immer verlassen."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

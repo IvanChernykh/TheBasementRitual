@@ -15,3 +15,4 @@ MonoBehaviour:
   noteName: Security Room Hint
   noteText: Only five knights will open the gate, and the last one is the twin of
     the second one.
+  localizationKey: SecurityRoomHint

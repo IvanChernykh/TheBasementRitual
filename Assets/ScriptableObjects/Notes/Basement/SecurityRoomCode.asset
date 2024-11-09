@@ -15,3 +15,4 @@ MonoBehaviour:
   noteName: Security Room Code
   noteText: I heard those bastards talking about some kind of code. I think it's
     for the security room. The code is 42... something else.
+  localizationKey: SecurityRoomCode

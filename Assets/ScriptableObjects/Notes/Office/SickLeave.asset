@@ -16,3 +16,4 @@ MonoBehaviour:
   noteText: "Max,\nEight people have already left this month, and I\u2019m leaving
     next week. When you return from your sick leave, I advise you to resign as well.
     Something strange is going on here, and I don't want to find out what it is."
+  localizationKey: SickLeaveNote

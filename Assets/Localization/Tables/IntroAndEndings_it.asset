@@ -91,6 +91,24 @@ MonoBehaviour:
       come sconfiggerlo."
     m_Metadata:
       m_Items: []
+  - m_Id: 3394286510080
+    m_Localized: Hai riuscito a bandire il demone e scappare dal seminterrato.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3397033779200
+    m_Localized: Hai raccontato tutto alla polizia, ma non credevano alla parte sul
+      demone.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3400900927488
+    m_Localized: Sei stato mandato in un manicomio per sei mesi per recuperare la
+      tua salute mentale.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3459587629056
+    m_Localized: "Dopo di ci\xF2, hai lasciato la citt\xE0 per sempre."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

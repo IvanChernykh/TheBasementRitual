@@ -1,0 +1,197 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Notes_pt
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: pt
+  m_SharedData: {fileID: 11400000, guid: 95a38532e240d3968bf219c51e077fb8, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 461293608960
+    m_Localized: "Sons estranhos e desaparecimentos\n\nNas \xFAltimas semanas, mais
+      e mais moradores da nossa pequena cidade relataram ter ouvido sons estranhos
+      e assustadores. A maioria das pessoas descreve como algo parecido com um sussurro,
+      mas ningu\xE9m sabe de onde vem.\n\nOs desaparecimentos recentes est\xE3o ligados
+      a esses sons? Afinal, as pessoas come\xE7aram a desaparecer pouco depois que
+      os sons come\xE7aram.\n\nAs autoridades locais pedem cautela, dizendo que as
+      investiga\xE7\xF5es est\xE3o em andamento, mas os moradores continuam tensos.
+      Enquanto os sons persistem e nenhuma resposta \xE9 encontrada, a pergunta cresce:
+      o que realmente est\xE1 acontecendo na nossa cidade?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 583821811712
+    m_Localized: "T\xFAneis do antigo castelo\n\nH\xE1 quase 300 anos, nossa cidade
+      era uma fortaleza fortificada com um grande castelo orgulhosamente no seu centro.
+      Sob essa imponente fortaleza, havia uma rede intrincada de t\xFAneis subterr\xE2neos,
+      que serviam a v\xE1rios prop\xF3sitos - de rotas secretas de fuga a espa\xE7os
+      de armazenamento.\n\nEmbora o castelo tenha desaparecido h\xE1 muito tempo
+      da paisagem, muitos acreditam que partes desses t\xFAneis podem ainda existir
+      sob alguns dos edif\xEDcios mais antigos da cidade. Alguns passagens podem
+      estar seladas ou esquecidas, enquanto outras podem ainda conectar cantos ocultos
+      do layout hist\xF3rico da cidade."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 687538561024
+    m_Localized: "Sim, de fato.\nA hist\xF3ria guarda as respostas que muitas vezes
+      ignoramos. Podemos ler todos os livros do mundo, mas ainda assim repetimos
+      os mesmos erros, condenados pelo nosso fracasso em aprender. Afinal, como disse
+      Karl Marx, \"A hist\xF3ria se repete, primeiro como trag\xE9dia, depois como
+      farsa.\""
+    m_Metadata:
+      m_Items: []
+  - m_Id: 800885432320
+    m_Localized: "J\xFAlio C\xE9sar, conhecido por seu g\xEAnio militar, reformas
+      pol\xEDticas e a expans\xE3o do Imp\xE9rio Romano, governou apenas por cinco
+      anos.\nEle tamb\xE9m era um mestre da comunica\xE7\xE3o secreta. Para proteger
+      suas mensagens, ele utilizava uma t\xE9cnica astuta: deslocar as letras do
+      alfabeto. Ao mover cada letra para frente por um n\xFAmero determinado de posi\xE7\xF5es,
+      suas palavras se tornavam ileg\xEDveis para seus inimigos. Somente aqueles
+      que conheciam a chave - quantas posi\xE7\xF5es mover - poderiam decifrar a
+      mensagem. Esse m\xE9todo simples, mas eficaz, ficou conhecido como a Cifra
+      de C\xE9sar."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 843071741952
+    m_Localized: "Um caminho carmesim sob seus p\xE9s,\nA chave safira \xE9 a que
+      deve encontrar,\nAtrav\xE9s da tempestade, sua jornada ser\xE1 clara,\nE na
+      paz, a vida ser\xE1 rara."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912097402880
+    m_Localized: "Martin, suas tarefas para hoje:\n\n1. Classificar os novos arrivados\n-
+      3 para comida\n- 1 para o ritual\n2. Coletar sangue para o ritual\nP.S.\nPare
+      de brincar com essa maldita perna, ou eu vou jog\xE1-la no vaso!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 990845460480
+    m_Localized: 'Daemone maligne, te revocamus ad tenebras, unde venisti. Non licet
+      tibi manere in luce viventium. Exorcizamus te, imperio caelesti et voluntate
+      fortiorum, tibi praeceptum est: revertere in abyssum sine mora. In nomine veritatis
+      et iustitiae, discede ab hoc loco, nec ultra tangas hunc mundum. Quod iussum
+      est, perficitur, et tua potestas hic dissolvitur. Iam tempora tua finita sunt;
+      nunc umbrae te amplectentur, et ultra in hoc regno locum non habebis. Recede
+      et numquam redeas, quia nullam potestatem ultra habes in hoc regno viventium.
+      Tenebras amplectere et oblivionem tuam perpetuam.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1068918235136
+    m_Localized: "Eu reconheci um desses cultistas. Ele trabalhou aqui nos \xFAltimos
+      seis meses antes de a instala\xE7\xE3o fechar. Droga, trabalhei com ele e talvez
+      at\xE9 tenha trocado algumas sauda\xE7\xF5es com ele, e n\xE3o desconfiei de
+      nada."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1130050215936
+    m_Localized: "O ritual. Erramos feio. Cometemos um erro grave. Todos os outros
+      est\xE3o mortos ou estar\xE3o em breve. Sinto que est\xE1 chegando mais perto...
+      vir\xE1 por mim a seguir."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1272996290560
+    m_Localized: "Tenho certeza de que o livro dele explica como tudo pode ser consertado,
+      o principal \xE9 encontr\xE1-lo... Tenho certeza de que est\xE1 no nosso quarto.\nAlex,
+      se estiver lendo isso, estou esperando voc\xEA no nosso lugar. Estou com o
+      cart\xE3o-chave. N\xE3o use o atalho. Est\xE1 bloqueado."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1337563406336
+    m_Localized: "A oferenda desta noite precisa ser especial. As \xFAltimas 2 n\xE3o
+      os agradaram, e os sussurros ficaram mais altos. Eles est\xE3o nos observando
+      de perto."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1386112475136
+    m_Localized: "Papel higi\xEAnico excedente em um arm\xE1rio na sala do ritual."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1456073465856
+    m_Localized: "Relat\xF3rio de seguran\xE7a:\nV\xE1rios funcion\xE1rios desapareceram
+      no \xFAltimo m\xEAs. A seguran\xE7a deve ser refor\xE7ada em todos os turnos
+      para garantir a seguran\xE7a de nossa equipe restante. Se isso continuar, toda
+      a instala\xE7\xE3o pode ser fechada, pois os funcion\xE1rios t\xEAm medo de
+      voltar ao trabalho."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1531436720128
+    m_Localized: "Eu ouvi esses bastardos falando sobre algum tipo de c\xF3digo.
+      Acho que \xE9 para a sala de seguran\xE7a. O c\xF3digo \xE9 42... algo mais."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1589955649536
+    m_Localized: "Apenas cinco cavaleiros abrir\xE3o o port\xE3o, e o \xFAltimo \xE9
+      o g\xEAmeo do segundo."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1612567142400
+    m_Localized: "Merda, eu deixei a chave de sa\xEDda perto de um desses canos verticais.
+      Preciso voltar para peg\xE1-la. Pelo menos posso me esconder aqui se ele vier."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1705055739904
+    m_Localized: "N\xE3o sei quanto tempo se passou desde que acordei aqui. Ou\xE7o
+      gritos vindo das outras salas... havia mais duas pessoas comigo, mas agora
+      sou o \xFAnico que resta. Deus, por favor, me ajude."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1775473909760
+    m_Localized: "Ritual para banir o dem\xF4nio\n\n- O ritual deve ser realizado
+      no local onde o dem\xF4nio foi invocado.\n- Antes de come\xE7ar, crie um c\xEDrculo
+      protetor de sal ao seu redor. Esta barreira impedir\xE1 que o dem\xF4nio interfira
+      no ritual.\n- Queime o objeto ligado ao dem\xF4nio.\n- Comece a ler em voz
+      alta o feiti\xE7o de exorcismo.\n- Continue recitando o feiti\xE7o at\xE9 que
+      o objeto ligado se reduza completamente a cinzas. Fique dentro do c\xEDrculo
+      de sal at\xE9 que o fogo se apague e o ar fique tranquilo, confirmando o banimento
+      do dem\xF4nio."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1848261861376
+    m_Localized: "Lembrete:\nTodos os funcion\xE1rios transferidos para o Andar 0
+      devem retirar seus novos crach\xE1s de identifica\xE7\xE3o no RH dentro de
+      24 horas."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2112234577920
+    m_Localized: "As manchas de vinho est\xE3o na parede h\xE1 2 semanas, por favor,
+      limpe-as.\nE apenas um lembrete, \xE9 proibido beber \xE1lcool durante o expediente
+      e fumar na sala."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2049340989440
+    m_Localized: "N\xE3o \xE9 que eu acredite em monstros ou algo assim... mas com
+      todos esses rumores sobre sussurros estranhos, pessoas desaparecidas e esse
+      culto desconhecido, acho que n\xE3o faria mal procurar algumas informa\xE7\xF5es
+      sobre prote\xE7\xE3o contra maldi\xE7\xF5es ou dem\xF4nios, por precau\xE7\xE3o.
+      Por favor, fa\xE7a 2 c\xF3pias para mim e n\xE3o ria!\n\nP.S.\nAl\xE9m disso,
+      poderia pegar um pouco de sal na sala de jantar para mim? Deixe-o perto das
+      c\xF3pias. Obrigado."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2003983785984
+    m_Localized: "Max,\nOito pessoas j\xE1 sa\xEDram este m\xEAs, e eu vou sair na
+      pr\xF3xima semana. Quando voltar da sua licen\xE7a m\xE9dica, aconselho que
+      se demita tamb\xE9m. Algo estranho est\xE1 acontecendo aqui, e n\xE3o quero
+      descobrir o que \xE9."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1904486506496
+    m_Localized: "Mem\xF3rias de casa\n\nPrimeiro, o rel\xF3gio bate suave, contando
+      cada hora,\nEnquanto o c\xE3o fiel observa com calma e demora.\nUm quadro pendurado,
+      suas cores vivas e fortes,\nAo lado de um copo de vinho, na luz que j\xE1 norte.\nE
+      por \xFAltimo, as prateleiras da biblioteca erguidas,\nGuardam segredos para
+      as almas movidas."
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

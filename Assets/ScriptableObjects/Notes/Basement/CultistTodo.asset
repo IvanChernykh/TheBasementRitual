@@ -16,3 +16,4 @@ MonoBehaviour:
   noteText: "Martin, your tasks for today:\n\n1. Sort the new arrivals\n\t- 3 for
     food\n\t- 1 for the ritual\n2. Collect blood for the ritual\n\nP.S.\nStop playing
     with that fucking leg, or I\u2019ll flush it down the toilet!"
+  localizationKey: MartinTodo

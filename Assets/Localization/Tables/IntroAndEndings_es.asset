@@ -92,6 +92,24 @@ MonoBehaviour:
       c\xF3mo derrotarlo."
     m_Metadata:
       m_Items: []
+  - m_Id: 3394286510080
+    m_Localized: "Lograste desterrar al demonio y escapar del s\xF3tano."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3397033779200
+    m_Localized: "Les contaste todo a la polic\xEDa, pero no creyeron la parte sobre
+      el demonio."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3400900927488
+    m_Localized: Te enviaron a un manicomio durante seis meses para recuperar tu
+      salud mental.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3459587629056
+    m_Localized: "Despu\xE9s de eso, dejaste la ciudad para siempre."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

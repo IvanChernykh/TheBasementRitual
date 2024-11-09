@@ -1,0 +1,189 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Notes_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 95a38532e240d3968bf219c51e077fb8, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 461293608960
+    m_Localized: "Strange Sounds and Disappearances\n\nIn recent weeks, more and
+      more residents of our small town have reported hearing strange, eerie sounds.
+      Most people describe it as something resembling a whisper, but no one knows
+      where it's coming from.\n\nAre the recent disappearances linked to these sounds?
+      After all, people began vanishing shortly after the noises started.\n\nLocal
+      authorities urge caution, saying the investigations are ongoing, but residents
+      remain on edge. As the noises persist and no answers are found, the question
+      grows: what\u2019s really happening in our town?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 583821811712
+    m_Localized: "Tunnels of the Old Castle\n\nNearly 300 years ago, our town was
+      a fortified stronghold with a grand castle standing proudly at its center.
+      Beneath this imposing fortress lay an intricate network of underground tunnels,
+      which served multiple purposes - from secret escape routes to storage spaces.\n\nThough
+      the castle has long since vanished from the landscape, many believe that parts
+      of these tunnels may still remain beneath some of the city\u2019s older buildings.
+      Some passageways may be sealed or forgotten, while others might still connect
+      hidden corners of the city\u2019s historic layout."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 687538561024
+    m_Localized: "Yes, indeed. \nHistory holds the answers we often overlook. We
+      can read all the books in the world but still repeat the same mistakes, doomed
+      by our failure to learn. After all, as Karl Marx said, \"History repeats itself,
+      first as tragedy, second as farce.\""
+    m_Metadata:
+      m_Items: []
+  - m_Id: 800885432320
+    m_Localized: "Julius Caesar, known for his military genius, political reforms,
+      and the expansion of the Roman Empire, ruled only for five years. \nHe was
+      also a master of secret communication. To protect his messages, he employed
+      a clever technique: shifting the letters of the alphabet. By moving each letter
+      forward by a set number of places, his words became unreadable to his enemies.
+      Only those who knew the key - how many positions to shift - could decode the
+      message. This simple yet effective method became known as the Caesar Cipher."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 843071741952
+    m_Localized: "A crimson path beneath your feet,\nThe Sapphire Key\u2019s the
+      one to meet,\nYour journey guides you through the storm,\nAnd lead you back
+      to peace and warm."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912097402880
+    m_Localized: "Martin, your tasks for today:\n\n1. Sort the new arrivals\n\t-
+      3 for food\n\t- 1 for the ritual\n2. Collect blood for the ritual\n\nP.S.\nStop
+      playing with that fucking leg, or I\u2019ll flush it down the toilet!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 990845460480
+    m_Localized: 'Daemone maligne, te revocamus ad tenebras, unde venisti. Non licet
+      tibi manere in luce viventium. Exorcizamus te, imperio caelesti et voluntate
+      fortiorum, tibi praeceptum est: revertere in abyssum sine mora. In nomine veritatis
+      et iustitiae, discede ab hoc loco, nec ultra tangas hunc mundum. Quod iussum
+      est, perficitur, et tua potestas hic dissolvitur. Iam tempora tua finita sunt;
+      nunc umbrae te amplectentur, et ultra in hoc regno locum non habebis. Recede
+      et numquam redeas, quia nullam potestatem ultra habes in hoc regno viventium.
+      Tenebras amplectere et oblivionem tuam perpetuam.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1068918235136
+    m_Localized: "I recognized one of those cultists. He worked here for the last
+      six months before the facility closed. Damn, I worked with him and may have
+      even exchanged greetings with him a few times, and didn\u2019t suspect a thing."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1130050215936
+    m_Localized: The ritual. We messed up. Freaking messed up. Everyone else is either
+      dead or will be soon. I can feel it getting closer... it will come for me next.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1272996290560
+    m_Localized: "I\u2019m sure his book explains how everything can be fixed, the
+      main thing is to find it... I\u2019m certain it\u2019s in our room.\nAlex,
+      if you're reading this, I\u2019m waiting for you at our place. The card is
+      with me. Don't use the shortcut. It's blocked."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1337563406336
+    m_Localized: "Tonight\u2019s offering must be special. The last 2 didn\u2019t
+      please them, and the whispers have grown louder. They are watching us closely."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1386112475136
+    m_Localized: Spare toilet paper in a locker in the ritual room
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1456073465856
+    m_Localized: "Safety report: \nSeveral employees have gone missing over the past
+      month. Security must be increased across all shifts to ensure the safety of
+      our remaining staff. If this continues, the entire facility may shut down as
+      employees are too afraid to return to work."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1531436720128
+    m_Localized: I heard those bastards talking about some kind of code. I think
+      it's for the security room. The code is 42... something else.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1589955649536
+    m_Localized: Only five knights will open the gate, and the last one is the twin
+      of the second one.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1612567142400
+    m_Localized: Fuck, I dropped the exit key near one of these vertical pipes. Need
+      to go back for it. At least I can hide here if it comes.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1705055739904
+    m_Localized: "I don\u2019t know how much time has passed since I woke up here.
+      I hear screamin from the other rooms... there were two others with me, but
+      now I\u2019m the only one left. God, please help me."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1775473909760
+    m_Localized: "Ritual to Banish the Demon\n\n- The ritual must be performed at
+      the location where the demon was summoned.\n- Before beginning, create a protective
+      circle of salt around yourself. This barrier will prevent the demon from interfering
+      with the ritual.\n- Set the object tied to the demon on fire.\n- Begin reading
+      the exorcism incantation aloud.\n- Continue reciting the incantation until
+      the tied object is completely reduced to ash. Stay within the salt circle until
+      the fire burns out and the air feels still, confirming the demon\u2019s banishment.\n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1848261861376
+    m_Localized: 'Reminder:
+
+      All employees transferred to Floor 0 must collect
+      their new identification badges from HR within 24 hours.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1904486506496
+    m_Localized: "Memories of Home\n\nFirst, the clock ticks softly, counting each
+      hour,\nAs the loyal dog watches with quiet power.\nA painting hangs, its colors
+      bold and bright,\nBeside a glass of wine, deep in the fading light.\nAnd last,
+      the library\u2019s shelves stand tall,\nHolding secrets for those who seek
+      them all."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2003983785984
+    m_Localized: "Max,\nEight people have already left this month, and I\u2019m leaving
+      next week. When you return from your sick leave, I advise you to resign as
+      well. Something strange is going on here, and I don't want to find out what
+      it is."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2049340989440
+    m_Localized: "It's not that I believe in monsters or anything... but with all
+      these rumors about strange whispers, missing people, and this unknown cult,
+      I think it wouldn\u2019t hurt to find some information about protection against
+      curses or demons, just in case. Please, make 2 copies for me, and don't laugh!\n\nP.S.\nAlso,
+      could you grab some salt from the dining room for me? Leave it somewhere near
+      the copies. Thank you."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2112234577920
+    m_Localized: 'The wine stains have been on the wall for 2 weeks already, please
+      clean them off.
+
+      And just a reminder, drinking alcohol during work hours
+      is prohibited as well as smoking in the room.'
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

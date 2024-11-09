@@ -1,0 +1,204 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Notes_de
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: de
+  m_SharedData: {fileID: 11400000, guid: 95a38532e240d3968bf219c51e077fb8, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 461293608960
+    m_Localized: "Seltsame Ger\xE4usche und Verschwinden\n\nIn den letzten Wochen
+      haben immer mehr Bewohner unserer kleinen Stadt berichtet, seltsame, unheimliche
+      Ger\xE4usche geh\xF6rt zu haben. Die meisten Menschen beschreiben es als etwas,
+      das einem Fl\xFCstern \xE4hnelt, aber niemand wei\xDF, woher es kommt.\n\nH\xE4ngen
+      die j\xFCngsten Verschwundenen mit diesen Ger\xE4uschen zusammen? Schlie\xDFlich
+      begannen die Menschen kurz nach dem Auftreten der Ger\xE4usche zu verschwinden.\n\nDie
+      lokalen Beh\xF6rden raten zur Vorsicht und sagen, dass die Ermittlungen noch
+      laufen, aber die Bewohner bleiben nerv\xF6s. W\xE4hrend die Ger\xE4usche weiterhin
+      bestehen und keine Antworten gefunden werden, w\xE4chst die Frage: Was passiert
+      wirklich in unserer Stadt?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 583821811712
+    m_Localized: "Tunnel des alten Schlosses\n\nVor fast 300 Jahren war unsere Stadt
+      eine befestigte Festung mit einem pr\xE4chtigen Schloss, das stolz im Zentrum
+      stand. Unter dieser imposanten Festung befand sich ein komplexes Netzwerk von
+      unterirdischen Tunneln, die mehrere Zwecke erf\xFCllten \u2013 von geheimen
+      Fluchtrouten bis hin zu Lagerr\xE4umen.\n\nObwohl das Schloss l\xE4ngst aus
+      der Landschaft verschwunden ist, glauben viele, dass Teile dieser Tunnel noch
+      unter einigen der \xE4lteren Geb\xE4ude der Stadt erhalten geblieben sein k\xF6nnten.
+      Einige Durchg\xE4nge k\xF6nnten versiegelt oder vergessen sein, w\xE4hrend
+      andere m\xF6glicherweise noch versteckte Ecken des historischen Layouts der
+      Stadt verbinden."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 687538561024
+    m_Localized: "Ja, in der Tat.\nDie Geschichte h\xE4lt die Antworten, die wir
+      oft \xFCbersehen. Wir k\xF6nnen alle B\xFCcher der Welt lesen und trotzdem
+      die gleichen Fehler wiederholen, verdammt durch unser Versagen, zu lernen.
+      Schlie\xDFlich sagte Karl Marx: \"Die Geschichte wiederholt sich, zuerst als
+      Trag\xF6die, dann als Farce.\""
+    m_Metadata:
+      m_Items: []
+  - m_Id: 800885432320
+    m_Localized: "Julius Caesar, bekannt f\xFCr sein milit\xE4risches Genie, politische
+      Reformen und die Expansion des R\xF6mischen Reiches, regierte nur f\xFCnf Jahre.\nEr
+      war auch ein Meister der geheimen Kommunikation. Um seine Nachrichten zu sch\xFCtzen,
+      verwendete er eine clevere Technik: die Buchstaben des Alphabets zu verschieben.
+      Indem er jeden Buchstaben um eine bestimmte Anzahl von Positionen verschob,
+      wurden seine Worte f\xFCr seine Feinde unleserlich. Nur diejenigen, die den
+      Schl\xFCssel kannten - wie viele Positionen verschoben werden mussten - konnten
+      die Nachricht entschl\xFCsseln. Diese einfache, aber effektive Methode wurde
+      als Caesar-Verschl\xFCsselung bekannt."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 843071741952
+    m_Localized: "Ein purpurner Pfad unter deinen F\xFC\xDFen,\nDer Saphirschl\xFCssel
+      ist der, den du treffen musst,\nDurch Sturm und Wind wirst du deinen Weg finden,\nUnd
+      in Frieden wirst du bald wieder landen."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912097402880
+    m_Localized: "Martin, deine Aufgaben f\xFCr heute:\n\n1. Sortiere die Neuank\xF6mmlinge\n    
+      - 3 f\xFCr das Essen\n     - 1 f\xFCr das Ritual\n2. Sammle Blut f\xFCr das
+      Ritual\nP.S.\nH\xF6r auf, mit diesem verdammten Bein zu spielen, oder ich werde
+      es in die Toilette werfen!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 990845460480
+    m_Localized: 'Daemone maligne, te revocamus ad tenebras, unde venisti. Non licet
+      tibi manere in luce viventium. Exorcizamus te, imperio caelesti et voluntate
+      fortiorum, tibi praeceptum est: revertere in abyssum sine mora. In nomine veritatis
+      et iustitiae, discede ab hoc loco, nec ultra tangas hunc mundum. Quod iussum
+      est, perficitur, et tua potestas hic dissolvitur. Iam tempora tua finita sunt;
+      nunc umbrae te amplectentur, et ultra in hoc regno locum non habebis. Recede
+      et numquam redeas, quia nullam potestatem ultra habes in hoc regno viventium.
+      Tenebras amplectere et oblivionem tuam perpetuam.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1068918235136
+    m_Localized: "Ich habe einen dieser Kultisten erkannt. Er hat hier die letzten
+      sechs Monate gearbeitet, bevor die Einrichtung geschlossen wurde. Verdammt,
+      ich habe mit ihm zusammengearbeitet und vielleicht sogar ein paar Mal gegr\xFC\xDFt,
+      und habe nichts bemerkt."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1130050215936
+    m_Localized: "Das Ritual. Wir haben es vermasselt. Verdammte Schei\xDFe. Alle
+      anderen sind entweder tot oder werden es bald sein. Ich sp\xFCre, dass es n\xE4her
+      kommt... ich bin der N\xE4chste."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1272996290560
+    m_Localized: "Ich bin sicher, dass sein Buch erkl\xE4rt, wie alles wieder in
+      Ordnung gebracht werden kann, das Wichtigste ist, es zu finden\u2026 Ich bin
+      mir sicher, dass es in unserem Zimmer ist.\nAlex, wenn du das liest, warte
+      ich auf dich bei uns. Die Schl\xFCsselkarte habe ich bei mir. Benutze nicht
+      die Abk\xFCrzung. Sie ist blockiert."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1337563406336
+    m_Localized: "Das heutige Opfer muss etwas Besonderes sein. Die letzten 2 haben
+      ihnen nicht gefallen, und das Fl\xFCstern ist lauter geworden. Sie beobachten
+      uns genau."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1386112475136
+    m_Localized: "\xDCbersch\xFCssiges Toilettenpapier in einem Schrank im Ritualraum."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1456073465856
+    m_Localized: "Sicherheitsbericht:\nMehrere Mitarbeiter sind im letzten Monat
+      verschwunden. Die Sicherheitsvorkehrungen m\xFCssen in allen Schichten erh\xF6ht
+      werden, um die Sicherheit unseres verbleibenden Personals zu gew\xE4hrleisten.
+      Wenn dies so weitergeht, k\xF6nnte die gesamte Einrichtung geschlossen werden,
+      da die Mitarbeiter zu viel Angst haben, zur Arbeit zur\xFCckzukehren."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1531436720128
+    m_Localized: "Ich habe diese Bastarde \xFCber einen Code sprechen h\xF6ren. Ich
+      denke, er ist f\xFCr den Sicherheitsraum. Der Code ist 42... noch etwas."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1589955649536
+    m_Localized: "Nur f\xFCnf Ritter werden das Tor \xF6ffnen, und der letzte ist
+      der Zwilling des zweiten."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1612567142400
+    m_Localized: "Verdammt, ich habe den Ausgangsschl\xFCssel in der N\xE4he eines
+      dieser vertikalen Rohre fallen lassen. Ich muss zur\xFCck, um ihn zu holen.
+      Zumindest kann ich mich hier verstecken, wenn es kommt."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1705055739904
+    m_Localized: "Ich wei\xDF nicht, wie viel Zeit vergangen ist, seit ich hier aufgewacht
+      bin. Ich h\xF6re Schreie aus den anderen R\xE4umen... Es waren noch zwei andere
+      bei mir, aber jetzt bin ich der einzige, der \xFCbrig bleibt. Gott, bitte hilf
+      mir."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1775473909760
+    m_Localized: "Ritual zur Vertreibung des D\xE4mons\n\n- Das Ritual muss an dem
+      Ort durchgef\xFChrt werden, an dem der D\xE4mon beschworen wurde.\n- Bevor
+      du beginnst, erstelle einen sch\xFCtzenden Salz-Kreis um dich. Diese Barriere
+      wird verhindern, dass der D\xE4mon das Ritual st\xF6rt.\n- Setze das Objekt,
+      das mit dem D\xE4mon verbunden ist, in Brand.\n- Beginne, das Exorzismus-Zauberwort
+      laut zu rezitieren.\n- Setze das Rezitieren fort, bis das verbundene Objekt
+      vollst\xE4ndig zu Asche geworden ist. Bleibe innerhalb des Salz-Kreises, bis
+      das Feuer erlischt und die Luft ruhig wird, was die Vertreibung des D\xE4mons
+      best\xE4tigt."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1848261861376
+    m_Localized: "Erinnerung:\nAlle Mitarbeiter, die in den Stockwerk 0 versetzt
+      wurden, m\xFCssen innerhalb von 24 Stunden ihre neuen Ausweiskarten bei der
+      Personalabteilung abholen."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2112234577920
+    m_Localized: "Die Weinflecken sind schon seit 2 Wochen an der Wand, bitte reinigen
+      Sie sie.\nUnd zur Erinnerung, das Trinken von Alkohol w\xE4hrend der Arbeitszeit
+      sowie das Rauchen im Raum sind verboten."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2049340989440
+    m_Localized: "Es ist nicht so, dass ich an Monster glaube oder so... aber mit
+      all diesen Ger\xFCchten \xFCber seltsame Fl\xFCstern, vermisste Personen und
+      diesem unbekannten Kult, denke ich, es w\xFCrde nicht schaden, einige Informationen
+      \xFCber Schutz vor Fl\xFCchen oder D\xE4monen zu finden, nur f\xFCr den Fall.
+      Bitte mach mir 2 Kopien und lach nicht!\n\nP.S.\nK\xF6nntest du au\xDFerdem
+      etwas Salz aus dem Speisesaal f\xFCr mich holen? Lass es irgendwo in der N\xE4he
+      der Kopien. Danke."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2003983785984
+    m_Localized: "Max,\nAcht Personen haben diesen Monat bereits gek\xFCndigt, und
+      ich gehe n\xE4chste Woche. Wenn du von deinem Krankheitsurlaub zur\xFCckkommst,
+      rate ich dir auch zu k\xFCndigen. Hier passiert etwas Seltsames, und ich m\xF6chte
+      nicht herausfinden, was es ist."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1904486506496
+    m_Localized: "Erinnerungen an Zuhause\n\nZuerst tickt die Uhr leise, z\xE4hlt
+      jede Stunde,\nW\xE4hrend der treue Hund wacht, ruhig und im Bunde.\nEin Bild
+      h\xE4ngt dort, mit Farben k\xFChn und klar,\nNeben einem Glas Wein, tief in
+      des Tages Schar.\nUnd zuletzt stehen die Regale der Bibliothek hoch,\nH\xFCten
+      Geheimnisse f\xFCr den, der sie wirklich sucht noch."
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

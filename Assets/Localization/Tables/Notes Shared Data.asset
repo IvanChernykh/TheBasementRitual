@@ -1,0 +1,120 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Notes Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: Notes
+  m_TableCollectionNameGuidString: 95a38532e240d3968bf219c51e077fb8
+  m_Entries:
+  - m_Id: 461293608960
+    m_Key: Article_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 583821811712
+    m_Key: TownHistoryArticle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 687538561024
+    m_Key: BookPuzzleHint
+    m_Metadata:
+      m_Items: []
+  - m_Id: 800885432320
+    m_Key: BookPuzzleHint2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 843071741952
+    m_Key: ACrimsonPath
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912097402880
+    m_Key: MartinTodo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 990845460480
+    m_Key: ExorcismIncantation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1068918235136
+    m_Key: FormerEmployeeNote
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1130050215936
+    m_Key: LastWords
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1272996290560
+    m_Key: NotetoAlex
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1337563406336
+    m_Key: RitualOffering
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1386112475136
+    m_Key: Safe2Hint
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1456073465856
+    m_Key: SafetyReport
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1531436720128
+    m_Key: SecurityRoomCode
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1589955649536
+    m_Key: SecurityRoomHint
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1612567142400
+    m_Key: TechCorridorsExitKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1705055739904
+    m_Key: VictimNote1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1775473909760
+    m_Key: RitualInstructions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1848261861376
+    m_Key: Reminer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1904486506496
+    m_Key: SafeNumbersHint
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2003983785984
+    m_Key: SickLeaveNote
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2049340989440
+    m_Key: TextCopyRequest
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2112234577920
+    m_Key: Notification
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 7368045314075000861
+  references:
+    version: 2
+    RefIds:
+    - rid: 7368045314075000861
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1731077637171
