@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Interactions_pt
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: pt
+  m_SharedData: {fileID: 11400000, guid: 1a38037e3bf02bd748aadc88b236483f, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 242451603456
+    m_Localized: Interagir
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261737013248
+    m_Localized: Abrir
+    m_Metadata:
+      m_Items: []
+  - m_Id: 280900788224
+    m_Localized: Fechar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 299758379008
+    m_Localized: Ler
+    m_Metadata:
+      m_Items: []
+  - m_Id: 318683078656
+    m_Localized: Pegar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 640809820160
+    m_Localized: Comer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 662989299712
+    m_Localized: Esconder
+    m_Metadata:
+      m_Items: []
+  - m_Id: 685072310272
+    m_Localized: Sair
+    m_Metadata:
+      m_Items: []
+  - m_Id: 808762335232
+    m_Localized: Remover
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1341904510976
+    m_Localized: Comprar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1538478956544
+    m_Localized: Examinar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1956885946368
+    m_Localized: Colocar o livro
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2053799534592
+    m_Localized: Organizar os livros
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3657521029120
+    m_Localized: Mover
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4367704776704
+    m_Localized: Mudar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5815775649792
+    m_Localized: "Coloque as instru\xE7\xF5es do ritual"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6041135603712
+    m_Localized: Derramar sal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6259730145280
+    m_Localized: Ateiar fogo
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []
