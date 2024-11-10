@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Menus_de
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: de
+  m_SharedData: {fileID: 11400000, guid: 2bb90dac71c8817b2ad3501b611197e4, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 472366571520
+    m_Localized: Fortsetzen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 570840440832
+    m_Localized: Neues Spiel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 656769146880
+    m_Localized: Optionen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 686817140736
+    m_Localized: Mitwirkende
+    m_Metadata:
+      m_Items: []
+  - m_Id: 716806414336
+    m_Localized: Beenden
+    m_Metadata:
+      m_Items: []
+  - m_Id: 750088216576
+    m_Localized: Laden
+    m_Metadata:
+      m_Items: []
+  - m_Id: 783927861248
+    m_Localized: Speichern...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1555419750400
+    m_Localized: "Hauptlautst\xE4rke"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1602307874816
+    m_Localized: Sprache
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1695006187520
+    m_Localized: "Zur\xFCck [esc]"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2065036075008
+    m_Localized: Entwickler
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2135961755648
+    m_Localized: "Musik und Ger\xE4usche"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2214810476544
+    m_Localized: Animationen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2250562723840
+    m_Localized: Modelle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 284068742553600
+    m_Localized: Spiel vorbei
+    m_Metadata:
+      m_Items: []
+  - m_Id: 284136920965120
+    m_Localized: Letzter Speicherstand
+    m_Metadata:
+      m_Items: []
+  - m_Id: 284202578599936
+    m_Localized: "Hauptmen\xFC"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 284912846233600
+    m_Localized: Fortsetzen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 284939924660224
+    m_Localized: Pause
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []
