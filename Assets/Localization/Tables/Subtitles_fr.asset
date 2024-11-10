@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Subtitles_fr
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: fr
+  m_SharedData: {fileID: 11400000, guid: 90ce9929a1d2e986688304b5115aca85, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 4035872415744
+    m_Localized: Daemone maligne, te revocamus ad tenebras, unde venisti.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4060379734016
+    m_Localized: Non licet tibi manere in luce viventium. Exorcizamus te, imperio
+      caelesti
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4070844522496
+    m_Localized: 'et voluntate fortiorum, tibi praeceptum est: revertere in abyssum
+      sine mora.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4073688260608
+    m_Localized: In nomine veritatis et iustitiae, discede ab hoc loco, nec ultra
+      tangas hunc mundum.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4075705720832
+    m_Localized: Quod iussum est, perficitur, et tua potestas hic dissolvitur.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4129015324672
+    m_Localized: Iam tempora tua finita sunt; nunc umbrae te amplectentur, et ultra
+      in hoc regno locum non habebis.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4489125683200
+    m_Localized: Recede et numquam redeas, quia nullam potestatem ultra habes in
+      hoc regno viventium.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7826432000
+    m_Localized: Station-service. Je peux obtenir de l'aide ici.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 187292311552
+    m_Localized: "Je devrais v\xE9rifier le guichet du caissier."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 875032338432
+    m_Localized: Il n'y a personne ici.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1338771365888
+    m_Localized: "Qu...que s'est-il pass\xE9 ?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1436955828224
+    m_Localized: J'ai besoin de sortir d'ici.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3919363039232
+    m_Localized: "Je pense que j'ai tout ce qu'il me faut pour bannir ce d\xE9mon."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4561980743680
+    m_Localized: C'est fini
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Subtitles Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: Subtitles
+  m_TableCollectionNameGuidString: 90ce9929a1d2e986688304b5115aca85
+  m_Entries:
+  - m_Id: 7826432000
+    m_Key: GasHelp
+    m_Metadata:
+      m_Items: []
+  - m_Id: 187292311552
+    m_Key: GasOperator
+    m_Metadata:
+      m_Items: []
+  - m_Id: 875032338432
+    m_Key: GasCar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1338771365888
+    m_Key: BasementIntro1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1436955828224
+    m_Key: BasementIntro2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3919363039232
+    m_Key: BasementRitual1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4035872415744
+    m_Key: Incantation1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4060379734016
+    m_Key: Incantation2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4070844522496
+    m_Key: Incantation3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4073688260608
+    m_Key: Incantation4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4075705720832
+    m_Key: Incantation5
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4129015324672
+    m_Key: Incantation6
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4489125683200
+    m_Key: Incantation7
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4561980743680
+    m_Key: BasementRitual2
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 7368045357962100738
+  references:
+    version: 2
+    RefIds:
+    - rid: 7368045357962100738
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1731236720536

@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Subtitles_ja
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: ja
+  m_SharedData: {fileID: 11400000, guid: 90ce9929a1d2e986688304b5115aca85, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 1338771365888
+    m_Localized: "\u3048...\u4F55\u304C\u8D77\u3053\u3063\u305F\u306E\uFF1F"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4035872415744
+    m_Localized: Daemone maligne, te revocamus ad tenebras, unde venisti.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4060379734016
+    m_Localized: Non licet tibi manere in luce viventium. Exorcizamus te, imperio
+      caelesti
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4070844522496
+    m_Localized: 'et voluntate fortiorum, tibi praeceptum est: revertere in abyssum
+      sine mora.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4073688260608
+    m_Localized: In nomine veritatis et iustitiae, discede ab hoc loco, nec ultra
+      tangas hunc mundum.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4075705720832
+    m_Localized: Quod iussum est, perficitur, et tua potestas hic dissolvitur.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4129015324672
+    m_Localized: Iam tempora tua finita sunt; nunc umbrae te amplectentur, et ultra
+      in hoc regno locum non habebis.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4489125683200
+    m_Localized: Recede et numquam redeas, quia nullam potestatem ultra habes in
+      hoc regno viventium.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7826432000
+    m_Localized: "\u50D5\u306F\u3053\u3053\u3067\u52A9\u3051\u3092\u5F97\u308B\u3053\u3068\u304C\u3067\u304D\u308B"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 187292311552
+    m_Localized: "\u30AA\u30DA\u30EC\u30FC\u30BF\u30FC\u306E\u7A93\u3092\u78BA\u8A8D\u3059\u3079\u304D\u3060\u3002"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 875032338432
+    m_Localized: "\u8AB0\u3082\u3044\u307E\u305B\u3093\u3002"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1436955828224
+    m_Localized: "\u3053\u3053\u304B\u3089\u51FA\u306A\u304D\u3083\u3002"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3919363039232
+    m_Localized: "\u3053\u306E\u60AA\u9B54\u3092\u8FFD\u3044\u6255\u3046\u305F\u3081\u306B\u5FC5\u8981\u306A\u3082\u306E\u306F\u5168\u3066\u63C3\u3063\u3066\u3044\u308B\u3068\u601D\u3046\u3002"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4561980743680
+    m_Localized: "\u7D42\u308F\u3063\u305F\u3002"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []
