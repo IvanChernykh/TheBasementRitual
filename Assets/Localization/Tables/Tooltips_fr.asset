@@ -1,0 +1,148 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Tooltips_fr
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: fr
+  m_SharedData: {fileID: 11400000, guid: e6b3c262c12c8f07995fca863d980de7, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 539802591232
+    m_Localized: "Ferm\xE9"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 613282603008
+    m_Localized: "Jeter un coup d'\u0153il - [ W / S ]"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 718391861248
+    m_Localized: Aucun objet
+    m_Metadata:
+      m_Items: []
+  - m_Id: 881789362176
+    m_Localized: "On dirait que \xE7a m\xE8ne de nouveau au sous-sol. Je ferais mieux
+      de trouver un autre chemin."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1153534124032
+    m_Localized: "Utilis\xE9"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1223407034368
+    m_Localized: "Verrouill\xE9 de l'autre c\xF4t\xE9"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1462687883264
+    m_Localized: "J'ai ramass\xE9 une batterie"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1558779387904
+    m_Localized: Impossible de porter plus de batteries
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1718607536128
+    m_Localized: Pris
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1836341649408
+    m_Localized: Pas de piles
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2006949158912
+    m_Localized: Pas de livres
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2142467121152
+    m_Localized: "[A / D] - D\xE9placer\n[E] - S\xE9lectionner\n[Q] - Quitter"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3473114259456
+    m_Localized: "La pince \xE0 cheveux s'est cass\xE9e en ouvrant la porte"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4811021737984
+    m_Localized: '[F] - Lampe de poche'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5210474668032
+    m_Localized: "Bloqu\xE9"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6756260241408
+    m_Localized: "\xC9pingle \xE0 cheveux"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12587009695744
+    m_Localized: Un vieux livre occulte
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12708342521856
+    m_Localized: "Cl\xE9 des petites salles de stockage"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12789061902336
+    m_Localized: "Carte d'acc\xE8s bleue"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12858179837952
+    m_Localized: "Cl\xE9 de la chambre des cultistes"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12919093714944
+    m_Localized: "Carte d'acc\xE8s en or"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13116582518784
+    m_Localized: "Cl\xE9 des douches"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13179799068672
+    m_Localized: "Cl\xE9 de sortie des couloirs techniques"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13291812151296
+    m_Localized: "Cl\xE9 des couloirs techniques"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13357314596864
+    m_Localized: "Cl\xE9 des locaux techniques"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13439321628672
+    m_Localized: "Cl\xE9 de l'auditorium"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13501296664576
+    m_Localized: "Cl\xE9 de la salle \xE0 manger"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13587095347200
+    m_Localized: "Cl\xE9 de la salle de stockage"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13651465330688
+    m_Localized: "Cl\xE9 de la salle de bureau"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13785364291584
+    m_Localized: "Vieil cl\xE9"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13919649128448
+    m_Localized: "Pi\xE8ce de monnaie"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

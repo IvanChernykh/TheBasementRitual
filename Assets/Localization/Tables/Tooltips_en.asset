@@ -1,0 +1,232 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Tooltips_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: e6b3c262c12c8f07995fca863d980de7, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 539802591232
+    m_Localized: Locked
+    m_Metadata:
+      m_Items: []
+  - m_Id: 613282603008
+    m_Localized: Peek - [ W / S ]
+    m_Metadata:
+      m_Items: []
+  - m_Id: 718391861248
+    m_Localized: No items
+    m_Metadata:
+      m_Items: []
+  - m_Id: 881789362176
+    m_Localized: Seems like it leads back to the basement. I'd better find another
+      way.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1153534124032
+    m_Localized: Used
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1223407034368
+    m_Localized: Locked from the other side
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1462687883264
+    m_Localized: Picked up a battery
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1558779387904
+    m_Localized: Can't carry more batteries
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1718607536128
+    m_Localized: Picked up
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1836341649408
+    m_Localized: No batteries
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2006949158912
+    m_Localized: No books
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2142467121152
+    m_Localized: '[A / D] - Move\n[E] - Select\n[Q] - Quit'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3473114259456
+    m_Localized: The bobby pin broke while unlocking the door
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4811021737984
+    m_Localized: '[F] - Flashlight'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5210474668032
+    m_Localized: Jammed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6756260241408
+    m_Localized: Bobby Pin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12587009695744
+    m_Localized: An old occult book
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12708342521856
+    m_Localized: Small Storage Rooms Key
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12789061902336
+    m_Localized: Blue Access Card
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12858179837952
+    m_Localized: Cultist Room Key
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12919093714944
+    m_Localized: Golden Access Card
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13116582518784
+    m_Localized: Showers Key
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13179799068672
+    m_Localized: Technical Corridors Exit Key
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13291812151296
+    m_Localized: Technical Corridors Key
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13357314596864
+    m_Localized: Technical Premises Key
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13439321628672
+    m_Localized: Auditorium Key
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13501296664576
+    m_Localized: Dining Room Key
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13587095347200
+    m_Localized: Storage Room Key
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13651465330688
+    m_Localized: Office Room Key
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13785364291584
+    m_Localized: Old Key
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13919649128448
+    m_Localized: Coin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13971121627136
+    m_Localized: Exorcism Incantation Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14044463226880
+    m_Localized: Exorcism Ritual Instructions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14148511326208
+    m_Localized: Hammer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14228618338304
+    m_Localized: Matches
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14275288358912
+    m_Localized: Salt Can
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14443245068288
+    m_Localized: World History Vol.1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14454678740992
+    m_Localized: World History Vol.2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14457023356928
+    m_Localized: World History Vol.3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14458642358272
+    m_Localized: World History Vol.4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14460492046336
+    m_Localized: World History Vol.5
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14462358511616
+    m_Localized: World History Vol.6
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14473574080512
+    m_Localized: World History Vol.7
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14477168599040
+    m_Localized: World History Vol.8
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18034332655616
+    m_Localized: '[R] - Reload battery'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18709632376832
+    m_Localized: Locked. Keycard required
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21611092500480
+    m_Localized: Someone locked it from the outside
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21873739816960
+    m_Localized: Blocked
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22124722774016
+    m_Localized: An old painting
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22287948308480
+    m_Localized: A dog photo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22480378781696
+    m_Localized: Bookshelf. Many books are duplicated
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22618786619392
+    m_Localized: Strange clock. Shows almost 3 am
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

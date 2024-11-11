@@ -15,10 +15,10 @@ public class BatteryItem : Interactable {
         if (playerInventory.batteries < playerInventory.batteriesMax) {
             playerInventory.AddBattery();
             SceneStateManager.Instance.CollectBattery(id);
-            TooltipUI.Instance.Show(LocalizationHelper.LocalizeTooltip("Picked up a battery"));
+            TooltipUI.Instance.Show(LocalizationHelper.LocalizeTooltip("BatteryPickUp"));
             Destroy(gameObject);
         } else {
-            TooltipUI.Instance.Show(LocalizationHelper.LocalizeTooltip("Can't carry more batteries"));
+            TooltipUI.Instance.Show(LocalizationHelper.LocalizeTooltip("BatteriesMax"));
         }
     }
 }

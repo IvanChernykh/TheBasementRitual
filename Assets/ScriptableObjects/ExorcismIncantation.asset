@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 920406dbb872eda6087fc7cbba9d416e, type: 3}
   m_Name: ExorcismIncantation
   m_EditorClassIdentifier: 
-  itemName: Exorcism Incantation Text
+  itemName: ExorcismIncantationText

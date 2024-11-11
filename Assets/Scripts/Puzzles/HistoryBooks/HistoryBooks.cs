@@ -80,7 +80,7 @@ public class HistoryBooks : MonoBehaviour {
         ItemData playerBook = PlayerInventory.Instance.items.Find(item => Array.Exists(neededBooks, nb => nb == item));
 
         if (playerBook == null) {
-            TooltipUI.Instance.Show(LocalizationHelper.LocalizeTooltip("No books"));
+            TooltipUI.Instance.Show(LocalizationHelper.LocalizeTooltip("NoBooks"));
             return;
         }
         foreach (HistoryBookItem elem in books) {
@@ -109,7 +109,7 @@ public class HistoryBooks : MonoBehaviour {
         canMoveBook = true;
         arrangeBooksTrigger.SetActive(false);
         PlayerController.Instance.DisableCharacterController();
-        TooltipUI.Instance.ShowAlways("[A / D] - Move\n[E] - Select\n[Q] - Quit");
+        TooltipUI.Instance.ShowAlways("BookTooltip");
     }
     public void StopArrangeBooks() {
         isArranging = false;

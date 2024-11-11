@@ -37,7 +37,7 @@ public class ShowTextAction : EventAction {
             if (tooltipDelay > 0) {
                 StartCoroutine(ShowTooltipWithDelay());
             } else {
-                TooltipUI.Instance.Show(tooltipText);
+                ShowTooltip();
             }
         }
         if (showSubtitle) {
@@ -51,7 +51,7 @@ public class ShowTextAction : EventAction {
     }
     private IEnumerator ShowTooltipWithDelay() {
         yield return new WaitForSeconds(tooltipDelay);
-        TooltipUI.Instance.Show(tooltipText);
+        ShowTooltip();
     }
     private IEnumerator ShowSubtitleWithDelay() {
         yield return new WaitForSeconds(subtitleDelay);
@@ -64,6 +64,13 @@ public class ShowTextAction : EventAction {
             SubtitlesUI.Instance.Show(subtitleTextCache.ToArray(), subtitleShowTime);
         } else {
             SubtitlesUI.Instance.Show(subtitleText, subtitleShowTime);
+        }
+    }
+    private void ShowTooltip() {
+        if (tooltipTextCache.Count > 0) {
+            TooltipUI.Instance.Show(tooltipTextCache.ToArray());
+        } else {
+            TooltipUI.Instance.Show(tooltipText);
         }
     }
 }

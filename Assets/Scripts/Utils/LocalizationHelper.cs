@@ -1,7 +1,8 @@
+using UnityEngine;
 using UnityEngine.Localization;
 
 namespace Assets.Scripts.Utils {
-    public static class LocalizationHelper {
+    public class LocalizationHelper : MonoBehaviour {
         public static string GetLocalizedString(string key, string table) {
             return new LocalizedString { TableReference = table, TableEntryReference = key }.GetLocalizedString();
         }
@@ -9,6 +10,9 @@ namespace Assets.Scripts.Utils {
         public static string ConcatLocalizedString(string key1, string key2, string table) {
             string localizedString1 = GetLocalizedString(key1, table);
             string localizedString2 = GetLocalizedString(key2, table);
+
+            Debug.Log(localizedString1);
+            Debug.Log(localizedString2);
             return $"{localizedString1} {localizedString2}";
         }
 

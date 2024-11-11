@@ -1,0 +1,236 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Tooltips Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: Tooltips
+  m_TableCollectionNameGuidString: e6b3c262c12c8f07995fca863d980de7
+  m_Entries:
+  - m_Id: 539802591232
+    m_Key: Locked
+    m_Metadata:
+      m_Items: []
+  - m_Id: 613282603008
+    m_Key: Peek
+    m_Metadata:
+      m_Items: []
+  - m_Id: 718391861248
+    m_Key: NoItems
+    m_Metadata:
+      m_Items: []
+  - m_Id: 881789362176
+    m_Key: BasementDoorWayBack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1153534124032
+    m_Key: Used
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1223407034368
+    m_Key: LockedFromOtherSide
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1462687883264
+    m_Key: BatteryPickUp
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1558779387904
+    m_Key: BatteriesMax
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1718607536128
+    m_Key: PickedUp
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1836341649408
+    m_Key: NoBatteries
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2006949158912
+    m_Key: NoBooks
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2142467121152
+    m_Key: BookTooltip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3473114259456
+    m_Key: BobbdyPinTooltip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4811021737984
+    m_Key: FlashlightTooltip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5210474668032
+    m_Key: Jammed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6756260241408
+    m_Key: BobbyPin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12587009695744
+    m_Key: OccultBook
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12708342521856
+    m_Key: SmallStorageRoomsKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12789061902336
+    m_Key: BlueAccessCard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12858179837952
+    m_Key: CultistRoomKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12919093714944
+    m_Key: GoldenAccessCard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13116582518784
+    m_Key: ShowersKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13179799068672
+    m_Key: TechnicalCorridorsExitKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13291812151296
+    m_Key: TechnicalCorridorsKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13357314596864
+    m_Key: TechnicalPremisesKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13439321628672
+    m_Key: AuditoriumKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13501296664576
+    m_Key: DiningRoomKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13587095347200
+    m_Key: StorageRoomKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13651465330688
+    m_Key: OfficeRoomKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13785364291584
+    m_Key: OldKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13919649128448
+    m_Key: Coin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13971121627136
+    m_Key: ExorcismIncantationText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14044463226880
+    m_Key: ExorcismRitualInstructions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14148511326208
+    m_Key: Hammer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14228618338304
+    m_Key: Matches
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14275288358912
+    m_Key: SaltCan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14443245068288
+    m_Key: WorldHistory1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14454678740992
+    m_Key: WorldHistory2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14457023356928
+    m_Key: WorldHistory3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14458642358272
+    m_Key: WorldHistory4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14460492046336
+    m_Key: WorldHistory5
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14462358511616
+    m_Key: WorldHistory6
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14473574080512
+    m_Key: WorldHistory7
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14477168599040
+    m_Key: WorldHistory8
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18034332655616
+    m_Key: ReloadBattery
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18709632376832
+    m_Key: LockedKeycard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21611092500480
+    m_Key: SomeoneLocked
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21873739816960
+    m_Key: Blocked
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22124722774016
+    m_Key: OldPainting
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22287948308480
+    m_Key: DogPhoto
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22480378781696
+    m_Key: Bookshelf
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22618786619392
+    m_Key: StrangeClock
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 7368045377113030656
+  references:
+    version: 2
+    RefIds:
+    - rid: 7368045377113030656
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1731309682577
