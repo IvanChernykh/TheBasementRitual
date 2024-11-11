@@ -147,6 +147,90 @@ MonoBehaviour:
     m_Localized: Moeda
     m_Metadata:
       m_Items: []
+  - m_Id: 13971121627136
+    m_Localized: "Texto da invoca\xE7\xE3o de exorcismo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14044463226880
+    m_Localized: "Instru\xE7\xF5es para o ritual de exorcismo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14148511326208
+    m_Localized: Martelo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14228618338304
+    m_Localized: "F\xF3sforos"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14275288358912
+    m_Localized: Lata com sal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14443245068288
+    m_Localized: "Hist\xF3ria do mundo, Vol.1"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14454678740992
+    m_Localized: "Hist\xF3ria do mundo, Vol.2"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14457023356928
+    m_Localized: "Hist\xF3ria do mundo, Vol.3"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14458642358272
+    m_Localized: "Hist\xF3ria do mundo, Vol.4"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14460492046336
+    m_Localized: "Hist\xF3ria do mundo, Vol.5"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14462358511616
+    m_Localized: "Hist\xF3ria do mundo, Vol.6"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14473574080512
+    m_Localized: "Hist\xF3ria do mundo, Vol.7"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14477168599040
+    m_Localized: "Hist\xF3ria do mundo, Vol.8"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18034332655616
+    m_Localized: '[R] - Recarregar bateria'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18709632376832
+    m_Localized: "Trancado. Cart\xE3o de acesso necess\xE1rio"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21611092500480
+    m_Localized: "Algu\xE9m trancou a porta de fora"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21873739816960
+    m_Localized: Bloqueado
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22124722774016
+    m_Localized: Uma pintura antiga
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22287948308480
+    m_Localized: Uma foto de um cachorro
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22480378781696
+    m_Localized: Estante. Muitos livros se repetem.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22618786619392
+    m_Localized: "Rel\xF3gio estranho. Mostra quase 3 horas."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

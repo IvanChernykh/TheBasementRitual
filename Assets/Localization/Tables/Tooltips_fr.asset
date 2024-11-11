@@ -143,6 +143,90 @@ MonoBehaviour:
     m_Localized: "Pi\xE8ce de monnaie"
     m_Metadata:
       m_Items: []
+  - m_Id: 13971121627136
+    m_Localized: Texte de l'incantation d'exorcisme
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14044463226880
+    m_Localized: Instructions pour le rituel d'exorcisme
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14148511326208
+    m_Localized: Marteau
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14228618338304
+    m_Localized: Allumettes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14275288358912
+    m_Localized: "Bo\xEEte de sel"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14443245068288
+    m_Localized: Histoire du monde, Vol.1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14454678740992
+    m_Localized: Histoire du monde, Vol.2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14457023356928
+    m_Localized: Histoire du monde, Vol.3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14458642358272
+    m_Localized: Histoire du monde, Vol.4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14460492046336
+    m_Localized: Histoire du monde, Vol.5
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14462358511616
+    m_Localized: Histoire du monde, Vol.6
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14473574080512
+    m_Localized: Histoire du monde, Vol.7
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14477168599040
+    m_Localized: Histoire du monde, Vol.8
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18034332655616
+    m_Localized: '[R] - Recharger la batterie'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18709632376832
+    m_Localized: "Verrouill\xE9. Carte d'acc\xE8s requise"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21611092500480
+    m_Localized: "Quelqu'un a ferm\xE9 la porte de l'ext\xE9rieur"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21873739816960
+    m_Localized: "Bloqu\xE9"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22124722774016
+    m_Localized: Un vieux tableau
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22287948308480
+    m_Localized: Une photo de chien
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22480378781696
+    m_Localized: "Biblioth\xE8que. Beaucoup de livres se r\xE9p\xE8tent."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22618786619392
+    m_Localized: "Horloge \xE9trange. Il montre presque 3 heures."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

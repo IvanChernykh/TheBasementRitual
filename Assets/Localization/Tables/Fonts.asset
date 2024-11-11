@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4db626ad063b13545924a9839ac5fa83, type: 3}
+  m_Name: Fonts
+  m_EditorClassIdentifier: 
+  m_SharedTableData: {fileID: 11400000, guid: 02289ce0f12bbdb72b8b68c7e8224bc3, type: 2}
+  m_Tables:
+  - {fileID: 11400000, guid: 8a08d16dba3adf274a4333eab1eeda19, type: 2}
+  - {fileID: 11400000, guid: b9dae31be61996f4fa05ea78bf8710f9, type: 2}
+  - {fileID: 11400000, guid: 32508fb4287873cc283e3fe996a55cd8, type: 2}
+  - {fileID: 11400000, guid: 5efd0e9c08deb83c58a53e9afbdb7c2d, type: 2}
+  - {fileID: 11400000, guid: 1fc0679c015a3d5e496117afa1cf7cda, type: 2}
+  - {fileID: 11400000, guid: 3d5d0e155b58240fd9a5c866ba7898cc, type: 2}
+  - {fileID: 11400000, guid: 49ef7ddca11ab209681e65250f917dd4, type: 2}
+  - {fileID: 11400000, guid: eb79d464f2729320695ae518cb8b9a45, type: 2}
+  - {fileID: 11400000, guid: 7bfad02d9467865548feea0fbe88f327, type: 2}
+  - {fileID: 11400000, guid: 5a4a363ece16013358079bf290a69136, type: 2}
+  m_Extensions: []
+  m_Group: Asset Table
+  references:
+    version: 2
+    RefIds: []

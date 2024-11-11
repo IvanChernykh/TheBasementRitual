@@ -143,6 +143,90 @@ MonoBehaviour:
     m_Localized: "M\xFCnze"
     m_Metadata:
       m_Items: []
+  - m_Id: 13971121627136
+    m_Localized: "Exorzismus-Beschw\xF6rungstext"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14044463226880
+    m_Localized: "Anweisungen f\xFCr das Exorzismusritual"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14148511326208
+    m_Localized: Hammer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14228618338304
+    m_Localized: "Streichh\xF6lzer"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14275288358912
+    m_Localized: Dose mit Salz
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14443245068288
+    m_Localized: Weltgeschichte, Bd.1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14454678740992
+    m_Localized: Weltgeschichte, Bd.2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14457023356928
+    m_Localized: Weltgeschichte, Bd.3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14458642358272
+    m_Localized: Weltgeschichte, Bd.4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14460492046336
+    m_Localized: Weltgeschichte, Bd.5
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14462358511616
+    m_Localized: Weltgeschichte, Bd.6
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14473574080512
+    m_Localized: Weltgeschichte, Bd.7
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14477168599040
+    m_Localized: Weltgeschichte, Bd.8
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18034332655616
+    m_Localized: '[R] - Batterie nachladen'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18709632376832
+    m_Localized: Verschlossen. Zugangskarte erforderlich
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21611092500480
+    m_Localized: "Jemand hat die T\xFCr von au\xDFen abgeschlossen"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21873739816960
+    m_Localized: Blockiert
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22124722774016
+    m_Localized: "Ein altes Gem\xE4lde"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22287948308480
+    m_Localized: Ein Foto von einem Hund
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22480378781696
+    m_Localized: "B\xFCcherregal. Viele B\xFCcher wiederholen sich."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22618786619392
+    m_Localized: Seltsame Uhr. Zeigt fast 3 Stunden.
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

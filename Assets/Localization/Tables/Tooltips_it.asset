@@ -147,6 +147,90 @@ MonoBehaviour:
     m_Localized: Moneta
     m_Metadata:
       m_Items: []
+  - m_Id: 13971121627136
+    m_Localized: Testo dell'incantesimo di esorcismo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14044463226880
+    m_Localized: Istruzioni per il rituale di esorcismo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14148511326208
+    m_Localized: Martello
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14228618338304
+    m_Localized: Fiammiferi
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14275288358912
+    m_Localized: Barattolo di sale
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14443245068288
+    m_Localized: Storia del mondo, Vol.1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14454678740992
+    m_Localized: Storia del mondo, Vol.2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14457023356928
+    m_Localized: Storia del mondo, Vol.3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14458642358272
+    m_Localized: Storia del mondo, Vol.4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14460492046336
+    m_Localized: Storia del mondo, Vol.5
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14462358511616
+    m_Localized: Storia del mondo, Vol.6
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14473574080512
+    m_Localized: Storia del mondo, Vol.7
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14477168599040
+    m_Localized: Storia del mondo, Vol.8
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18034332655616
+    m_Localized: '[R] - Ricarica batteria'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18709632376832
+    m_Localized: Bloccato. Tessera richiesta
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21611092500480
+    m_Localized: Qualcuno ha chiuso la porta dall'esterno
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21873739816960
+    m_Localized: Bloccato
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22124722774016
+    m_Localized: Un vecchio dipinto
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22287948308480
+    m_Localized: Una foto di un cane
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22480378781696
+    m_Localized: Scaffale. Molti libri si ripetono.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22618786619392
+    m_Localized: Orologio strano. Mostra quasi 3 ore.
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
