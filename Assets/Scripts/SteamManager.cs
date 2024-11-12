@@ -1,11 +1,17 @@
 using Assets.Scripts.Utils;
 using UnityEngine;
 
-public enum EAchievements {
+public enum AchievementsEnum {
     GiveUp,
     Runner,
     Exorcizm,
     FoodLover,
+}
+
+public enum SteamStatsEnum {
+    ChipsEaten,
+    PizzaEaten,
+    PanutsEaten
 }
 
 public class SteamManager : MonoBehaviour {
@@ -53,7 +59,7 @@ public class SteamManager : MonoBehaviour {
         }
     }
 
-    public void UnlockAchievement(EAchievements achievement) {
+    public void UnlockAchievement(AchievementsEnum achievement) {
         if (connectedToSteam) {
             var ach = new Steamworks.Data.Achievement(achievement.ToString());
             if (!ach.State) {
@@ -61,10 +67,23 @@ public class SteamManager : MonoBehaviour {
             }
         }
     }
-    public void ResetAchievement(EAchievements achievement) {
+    public void ResetAchievement(AchievementsEnum achievement) {
         if (connectedToSteam) {
             var ach = new Steamworks.Data.Achievement(achievement.ToString());
             ach.Clear();
         }
+    }
+
+    public void FoodLoverCheck() {
+        // int foodConsumed = Steamworks.SteamUserStats.GetStatInt(SteamStatsEnum.FoodConsumed.ToString());
+        // if (foodConsumed == 3) {
+        //     return;
+        // }
+        // foodConsumed++;
+        // Steamworks.SteamUserStats.SetStat(SteamStatsEnum.FoodConsumed.ToString(), foodConsumed);
+
+        // if (foodConsumed == 3) {
+        //     UnlockAchievement(AchievementsEnum.FoodLover);
+        // }
     }
 }

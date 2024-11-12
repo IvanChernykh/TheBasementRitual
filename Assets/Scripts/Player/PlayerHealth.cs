@@ -21,7 +21,7 @@ public class PlayerHealth : MonoBehaviour {
             GameStateManager.Instance.EnterEndGameState(EndGameVariants.GiveUp);
 
             if (SteamManager.Instance != null) {
-                SteamManager.Instance.UnlockAchievement(EAchievements.GiveUp);
+                SteamManager.Instance.UnlockAchievement(AchievementsEnum.GiveUp);
             }
         } else {
             GameStateManager.Instance.EnterGameOverState();

@@ -83,14 +83,14 @@ public class GameStateManager : MonoBehaviour {
         EnterEndGameState(EndGameVariants.Escape);
 
         if (SteamManager.Instance != null) {
-            SteamManager.Instance.UnlockAchievement(EAchievements.Runner);
+            SteamManager.Instance.UnlockAchievement(AchievementsEnum.Runner);
         }
     }
     public void EnterBanishDemonEndGameState() {
         EnterEndGameState(EndGameVariants.BanishDemon);
 
         if (SteamManager.Instance != null) {
-            SteamManager.Instance.UnlockAchievement(EAchievements.Exorcizm);
+            SteamManager.Instance.UnlockAchievement(AchievementsEnum.Exorcizm);
         }
     }
     // main menu state
