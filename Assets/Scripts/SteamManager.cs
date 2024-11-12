@@ -50,6 +50,11 @@ public class SteamManager : MonoBehaviour {
         if (connectedToSteam) {
             Steamworks.SteamClient.RunCallbacks();
         }
+
+        // Debug
+        if (Input.GetKeyDown(KeyCode.P)) {
+            ResetAllAchievementsAndStats();
+        }
     }
 
     private Steamworks.Data.Achievement GetAchievement(AchievementsEnum achievement) {
