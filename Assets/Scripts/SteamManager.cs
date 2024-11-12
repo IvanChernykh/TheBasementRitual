@@ -11,7 +11,7 @@ public enum AchievementsEnum {
 public enum SteamStatsEnum {
     ChipsEaten,
     PizzaEaten,
-    PanutsEaten
+    PeanutsEaten
 }
 
 public class SteamManager : MonoBehaviour {
@@ -52,6 +52,10 @@ public class SteamManager : MonoBehaviour {
         }
     }
 
+    private Steamworks.Data.Achievement GetAchievement(AchievementsEnum achievement) {
+        return new Steamworks.Data.Achievement(achievement.ToString());
+    }
+
     public void Disconnect() {
         if (connectedToSteam) {
             Steamworks.SteamClient.Shutdown();
@@ -61,7 +65,7 @@ public class SteamManager : MonoBehaviour {
 
     public void UnlockAchievement(AchievementsEnum achievement) {
         if (connectedToSteam) {
-            var ach = new Steamworks.Data.Achievement(achievement.ToString());
+            var ach = GetAchievement(achievement);
             if (!ach.State) {
                 ach.Trigger();
             }
@@ -69,21 +73,36 @@ public class SteamManager : MonoBehaviour {
     }
     public void ResetAchievement(AchievementsEnum achievement) {
         if (connectedToSteam) {
-            var ach = new Steamworks.Data.Achievement(achievement.ToString());
+            var ach = GetAchievement(achievement);
             ach.Clear();
         }
     }
 
-    public void FoodLoverCheck() {
-        // int foodConsumed = Steamworks.SteamUserStats.GetStatInt(SteamStatsEnum.FoodConsumed.ToString());
-        // if (foodConsumed == 3) {
-        //     return;
-        // }
-        // foodConsumed++;
-        // Steamworks.SteamUserStats.SetStat(SteamStatsEnum.FoodConsumed.ToString(), foodConsumed);
+    public void ResetAllAchievementsAndStats() {
+        Steamworks.SteamUserStats.ResetAll(true);
+    }
 
-        // if (foodConsumed == 3) {
-        //     UnlockAchievement(AchievementsEnum.FoodLover);
-        // }
+    public void FoodLoverCheck(SteamStatsEnum foodType) {
+        if (!connectedToSteam) {
+            return;
+        }
+        var ach = GetAchievement(AchievementsEnum.FoodLover);
+        if (ach.State) {
+            return;
+        }
+
+        Steamworks.SteamUserStats.AddStat(foodType.ToString(), 1);
+
+        int chips = Steamworks.SteamUserStats.GetStatInt(SteamStatsEnum.ChipsEaten.ToString());
+        int pizza = Steamworks.SteamUserStats.GetStatInt(SteamStatsEnum.PizzaEaten.ToString());
+        int nuts = Steamworks.SteamUserStats.GetStatInt(SteamStatsEnum.PeanutsEaten.ToString());
+
+        Debug.Log("chips" + chips);
+        Debug.Log("pizza" + pizza);
+        Debug.Log("nuts" + nuts);
+
+        if (chips > 0 && pizza > 0 && nuts > 0) {
+            UnlockAchievement(AchievementsEnum.FoodLover);
+        }
     }
 }
