@@ -62,7 +62,6 @@ public class MonsterController : MonoBehaviour {
         gameObject.SetActive(false);
     }
     private void Update() {
-        Debug.Log(currentState);
         monster.Sounds.PlayRandomRoar();
         CheckForDoorsAndOpen();
         switch (currentState) {

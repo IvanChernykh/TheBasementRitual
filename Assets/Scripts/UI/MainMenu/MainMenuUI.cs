@@ -28,6 +28,7 @@ public class MainMenuUI : MonoBehaviour {
         CreditsPanel.Instance.Show();
     }
     public void ExitBtn() {
+        SteamManager.Instance.Disconnect();
         Application.Quit();
     }
 }

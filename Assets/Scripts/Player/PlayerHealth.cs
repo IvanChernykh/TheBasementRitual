@@ -19,6 +19,10 @@ public class PlayerHealth : MonoBehaviour {
     private void Die(bool showEndGameOnKillPlayer) {
         if (showEndGameOnKillPlayer) {
             GameStateManager.Instance.EnterEndGameState(EndGameVariants.GiveUp);
+
+            if (SteamManager.Instance != null) {
+                SteamManager.Instance.UnlockAchievement(EAchievements.GiveUp);
+            }
         } else {
             GameStateManager.Instance.EnterGameOverState();
         }

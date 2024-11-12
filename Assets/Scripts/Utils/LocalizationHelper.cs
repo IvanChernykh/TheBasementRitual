@@ -11,8 +11,6 @@ namespace Assets.Scripts.Utils {
             string localizedString1 = GetLocalizedString(key1, table);
             string localizedString2 = GetLocalizedString(key2, table);
 
-            Debug.Log(localizedString1);
-            Debug.Log(localizedString2);
             return $"{localizedString1} {localizedString2}";
         }
 
