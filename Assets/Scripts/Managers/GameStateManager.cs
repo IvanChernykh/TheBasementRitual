@@ -90,7 +90,7 @@ public class GameStateManager : MonoBehaviour {
         EnterEndGameState(EndGameVariants.BanishDemon);
 
         if (SteamManager.Instance != null) {
-            SteamManager.Instance.UnlockAchievement(AchievementsEnum.Exorcizm);
+            SteamManager.Instance.UnlockAchievement(AchievementsEnum.Exorcism);
         }
     }
     // main menu state

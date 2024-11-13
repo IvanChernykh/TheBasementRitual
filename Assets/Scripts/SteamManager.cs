@@ -4,7 +4,7 @@ using UnityEngine;
 public enum AchievementsEnum {
     GiveUp,
     Runner,
-    Exorcizm,
+    Exorcism,
     FoodLover,
 }
 
