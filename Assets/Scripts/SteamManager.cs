@@ -52,9 +52,9 @@ public class SteamManager : MonoBehaviour {
         }
 
         // Debug
-        if (Input.GetKeyDown(KeyCode.P)) {
-            ResetAllAchievementsAndStats();
-        }
+        // if (Input.GetKeyDown(KeyCode.P)) {
+        //     ResetAllAchievementsAndStats();
+        // }
     }
 
     private Steamworks.Data.Achievement GetAchievement(AchievementsEnum achievement) {
@@ -101,10 +101,6 @@ public class SteamManager : MonoBehaviour {
         int chips = Steamworks.SteamUserStats.GetStatInt(SteamStatsEnum.ChipsEaten.ToString());
         int pizza = Steamworks.SteamUserStats.GetStatInt(SteamStatsEnum.PizzaEaten.ToString());
         int nuts = Steamworks.SteamUserStats.GetStatInt(SteamStatsEnum.PeanutsEaten.ToString());
-
-        Debug.Log("chips" + chips);
-        Debug.Log("pizza" + pizza);
-        Debug.Log("nuts" + nuts);
 
         if (chips > 0 && pizza > 0 && nuts > 0) {
             UnlockAchievement(AchievementsEnum.FoodLover);
