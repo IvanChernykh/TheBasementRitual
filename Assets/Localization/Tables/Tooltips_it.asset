@@ -231,6 +231,10 @@ MonoBehaviour:
     m_Localized: Orologio strano. Mostra quasi 3 ore.
     m_Metadata:
       m_Items: []
+  - m_Id: 812536106442752
+    m_Localized: "C'\xE8 del sale in questa lattina."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

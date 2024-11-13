@@ -79,6 +79,10 @@ MonoBehaviour:
     m_Localized: It's over
     m_Metadata:
       m_Items: []
+  - m_Id: 1095438455136256
+    m_Localized: I need to find something to open this door
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -80,6 +80,10 @@ MonoBehaviour:
     m_Localized: Es ist vorbei
     m_Metadata:
       m_Items: []
+  - m_Id: 1095438455136256
+    m_Localized: "Ich muss etwas finden, um diese T\xFCr zu \xF6ffnen."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -231,6 +231,10 @@ MonoBehaviour:
     m_Localized: "Rel\xF3gio estranho. Mostra quase 3 horas."
     m_Metadata:
       m_Items: []
+  - m_Id: 812536106442752
+    m_Localized: "H\xE1 sal nesta lata."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

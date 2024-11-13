@@ -227,6 +227,10 @@ MonoBehaviour:
     m_Localized: Seltsame Uhr. Zeigt fast 3 Stunden.
     m_Metadata:
       m_Items: []
+  - m_Id: 812536106442752
+    m_Localized: In dieser Dose ist Salz.
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

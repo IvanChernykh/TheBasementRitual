@@ -227,6 +227,10 @@ MonoBehaviour:
     m_Localized: "Horloge \xE9trange. Il montre presque 3 heures."
     m_Metadata:
       m_Items: []
+  - m_Id: 812536106442752
+    m_Localized: "Il y a du sel dans cette bo\xEEte."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

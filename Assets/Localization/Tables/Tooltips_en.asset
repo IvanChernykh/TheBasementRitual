@@ -227,6 +227,10 @@ MonoBehaviour:
     m_Localized: Strange clock. Shows almost 3 am
     m_Metadata:
       m_Items: []
+  - m_Id: 812536106442752
+    m_Localized: There is salt in this can.
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

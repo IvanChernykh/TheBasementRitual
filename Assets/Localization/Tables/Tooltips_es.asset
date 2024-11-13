@@ -230,6 +230,10 @@ MonoBehaviour:
     m_Localized: "Reloj extra\xF1o. Muestra casi 3 horas."
     m_Metadata:
       m_Items: []
+  - m_Id: 812536106442752
+    m_Localized: Hay sal en esta lata.
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -79,6 +79,10 @@ MonoBehaviour:
     m_Localized: Acabou tudo
     m_Metadata:
       m_Items: []
+  - m_Id: 1095438455136256
+    m_Localized: Preciso encontrar algo para abrir esta porta.
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

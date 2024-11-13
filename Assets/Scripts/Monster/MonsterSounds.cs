@@ -12,8 +12,8 @@ public class MonsterSounds : MonoBehaviour {
 
     [Header("Volume")]
     [SerializeField] private float footstepVolume = 0.1f;
-    [SerializeField] private float roarVolume = 0.4f;
     [SerializeField] private float attackVolume = 0.3f;
+    private float roarVolume = 0.25f;
     private readonly float roarIntervalMin = 6f;
     private readonly float roarIntervalMax = 30f;
     private float timeUntilNextRoar;

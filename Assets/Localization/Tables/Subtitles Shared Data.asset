@@ -71,6 +71,10 @@ MonoBehaviour:
     m_Key: BasementRitual2
     m_Metadata:
       m_Items: []
+  - m_Id: 1095438455136256
+    m_Key: BasementNeedOpenDoor
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -10,14 +10,10 @@ public class WorldItem : Interactable {
 
     private void Start() {
         interactMessage = "Take";
-        if (pickUpMessage.Length == 0) {
-            pickUpMessage = LocalizationHelper.LocalizeTooltip("PickedUp", itemData.itemName);
-            tooltipIsLocalized = true;
-        }
     }
     protected override void Interact() {
         PlayerInventory.Instance.AddItem(itemData);
-        TooltipUI.Instance.Show(tooltipIsLocalized ? pickUpMessage : LocalizationHelper.LocalizeTooltip(pickUpMessage));
+        TooltipUI.Instance.Show(pickUpMessage.Length == 0 ? LocalizationHelper.LocalizeTooltip("PickedUp", itemData.itemName) : LocalizationHelper.LocalizeTooltip(pickUpMessage));
         SceneStateManager.Instance.CollectKey(itemData.itemName);
         Destroy(gameObject);
     }
