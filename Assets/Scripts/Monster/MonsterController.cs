@@ -48,7 +48,7 @@ public class MonsterController : MonoBehaviour {
 
     [Header("Door Interaction")]
     [SerializeField] private LayerMask doorLayerMask;
-    [SerializeField] private float checkDistance = 2f;
+    [SerializeField] private float checkDoorDistance = 1.8f;
 
     [Header("Additional Settings")]
     [SerializeField] private bool playChaseMusic = true;
@@ -258,8 +258,8 @@ public class MonsterController : MonoBehaviour {
     }
 
     private void CheckForDoorsAndOpen() {
-        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, checkDistance, doorLayerMask)) {
-            if (hit.collider.TryGetComponent(out Door door) && !door.isOpened && !door.isOpeningOrClosingState) {
+        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, checkDoorDistance, doorLayerMask)) {
+            if (hit.collider.TryGetComponent(out Door door) && !door.isOpened && !door.isOpeningOrClosingState && !door.isLocked) {
                 door.InteractAction();
             }
         }
