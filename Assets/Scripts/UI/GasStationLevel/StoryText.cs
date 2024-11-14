@@ -28,6 +28,7 @@ public class StoryText : MonoBehaviour {
     [SerializeField] private float pauseBetweenTexts = 2f;
 
     private void Start() {
+        InputManager.Instance.SetCanPause(false);
         StartCoroutine(ShowText());
     }
 
@@ -58,6 +59,8 @@ public class StoryText : MonoBehaviour {
         PlayerController.Instance.EnableCharacterController();
         yield return StartCoroutine(UI.FadeGraphic(background, fadeDuration, fadeIn: false));
         PlayerController.Instance.EnableCameraLook();
+
+        InputManager.Instance.SetCanPause(true);
 
         string[] tutorialLocalizedTexts = new string[tutorialTexts.Length];
         for (int i = 0; i < tutorialTexts.Length; i++) {

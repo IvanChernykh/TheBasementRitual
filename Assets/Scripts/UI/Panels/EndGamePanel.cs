@@ -51,6 +51,7 @@ public class EndGamePanel : MonoBehaviour {
     }
 
     public void Show(EndGameVariants currentEndGame) {
+        InputManager.Instance.SetCanPause(false);
         container.SetActive(true);
         StartCoroutine(EndGameRoutine(currentEndGame));
     }
@@ -87,6 +88,7 @@ public class EndGamePanel : MonoBehaviour {
         }
 
         yield return new WaitForSecondsRealtime(1f);
+        InputManager.Instance.SetCanPause(true);
 
         if (SceneController.Instance != null) {
             GameStateManager.Instance.EnterMainMenuState();

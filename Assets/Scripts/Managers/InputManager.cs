@@ -17,6 +17,8 @@ public class InputManager : MonoBehaviour {
 
     private PlayerInputActions inputActions;
 
+    public bool CanPause { get; private set; } = true;
+
     private void Awake() {
         if (Instance != null) {
             Exceptions.MoreThanOneInstance(name);
@@ -111,8 +113,10 @@ public class InputManager : MonoBehaviour {
             return;
         }
         if (GameStateManager.Instance.InGame) {
-            GameStateManager.Instance.EnterPausedState();
-            return;
+            if (CanPause) {
+                GameStateManager.Instance.EnterPausedState();
+                return;
+            }
         }
         if (GameStateManager.Instance.Paused) {
             if (OptionsPanel.Instance.IsActive) {
@@ -138,5 +142,8 @@ public class InputManager : MonoBehaviour {
     }
     public Vector2 GetMouseVector() {
         return inputActions.Player.Look.ReadValue<Vector2>();
+    }
+    public void SetCanPause(bool canPause) {
+        CanPause = canPause;
     }
 }
