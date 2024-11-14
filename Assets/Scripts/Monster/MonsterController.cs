@@ -24,6 +24,8 @@ public class MonsterController : MonoBehaviour {
     [SerializeField] private float fieldOfViewDefault = 120f;
     [SerializeField] private float hearingDistance = 2f;
     [SerializeField] private float sightDistance = 12f;
+    [Header("AI Navigation")]
+    [SerializeField] private float maxPatrolDistanceToPlayer = 21;
 
     private float FieldOfViewExpanded;
     private float fieldOfViewCurrent;
@@ -100,13 +102,13 @@ public class MonsterController : MonoBehaviour {
             return;
         }
         if (monster.Agent.remainingDistance < arrivalPointDistance) {
-            if (patrolPoints.All(item => PlayerUtils.DistanceToPlayer(item.position) > 21)) {
+            if (patrolPoints.All(item => PlayerUtils.DistanceToPlayer(item.position) > maxPatrolDistanceToPlayer)) {
                 nextPointIdx = Random.Range(0, patrolPoints.Length);
             } else {
                 do {
                     nextPointIdx = Random.Range(0, patrolPoints.Length);
                     // to avoid getting point that is too far from player
-                } while (PlayerUtils.DistanceToPlayer(patrolPoints[nextPointIdx].position) > 21);
+                } while (PlayerUtils.DistanceToPlayer(patrolPoints[nextPointIdx].position) > maxPatrolDistanceToPlayer);
             }
         }
         monster.Agent.SetDestination(patrolPoints[nextPointIdx].position);
