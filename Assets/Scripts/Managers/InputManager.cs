@@ -38,7 +38,6 @@ public class InputManager : MonoBehaviour {
         inputActions.Player.Sprint.started += SprintStarted;
         inputActions.Player.Sprint.canceled += SprintCanceled;
         inputActions.Player.Crouch.performed += CrouchPerformed;
-        inputActions.Player.Jump.performed += JumpPerformed;
         inputActions.Player.Interact.performed += InteractPerformed;
         inputActions.Player.Flashlight.performed += FlashlightPerformed;
         inputActions.Player.ReloadBattery.performed += ReloadBatteryPerformed;
@@ -54,7 +53,6 @@ public class InputManager : MonoBehaviour {
         inputActions.Player.Sprint.started -= SprintStarted;
         inputActions.Player.Sprint.canceled -= SprintCanceled;
         inputActions.Player.Crouch.performed -= CrouchPerformed;
-        inputActions.Player.Jump.performed -= JumpPerformed;
         inputActions.Player.Interact.performed -= InteractPerformed;
         inputActions.Player.Flashlight.performed -= FlashlightPerformed;
         inputActions.Player.ReloadBattery.performed -= ReloadBatteryPerformed;
@@ -77,12 +75,6 @@ public class InputManager : MonoBehaviour {
             return;
         }
         OnCrouchEvent?.Invoke(this, EventArgs.Empty);
-    }
-    private void JumpPerformed(UnityEngine.InputSystem.InputAction.CallbackContext obj) {
-        if (!GameStateManager.Instance.InGame) {
-            return;
-        }
-        OnJumpEvent?.Invoke(this, EventArgs.Empty);
     }
     private void InteractPerformed(UnityEngine.InputSystem.InputAction.CallbackContext obj) {
         if (!GameStateManager.Instance.InGame) {

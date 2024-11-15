@@ -29,8 +29,7 @@ public class PlayerController : MonoBehaviour {
     public readonly float defaultMaxRotationY = 85f;
     public readonly float defaultMaxRotationX = 0f;
 
-    [Header("Jumping and Gravity")]
-    [SerializeField] private float jumpHeight = 1.5f;
+    [Header("Gravity")]
     [SerializeField] private float gravity = -9.8f * 2;
     private Vector3 velocity = Vector3.zero;
 
@@ -48,12 +47,10 @@ public class PlayerController : MonoBehaviour {
     public bool inChase { get; private set; }
     private bool isGrounded;
     private bool isFloating;
-    private bool isJumping;
     private bool isInteracting;
 
     private bool cameraLookEnabled = true;
     private bool canSprint { get => isGrounded && !isCrouching && !isHiding; }
-    private bool canJump { get => isGrounded && !isCrouching && !isHiding; }
     private bool canCrouch { get => isGrounded && !isCrouching || isGrounded && isCrouching && canStandUp; }
     public bool canStandUp { get; set; } = true;
 
@@ -70,7 +67,6 @@ public class PlayerController : MonoBehaviour {
         InputManager.Instance.OnSprintStartedEvent += OnSprintStarted;
         InputManager.Instance.OnSprintCanceledEvent += OnSprintCanceled;
         InputManager.Instance.OnCrouchEvent += OnCrouch;
-        InputManager.Instance.OnJumpEvent += OnJump;
         InputManager.Instance.OnInteractEvent += OnInteract;
     }
     private void Update() {
@@ -130,10 +126,6 @@ public class PlayerController : MonoBehaviour {
             }
         }
 
-        if (isJumping && isGrounded) {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
-            isJumping = false;
-        }
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
     }
@@ -218,7 +210,6 @@ public class PlayerController : MonoBehaviour {
         isMoving = false;
         isSprinting = false;
         isCrouching = false;
-        isJumping = false;
         isLanding = false;
         isFloating = false;
     }
@@ -245,12 +236,6 @@ public class PlayerController : MonoBehaviour {
     private void OnCrouch(object sender, System.EventArgs e) {
         if (canCrouch) {
             isCrouching = !isCrouching;
-        }
-    }
-    private void OnJump(object sender, System.EventArgs e) {
-        if (canJump) {
-            isJumping = true;
-            PlayerSounds.Instance.PlayJumpStartSound();
         }
     }
     private void OnSprintStarted(object sender, System.EventArgs e) {
