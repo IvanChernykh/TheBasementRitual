@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour {
     private float maxRotationX = 0; // unlimited if 0
     private float maxRotationY = 85f;
     private readonly float flashlightRotSensFactor = 4f; // divide mouse sens by this num
-    private readonly float flashlightRotationMax = 4f;
+    private readonly float flashlightRotationMax = 3f;
     public readonly float defaultMaxRotationY = 85f;
     public readonly float defaultMaxRotationX = 0f;
 
