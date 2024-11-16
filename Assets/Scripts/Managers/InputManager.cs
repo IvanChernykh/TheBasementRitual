@@ -10,7 +10,6 @@ public class InputManager : MonoBehaviour {
     public event EventHandler OnSprintStartedEvent;
     public event EventHandler OnSprintCanceledEvent;
     public event EventHandler OnCrouchEvent;
-    public event EventHandler OnJumpEvent;
     public event EventHandler OnInteractEvent;
     public event EventHandler OnFlashlightToggleEvent;
     public event EventHandler OnReloadBattery;
