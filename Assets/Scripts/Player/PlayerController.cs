@@ -21,11 +21,15 @@ public class PlayerController : MonoBehaviour {
 
     [Header("Mouse")]
     [SerializeField] private Transform headTransform;
+    [SerializeField] private Transform flashlightTransform;
     [SerializeField] private float mouseSensivity = 10f;
     private float rotationY;
     private float rotationX;
+    private Vector2 flashlightRotation = Vector2.zero;
     private float maxRotationX = 0; // unlimited if 0
     private float maxRotationY = 85f;
+    private readonly float flashlightRotSensFactor = 4f; // divide mouse sens by this num
+    private readonly float flashlightRotationMax = 4f;
     public readonly float defaultMaxRotationY = 85f;
     public readonly float defaultMaxRotationX = 0f;
 
@@ -93,6 +97,16 @@ public class PlayerController : MonoBehaviour {
 
         float mouseX = mouseInput.x * Time.smoothDeltaTime * mouseSensivity;
         float mouseY = mouseInput.y * Time.smoothDeltaTime * mouseSensivity;
+
+        if (flashlightTransform != null && Flashlight.Instance.isActive) {
+            flashlightRotation.x -= mouseY / flashlightRotSensFactor;
+            flashlightRotation.y += mouseX / flashlightRotSensFactor;
+
+            flashlightRotation.x = Mathf.Clamp(flashlightRotation.x, -flashlightRotationMax, flashlightRotationMax);
+            flashlightRotation.y = Mathf.Clamp(flashlightRotation.y, -flashlightRotationMax, flashlightRotationMax);
+
+            flashlightTransform.localRotation = Quaternion.Euler(flashlightRotation);
+        }
 
         rotationY -= mouseY;
         rotationY = Mathf.Clamp(rotationY, -maxRotationY, maxRotationY);
