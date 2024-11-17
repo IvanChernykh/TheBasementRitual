@@ -16,6 +16,10 @@ public class Flashlight : MonoBehaviour {
 
     public float lifeTimeMax { get; private set; } = 100f;
     public float lifetime { get; private set; } = 100f;
+    public float lightIntensity { get; private set; } = 1f;
+
+    public readonly float intensityMin = .6f;
+    public readonly float intensityMax = 1f;
 
 
     private void Awake() {
@@ -30,6 +34,7 @@ public class Flashlight : MonoBehaviour {
         Deactivate();
         InputManager.Instance.OnFlashlightToggleEvent += OnFlashLightToggle;
         InputManager.Instance.OnReloadBattery += OnRealoadBattery;
+        InputManager.Instance.OnMouseScroll += OnFlashlightIntensityChanged;
     }
     private void Update() {
         HandleBatteryCharge();
@@ -96,5 +101,16 @@ public class Flashlight : MonoBehaviour {
     private void Deactivate() {
         flashlight.SetActive(false);
         isActive = false;
+    }
+    private void OnFlashlightIntensityChanged(object sender, EventArgs e) {
+        if (isActive &&
+            lightSource.TryGetComponent(out Light light)) {
+            float scrollValue = InputManager.Instance.GetMouseScrollValue();
+
+            if (scrollValue != 0) {
+                light.intensity = Mathf.Clamp(light.intensity + Mathf.Sign(scrollValue) * .1f, intensityMin, intensityMax);
+                lightIntensity = light.intensity;
+            }
+        }
     }
 }

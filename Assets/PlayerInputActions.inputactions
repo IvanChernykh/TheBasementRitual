@@ -33,15 +33,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Jump",
-                    "type": "Button",
-                    "id": "bbc34a02-c2f6-4504-bb45-cb825002f1c6",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Sprint",
                     "type": "Button",
                     "id": "7fbfd85b-8bfa-42ea-a126-cb07ea70952e",
@@ -82,6 +73,15 @@
                     "type": "Button",
                     "id": "699fbc89-e409-43df-a499-576c704526ba",
                     "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "MouseWheel",
+                    "type": "PassThrough",
+                    "id": "f07d0bfb-f21d-46e1-8422-bfce53bbca76",
+                    "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -167,17 +167,6 @@
                 },
                 {
                     "name": "",
-                    "id": "27ebab75-dee4-429d-ae14-c184c292e938",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "1e3fd742-d798-4e32-b19e-91b2450012e5",
                     "path": "<Keyboard>/leftShift",
                     "interactions": "",
@@ -228,6 +217,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "236d92df-3c46-4acc-af04-2b0022503cda",
+                    "path": "<Mouse>/scroll/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MouseWheel",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

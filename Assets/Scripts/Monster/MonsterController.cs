@@ -29,6 +29,8 @@ public class MonsterController : MonoBehaviour {
 
     private float FieldOfViewExpanded;
     private float fieldOfViewCurrent;
+    private float hearingDistanceDefault;
+    private float hearingDistanceFlashlight = 8f;
 
     [Header("Navigation Points")]
     [SerializeField] private Transform[] patrolPoints;
@@ -59,6 +61,9 @@ public class MonsterController : MonoBehaviour {
     private void Start() {
         fieldOfViewCurrent = fieldOfViewDefault;
         FieldOfViewExpanded = Mathf.Clamp(fieldOfViewDefault + 40f, fieldOfViewDefault, 260f);
+
+        hearingDistanceDefault = hearingDistance;
+        hearingDistanceFlashlight = Mathf.Max(hearingDistance, hearingDistanceFlashlight);
 
         player = PlayerController.Instance;
         gameObject.SetActive(false);
@@ -236,20 +241,31 @@ public class MonsterController : MonoBehaviour {
         }
         Vector3 offsetY = Vector3.up;
         Vector3 eyePosition = transform.position + offsetY;
+        Vector3 directionToPlayer = PlayerUtils.DirectionToPlayerNormalized(eyePosition);
+
         float distanceToPlayer = PlayerUtils.DistanceToPlayer(eyePosition);
         float currentSightDistance = GetSightDistance();
+        float angleToPlayer = Vector3.Angle(transform.forward, directionToPlayer);
+
+        bool isPlayerWithingFieldOfView = angleToPlayer <= fieldOfViewCurrent / 2f;
 
         if (distanceToPlayer > currentSightDistance) {
             return false;
+        }
+        // player should decrease flashlight intensity to avoid detection 
+        if (Flashlight.Instance.isActive && isPlayerWithingFieldOfView && PlayerUtils.IsPlayerLookingAtObject(transform, 40f)) {
+            Flashlight flashlight = Flashlight.Instance;
+            if (flashlight.lightIntensity > (flashlight.intensityMax + flashlight.intensityMin) / 2) {
+                hearingDistance = hearingDistanceFlashlight;
+            }
+        } else {
+            hearingDistance = hearingDistanceDefault;
         }
         if (distanceToPlayer <= hearingDistance) {
             return true;
         }
 
-        Vector3 directionToPlayer = PlayerUtils.DirectionToPlayerNormalized(eyePosition);
-        float angleToPlayer = Vector3.Angle(transform.forward, directionToPlayer);
-
-        if (angleToPlayer <= fieldOfViewCurrent / 2f) {
+        if (isPlayerWithingFieldOfView) {
             if (Physics.Raycast(eyePosition, directionToPlayer, out RaycastHit hit, distanceToPlayer)) {
                 if ((1 << hit.collider.gameObject.layer) == playerLayerMask) {
                     return true;

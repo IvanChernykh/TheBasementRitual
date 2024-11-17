@@ -13,6 +13,7 @@ public class InputManager : MonoBehaviour {
     public event EventHandler OnInteractEvent;
     public event EventHandler OnFlashlightToggleEvent;
     public event EventHandler OnReloadBattery;
+    public event EventHandler OnMouseScroll;
 
     private PlayerInputActions inputActions;
 
@@ -41,6 +42,7 @@ public class InputManager : MonoBehaviour {
         inputActions.Player.Flashlight.performed += FlashlightPerformed;
         inputActions.Player.ReloadBattery.performed += ReloadBatteryPerformed;
         inputActions.Player.Pause.performed += PausePerformed;
+        inputActions.Player.MouseWheel.performed += MouseScrollPerformed;
     }
     private void OnDestroy() {
         if (isMainMenu) {
@@ -56,7 +58,7 @@ public class InputManager : MonoBehaviour {
         inputActions.Player.Flashlight.performed -= FlashlightPerformed;
         inputActions.Player.ReloadBattery.performed -= ReloadBatteryPerformed;
         inputActions.Player.Pause.performed -= PausePerformed;
-
+        inputActions.Player.MouseWheel.performed -= MouseScrollPerformed;
         inputActions.Dispose();
     }
     // events
@@ -123,6 +125,10 @@ public class InputManager : MonoBehaviour {
             GameStateManager.Instance.EnterInGameState();
         }
     }
+    private void MouseScrollPerformed(UnityEngine.InputSystem.InputAction.CallbackContext obj) {
+        // Debug.Log(inputActions.Player.MouseWheel.ReadValue<float>());
+        OnMouseScroll?.Invoke(this, EventArgs.Empty);
+    }
     // helpers
     public Vector2 GetMovementVector() {
         return inputActions.Player.Movement.ReadValue<Vector2>();
@@ -133,6 +139,9 @@ public class InputManager : MonoBehaviour {
     }
     public Vector2 GetMouseVector() {
         return inputActions.Player.Look.ReadValue<Vector2>();
+    }
+    public float GetMouseScrollValue() {
+        return inputActions.Player.MouseWheel.ReadValue<float>();
     }
     public void SetCanPause(bool canPause) {
         CanPause = canPause;
