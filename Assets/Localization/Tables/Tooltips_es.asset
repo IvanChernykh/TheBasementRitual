@@ -234,6 +234,11 @@ MonoBehaviour:
     m_Localized: Hay sal en esta lata.
     m_Metadata:
       m_Items: []
+  - m_Id: 2225018440114176
+    m_Localized: "Puedes disminuir la intensidad de la linterna para evitar ser detectado
+      [rueda del rat\xF3n]"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

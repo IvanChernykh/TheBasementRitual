@@ -231,6 +231,11 @@ MonoBehaviour:
     m_Localized: There is salt in this can.
     m_Metadata:
       m_Items: []
+  - m_Id: 2225018440114176
+    m_Localized: You can decrease flashlight intensity to avoid detection [mouse
+      wheel]
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

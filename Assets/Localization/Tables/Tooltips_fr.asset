@@ -231,6 +231,11 @@ MonoBehaviour:
     m_Localized: "Il y a du sel dans cette bo\xEEte."
     m_Metadata:
       m_Items: []
+  - m_Id: 2225018440114176
+    m_Localized: "Vous pouvez r\xE9duire l'intensit\xE9 de la lampe de poche pour
+      \xE9viter d'\xEAtre d\xE9tect\xE9 [molette de la souris]"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

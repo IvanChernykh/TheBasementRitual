@@ -235,6 +235,11 @@ MonoBehaviour:
     m_Localized: "C'\xE8 del sale in questa lattina."
     m_Metadata:
       m_Items: []
+  - m_Id: 2225018440114176
+    m_Localized: "Puoi diminuire l'intensit\xE0 della torcia per evitare di essere
+      rilevato [rotellina del mouse]"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

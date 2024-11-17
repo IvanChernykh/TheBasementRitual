@@ -227,6 +227,10 @@ MonoBehaviour:
     m_Key: SaltInCanHere
     m_Metadata:
       m_Items: []
+  - m_Id: 2225018440114176
+    m_Key: FlashlightIntensity1
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

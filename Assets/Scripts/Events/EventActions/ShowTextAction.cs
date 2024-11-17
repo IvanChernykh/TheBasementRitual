@@ -11,6 +11,7 @@ public class ShowTextAction : EventAction {
     [SerializeField] private float tooltipDelay = 0f;
     [SerializeField] private float subtitleDelay = 0f;
     [SerializeField] private float subtitleShowTime = 3f;
+    [SerializeField] private float tooltipShowTime = 0f;
     [SerializeField] private bool showTooltip;
     [SerializeField] private bool showSubtitle;
 
@@ -68,9 +69,9 @@ public class ShowTextAction : EventAction {
     }
     private void ShowTooltip() {
         if (tooltipTextCache.Count > 0) {
-            TooltipUI.Instance.Show(tooltipTextCache.ToArray());
+            TooltipUI.Instance.Show(tooltipTextCache.ToArray(), tooltipShowTime);
         } else {
-            TooltipUI.Instance.Show(tooltipText);
+            TooltipUI.Instance.Show(tooltipText, tooltipShowTime);
         }
     }
 }

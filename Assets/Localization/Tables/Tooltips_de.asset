@@ -231,6 +231,11 @@ MonoBehaviour:
     m_Localized: In dieser Dose ist Salz.
     m_Metadata:
       m_Items: []
+  - m_Id: 2225018440114176
+    m_Localized: "Sie k\xF6nnen die Taschenlampenintensit\xE4t verringern, um eine
+      Entdeckung zu vermeiden [Mausrad]"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -235,6 +235,11 @@ MonoBehaviour:
     m_Localized: "H\xE1 sal nesta lata."
     m_Metadata:
       m_Items: []
+  - m_Id: 2225018440114176
+    m_Localized: "Voc\xEA pode diminuir a intensidade da lanterna para evitar ser
+      detectado [roda do mouse]"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
