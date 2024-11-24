@@ -13,11 +13,14 @@ MonoBehaviour:
   m_Name: BookPuzzleHint_2
   m_EditorClassIdentifier: 
   noteName: Book Puzzle Hint 2
-  noteText: "Julius Caesar, known for his military genius, political reforms, and
-    the expansion of the Roman Empire, ruled only for five years. \nHe was also a
-    master of secret communication. To protect his messages, he employed a clever
-    technique: shifting the letters of the alphabet. By moving each letter forward
-    by a set number of places, his words became unreadable to his enemies. Only those
-    who knew the key - how many positions to shift - could decode the message. This
-    simple yet effective method became known as the Caesar Cipher."
+  noteText: 'Julius Caesar, known for his military genius, political reforms, and
+    the expansion of the Roman Empire, celebrated four grand triumphs to mark victories
+    in Gaul, Egypt, Pontus, and Numidia.
+
+    He was also a master of secret communication.
+    To protect his messages, he employed a clever technique: shifting the letters
+    of the alphabet. By moving each letter forward by a set number of places, his
+    words became unreadable to his enemies. Only those who knew the key - how many
+    positions to shift - could decode the message. This simple yet effective method
+    became known as the Caesar Cipher.'
   localizationKey: BookPuzzleHint2

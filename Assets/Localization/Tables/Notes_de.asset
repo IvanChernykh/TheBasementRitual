@@ -53,15 +53,16 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 800885432320
-    m_Localized: "Julius Caesar, bekannt f\xFCr sein milit\xE4risches Genie, politische
-      Reformen und die Expansion des R\xF6mischen Reiches, regierte nur f\xFCnf Jahre.\nEr
-      war auch ein Meister der geheimen Kommunikation. Um seine Nachrichten zu sch\xFCtzen,
-      verwendete er eine clevere Technik: die Buchstaben des Alphabets zu verschieben.
-      Indem er jeden Buchstaben um eine bestimmte Anzahl von Positionen verschob,
-      wurden seine Worte f\xFCr seine Feinde unleserlich. Nur diejenigen, die den
-      Schl\xFCssel kannten - wie viele Positionen verschoben werden mussten - konnten
-      die Nachricht entschl\xFCsseln. Diese einfache, aber effektive Methode wurde
-      als Caesar-Verschl\xFCsselung bekannt."
+    m_Localized: "Julius Caesar, bekannt f\xFCr sein milit\xE4risches Genie, seine
+      politischen Reformen und die Expansion des R\xF6mischen Reiches, feierte vier
+      gro\xDFe Triumphe, um seine Siege in Gallien, \xC4gypten, Pontus und Numidien
+      zu w\xFCrdigen.\nEr war auch ein Meister der geheimen Kommunikation. Um seine
+      Nachrichten zu sch\xFCtzen, verwendete er eine clevere Technik: das Verschieben
+      der Buchstaben im Alphabet. Indem jede Buchstabe um eine bestimmte Anzahl von
+      Stellen verschoben wurde, wurden seine Worte f\xFCr Feinde unlesbar. Nur diejenigen,
+      die den Schl\xFCssel kannten - die Anzahl der Verschiebungen - konnten die
+      Nachricht entschl\xFCsseln. Diese einfache, aber effektive Methode wurde als
+      Caesar-Verschl\xFCsselung bekannt."
     m_Metadata:
       m_Items: []
   - m_Id: 843071741952

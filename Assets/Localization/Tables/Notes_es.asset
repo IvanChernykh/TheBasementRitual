@@ -53,14 +53,15 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 800885432320
-    m_Localized: "Julio C\xE9sar, conocido por su genio militar, reformas pol\xEDticas
-      y la expansi\xF3n del Imperio Romano, gobern\xF3 solo durante cinco a\xF1os.\nTambi\xE9n
-      era un maestro de la comunicaci\xF3n secreta. Para proteger sus mensajes, empleaba
-      una t\xE9cnica astuta: mover las letras del alfabeto. Al mover cada letra hacia
-      adelante un cierto n\xFAmero de lugares, sus palabras se volv\xEDan ilegibles
-      para sus enemigos. Solo aquellos que conoc\xEDan la clave - cu\xE1ntas posiciones
-      mover - pod\xEDan descifrar el mensaje. Este m\xE9todo simple pero efectivo
-      lleg\xF3 a ser conocido como el Cifrado C\xE9sar."
+    m_Localized: "Julio C\xE9sar, conocido por su genio militar, sus reformas pol\xEDticas
+      y la expansi\xF3n del Imperio Romano, celebr\xF3 cuatro grandes triunfos para
+      conmemorar sus victorias en la Galia, Egipto, el Ponto y Numidia.\nTambi\xE9n
+      fue un maestro de la comunicaci\xF3n secreta. Para proteger sus mensajes, empleaba
+      una t\xE9cnica ingeniosa: desplazar las letras del alfabeto. Al mover cada
+      letra hacia adelante un n\xFAmero determinado de posiciones, sus palabras se
+      volv\xEDan ininteligibles para sus enemigos. Solo quienes conoc\xEDan la clave
+      - el n\xFAmero de posiciones a desplazar - pod\xEDan descifrar el mensaje.
+      Este m\xE9todo simple pero eficaz se conoci\xF3 como el Cifrado C\xE9sar."
     m_Metadata:
       m_Items: []
   - m_Id: 843071741952

@@ -51,15 +51,15 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 800885432320
-    m_Localized: "J\xFAlio C\xE9sar, conhecido por seu g\xEAnio militar, reformas
-      pol\xEDticas e a expans\xE3o do Imp\xE9rio Romano, governou apenas por cinco
-      anos.\nEle tamb\xE9m era um mestre da comunica\xE7\xE3o secreta. Para proteger
-      suas mensagens, ele utilizava uma t\xE9cnica astuta: deslocar as letras do
-      alfabeto. Ao mover cada letra para frente por um n\xFAmero determinado de posi\xE7\xF5es,
-      suas palavras se tornavam ileg\xEDveis para seus inimigos. Somente aqueles
-      que conheciam a chave - quantas posi\xE7\xF5es mover - poderiam decifrar a
-      mensagem. Esse m\xE9todo simples, mas eficaz, ficou conhecido como a Cifra
-      de C\xE9sar."
+    m_Localized: "J\xFAlio C\xE9sar, conhecido por seu g\xEAnio militar, suas reformas
+      pol\xEDticas e a expans\xE3o do Imp\xE9rio Romano, celebrou quatro grandes
+      triunfos para marcar suas vit\xF3rias na G\xE1lia, Egito, Ponto e Num\xEDdia.\nEle
+      tamb\xE9m era um mestre da comunica\xE7\xE3o secreta. Para proteger suas mensagens,
+      usava uma t\xE9cnica engenhosa: deslocar as letras do alfabeto. Ao mover cada
+      letra um certo n\xFAmero de posi\xE7\xF5es \xE0 frente, suas palavras se tornavam
+      ileg\xEDveis para os inimigos. Apenas aqueles que sabiam a chave - o n\xFAmero
+      de posi\xE7\xF5es a deslocar - podiam decifrar a mensagem. Esse m\xE9todo simples,
+      mas eficaz, ficou conhecido como Cifra de C\xE9sar."
     m_Metadata:
       m_Items: []
   - m_Id: 843071741952

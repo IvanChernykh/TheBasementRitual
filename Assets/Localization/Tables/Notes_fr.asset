@@ -55,14 +55,15 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 800885432320
     m_Localized: "Jules C\xE9sar, connu pour son g\xE9nie militaire, ses r\xE9formes
-      politiques et l'expansion de l'Empire romain, n'a r\xE9gn\xE9 que pendant cinq
-      ans.\nIl \xE9tait \xE9galement un ma\xEEtre de la communication secr\xE8te.
+      politiques et l'expansion de l'Empire romain, a c\xE9l\xE9br\xE9 quatre grands
+      triomphes pour marquer ses victoires en Gaule, en \xC9gypte, dans le Pont et
+      en Numidie.\nIl \xE9tait \xE9galement un ma\xEEtre de la communication secr\xE8te.
       Pour prot\xE9ger ses messages, il utilisait une technique astucieuse : d\xE9caler
-      les lettres de l'alphabet. En d\xE9pla\xE7ant chaque lettre de plusieurs positions,
-      ses mots devenaient illisibles pour ses ennemis. Seuls ceux qui connaissaient
-      la cl\xE9 - combien de positions d\xE9placer - pouvaient d\xE9coder le message.
-      Cette m\xE9thode simple mais efficace est devenue connue sous le nom de Chiffre
-      de C\xE9sar."
+      les lettres de l'alphabet. En d\xE9pla\xE7ant chaque lettre d'un certain nombre
+      de positions, ses mots devenaient illisibles pour ses ennemis. Seuls ceux qui
+      connaissaient la cl\xE9 - le nombre de positions \xE0 d\xE9caler - pouvaient
+      d\xE9coder le message. Cette m\xE9thode simple mais efficace est devenue connue
+      sous le nom de chiffre de C\xE9sar."
     m_Metadata:
       m_Items: []
   - m_Id: 843071741952

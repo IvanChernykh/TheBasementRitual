@@ -50,14 +50,15 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 800885432320
-    m_Localized: "Giulio Cesare, conosciuto per il suo genio militare, le sue riforme
-      politiche e l'espansione dell'Impero Romano, govern\xF2 solo per cinque anni.\nEra
-      anche un maestro della comunicazione segreta. Per proteggere i suoi messaggi,
-      usava una tecnica astuta: spostare le lettere dell'alfabeto. Spostando ogni
-      lettera in avanti di un certo numero di posizioni, le sue parole diventavano
-      illeggibili per i suoi nemici. Solo coloro che conoscevano la chiave - quante
-      posizioni spostare - potevano decifrare il messaggio. Questo metodo semplice
-      ma efficace divenne noto come il Ciffrario di Cesare."
+    m_Localized: "Giulio Cesare, noto per il suo genio militare, le sue riforme politiche
+      e l'espansione dell'Impero Romano, celebr\xF2 quattro grandi trionfi per commemorare
+      le sue vittorie in Gallia, Egitto, Ponto e Numidia.\nEra anche un maestro della
+      comunicazione segreta. Per proteggere i suoi messaggi, utilizzava una tecnica
+      ingegnosa: spostare le lettere dell'alfabeto. Spostando ogni lettera avanti
+      di un certo numero di posizioni, le sue parole diventavano incomprensibili
+      ai nemici. Solo chi conosceva la chiave - il numero di posizioni da spostare
+      - poteva decifrare il messaggio. Questo metodo semplice ma efficace divenne
+      noto come il Cifrario di Cesare."
     m_Metadata:
       m_Items: []
   - m_Id: 843071741952
