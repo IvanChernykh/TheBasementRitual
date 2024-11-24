@@ -17,6 +17,7 @@ public class Flashlight : MonoBehaviour {
     public float lifeTimeMax { get; private set; } = 100f;
     public float lifetime { get; private set; } = 100f;
     public float lightIntensity { get; private set; } = 1f;
+    public float lightRange { get => lightSource.GetComponent<Light>().range; }
 
     public readonly float intensityMin = .6f;
     public readonly float intensityMax = 1f;

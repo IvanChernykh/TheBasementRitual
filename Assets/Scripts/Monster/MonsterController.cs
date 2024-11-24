@@ -239,6 +239,9 @@ public class MonsterController : MonoBehaviour {
         if (player.isHiding) {
             return false;
         }
+
+        Flashlight flashlight = Flashlight.Instance;
+
         Vector3 offsetY = Vector3.up;
         Vector3 eyePosition = transform.position + offsetY;
         Vector3 directionToPlayer = PlayerUtils.DirectionToPlayerNormalized(eyePosition);
@@ -248,19 +251,32 @@ public class MonsterController : MonoBehaviour {
         float angleToPlayer = Vector3.Angle(transform.forward, directionToPlayer);
 
         bool isPlayerWithingFieldOfView = angleToPlayer <= fieldOfViewCurrent / 2f;
+        bool isPlayerWithingFieldOfViewExpanded = angleToPlayer <= FieldOfViewExpanded / 2f;
 
         if (distanceToPlayer > currentSightDistance) {
             return false;
         }
-        // player should decrease flashlight intensity to avoid detection 
-        if (Flashlight.Instance.isActive && isPlayerWithingFieldOfView && PlayerUtils.IsPlayerLookingAtObject(transform, 40f)) {
-            Flashlight flashlight = Flashlight.Instance;
+
+        Vector3 playerPosition = player.transform.position;
+        Vector3 playerForward = player.transform.forward;
+
+        float distanceToMonsterAlongPlayerView = Vector3.Dot(transform.position - playerPosition, playerForward);
+        bool isObstacleBetween = Physics.Raycast(playerPosition, playerForward, distanceToMonsterAlongPlayerView);
+
+        if (
+            flashlight.isActive &&
+            isPlayerWithingFieldOfViewExpanded &&
+            PlayerUtils.IsPlayerLookingAtObject(transform, 40f) &&
+            !isObstacleBetween &&
+            distanceToMonsterAlongPlayerView < flashlight.lightRange
+            ) {
             if (flashlight.lightIntensity > (flashlight.intensityMax + flashlight.intensityMin) / 2) {
                 hearingDistance = hearingDistanceFlashlight;
             }
         } else {
             hearingDistance = hearingDistanceDefault;
         }
+
         if (distanceToPlayer <= hearingDistance) {
             return true;
         }
