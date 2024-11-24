@@ -109,7 +109,7 @@ public class HistoryBooks : MonoBehaviour {
         canMoveBook = true;
         arrangeBooksTrigger.SetActive(false);
         PlayerController.Instance.DisableCharacterController();
-        TooltipUI.Instance.ShowAlways("BookTooltip");
+        TooltipUI.Instance.ShowAlways(LocalizationHelper.LocalizeTooltip("BookTooltip"));
     }
     public void StopArrangeBooks() {
         isArranging = false;
