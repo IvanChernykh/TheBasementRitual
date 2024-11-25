@@ -63,7 +63,6 @@ public class GameStateManager : MonoBehaviour {
     // game over state
     public void EnterGameOverState() {
         Time.timeScale = timeScalePaused;
-        UI.ShowCursor();
         GameOverPanel.Instance.Show();
 
         gameState = GameState.GameOver;

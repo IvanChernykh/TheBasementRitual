@@ -45,6 +45,7 @@ public class GameOverPanel : MonoBehaviour {
     // enumerator
     private IEnumerator ShowPanelRoutine() {
         yield return new WaitForSecondsRealtime(2);
+        UI.ShowCursor();
         blackScreen.SetActive(false);
         panel.SetActive(true);
     }
