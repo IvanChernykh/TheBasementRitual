@@ -25,6 +25,12 @@ public class MonsterAttack : MonoBehaviour {
         PlayerController.Instance.DisableCharacterController();
         PlayerController.Instance.DisableCameraLook();
         PlayerController.Instance.ResetHeadRotation();
+
+        if (Flashlight.Instance.isActive) {
+            Flashlight.Instance.UnEquip();
+            BatteryUI.Instance.Hide();
+        }
+
         monster.Sounds.PlayAttackSound();
 
         transform.LookAt(new Vector3(playerPos.x, monsterPos.y, playerPos.z));

@@ -29,12 +29,6 @@ public class BatteryUI : MonoBehaviour {
         currentColor = whiteColor;
     }
     private void Update() {
-        if (Flashlight.Instance.isActive && !isShown) {
-            Show();
-        }
-        if (!Flashlight.Instance.isActive && isShown) {
-            Hide();
-        }
         if (isShown) {
             HandleCharge();
             HandleBatteryCounter();

@@ -68,11 +68,12 @@ public class Flashlight : MonoBehaviour {
         flashlight.SetActive(true);
         animator.SetTrigger("Equipped");
         isActive = true;
+        BatteryUI.Instance.Show();
     }
     public void UnequipImmediately() {
         Deactivate();
     }
-    private void UnEquip() {
+    public void UnEquip() {
         animator.SetTrigger("Unequip");
         StartCoroutine(DeactivateAfterDelay(unequipAnimationDuration));
     }
@@ -102,6 +103,7 @@ public class Flashlight : MonoBehaviour {
     private void Deactivate() {
         flashlight.SetActive(false);
         isActive = false;
+        BatteryUI.Instance.Hide();
     }
     private void OnFlashlightIntensityChanged(object sender, EventArgs e) {
         if (isActive &&
