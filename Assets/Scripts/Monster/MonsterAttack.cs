@@ -27,7 +27,6 @@ public class MonsterAttack : MonoBehaviour {
         PlayerController.Instance.ResetHeadRotation();
 
         if (Flashlight.Instance.isActive) {
-            Flashlight.Instance.UnEquip();
             BatteryUI.Instance.Hide();
         }
 

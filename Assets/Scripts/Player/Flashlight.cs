@@ -59,7 +59,7 @@ public class Flashlight : MonoBehaviour {
         }
         if (isActive) {
             UnEquip();
-        } else {
+        } else if (!PlayerController.Instance.isHiding) {
             Equip();
         }
     }
