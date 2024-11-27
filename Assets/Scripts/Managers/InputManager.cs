@@ -126,7 +126,6 @@ public class InputManager : MonoBehaviour {
         }
     }
     private void MouseScrollPerformed(UnityEngine.InputSystem.InputAction.CallbackContext obj) {
-        // Debug.Log(inputActions.Player.MouseWheel.ReadValue<float>());
         OnMouseScroll?.Invoke(this, EventArgs.Empty);
     }
     // helpers
