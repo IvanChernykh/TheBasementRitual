@@ -84,11 +84,6 @@ public class PlayerController : MonoBehaviour {
         }
         HandleInteraction();
         CheckIsLandingAndIsFloating();
-
-        // Debug
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            Time.timeScale = Time.timeScale > 0 ? 0 : 1;
-        }
     }
     private void LateUpdate() {
         HandleCamera();
