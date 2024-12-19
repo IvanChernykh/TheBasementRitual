@@ -94,6 +94,10 @@ MonoBehaviour:
     m_Localized: Pausa
     m_Metadata:
       m_Items: []
+  - m_Id: 14545385468846080
+    m_Localized: "Sensibilit\xE0 del mouse"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

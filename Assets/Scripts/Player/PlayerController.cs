@@ -95,8 +95,10 @@ public class PlayerController : MonoBehaviour {
         }
         Vector2 mouseInput = InputManager.Instance.GetMouseVector();
 
-        float mouseX = mouseInput.x * Time.smoothDeltaTime * mouseSensivity;
-        float mouseY = mouseInput.y * Time.smoothDeltaTime * mouseSensivity;
+        float mouseSens = mouseSensivity * PlayerPrefs.GetFloat(PlayerPrefsConstants.MOUSE_SENSITIVITY, 1);
+
+        float mouseX = mouseInput.x * Time.smoothDeltaTime * mouseSens;
+        float mouseY = mouseInput.y * Time.smoothDeltaTime * mouseSens;
 
         if (flashlightTransform != null && Flashlight.Instance.isActive) {
             flashlightRotation.x -= mouseY / flashlightRotSensFactor;
