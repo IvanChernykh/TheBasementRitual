@@ -6,6 +6,7 @@ public enum AchievementsEnum {
     Runner,
     Exorcism,
     FoodLover,
+    WakeUp
 }
 
 public enum SteamStatsEnum {
