@@ -32,7 +32,12 @@ public class PlayerData {
         batteryCount = inventory.batteries;
         items = inventory.items.Select(item => item.itemName).ToArray();
 
-        flashlightActive = flashlight.isActive;
-        flashlightLifetime = flashlight.lifetime;
+        if (flashlight != null) {
+            flashlightActive = flashlight.isActive;
+            flashlightLifetime = flashlight.lifetime;
+        } else {
+            flashlightActive = false;
+            flashlightLifetime = 100f;
+        }
     }
 }

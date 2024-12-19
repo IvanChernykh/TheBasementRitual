@@ -8,7 +8,7 @@ public class Food : Interactable {
         interactMessage = "Eat";
     }
     protected override void Interact() {
-        if (saveStat) {
+        if (saveStat && SteamManager.Instance != null) {
             SteamManager.Instance.FoodLoverCheck(foodType);
         }
         Destroy(gameObject);
