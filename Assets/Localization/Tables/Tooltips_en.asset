@@ -64,7 +64,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2142467121152
-    m_Localized: '[A / D] - Move\n[E] - Select\n[Q] - Quit'
+    m_Localized: '[A / D] - Move
+
+      [E] - Select
+
+      [Q] - Quit'
     m_Metadata:
       m_Items: []
   - m_Id: 3473114259456
