@@ -52,12 +52,14 @@ public class GameStateManager : MonoBehaviour {
     // paused state
     public void EnterPausedState() {
         Time.timeScale = timeScalePaused;
+        PlayerController.Instance.DisableCameraLook();
         UI.ShowCursor();
         PausePanel.Instance.Show();
 
         gameState = GameState.Paused;
     }
     public void ExitPausedState() {
+        PlayerController.Instance.EnableCameraLook();
         PausePanel.Instance.Hide();
     }
     // game over state
