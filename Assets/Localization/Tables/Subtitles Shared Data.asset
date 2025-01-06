@@ -75,6 +75,10 @@ MonoBehaviour:
     m_Key: BasementNeedOpenDoor
     m_Metadata:
       m_Items: []
+  - m_Id: 20634655417819136
+    m_Key: OfficeSafeHint
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -83,6 +83,11 @@ MonoBehaviour:
     m_Localized: Necesito encontrar algo para abrir esta puerta.
     m_Metadata:
       m_Items: []
+  - m_Id: 20634655417819136
+    m_Localized: "Creo que deber\xEDa registrar las habitaciones contiguas. Seguro
+      que hay algunas pistas all\xED."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

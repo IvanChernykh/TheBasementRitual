@@ -84,6 +84,11 @@ MonoBehaviour:
     m_Localized: "Ich muss etwas finden, um diese T\xFCr zu \xF6ffnen."
     m_Metadata:
       m_Items: []
+  - m_Id: 20634655417819136
+    m_Localized: "Ich glaube, ich sollte die benachbarten R\xE4ume durchsuchen. Dort
+      m\xFCssen Hinweise sein."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

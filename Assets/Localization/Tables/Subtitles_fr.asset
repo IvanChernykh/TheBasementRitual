@@ -83,6 +83,11 @@ MonoBehaviour:
     m_Localized: ' Je dois trouver quelque chose pour ouvrir cette porte.'
     m_Metadata:
       m_Items: []
+  - m_Id: 20634655417819136
+    m_Localized: "Je pense que je dois fouiller les pi\xE8ces voisines. Il doit s\xFBrement
+      y avoir des indices."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

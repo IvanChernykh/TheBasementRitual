@@ -83,6 +83,11 @@ MonoBehaviour:
     m_Localized: I need to find something to open this door
     m_Metadata:
       m_Items: []
+  - m_Id: 20634655417819136
+    m_Localized: I think I should search the neighboring rooms. There must be some
+      hints there.
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
