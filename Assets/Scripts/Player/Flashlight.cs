@@ -14,8 +14,8 @@ public class Flashlight : MonoBehaviour {
     private readonly float reloadAnimationDuration = .8f;
     public bool isActive { get; private set; }
 
-    public float lifeTimeMax { get; private set; } = 100f;
-    public float lifetime { get; private set; } = 100f;
+    public float lifeTimeMax { get; private set; } = 120f;
+    public float lifetime { get; private set; } = 120f;
     public float lightIntensity { get; private set; } = 1f;
     public float lightRange { get => lightSource.GetComponent<Light>().range; }
 
