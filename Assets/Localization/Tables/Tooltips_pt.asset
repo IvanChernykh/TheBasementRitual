@@ -224,7 +224,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 22480378781696
-    m_Localized: Estante. Muitos livros se repetem.
+    m_Localized: "Estante de livros. Muitos livros est\xE3o repetidos. Talvez eu
+      deva prestar aten\xE7\xE3o neles."
     m_Metadata:
       m_Items: []
   - m_Id: 22618786619392
