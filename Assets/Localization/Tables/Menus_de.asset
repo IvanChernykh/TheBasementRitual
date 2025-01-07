@@ -98,6 +98,46 @@ MonoBehaviour:
     m_Localized: Maus-Empfindlichkeit
     m_Metadata:
       m_Items: []
+  - m_Id: 21333027778846720
+    m_Localized: Steuerung
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21333034623950848
+    m_Localized: Ton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21334861692133376
+    m_Localized: Bewegung
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21334868092641280
+    m_Localized: Sprint
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21334874157604864
+    m_Localized: Hocken
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21334876753879040
+    m_Localized: Interagieren
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21334878767144960
+    m_Localized: Taschenlampe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21334999483408384
+    m_Localized: Batterie aufladen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21335001404399616
+    m_Localized: "Taschenlampenintensit\xE4t \xE4ndern"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21335003153424384
+    m_Localized: '[ Mausrad ]'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

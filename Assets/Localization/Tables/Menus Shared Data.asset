@@ -95,6 +95,46 @@ MonoBehaviour:
     m_Key: MouseSensitivity
     m_Metadata:
       m_Items: []
+  - m_Id: 21333027778846720
+    m_Key: Controls
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21333034623950848
+    m_Key: Sound
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21334861692133376
+    m_Key: MovementControls
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21334868092641280
+    m_Key: SprintControls
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21334874157604864
+    m_Key: CrouchControls
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21334876753879040
+    m_Key: InteractControls
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21334878767144960
+    m_Key: FlashlightControls
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21334999483408384
+    m_Key: ReloadBatteryControls
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21335001404399616
+    m_Key: ChangeFlashlightIntensity
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21335003153424384
+    m_Key: MouseWheel
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

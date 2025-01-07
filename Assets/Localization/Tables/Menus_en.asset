@@ -98,6 +98,46 @@ MonoBehaviour:
     m_Localized: Mouse Sensitivity
     m_Metadata:
       m_Items: []
+  - m_Id: 21333027778846720
+    m_Localized: Controls
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21333034623950848
+    m_Localized: Sound
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21334861692133376
+    m_Localized: Movement
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21334868092641280
+    m_Localized: Sprint
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21334874157604864
+    m_Localized: Crouch
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21334876753879040
+    m_Localized: Interact
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21334878767144960
+    m_Localized: Flashlight
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21334999483408384
+    m_Localized: Reload Battery
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21335001404399616
+    m_Localized: Change Flashlight Intensity
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21335003153424384
+    m_Localized: '[ Mouse Wheel ]'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

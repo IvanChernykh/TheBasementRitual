@@ -98,6 +98,46 @@ MonoBehaviour:
     m_Localized: Sensibilidade do mouse
     m_Metadata:
       m_Items: []
+  - m_Id: 21333027778846720
+    m_Localized: Controles
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21333034623950848
+    m_Localized: Som
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21334861692133376
+    m_Localized: Movimento
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21334868092641280
+    m_Localized: Sprint
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21334874157604864
+    m_Localized: Agachar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21334876753879040
+    m_Localized: Interagir
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21334878767144960
+    m_Localized: Lanterna
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21334999483408384
+    m_Localized: Recarregar a bateria
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21335001404399616
+    m_Localized: Alterar a intensidade da lanterna
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21335003153424384
+    m_Localized: '[ Roda do mouse ]'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
