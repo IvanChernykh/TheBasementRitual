@@ -139,7 +139,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 13785364291584
-    m_Localized: Llave vieja
+    m_Localized: "Llave de la sala el\xE9ctrica"
     m_Metadata:
       m_Items: []
   - m_Id: 13919649128448
@@ -238,6 +238,10 @@ MonoBehaviour:
   - m_Id: 2225018440114176
     m_Localized: "Puedes disminuir la intensidad de la linterna para evitar ser detectado
       [rueda del rat\xF3n]"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21207828685250560
+    m_Localized: "Teor\xEDa b\xE1sica de negocios, Vol.7"
     m_Metadata:
       m_Items: []
   references:

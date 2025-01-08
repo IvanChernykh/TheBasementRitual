@@ -140,7 +140,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 13785364291584
-    m_Localized: Chiave vecchia
+    m_Localized: Chiave della stanza elettrica
     m_Metadata:
       m_Items: []
   - m_Id: 13919649128448
@@ -238,6 +238,10 @@ MonoBehaviour:
   - m_Id: 2225018440114176
     m_Localized: "Puoi diminuire l'intensit\xE0 della torcia per evitare di essere
       rilevato [rotellina del mouse]"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21207828685250560
+    m_Localized: Teoria di base del business, Vol.7
     m_Metadata:
       m_Items: []
   references:
