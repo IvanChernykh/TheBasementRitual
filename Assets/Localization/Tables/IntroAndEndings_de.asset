@@ -110,6 +110,10 @@ MonoBehaviour:
     m_Localized: "Danach haben Sie die Stadt f\xFCr immer verlassen."
     m_Metadata:
       m_Items: []
+  - m_Id: 22435344922042368
+    m_Localized: Weiter [Space]
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

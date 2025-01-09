@@ -109,6 +109,10 @@ MonoBehaviour:
     m_Localized: "Dopo di ci\xF2, hai lasciato la citt\xE0 per sempre."
     m_Metadata:
       m_Items: []
+  - m_Id: 22435344922042368
+    m_Localized: Avanti [Space]
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -110,6 +110,10 @@ MonoBehaviour:
     m_Localized: "Despu\xE9s de eso, dejaste la ciudad para siempre."
     m_Metadata:
       m_Items: []
+  - m_Id: 22435344922042368
+    m_Localized: Siguiente [Space]
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -109,6 +109,10 @@ MonoBehaviour:
     m_Localized: "Depois disso, voc\xEA deixou a cidade para sempre."
     m_Metadata:
       m_Items: []
+  - m_Id: 22435344922042368
+    m_Localized: "Pr\xF3ximo [Space]"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

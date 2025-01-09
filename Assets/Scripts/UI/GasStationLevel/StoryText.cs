@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Assets.Scripts.Utils;
 using UnityEngine.Localization;
+using System.Linq;
 
 public class StoryText : MonoBehaviour {
     private readonly LocalizedString[] storyTexts = {
@@ -21,11 +22,11 @@ public class StoryText : MonoBehaviour {
     };
 
     [SerializeField] private TextMeshProUGUI text;
+    [SerializeField] private TextMeshProUGUI nextBtnText;
     [SerializeField] private Image background;
 
-    [SerializeField] private float displayTime = 5f;
     [SerializeField] private float fadeDuration = 0.8f;
-    [SerializeField] private float pauseBetweenTexts = 2f;
+    [SerializeField] private float pauseBetweenTexts = 1f;
 
     private void Start() {
         InputManager.Instance.SetCanPause(false);
@@ -37,6 +38,8 @@ public class StoryText : MonoBehaviour {
         PlayerController.Instance.DisableCameraLook();
 
         yield return new WaitForSeconds(1f);
+
+        StartCoroutine(UI.FadeGraphic(nextBtnText, fadeDuration, fadeIn: true));
 
         foreach (var localizedString in storyTexts) {
             bool isTextReady = false;
@@ -51,7 +54,12 @@ public class StoryText : MonoBehaviour {
             localizedString.StringChanged -= OnTextChanged;
 
             yield return StartCoroutine(UI.FadeGraphic(text, fadeDuration, fadeIn: true));
-            yield return new WaitForSeconds(displayTime);
+            yield return WaitForPlayerInput();
+
+            if (localizedString == storyTexts.Last()) {
+                StartCoroutine(UI.FadeGraphic(nextBtnText, fadeDuration, fadeIn: false));
+            }
+
             yield return StartCoroutine(UI.FadeGraphic(text, fadeDuration, fadeIn: false));
             yield return new WaitForSeconds(pauseBetweenTexts);
         }
@@ -79,5 +87,9 @@ public class StoryText : MonoBehaviour {
 
         TooltipUI.Instance.Show(tutorialLocalizedTexts, showTime: 3f);
         Destroy(gameObject);
+    }
+
+    private IEnumerator WaitForPlayerInput() {
+        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
     }
 }

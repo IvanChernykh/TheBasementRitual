@@ -124,6 +124,10 @@ MonoBehaviour:
       \uB5A0\uB0AC\uC2B5\uB2C8\uB2E4."
     m_Metadata:
       m_Items: []
+  - m_Id: 22435344922042368
+    m_Localized: "\uB2E4\uC74C [Space]"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

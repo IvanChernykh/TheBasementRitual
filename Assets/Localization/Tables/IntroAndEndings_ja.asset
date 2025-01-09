@@ -98,6 +98,10 @@ MonoBehaviour:
     m_Localized: "\u305D\u306E\u5F8C\u3001\u3042\u306A\u305F\u306F\u6C38\u9060\u306B\u305D\u306E\u753A\u3092\u96E2\u308C\u307E\u3057\u305F\u3002"
     m_Metadata:
       m_Items: []
+  - m_Id: 22435344922042368
+    m_Localized: "\u6B21\u3078 [Space]"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

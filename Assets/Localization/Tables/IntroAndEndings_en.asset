@@ -108,6 +108,10 @@ MonoBehaviour:
     m_Localized: Thank you for playing
     m_Metadata:
       m_Items: []
+  - m_Id: 22435344922042368
+    m_Localized: Next [Space]
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

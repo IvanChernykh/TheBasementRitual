@@ -113,6 +113,10 @@ MonoBehaviour:
     m_Localized: "Apr\xE8s cela, vous avez quitt\xE9 la ville pour toujours."
     m_Metadata:
       m_Items: []
+  - m_Id: 22435344922042368
+    m_Localized: Suivant [Space]
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
