@@ -15,6 +15,7 @@ public class EndGamePanel : MonoBehaviour {
 
     [SerializeField] private GameObject container;
     [SerializeField] private TextMeshProUGUI text;
+    [SerializeField] private TextMeshProUGUI nextBtnText;
 
     private readonly LocalizedString[] giveUpEndGameText = {
         new LocalizedString { TableReference = LocalizationTables.IntroAndEndings, TableEntryReference = "EndGiveUp1" },
@@ -37,7 +38,6 @@ public class EndGamePanel : MonoBehaviour {
         new LocalizedString { TableReference = LocalizationTables.IntroAndEndings, TableEntryReference = "EndBanish5" }
     };
 
-    private readonly float displayTime = 5f;
     private readonly float fadeDuration = 0.8f;
     private readonly float pauseBetweenTexts = 1f;
 
@@ -64,6 +64,7 @@ public class EndGamePanel : MonoBehaviour {
         string[] localizedTexts = new string[endGameTexts.Length];
 
         yield return new WaitForSecondsRealtime(2.5f);
+        StartCoroutine(UI.FadeGraphic(nextBtnText, fadeDuration, fadeIn: true));
 
         for (int i = 0; i < endGameTexts.Length; i++) {
             bool isTextReady = false;
@@ -81,7 +82,11 @@ public class EndGamePanel : MonoBehaviour {
 
             text.text = localizedTexts[i];
             yield return StartCoroutine(UI.FadeGraphic(text, fadeDuration, fadeIn: true));
-            yield return new WaitForSecondsRealtime(displayTime);
+            yield return WaitForPlayerInput();
+
+            if (i == endGameTexts.Length - 1) {
+                StartCoroutine(UI.FadeGraphic(nextBtnText, fadeDuration, fadeIn: false));
+            }
 
             yield return StartCoroutine(UI.FadeGraphic(text, fadeDuration, fadeIn: false));
             yield return new WaitForSecondsRealtime(pauseBetweenTexts);
@@ -105,5 +110,9 @@ public class EndGamePanel : MonoBehaviour {
             EndGameVariants.BanishDemon => banishDemonEndGameText,
             _ => giveUpEndGameText,
         };
+    }
+
+    private IEnumerator WaitForPlayerInput() {
+        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
     }
 }
