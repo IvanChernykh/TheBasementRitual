@@ -8,7 +8,9 @@ public class PausePanel : MonoBehaviour {
 
     [Header("Buttons")]
     [SerializeField] private TextMeshProUGUI resumeText;
+    [SerializeField] private TextMeshProUGUI lastSaveText;
     [SerializeField] private TextMeshProUGUI optionsText;
+    [SerializeField] private TextMeshProUGUI mainMenuText;
     private void Awake() {
         if (Instance != null) {
             Exceptions.MoreThanOneInstance(name);
@@ -25,7 +27,10 @@ public class PausePanel : MonoBehaviour {
     }
     public void Hide() {
         resumeText.color = Color.white;
+        lastSaveText.color = Color.white;
         optionsText.color = Color.white;
+        mainMenuText.color = Color.white;
+
         panel.SetActive(false);
     }
     // buttons
