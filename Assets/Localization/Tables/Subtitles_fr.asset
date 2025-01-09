@@ -88,6 +88,11 @@ MonoBehaviour:
       y avoir des indices."
     m_Metadata:
       m_Items: []
+  - m_Id: 21760292589264896
+    m_Localized: "Je ne pense pas que je puisse bannir le d\xE9mon maintenant. Mieux
+      vaut continuer."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

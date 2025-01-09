@@ -79,6 +79,10 @@ MonoBehaviour:
     m_Key: OfficeSafeHint
     m_Metadata:
       m_Items: []
+  - m_Id: 21760292589264896
+    m_Key: CantBanishDemonYet
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

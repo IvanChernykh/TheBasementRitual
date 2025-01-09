@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Safe_2_hint
   m_EditorClassIdentifier: 
   noteName: Safe 2 Hint
-  noteText: Spare toilet paper in a locker in the ritual room
+  noteText: They said the last 2 didn't please them
   localizationKey: Safe2Hint

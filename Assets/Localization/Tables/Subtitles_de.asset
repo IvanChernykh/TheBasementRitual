@@ -89,6 +89,11 @@ MonoBehaviour:
       m\xFCssen Hinweise sein."
     m_Metadata:
       m_Items: []
+  - m_Id: 21760292589264896
+    m_Localized: "Ich glaube nicht, dass ich den D\xE4monen schon vertreiben kann.
+      Besser weitermachen."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

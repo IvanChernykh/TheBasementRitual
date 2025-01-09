@@ -88,6 +88,10 @@ MonoBehaviour:
       haver algumas dicas l\xE1."
     m_Metadata:
       m_Items: []
+  - m_Id: 21760292589264896
+    m_Localized: "N\xE3o acho que eu possa banir o dem\xF4nio ainda. Melhor continuar."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

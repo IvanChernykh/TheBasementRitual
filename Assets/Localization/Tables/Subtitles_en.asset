@@ -88,6 +88,10 @@ MonoBehaviour:
       there.
     m_Metadata:
       m_Items: []
+  - m_Id: 21760292589264896
+    m_Localized: "I don\u2019t think I can banish the demon yet. Better keep going."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

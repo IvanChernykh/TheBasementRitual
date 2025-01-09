@@ -88,6 +88,10 @@ MonoBehaviour:
       dei suggerimenti l\xEC."
     m_Metadata:
       m_Items: []
+  - m_Id: 21760292589264896
+    m_Localized: Non penso di poter scacciare il demone ancora. Meglio continuare.
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
