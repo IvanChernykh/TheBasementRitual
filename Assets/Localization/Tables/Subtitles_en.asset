@@ -92,6 +92,19 @@ MonoBehaviour:
     m_Localized: "I don\u2019t think I can banish the demon yet. Better keep going."
     m_Metadata:
       m_Items: []
+  - m_Id: 21860086351519744
+    m_Localized: I can use this at the vending machine.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21863635907108864
+    m_Localized: "I don\u2019t have the incantation."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21865854727479296
+    m_Localized: "I think I missed something, but it\u2019s too late to go back.
+      So this is useless..."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -93,6 +93,19 @@ MonoBehaviour:
       adelante."
     m_Metadata:
       m_Items: []
+  - m_Id: 21860086351519744
+    m_Localized: "Puedo usarlo en la m\xE1quina expendedora."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21863635907108864
+    m_Localized: 'No tengo el hechizo. '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21865854727479296
+    m_Localized: "Creo que me perd\xED algo, pero es demasiado tarde para volver
+      atr\xE1s. As\xED que esto es in\xFAtil..."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

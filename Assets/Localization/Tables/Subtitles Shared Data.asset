@@ -83,6 +83,18 @@ MonoBehaviour:
     m_Key: CantBanishDemonYet
     m_Metadata:
       m_Items: []
+  - m_Id: 21860086351519744
+    m_Key: CoinUsageHint
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21863635907108864
+    m_Key: NoIncantationTooltip_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21865854727479296
+    m_Key: NoIncantationTooltip_2
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

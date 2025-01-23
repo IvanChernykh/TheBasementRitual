@@ -92,6 +92,19 @@ MonoBehaviour:
     m_Localized: Non penso di poter scacciare il demone ancora. Meglio continuare.
     m_Metadata:
       m_Items: []
+  - m_Id: 21860086351519744
+    m_Localized: Posso usarla nel distributore automatico.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21863635907108864
+    m_Localized: 'Non ho l''incantazione. '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21865854727479296
+    m_Localized: "Penso di aver dimenticato qualcosa, ma \xE8 troppo tardi per tornare
+      indietro. Quindi questo \xE8 inutile..."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

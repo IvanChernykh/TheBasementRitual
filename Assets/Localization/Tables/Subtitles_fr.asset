@@ -93,6 +93,19 @@ MonoBehaviour:
       vaut continuer."
     m_Metadata:
       m_Items: []
+  - m_Id: 21860086351519744
+    m_Localized: Je peux l'utiliser dans le distributeur automatique.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21863635907108864
+    m_Localized: "Je n\u2019ai pas l\u2019incantation. "
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21865854727479296
+    m_Localized: "Je pense avoir manqu\xE9 quelque chose, mais il est trop tard pour
+      revenir en arri\xE8re. Donc, ceci est inutile..."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

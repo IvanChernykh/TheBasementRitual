@@ -270,5 +270,8 @@ public class HistoryBooks : MonoBehaviour {
         StopArrangeBooks();
         Destroy(arrangeBooksTrigger);
         hiddenDoorAction.ExecuteEvent();
+        if (SteamManager.Instance != null) {
+            SteamManager.Instance.UnlockAchievement(AchievementsEnum.BooksPuzzle);
+        }
     }
 }

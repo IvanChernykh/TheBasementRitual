@@ -92,6 +92,19 @@ MonoBehaviour:
     m_Localized: "N\xE3o acho que eu possa banir o dem\xF4nio ainda. Melhor continuar."
     m_Metadata:
       m_Items: []
+  - m_Id: 21860086351519744
+    m_Localized: "Posso us\xE1-lo na m\xE1quina de vendas."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21863635907108864
+    m_Localized: "Eu n\xE3o tenho o feiti\xE7o. "
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21865854727479296
+    m_Localized: "Acho que perdi algo, mas \xE9 tarde demais para voltar. Ent\xE3o,
+      isso \xE9 in\xFAtil..."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

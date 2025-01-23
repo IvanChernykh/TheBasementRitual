@@ -94,6 +94,19 @@ MonoBehaviour:
       Besser weitermachen."
     m_Metadata:
       m_Items: []
+  - m_Id: 21860086351519744
+    m_Localized: Ich kann es im Verkaufsautomaten benutzen.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21863635907108864
+    m_Localized: 'Ich habe den Zauberspruch nicht. '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21865854727479296
+    m_Localized: "Ich denke, ich habe etwas verpasst, aber es ist zu sp\xE4t, um
+      zur\xFCckzugehen. Also ist das nutzlos..."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

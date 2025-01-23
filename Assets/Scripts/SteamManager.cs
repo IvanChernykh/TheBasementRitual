@@ -6,7 +6,13 @@ public enum AchievementsEnum {
     Runner,
     Exorcism,
     FoodLover,
-    WakeUp
+    WakeUp,
+    // new
+    SecurityRoom,
+    BooksPuzzle,
+    OfficeSafe,
+    TurnOnElectricity
+
 }
 
 public enum SteamStatsEnum {
