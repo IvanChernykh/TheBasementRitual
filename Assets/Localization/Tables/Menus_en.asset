@@ -138,6 +138,10 @@ MonoBehaviour:
     m_Localized: '[ Mouse Wheel ]'
     m_Metadata:
       m_Items: []
+  - m_Id: 27511873645436928
+    m_Localized: Inventory
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

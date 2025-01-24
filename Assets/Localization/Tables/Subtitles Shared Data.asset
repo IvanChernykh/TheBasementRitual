@@ -95,6 +95,10 @@ MonoBehaviour:
     m_Key: NoIncantationTooltip_2
     m_Metadata:
       m_Items: []
+  - m_Id: 27142770053210112
+    m_Key: BooksNoteTooltip
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

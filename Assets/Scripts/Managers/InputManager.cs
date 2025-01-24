@@ -14,6 +14,8 @@ public class InputManager : MonoBehaviour {
     public event EventHandler OnFlashlightToggleEvent;
     public event EventHandler OnReloadBattery;
     public event EventHandler OnMouseScroll;
+    public event EventHandler OnInventoryEvent;
+    public event EventHandler OnInventoryCanceledEvent;
 
     private PlayerInputActions inputActions;
 
@@ -43,6 +45,8 @@ public class InputManager : MonoBehaviour {
         inputActions.Player.ReloadBattery.performed += ReloadBatteryPerformed;
         inputActions.Player.Pause.performed += PausePerformed;
         inputActions.Player.MouseWheel.performed += MouseScrollPerformed;
+        inputActions.Player.Inventory.performed += InventoryPerformed;
+        inputActions.Player.Inventory.canceled += InventoryCanceled;
     }
     private void OnDestroy() {
         if (isMainMenu) {
@@ -59,6 +63,8 @@ public class InputManager : MonoBehaviour {
         inputActions.Player.ReloadBattery.performed -= ReloadBatteryPerformed;
         inputActions.Player.Pause.performed -= PausePerformed;
         inputActions.Player.MouseWheel.performed -= MouseScrollPerformed;
+        inputActions.Player.Inventory.performed -= InventoryPerformed;
+        inputActions.Player.Inventory.canceled -= InventoryCanceled;
         inputActions.Dispose();
     }
     // events
@@ -82,6 +88,18 @@ public class InputManager : MonoBehaviour {
             return;
         }
         OnInteractEvent?.Invoke(this, EventArgs.Empty);
+    }
+    private void InventoryPerformed(UnityEngine.InputSystem.InputAction.CallbackContext obj) {
+        if (!GameStateManager.Instance.InGame) {
+            return;
+        }
+        OnInventoryEvent?.Invoke(this, EventArgs.Empty);
+    }
+    private void InventoryCanceled(UnityEngine.InputSystem.InputAction.CallbackContext obj) {
+        if (!GameStateManager.Instance.InGame) {
+            return;
+        }
+        OnInventoryCanceledEvent?.Invoke(this, EventArgs.Empty);
     }
     private void FlashlightPerformed(UnityEngine.InputSystem.InputAction.CallbackContext obj) {
         if (!GameStateManager.Instance.InGame) {

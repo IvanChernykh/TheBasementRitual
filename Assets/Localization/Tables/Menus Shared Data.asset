@@ -135,6 +135,10 @@ MonoBehaviour:
     m_Key: MouseWheel
     m_Metadata:
       m_Items: []
+  - m_Id: 27511873645436928
+    m_Key: Inventory
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

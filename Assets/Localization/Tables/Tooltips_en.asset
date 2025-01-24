@@ -245,6 +245,10 @@ MonoBehaviour:
     m_Localized: Basic Business Theory, Vol.7
     m_Metadata:
       m_Items: []
+  - m_Id: 26876207735627776
+    m_Localized: Inventory is empty
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

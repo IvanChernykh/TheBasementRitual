@@ -138,6 +138,10 @@ MonoBehaviour:
     m_Localized: '[ Mausrad ]'
     m_Metadata:
       m_Items: []
+  - m_Id: 27511873645436928
+    m_Localized: Inventar
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

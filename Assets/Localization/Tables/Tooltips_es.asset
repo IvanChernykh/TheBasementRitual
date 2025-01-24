@@ -244,6 +244,10 @@ MonoBehaviour:
     m_Localized: "Teor\xEDa b\xE1sica de negocios, Vol.7"
     m_Metadata:
       m_Items: []
+  - m_Id: 26876207735627776
+    m_Localized: "El inventario est\xE1 vac\xEDo"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

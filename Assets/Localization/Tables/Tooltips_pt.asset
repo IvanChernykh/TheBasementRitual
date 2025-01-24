@@ -245,6 +245,10 @@ MonoBehaviour:
     m_Localized: "Teoria b\xE1sica de neg\xF3cios, Vol.7"
     m_Metadata:
       m_Items: []
+  - m_Id: 26876207735627776
+    m_Localized: "O invent\xE1rio est\xE1 vazio"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

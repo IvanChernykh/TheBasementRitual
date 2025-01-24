@@ -195,6 +195,9 @@ public class PlayerController : MonoBehaviour {
         isSprinting = false;
         isMoving = false;
     }
+    public bool IsControllerEnabled() {
+        return controller.enabled;
+    }
     public void EnableCharacterController() {
         controller.enabled = true;
     }

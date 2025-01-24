@@ -241,6 +241,10 @@ MonoBehaviour:
     m_Localized: "Th\xE9orie de base des affaires, Vol.7"
     m_Metadata:
       m_Items: []
+  - m_Id: 26876207735627776
+    m_Localized: L'inventaire est vide
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

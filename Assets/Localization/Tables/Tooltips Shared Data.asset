@@ -235,6 +235,10 @@ MonoBehaviour:
     m_Key: BasicBusinessTheoryBook
     m_Metadata:
       m_Items: []
+  - m_Id: 26876207735627776
+    m_Key: InventoryIsEmpty
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
