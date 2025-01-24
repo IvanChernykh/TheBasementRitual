@@ -59,7 +59,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 484043513856
-    m_Localized: '[E] - Interagieren'
+    m_Localized: '[E] - interagieren'
     m_Metadata:
       m_Items: []
   - m_Id: 3208109744128
@@ -112,6 +112,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 22435344922042368
     m_Localized: Weiter [Space]
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27914863090982912
+    m_Localized: '[TAB] - inventar'
     m_Metadata:
       m_Items: []
   references:

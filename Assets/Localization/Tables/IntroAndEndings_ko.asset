@@ -128,6 +128,10 @@ MonoBehaviour:
     m_Localized: "\uB2E4\uC74C [Space]"
     m_Metadata:
       m_Items: []
+  - m_Id: 27914863090982912
+    m_Localized: "[TAB] - \uC778\uBCA4\uD1A0\uB9AC"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

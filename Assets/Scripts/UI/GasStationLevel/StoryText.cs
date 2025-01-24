@@ -18,7 +18,8 @@ public class StoryText : MonoBehaviour {
         new LocalizedString { TableReference = LocalizationTables.IntroAndEndings, TableEntryReference = "TutMove" },
         new LocalizedString { TableReference = LocalizationTables.IntroAndEndings, TableEntryReference = "TutSprint" },
         new LocalizedString { TableReference = LocalizationTables.IntroAndEndings, TableEntryReference = "TutCrouch" },
-        new LocalizedString { TableReference = LocalizationTables.IntroAndEndings, TableEntryReference = "TutInteract" }
+        new LocalizedString { TableReference = LocalizationTables.IntroAndEndings, TableEntryReference = "TutInteract" },
+        new LocalizedString { TableReference = LocalizationTables.IntroAndEndings, TableEntryReference = "TutInventory" }
     };
 
     [SerializeField] private TextMeshProUGUI text;
