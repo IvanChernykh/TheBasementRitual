@@ -1,8 +1,7 @@
 using UnityEngine;
-using Assets.Scripts.Utils;
 
-public class BackgroundMusic : MonoBehaviour {
-    public static BackgroundMusic Instance { get; private set; }
+public class BackgroundMusic : Singleton<BackgroundMusic> {
+
     public enum Sounds {
         NoiseAmbient,
         MainAmbient,
@@ -24,31 +23,16 @@ public class BackgroundMusic : MonoBehaviour {
     [SerializeField] private AudioSource deepImpactsStress;
 
     // initial volume
-    private float noiseAmbientInitialVolume;
-    private float mainAmbientInitialVolume;
-    private float bathroomAmbientInitialVolume;
     private float chaseMusicInitialVolume;
-    private float deepImpactsInitialVolume;
-    private float deepImpactsStressInitialVolume;
 
     // coroutines
     private Coroutine chaseMusicCoroutine;
 
     private void Awake() {
-        if (Instance != null) {
-            Exceptions.MoreThanOneInstance(name);
-            Destroy(gameObject);
-            return;
-        }
-        Instance = this;
+        InitializeSingleton();
     }
     private void Start() {
-        noiseAmbientInitialVolume = noiseAmbient.volume;
-        mainAmbientInitialVolume = mainAmbient.volume;
-        bathroomAmbientInitialVolume = bathroomAmbient.volume;
         chaseMusicInitialVolume = chaseMusic.volume;
-        deepImpactsInitialVolume = deepImpacts.volume;
-        deepImpactsStressInitialVolume = deepImpactsStress.volume;
     }
     public void Play(Sounds sound, float fadeTime = 0f) {
         AudioSource soundToPlay = GetSoundFromEnum(sound);

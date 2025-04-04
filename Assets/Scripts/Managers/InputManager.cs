@@ -1,9 +1,7 @@
 using System;
 using UnityEngine;
-using Assets.Scripts.Utils;
 
-public class InputManager : MonoBehaviour {
-    public static InputManager Instance { get; private set; }
+public class InputManager : Singleton<InputManager> {
 
     [SerializeField] private bool isMainMenu;
 
@@ -22,12 +20,7 @@ public class InputManager : MonoBehaviour {
     public bool CanPause { get; private set; } = true;
 
     private void Awake() {
-        if (Instance != null) {
-            Exceptions.MoreThanOneInstance(name);
-            Destroy(gameObject);
-            return;
-        }
-        Instance = this;
+        InitializeSingleton();
 
         inputActions = new PlayerInputActions();
         inputActions.Player.Enable();

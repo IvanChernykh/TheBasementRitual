@@ -1,4 +1,3 @@
-using Assets.Scripts.Utils;
 using UnityEngine;
 
 public enum AchievementsEnum {
@@ -7,7 +6,6 @@ public enum AchievementsEnum {
     Exorcism,
     FoodLover,
     WakeUp,
-    // new
     SecurityRoom,
     BooksPuzzle,
     OfficeSafe,
@@ -21,20 +19,14 @@ public enum SteamStatsEnum {
     PeanutsEaten
 }
 
-public class SteamManager : MonoBehaviour {
-    public static SteamManager Instance { get; private set; }
+public class SteamManager : Singleton<SteamManager> {
 
     private readonly uint appId = 3285930;
 
     private bool connectedToSteam = false;
 
     private void Awake() {
-        if (Instance != null) {
-            Exceptions.MoreThanOneInstance(name);
-            Destroy(gameObject);
-            return;
-        }
-        Instance = this;
+        InitializeSingleton();
         DontDestroyOnLoad(gameObject);
 
         try {
@@ -42,7 +34,7 @@ public class SteamManager : MonoBehaviour {
             connectedToSteam = true;
         }
         catch (System.Exception e) {
-            Debug.Log(e);
+            Debug.LogError(e);
             connectedToSteam = false;
         }
     }

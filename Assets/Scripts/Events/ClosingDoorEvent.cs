@@ -9,7 +9,7 @@ public class ClosingDoorEvent : MonoBehaviour {
     [SerializeField] private AudioClip closeSound;
 
     private bool isClosed;
-    private float maxOpenAngle = 30f;
+    private readonly float maxOpenAngle = 30f;
     private float currentAngle;
 
 

@@ -11,7 +11,7 @@ public class BasementRitualDoor : Interactable {
         if (checkNeededItems()) {
             SceneController.Instance.LoadNextLevel(GameScenes.BasementRitualLevel);
         } else {
-            TooltipUI.Instance.Show(LocalizationHelper.LocalizeTooltip("BasementDoorWayBack"));
+            GameUI.Tooltip.Show(LocalizationHelper.LocalizeTooltip("BasementDoorWayBack"));
         }
     }
 

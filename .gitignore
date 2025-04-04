@@ -74,3 +74,10 @@ crashlytics-build.properties
 
 # Custom
 _ImportedAssets
+Assets/_TerrainAutoUpgrade
+Assets/AddressableAssetsData
+Assets/Fonts
+Assets/Materials
+Assets/Prefabs
+Assets/Scenes
+Assets/TextMesh Pro

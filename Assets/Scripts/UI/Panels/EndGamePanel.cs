@@ -10,8 +10,7 @@ public enum EndGameVariants {
     BanishDemon
 }
 
-public class EndGamePanel : MonoBehaviour {
-    public static EndGamePanel Instance { get; private set; }
+public class EndGamePanel : Singleton<EndGamePanel> {
 
     [SerializeField] private GameObject container;
     [SerializeField] private TextMeshProUGUI text;
@@ -42,12 +41,7 @@ public class EndGamePanel : MonoBehaviour {
     private readonly float pauseBetweenTexts = 1f;
 
     private void Awake() {
-        if (Instance != null) {
-            Exceptions.MoreThanOneInstance(name);
-            Destroy(gameObject);
-            return;
-        }
-        Instance = this;
+        InitializeSingleton();
     }
 
     public void Show(EndGameVariants currentEndGame) {

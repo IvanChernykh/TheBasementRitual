@@ -62,7 +62,7 @@ public class DoorBase : Interactable {
                 ToggleOpening();
             } else {
                 DoorAudio.Instance.PlayLocked(transform.position);
-                TooltipUI.Instance.Show(LocalizationHelper.LocalizeTooltip("LockedFromOtherSide"));
+                GameUI.Tooltip.Show(LocalizationHelper.LocalizeTooltip("LockedFromOtherSide"));
             }
         }
     }

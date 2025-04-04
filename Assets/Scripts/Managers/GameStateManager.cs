@@ -1,8 +1,8 @@
 using UnityEngine;
 using Assets.Scripts.Utils;
 
-public class GameStateManager : MonoBehaviour {
-    public static GameStateManager Instance { get; private set; }
+public class GameStateManager : Singleton<GameStateManager> {
+
     private enum GameState {
         InGame,
         ReadingNote,
@@ -23,12 +23,7 @@ public class GameStateManager : MonoBehaviour {
     private readonly float timeScaleInGame = 1f;
 
     private void Awake() {
-        if (Instance != null) {
-            Exceptions.MoreThanOneInstance(name);
-            Destroy(gameObject);
-            return;
-        }
-        Instance = this;
+        InitializeSingleton();
     }
     private void Start() {
         EnterInGameState();
@@ -47,30 +42,30 @@ public class GameStateManager : MonoBehaviour {
         gameState = GameState.ReadingNote;
     }
     public void ExitReadingNoteState() {
-        NotesUI.Instance.Hide();
+        GameUI.Notes.Hide();
     }
     // paused state
     public void EnterPausedState() {
         Time.timeScale = timeScalePaused;
         PlayerController.Instance.DisableCameraLook();
         UI.ShowCursor();
-        PausePanel.Instance.Show();
+        GameUI.PausePanel.Show();
 
         gameState = GameState.Paused;
     }
     public void ExitPausedState() {
         PlayerController.Instance.EnableCameraLook();
-        PausePanel.Instance.Hide();
+        GameUI.PausePanel.Hide();
     }
     // game over state
     public void EnterGameOverState() {
         Time.timeScale = timeScalePaused;
-        GameOverPanel.Instance.Show();
+        GameUI.GameOverPanel.Show();
 
         gameState = GameState.GameOver;
     }
     public void ExitGameOverState() {
-        GameOverPanel.Instance.Hide();
+        GameUI.GameOverPanel.Hide();
     }
     // end game state
     public void EnterEndGameState(EndGameVariants currentEndGame) {

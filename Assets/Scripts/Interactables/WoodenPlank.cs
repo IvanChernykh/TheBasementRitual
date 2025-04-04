@@ -15,7 +15,7 @@ public class WoodenPlank : Interactable {
             door.RemovePlank();
             Destroy(gameObject);
         } else {
-            TooltipUI.Instance.Show(LocalizationHelper.LocalizeTooltip("NoItems"));
+            GameUI.Tooltip.Show(LocalizationHelper.LocalizeTooltip("NoItems"));
         }
     }
 }

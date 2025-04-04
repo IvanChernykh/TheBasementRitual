@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 
 public class PausePanel : MonoBehaviour {
-    public static PausePanel Instance { get; private set; }
+
     [SerializeField] private GameObject panel;
 
     [Header("Buttons")]
@@ -11,14 +11,7 @@ public class PausePanel : MonoBehaviour {
     [SerializeField] private TextMeshProUGUI lastSaveText;
     [SerializeField] private TextMeshProUGUI optionsText;
     [SerializeField] private TextMeshProUGUI mainMenuText;
-    private void Awake() {
-        if (Instance != null) {
-            Exceptions.MoreThanOneInstance(name);
-            Destroy(gameObject);
-            return;
-        }
-        Instance = this;
-    }
+
     private void Start() {
         Hide();
     }

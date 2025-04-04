@@ -4,19 +4,10 @@ using TMPro;
 using UnityEngine;
 
 public class SavingTextUI : MonoBehaviour {
-    public static SavingTextUI Instance { get; private set; }
 
     [SerializeField] private TextMeshProUGUI saveText;
     private readonly float fadeTime = .2f;
 
-    private void Awake() {
-        if (Instance != null) {
-            Exceptions.MoreThanOneInstance(name);
-            Destroy(gameObject);
-            return;
-        }
-        Instance = this;
-    }
     private void Start() {
         saveText.gameObject.SetActive(false);
     }

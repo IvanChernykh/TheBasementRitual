@@ -22,13 +22,13 @@ public class DoorToAnotherLevel : Interactable {
     }
     private void TryOpen() {
         if (PlayerInventory.Instance.HasItem(requiredKey)) {
-            TooltipUI.Instance.Show(LocalizationHelper.LocalizeTooltip("Used", requiredKey.itemName));
+            GameUI.Tooltip.Show(LocalizationHelper.LocalizeTooltip("Used", requiredKey.itemName));
             PlayerInventory.Instance.RemoveItem(requiredKey);
 
             OpenDoor();
         } else {
             DoorAudio.Instance.PlayLocked(transform.position);
-            TooltipUI.Instance.Show(LocalizationHelper.LocalizeTooltip(lockedMessage));
+            GameUI.Tooltip.Show(LocalizationHelper.LocalizeTooltip(lockedMessage));
         }
     }
     private void OpenDoor() {

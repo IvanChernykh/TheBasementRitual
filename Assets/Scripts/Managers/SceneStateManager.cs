@@ -1,6 +1,4 @@
 using System.Collections.Generic;
-using UnityEngine;
-using Assets.Scripts.Utils;
 using System;
 
 [Serializable]
@@ -15,8 +13,7 @@ public class DoorState {
     }
 }
 
-public class SceneStateManager : MonoBehaviour {
-    public static SceneStateManager Instance { get; private set; }
+public class SceneStateManager : Singleton<SceneStateManager> {
 
     public List<int> batteriesCollected { get; private set; } = new List<int>();
     public List<string> keysCollected { get; private set; } = new List<string>();
@@ -25,12 +22,7 @@ public class SceneStateManager : MonoBehaviour {
     public List<DoorState> doors { get; private set; } = new List<DoorState>();
 
     private void Awake() {
-        if (Instance != null) {
-            Exceptions.MoreThanOneInstance(name);
-            Destroy(gameObject);
-            return;
-        }
-        Instance = this;
+        InitializeSingleton();
     }
 
     public void CollectBattery(int id) {

@@ -1,8 +1,8 @@
 using UnityEngine;
 using Assets.Scripts.Utils;
 
-public class PlayerController : MonoBehaviour {
-    public static PlayerController Instance { get; private set; }
+public class PlayerController : Singleton<PlayerController> {
+
     private CharacterController controller;
     private float normalHeight = 1.8f;
 
@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour {
     [Header("Interactions")]
     [SerializeField] private LayerMask interactableMask;
     [SerializeField] private LayerMask nonInteractableMask;
-    public float interactDistance { get; private set; } = 2f;
+    public readonly float interactDistance = 2f;
 
     // flags
     public bool isMoving { get; private set; }
@@ -59,12 +59,8 @@ public class PlayerController : MonoBehaviour {
     public bool canStandUp { get; set; } = true;
 
     private void Awake() {
-        if (Instance != null) {
-            Exceptions.MoreThanOneInstance(name);
-            Destroy(gameObject);
-            return;
-        }
-        Instance = this;
+        InitializeSingleton();
+
         controller = GetComponent<CharacterController>();
     }
     private void Start() {
@@ -161,15 +157,15 @@ public class PlayerController : MonoBehaviour {
 
         if (interactHitBool && !nonInteractHitBool || interactHitBool && nonInteractHitBool && interactHit.distance < nonInteractHit.distance) {
             if (interactHit.transform.TryGetComponent(out Interactable interactable)) {
-                InteractionMessageUI.Instance.Show(interactable.interactMessage);
-                CrosshairUI.Instance.Hover();
+                GameUI.InteractionMessage.Show(interactable.interactMessage);
+                GameUI.Crosshair.Hover();
                 if (isInteracting) {
                     interactable.InteractAction();
                 }
             }
         } else {
-            InteractionMessageUI.Instance.Hide();
-            CrosshairUI.Instance.StopHover();
+            GameUI.InteractionMessage.Hide();
+            GameUI.Crosshair.StopHover();
         }
         if (isInteracting) {
             isInteracting = false;
@@ -206,10 +202,6 @@ public class PlayerController : MonoBehaviour {
     }
     public void EnableCameraLook() {
         cameraLookEnabled = true;
-    }
-    public void RestrictRotation(float maxX, float maxY) {
-        maxRotationX = maxX;
-        maxRotationY = maxY;
     }
     public void RestrictRotation(float numXY) {
         maxRotationX = numXY;

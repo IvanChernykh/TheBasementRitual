@@ -3,8 +3,8 @@ using System.Collections;
 using UnityEngine;
 using Assets.Scripts.Utils;
 
-public class Flashlight : MonoBehaviour {
-    public static Flashlight Instance { get; private set; }
+public class Flashlight : Singleton<Flashlight> {
+
     [SerializeField] private GameObject flashlight;
     [SerializeField] private GameObject lightSource;
     [Header("Animation")]
@@ -14,7 +14,7 @@ public class Flashlight : MonoBehaviour {
     private readonly float reloadAnimationDuration = .8f;
     public bool isActive { get; private set; }
 
-    public float lifeTimeMax { get; private set; } = 120f;
+    public readonly float lifeTimeMax = 120f;
     public float lifetime { get; private set; } = 120f;
     public float lightIntensity { get; private set; } = 1f;
     public float lightRange { get => lightSource.GetComponent<Light>().range; }
@@ -24,12 +24,7 @@ public class Flashlight : MonoBehaviour {
 
 
     private void Awake() {
-        if (Instance != null) {
-            Exceptions.MoreThanOneInstance(name);
-            Destroy(gameObject);
-            return;
-        }
-        Instance = this;
+        InitializeSingleton();
     }
     private void Start() {
         Deactivate();
@@ -50,7 +45,7 @@ public class Flashlight : MonoBehaviour {
             playerInventory.RemoveBattery();
             StartCoroutine(ReloadBattery());
         } else {
-            TooltipUI.Instance.Show(LocalizationHelper.LocalizeTooltip("NoBatteries"));
+            GameUI.Tooltip.Show(LocalizationHelper.LocalizeTooltip("NoBatteries"));
         }
     }
     private void OnFlashLightToggle(object sender, EventArgs e) {
@@ -68,7 +63,7 @@ public class Flashlight : MonoBehaviour {
         flashlight.SetActive(true);
         animator.SetTrigger("Equipped");
         isActive = true;
-        BatteryUI.Instance.Show();
+        GameUI.Battery.Show();
     }
     public void UnequipImmediately() {
         Deactivate();
@@ -103,7 +98,7 @@ public class Flashlight : MonoBehaviour {
     private void Deactivate() {
         flashlight.SetActive(false);
         isActive = false;
-        BatteryUI.Instance.Hide();
+        GameUI.Battery.Hide();
     }
     private void OnFlashlightIntensityChanged(object sender, EventArgs e) {
         if (isActive &&

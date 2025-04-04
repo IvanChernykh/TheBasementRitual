@@ -62,16 +62,16 @@ public class ShowTextAction : EventAction {
 
     private void ShowSubtitle() {
         if (subtitleTextCache.Count > 0) {
-            SubtitlesUI.Instance.Show(subtitleTextCache.ToArray(), subtitleShowTime);
+            GameUI.Subtitles.Show(subtitleTextCache.ToArray(), subtitleShowTime);
         } else {
-            SubtitlesUI.Instance.Show(subtitleText, subtitleShowTime);
+            GameUI.Subtitles.Show(subtitleText, subtitleShowTime);
         }
     }
     private void ShowTooltip() {
         if (tooltipTextCache.Count > 0) {
-            TooltipUI.Instance.Show(tooltipTextCache.ToArray(), tooltipShowTime);
+            GameUI.Tooltip.Show(tooltipTextCache.ToArray(), tooltipShowTime);
         } else {
-            TooltipUI.Instance.Show(tooltipText, tooltipShowTime);
+            GameUI.Tooltip.Show(tooltipText, tooltipShowTime);
         }
     }
 }

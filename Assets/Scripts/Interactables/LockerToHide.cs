@@ -41,10 +41,10 @@ public class LockerToHide : Interactable {
         player.RestrictRotation(40f);
         player.transform.position = hidePosition.position;
         player.transform.rotation = Quaternion.Euler(new Vector3(0, hidePosition.eulerAngles.y - 180, 0));
-        TooltipUI.Instance.ShowAlways(LocalizationHelper.LocalizeTooltip("Peek"));
+        GameUI.Tooltip.ShowAlways(LocalizationHelper.LocalizeTooltip("Peek"));
     }
     private void Exit() {
-        TooltipUI.Instance.Hide();
+        GameUI.Tooltip.Hide();
         currentRotation = 0;
         transform.rotation = defaultRotation;
         player.transform.position = exitPosition.position;

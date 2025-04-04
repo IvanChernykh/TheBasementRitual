@@ -19,7 +19,7 @@ public class NoteItem : Interactable {
     }
 
     private void OnNoteTextChanged(string localizedText) {
-        NotesUI.Instance.Show(localizedText);
+        GameUI.Notes.Show(localizedText);
         localizedNoteText.StringChanged -= OnNoteTextChanged;
     }
 }

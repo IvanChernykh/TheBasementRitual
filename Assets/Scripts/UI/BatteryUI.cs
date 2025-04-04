@@ -1,10 +1,9 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using Assets.Scripts.Utils;
 
 public class BatteryUI : MonoBehaviour {
-    public static BatteryUI Instance { get; private set; }
+
     [SerializeField] private Image background;
     [SerializeField] private Image chargeBar;
     [SerializeField] private TextMeshProUGUI counter;
@@ -13,14 +12,6 @@ public class BatteryUI : MonoBehaviour {
     private Color redColor = new Color(255, 0, 0, .58f);
     private Color currentColor;
 
-    private void Awake() {
-        if (Instance != null) {
-            Exceptions.MoreThanOneInstance(name);
-            Destroy(gameObject);
-            return;
-        }
-        Instance = this;
-    }
     private void Start() {
         Hide();
         counter.color = whiteColor;

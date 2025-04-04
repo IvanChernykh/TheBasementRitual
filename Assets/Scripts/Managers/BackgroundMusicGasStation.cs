@@ -1,9 +1,7 @@
 using System.Collections;
-using Assets.Scripts.Utils;
 using UnityEngine;
 
-public class BackgroundMusicGasStation : MonoBehaviour {
-    public static BackgroundMusicGasStation Instance { get; private set; }
+public class BackgroundMusicGasStation : Singleton<BackgroundMusicGasStation> {
 
     [SerializeField] private AudioSource noiseAmbient;
     [SerializeField] private AudioSource cricketsAmbient;
@@ -11,12 +9,7 @@ public class BackgroundMusicGasStation : MonoBehaviour {
     private readonly float delay = 25f;
 
     private void Awake() {
-        if (Instance != null) {
-            Exceptions.MoreThanOneInstance(name);
-            Destroy(gameObject);
-            return;
-        }
-        Instance = this;
+        InitializeSingleton();
     }
     private void Start() {
         StartCoroutine(PlayWithDelay());

@@ -11,7 +11,7 @@ public static class SaveSystem {
     private static readonly string fileExtention = ".save";
     public static async Task SaveGameAsync(SaveFileName? fileName = null, bool showSaveUI = false) {
         if (showSaveUI) {
-            SavingTextUI.Instance.Show();
+            GameUI.SavingText.Show();
         }
         string saveFileName = fileName.HasValue ? fileName.ToString() : SaveFileName.DefaultSave.ToString();
         string path = Application.persistentDataPath + "/" + saveFileName + fileExtention;
@@ -25,7 +25,7 @@ public static class SaveSystem {
     }
     public static void SaveGame(SaveFileName? fileName = null, bool showSaveUI = false) {
         if (showSaveUI) {
-            SavingTextUI.Instance.Show();
+            GameUI.SavingText.Show();
         }
         string saveFileName = fileName.HasValue ? fileName.ToString() : SaveFileName.DefaultSave.ToString();
         string path = Application.persistentDataPath + "/" + saveFileName + fileExtention;

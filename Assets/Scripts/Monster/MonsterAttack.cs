@@ -27,7 +27,7 @@ public class MonsterAttack : MonoBehaviour {
         PlayerController.Instance.ResetHeadRotation();
 
         if (Flashlight.Instance.isActive) {
-            BatteryUI.Instance.Hide();
+            GameUI.Battery.Hide();
         }
 
         monster.Sounds.PlayAttackSound();

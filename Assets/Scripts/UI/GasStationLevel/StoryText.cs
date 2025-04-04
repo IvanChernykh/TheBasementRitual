@@ -86,7 +86,7 @@ public class StoryText : MonoBehaviour {
             tutorialTexts[i].StringChanged -= OnTextChanged;
         }
 
-        TooltipUI.Instance.Show(tutorialLocalizedTexts, showTime: 3f);
+        GameUI.Tooltip.Show(tutorialLocalizedTexts, showTime: 3f);
         Destroy(gameObject);
     }
 

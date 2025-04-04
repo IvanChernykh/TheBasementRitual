@@ -13,9 +13,6 @@ public class Door : DoorBase {
     [Tooltip("Show tooltip message after door unlocked with key")]
     [SerializeField] private bool showUnlockMessage = true;
     [SerializeField] private string customUnlockMessage;
-    // [SerializeField] private string customKeyLockedMessage;
-
-
 
     private void Update() {
         HandleOpen();
@@ -78,7 +75,7 @@ public class Door : DoorBase {
     private void TryOpen() {
         if (PlayerInventory.Instance.HasItem(requiredKey)) {
             if (showUnlockMessage) {
-                TooltipUI.Instance.Show(
+                GameUI.Tooltip.Show(
                     customUnlockMessage.Length > 0 ?
                     LocalizationHelper.LocalizeTooltip(customUnlockMessage)
                     :
@@ -95,13 +92,7 @@ public class Door : DoorBase {
             ToggleOpening();
         } else {
             DoorAudio.Instance.PlayLocked(transform.position);
-            TooltipUI.Instance.Show(LocalizationHelper.LocalizeTooltip(lockedMessage));
-            // if (customKeyLockedMessage.Length > 0) {
-            //     TooltipUI.Instance.Show(customKeyLockedMessage);
-            // } else {
-            //     DoorAudio.Instance.PlayLocked(transform.position);
-            //     TooltipUI.Instance.Show(lockedMessage);
-            // }
+            GameUI.Tooltip.Show(LocalizationHelper.LocalizeTooltip(lockedMessage));
         }
     }
 

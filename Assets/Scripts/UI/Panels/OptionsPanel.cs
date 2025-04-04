@@ -9,8 +9,7 @@ public enum TabsEnum {
     Language
 }
 
-public class OptionsPanel : MonoBehaviour {
-    public static OptionsPanel Instance { get; private set; }
+public class OptionsPanel : Singleton<OptionsPanel> {
 
     [SerializeField] private GameObject container;
 
@@ -36,12 +35,7 @@ public class OptionsPanel : MonoBehaviour {
     public bool IsActive { get; private set; }
 
     private void Awake() {
-        if (Instance != null) {
-            Exceptions.MoreThanOneInstance(name);
-            Destroy(gameObject);
-            return;
-        }
-        Instance = this;
+        InitializeSingleton();
     }
     private void Start() {
         if (PlayerPrefs.HasKey(PlayerPrefsConstants.MASTER_VOLUME)) {

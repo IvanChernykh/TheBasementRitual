@@ -4,20 +4,11 @@ using Assets.Scripts.Utils;
 using UnityEngine.Localization;
 
 public class InteractionMessageUI : MonoBehaviour {
-    public static InteractionMessageUI Instance { get; private set; }
 
     [SerializeField] private TextMeshProUGUI message;
 
     private LocalizedString localizedMessage;
 
-    private void Awake() {
-        if (Instance != null) {
-            Exceptions.MoreThanOneInstance(name);
-            Destroy(gameObject);
-            return;
-        }
-        Instance = this;
-    }
     private void Start() {
         gameObject.SetActive(false);
     }

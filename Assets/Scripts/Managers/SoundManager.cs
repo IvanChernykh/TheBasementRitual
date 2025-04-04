@@ -1,9 +1,8 @@
 using System.Collections;
 using UnityEngine;
-using Assets.Scripts.Utils;
 
-public class SoundManager : MonoBehaviour {
-    public static SoundManager Instance { get; private set; }
+public class SoundManager : Singleton<SoundManager> {
+
     private class PlayClipSettings {
         public AudioClip Clip { get; set; }
         public Vector3 Position { get; set; }
@@ -17,12 +16,7 @@ public class SoundManager : MonoBehaviour {
     private readonly float fadeTolerance = 0.01f;
 
     private void Awake() {
-        if (Instance != null) {
-            Exceptions.MoreThanOneInstance(name);
-            Destroy(gameObject);
-            return;
-        }
-        Instance = this;
+        InitializeSingleton();
     }
     // AudioClip
     public void PlaySound(

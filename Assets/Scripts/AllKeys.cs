@@ -1,19 +1,13 @@
-using Assets.Scripts.Utils;
 using UnityEngine;
 using System.Linq;
+using Assets;
+public class AllKeys : Singleton<AllKeys> {
 
-public class AllKeys : MonoBehaviour {
-    public static AllKeys Instance { get; private set; }
     [SerializeField] private ItemData[] items;
     public ItemData[] Items { get => items; }
 
     private void Awake() {
-        if (Instance != null) {
-            Exceptions.MoreThanOneInstance(name);
-            Destroy(gameObject);
-            return;
-        }
-        Instance = this;
+        InitializeSingleton();
     }
 
     public bool HasItem(string itemName) {

@@ -1,17 +1,8 @@
-using System.Collections;
-using Assets.Scripts.Utils;
-using UnityEngine;
 
-public class PlayerHealth : MonoBehaviour {
-    public static PlayerHealth Instance { get; private set; }
+public class PlayerHealth : Singleton<PlayerHealth> {
 
     private void Awake() {
-        if (Instance != null) {
-            Exceptions.MoreThanOneInstance(name);
-            Destroy(gameObject);
-            return;
-        }
-        Instance = this;
+        InitializeSingleton();
     }
     public void Kill(bool showEndGameOnKillPlayer) {
         Die(showEndGameOnKillPlayer);

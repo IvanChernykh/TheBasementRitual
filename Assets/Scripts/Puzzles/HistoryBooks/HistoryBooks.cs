@@ -3,8 +3,7 @@ using System.Collections;
 using Assets.Scripts.Utils;
 using UnityEngine;
 
-public class HistoryBooks : MonoBehaviour {
-    public static HistoryBooks Instance { get; private set; }
+public class HistoryBooks : Singleton<HistoryBooks> {
 
     [Header("Books")]
     [SerializeField] private HistoryBookItem[] books;
@@ -41,12 +40,7 @@ public class HistoryBooks : MonoBehaviour {
 
 
     private void Awake() {
-        if (Instance != null) {
-            Exceptions.MoreThanOneInstance(name);
-            Destroy(gameObject);
-            return;
-        }
-        Instance = this;
+        InitializeSingleton();
     }
 
     private void Update() {
@@ -80,7 +74,7 @@ public class HistoryBooks : MonoBehaviour {
         ItemData playerBook = PlayerInventory.Instance.items.Find(item => Array.Exists(neededBooks, nb => nb == item));
 
         if (playerBook == null) {
-            TooltipUI.Instance.Show(LocalizationHelper.LocalizeTooltip("NoBooks"));
+            GameUI.Tooltip.Show(LocalizationHelper.LocalizeTooltip("NoBooks"));
             return;
         }
         foreach (HistoryBookItem elem in books) {
@@ -109,7 +103,7 @@ public class HistoryBooks : MonoBehaviour {
         canMoveBook = true;
         arrangeBooksTrigger.SetActive(false);
         PlayerController.Instance.DisableCharacterController();
-        TooltipUI.Instance.ShowAlways(LocalizationHelper.LocalizeTooltip("BookTooltip"));
+        GameUI.Tooltip.ShowAlways(LocalizationHelper.LocalizeTooltip("BookTooltip"));
     }
     public void StopArrangeBooks() {
         isArranging = false;
@@ -117,7 +111,7 @@ public class HistoryBooks : MonoBehaviour {
         arrangeBooksTrigger.SetActive(true);
         books[selectedBookIndex].gameObject.GetComponent<MeshRenderer>().material = defaultMat;
         PlayerController.Instance.EnableCharacterController();
-        TooltipUI.Instance.Hide();
+        GameUI.Tooltip.Hide();
     }
 
     private void HighlightSelectedBook() {

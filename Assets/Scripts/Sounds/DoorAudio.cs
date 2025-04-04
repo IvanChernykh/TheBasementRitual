@@ -1,8 +1,7 @@
 using UnityEngine;
-using Assets.Scripts.Utils;
 
-public class DoorAudio : MonoBehaviour {
-    public static DoorAudio Instance { get; private set; }
+public class DoorAudio : Singleton<DoorAudio> {
+
     [Header("Sounds")]
     [SerializeField] private AudioClip[] locked;
     [SerializeField] private AudioClip[] close;
@@ -15,12 +14,7 @@ public class DoorAudio : MonoBehaviour {
     private float defaultVolume = 1f;
 
     private void Awake() {
-        if (Instance != null) {
-            Exceptions.MoreThanOneInstance(name);
-            Destroy(gameObject);
-            return;
-        }
-        Instance = this;
+        InitializeSingleton();
     }
 
     public void PlayLocked(Vector3 position, float volume = 0f) {

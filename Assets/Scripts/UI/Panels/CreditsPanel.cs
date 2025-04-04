@@ -1,9 +1,7 @@
-using Assets.Scripts.Utils;
 using TMPro;
 using UnityEngine;
 
-public class CreditsPanel : MonoBehaviour {
-    public static CreditsPanel Instance { get; private set; }
+public class CreditsPanel : Singleton<CreditsPanel> {
 
     [Header("Container")]
     [SerializeField] private GameObject container;
@@ -26,12 +24,7 @@ public class CreditsPanel : MonoBehaviour {
 
 
     private void Awake() {
-        if (Instance != null) {
-            Exceptions.MoreThanOneInstance(name);
-            Destroy(gameObject);
-            return;
-        }
-        Instance = this;
+        InitializeSingleton();
     }
     private void Update() {
         if (IsActive) {

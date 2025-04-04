@@ -3,18 +3,10 @@ using Assets.Scripts.Utils;
 using UnityEngine;
 
 public class GameOverPanel : MonoBehaviour {
-    public static GameOverPanel Instance { get; private set; }
+
     [SerializeField] private GameObject panel;
     [SerializeField] private GameObject blackScreen;
 
-    private void Awake() {
-        if (Instance != null) {
-            Exceptions.MoreThanOneInstance(name);
-            Destroy(gameObject);
-            return;
-        }
-        Instance = this;
-    }
     private void Start() {
         Hide();
     }

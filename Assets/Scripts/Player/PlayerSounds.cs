@@ -1,8 +1,7 @@
 using UnityEngine;
-using Assets.Scripts.Utils;
 
-public class PlayerSounds : MonoBehaviour {
-    public static PlayerSounds Instance { get; private set; }
+public class PlayerSounds : Singleton<PlayerSounds> {
+
     [SerializeField] private AudioClip[] walkSounds;
     [SerializeField] private AudioClip[] sprintSounds;
     [SerializeField] private AudioClip[] jumpStartSounds;
@@ -22,12 +21,7 @@ public class PlayerSounds : MonoBehaviour {
     private Vector3 footSoundsPosition;
 
     private void Awake() {
-        if (Instance != null) {
-            Exceptions.MoreThanOneInstance(name);
-            Destroy(gameObject);
-            return;
-        }
-        Instance = this;
+        InitializeSingleton();
     }
     private void Start() {
         player = PlayerController.Instance;

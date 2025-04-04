@@ -1,11 +1,8 @@
 using System;
 using System.Collections.Generic;
-using UnityEngine;
-using Assets.Scripts.Utils;
 
 [Serializable]
-public class PlayerInventory : MonoBehaviour {
-    public static PlayerInventory Instance { get; private set; }
+public class PlayerInventory : Singleton<PlayerInventory> {
     public List<ItemData> items { get; private set; } = new List<ItemData>();
 
     public bool hasFlashlight { get; private set; }
@@ -13,12 +10,7 @@ public class PlayerInventory : MonoBehaviour {
     public readonly int batteriesMax = 10;
 
     private void Awake() {
-        if (Instance != null) {
-            Exceptions.MoreThanOneInstance(name);
-            Destroy(gameObject);
-            return;
-        }
-        Instance = this;
+        InitializeSingleton();
     }
     public void SetHasFlashlight(bool has) {
         hasFlashlight = has;
